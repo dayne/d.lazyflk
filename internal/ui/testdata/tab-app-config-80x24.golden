@@ -14,9 +14,9 @@
 │                            │   "file": "/home/dayne/minecraft.flk/flk.toml", │
 │ ▸ Storage  fullest 67%     │   "parsed": {                                   │
 │                            │     "app": "minecraft-flk",                     │
-│ ▸ Podman  7 images         │     "kill_timeout": 120,                        │
+│ ▸ Podman  9 images         │     "kill_timeout": 120,                        │
 │                            │     "build": {                                  │
-│ ▸ Services  5 running      │ … 186 more (pgdn)                               │
+│ ▸ Services  4 running, 1 … │ … 187 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

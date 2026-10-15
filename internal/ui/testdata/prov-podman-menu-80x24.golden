@@ -1,22 +1,22 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ Apps                       │ image docker.io/itzg/minecraft-server:latest    │
+│ Apps                       │ image localhost/mqtt-flk-test:latest            │
 │ ▸ minecraft-flk  1/1 ●     │  Overview                                       │
 │ ▸ opencode-sandbox  1/1 ●  │                                                 │
 │ ▸ vintagestory-flk  1/1 ●  │ $ podman ps -a --external --format json ·       │
 │                            │   podman images --format json                   │
 │ Host                       │                                                 │
-│ ┌ image docker.io/itzg/minecraft-server:latest ─ actions ──────────────────┐ │
-│ │ c  copy: podman image rm docker.io/itz…  lazyflk doesn't delete images;… │ │
+│ ┌ image localhost/mqtt-flk-test:latest ─ actions ──────────────────────────┐ │
+│ │ c  copy: podman image rm localhost/mqt…  lazyflk doesn't delete images;… │ │
 │ │ p  copy: podman image prune              removes images nothing uses or… │ │
 │ │                                                                          │ │
 │ │ lazyflk doesn't delete images; paste it in a shell                       │ │
-│ │ copies: podman image rm docker.io/itzg/minecraft-server:latest           │ │
+│ │ copies: podman image rm localhost/mqtt-flk-test:latest                   │ │
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│   ◇ itzg/minecraft-server… │ the build cache, so later deploys don't         │
-│   ◇ dotnet/runtime:10.0 1… │   download it again.                            │
-│   ◇ eclipse-temurin:25-jr… │                                                 │
+│   ◇ 8149e56d2f50 (untagge… │   download it again.                            │
+│   ◇ itzg/minecraft-server… │                                                 │
+│   ◇ dotnet/runtime:10.0 1… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

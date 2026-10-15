@@ -8,8 +8,8 @@
     "cpus": 4,
     "memory_mb": 11264,
     "cpu_percent": 4.0,
-    "rss_mb": 10908,
-    "uptime_s": 110533
+    "rss_mb": 10910,
+    "uptime_s": 113552
   },
   {
     "app": "opencode-sandbox",
@@ -19,9 +19,9 @@
     "pid": 2828454,
     "cpus": 2,
     "memory_mb": 2048,
-    "cpu_percent": 2.0,
+    "cpu_percent": 0.0,
     "rss_mb": 1774,
-    "uptime_s": 98915
+    "uptime_s": 101935
   },
   {
     "app": "vintagestory-flk",
@@ -31,8 +31,8 @@
     "pid": 3025789,
     "cpus": 4,
     "memory_mb": 6144,
-    "cpu_percent": 10.0,
+    "cpu_percent": 6.0,
     "rss_mb": 3344,
-    "uptime_s": 70173
+    "uptime_s": 73192
   }
 ]

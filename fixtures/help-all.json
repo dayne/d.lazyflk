@@ -555,6 +555,15 @@
           "json": false
         },
         {
+          "name": "hosts-sync",
+          "usage": "flk machine hosts-sync",
+          "summary": "Rewrite the internal hosts block in running machines that want it (run by flk itself)",
+          "options": [
+
+          ],
+          "json": false
+        },
+        {
           "name": "revive",
           "usage": "flk machine revive ID",
           "summary": "Restart a machine that exited on its own, per its restart policy (run by flk itself)",

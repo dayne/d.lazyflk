@@ -1,5 +1,37 @@
 [
     {
+        "Id": "7d2e85beb5a7799347c51ce6130c85c84d3526955b25534661258e570d22ac06",
+        "ParentId": "43aa2d11ee0faa1506ab184be9a077ac5c2fd095b5d71d92ac3fe38712ea351a",
+        "RepoTags": null,
+        "RepoDigests": [
+            "localhost/mqtt-flk-test@sha256:5ae59c6370f2629b0980539d80f0b7387511f7c132151654937d4f1458d27795"
+        ],
+        "Size": 26354289,
+        "SharedSize": 0,
+        "VirtualSize": 26354289,
+        "Labels": {
+            "io.buildah.version": "1.42.1",
+            "org.opencontainers.image.authors": "Roger Light \u003croger@atchoo.org\u003e",
+            "org.opencontainers.image.description": "Eclipse Mosquitto MQTT Broker",
+            "org.opencontainers.image.documentation": "https://mosquitto.org/documentation/",
+            "org.opencontainers.image.licenses": "EPL-2.0 OR BSD-3-Clause",
+            "org.opencontainers.image.source": "https://github.com/eclipse-mosquitto/mosquitto",
+            "org.opencontainers.image.title": "eclipse-mosquitto",
+            "org.opencontainers.image.url": "https://mosquitto.org/",
+            "org.opencontainers.image.version": "2.1.2"
+        },
+        "Containers": 0,
+        "Digest": "sha256:5ae59c6370f2629b0980539d80f0b7387511f7c132151654937d4f1458d27795",
+        "History": [
+            "localhost/mqtt-flk-test:latest"
+        ],
+        "Names": [
+            "localhost/mqtt-flk-test:latest"
+        ],
+        "Created": 1792043384,
+        "CreatedAt": "2026-10-15T05:49:44Z"
+    },
+    {
         "Id": "afefdc27a88471ffa75cf1b15ce053a79e7e74521efbe6f7ec500beb6f637a85",
         "ParentId": "b36ccd432259a6a5e7e144e131cf78809963677d5072573810dad6ca9a13efa2",
         "RepoTags": null,
@@ -376,6 +408,74 @@
         ],
         "Created": 1789682148,
         "CreatedAt": "2026-09-17T21:55:48Z"
+    },
+    {
+        "Id": "8c4aa03990b1b9b542d42c0d4daabe03381d3e06c0279f82936eeee81cf2c905",
+        "ParentId": "",
+        "RepoTags": null,
+        "RepoDigests": [
+            "docker.io/library/eclipse-mosquitto@sha256:12436df85d6b2b91e63c71184da35ec89400a98abdc688a78b1403a11ecf44b4",
+            "docker.io/library/eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408"
+        ],
+        "Size": 26344604,
+        "SharedSize": 0,
+        "VirtualSize": 26344604,
+        "Labels": {
+            "org.opencontainers.image.authors": "Roger Light \u003croger@atchoo.org\u003e",
+            "org.opencontainers.image.description": "Eclipse Mosquitto MQTT Broker",
+            "org.opencontainers.image.documentation": "https://mosquitto.org/documentation/",
+            "org.opencontainers.image.licenses": "EPL-2.0 OR BSD-3-Clause",
+            "org.opencontainers.image.source": "https://github.com/eclipse-mosquitto/mosquitto",
+            "org.opencontainers.image.title": "eclipse-mosquitto",
+            "org.opencontainers.image.url": "https://mosquitto.org/",
+            "org.opencontainers.image.version": "2.1.2"
+        },
+        "Containers": 0,
+        "Digest": "sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408",
+        "History": [
+            "docker.io/library/eclipse-mosquitto:2",
+            "docker.io/library/eclipse-mosquitto:2.1.2-alpine"
+        ],
+        "Names": [
+            "docker.io/library/eclipse-mosquitto:2.1.2-alpine",
+            "docker.io/library/eclipse-mosquitto:2"
+        ],
+        "Created": 1789679737,
+        "CreatedAt": "2026-09-17T21:15:37Z"
+    },
+    {
+        "Id": "8c4aa03990b1b9b542d42c0d4daabe03381d3e06c0279f82936eeee81cf2c905",
+        "ParentId": "",
+        "RepoTags": null,
+        "RepoDigests": [
+            "docker.io/library/eclipse-mosquitto@sha256:12436df85d6b2b91e63c71184da35ec89400a98abdc688a78b1403a11ecf44b4",
+            "docker.io/library/eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408"
+        ],
+        "Size": 26344604,
+        "SharedSize": 0,
+        "VirtualSize": 26344604,
+        "Labels": {
+            "org.opencontainers.image.authors": "Roger Light \u003croger@atchoo.org\u003e",
+            "org.opencontainers.image.description": "Eclipse Mosquitto MQTT Broker",
+            "org.opencontainers.image.documentation": "https://mosquitto.org/documentation/",
+            "org.opencontainers.image.licenses": "EPL-2.0 OR BSD-3-Clause",
+            "org.opencontainers.image.source": "https://github.com/eclipse-mosquitto/mosquitto",
+            "org.opencontainers.image.title": "eclipse-mosquitto",
+            "org.opencontainers.image.url": "https://mosquitto.org/",
+            "org.opencontainers.image.version": "2.1.2"
+        },
+        "Containers": 0,
+        "Digest": "sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408",
+        "History": [
+            "docker.io/library/eclipse-mosquitto:2",
+            "docker.io/library/eclipse-mosquitto:2.1.2-alpine"
+        ],
+        "Names": [
+            "docker.io/library/eclipse-mosquitto:2.1.2-alpine",
+            "docker.io/library/eclipse-mosquitto:2"
+        ],
+        "Created": 1789679737,
+        "CreatedAt": "2026-09-17T21:15:37Z"
     },
     {
         "Id": "bf8527eb54c3680e728d5b4b383a8ba730d72dae7236fbc8dff97ed6b224a731",

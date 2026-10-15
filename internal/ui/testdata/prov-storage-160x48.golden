@@ -16,13 +16,13 @@
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
-│   / 30%                                │                                                                                                                     │
+│   / 32%                                │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  7 images                     │                                                                                                                     │
+│ ▸ Podman  9 images                     │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  5 running                  │                                                                                                                     │
+│ ▸ Services  4 running, 1 off           │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

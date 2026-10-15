@@ -9,14 +9,14 @@
 │   ▢ code_workspace 30GB    │ ip        172.30.0.10:25565                     │
 │ ▸ vintagestory-flk  1/1 ●  │ size      4 cpus · 11264MB                      │
 │                            │ cpu       4% (100% = one host CPU; it has 4)    │
-│ Host                       │ memory    10908MB used of 11264MB               │
-│   health ✔                 │ up        30h 42m                               │
+│ Host                       │ memory    10910MB used of 11264MB               │
+│   health ✔                 │ up        31h 32m                               │
 │                            │ pid       2273109 (firecracker)                 │
 │ ▸ Storage  fullest 67%     │ restart   on-failure · 1 retry                  │
 │                            │ ports     tcp/25565 → 10.47.11.3:25565          │
-│ ▸ Podman  7 images         │           udp/19132 → 10.47.11.3:19132          │
+│ ▸ Podman  9 images         │           udp/19132 → 10.47.11.3:19132          │
 │                            │ volumes   world → /server                       │
-│ ▸ Services  5 running      │ … 2 more (pgdn)                                 │
+│ ▸ Services  4 running, 1 … │ … 2 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

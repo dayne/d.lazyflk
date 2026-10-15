@@ -1,8 +1,8 @@
 {
   "state_dir": {
     "path": "/home/dayne/.local/share/flk",
-    "bytes": 8878034944,
-    "apparent": 58071916542
+    "bytes": 8878432256,
+    "apparent": 58072011822
   },
   "apps": [
     {
@@ -12,7 +12,7 @@
         "apparent": 2969567232
       },
       "rootfs": {
-        "bytes": 377876480,
+        "bytes": 377937920,
         "apparent": 998244352
       },
       "volumes": {
@@ -21,15 +21,15 @@
       },
       "logs": {
         "bytes": 745472,
-        "apparent": 739721
+        "apparent": 740224
       },
       "external_volumes": {
         "bytes": 22197706752,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 1536655360,
-        "apparent": 3968551305
+        "bytes": 1536716800,
+        "apparent": 3968551808
       }
     },
     {
@@ -39,7 +39,7 @@
         "apparent": 10889461760
       },
       "rootfs": {
-        "bytes": 1840623616,
+        "bytes": 1840730112,
         "apparent": 5769265152
       },
       "volumes": {
@@ -55,7 +55,7 @@
         "apparent": 0
       },
       "total": {
-        "bytes": 4709486592,
+        "bytes": 4709593088,
         "apparent": 48871110803
       }
     },
@@ -66,7 +66,7 @@
         "apparent": 3818913792
       },
       "rootfs": {
-        "bytes": 691187712,
+        "bytes": 691322880,
         "apparent": 1376780288
       },
       "volumes": {
@@ -74,16 +74,16 @@
         "apparent": 0
       },
       "logs": {
-        "bytes": 1658880,
-        "apparent": 1656131
+        "bytes": 1671168,
+        "apparent": 1667973
       },
       "external_volumes": {
         "bytes": 8758562816,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 2596917248,
-        "apparent": 5197350211
+        "bytes": 2597064704,
+        "apparent": 5197362053
       }
     }
   ],
@@ -93,7 +93,7 @@
       "apparent": 17677942784
     },
     "rootfs": {
-      "bytes": 2909687808,
+      "bytes": 2909990912,
       "apparent": 8144289792
     },
     "volumes": {
@@ -101,8 +101,8 @@
       "apparent": 32212254720
     },
     "logs": {
-      "bytes": 2539520,
-      "apparent": 2525023
+      "bytes": 2551808,
+      "apparent": 2537368
     },
     "external_volumes": {
       "bytes": 30956269568,

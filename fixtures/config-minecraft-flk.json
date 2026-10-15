@@ -146,7 +146,8 @@
         "port": 25565
       }
     ],
-    "huge_pages": null
+    "huge_pages": null,
+    "internal_hosts": false
   },
   "warnings": [
 

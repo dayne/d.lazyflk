@@ -25,12 +25,12 @@ NRestarts=0
 Id=ssh.service
 Description=OpenBSD Secure Shell server
 LoadState=loaded
-ActiveState=active
-SubState=running
+ActiveState=inactive
+SubState=dead
 UnitFileState=disabled
-StateChangeTimestamp=Sat 2026-10-10 04:46:52 UTC
+StateChangeTimestamp=Thu 2026-10-15 05:37:57 UTC
 ActiveEnterTimestamp=Sat 2026-10-10 04:46:52 UTC
-MainPID=9022
+MainPID=0
 Result=success
 NRestarts=0
 

@@ -17,9 +17,9 @@
 │                                        │       "dockerfile": "Dockerfile"                                                                                    │
 │ ▸ Storage  fullest 67%                 │     },                                                                                                              │
 │                                        │     "env": {                                                                                                        │
-│ ▸ Podman  7 images                     │       "TZ": "America/Anchorage",                                                                                    │
+│ ▸ Podman  9 images                     │       "TZ": "America/Anchorage",                                                                                    │
 │                                        │       "MC_HEAP": "8G",                                                                                              │
-│ ▸ Services  5 running                  │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│ ▸ Services  4 running, 1 off           │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
 │                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
 │                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
 │                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
@@ -40,7 +40,7 @@
 │                                        │     ],                                                                                                              │
 │                                        │     "flk": {                                                                                                        │
 │                                        │       "backup": {                                                                                                   │
-│                                        │ … 132 more (pgdn)                                                                                                   │
+│                                        │ … 133 more (pgdn)                                                                                                   │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                                                                                                    │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤

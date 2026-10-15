@@ -17,9 +17,9 @@
 │                             │                                                                                                  │                             │
 │ ▸ Storage  fullest 67%      │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ ▸ Podman  7 images          │                                                                                                  │                             │
+│ ▸ Podman  9 images          │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ ▸ Services  5 running       │                                                                                                  │                             │
+│ ▸ Services  4 running, 1 off│                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │

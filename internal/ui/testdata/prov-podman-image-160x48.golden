@@ -1,12 +1,12 @@
 ┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
-│ Apps                                   │ image docker.io/itzg/minecraft-server:latest ─  Overview                                                            │
+│ Apps                                   │ image localhost/mqtt-flk-test:latest ─  Overview                                                                    │
 │ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
 │   ● mellow-aurora-7882                 │ $ podman ps -a --external --format json · podman images --format json                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ id        f9dfcd225ce9                                                                                              │
-│ ▾ opencode-sandbox  1/1 ●              │ size      868M                                                                                                      │
-│   ● lucky-harbor-5563                  │ created   2026-10-10T22:25:04Z                                                                                      │
-│   ▢ code_workspace 30GB                │ names     docker.io/itzg/minecraft-server:latest                                                                    │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ id        7d2e85beb5a7                                                                                              │
+│ ▾ opencode-sandbox  1/1 ●              │ size      25M                                                                                                       │
+│   ● lucky-harbor-5563                  │ created   2026-10-15T05:49:44Z                                                                                      │
+│   ▢ code_workspace 30GB                │ names     localhost/mqtt-flk-test:latest                                                                            │
 │ ▾ vintagestory-flk  1/1 ●              │ used      no container uses it                                                                                      │
 │   ● frosty-river-2714                  │                                                                                                                     │
 │   ▢ vsdata 40GB (external)             │ Not one of flk's (flk.local/*). A Dockerfile's FROM image stays here as                                             │
@@ -16,23 +16,23 @@
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
-│   / 30%                                │                                                                                                                     │
+│   / 32%                                │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Podman                               │                                                                                                                     │
+│   ◇ localhost/mqtt-flk-test:latest 25M │                                                                                                                     │
 │   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
 │   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
+│   ◇ eclipse-mosquitto:2.1.2-alpine 25M │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
 │   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  5 running                  │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running, 1 off           │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

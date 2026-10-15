@@ -17,9 +17,9 @@
 │                                        │ ✔ /dev/kvm read/write                                                                                               │
 │ ▸ Storage  fullest 67%                 │ ✔ firecracker /home/dayne/.local/share/flk/bin/firecracker                                                          │
 │                                        │ ✔ guest kernel /home/dayne/.local/share/flk/kernel/vmlinux                                                          │
-│ ▸ Podman  7 images                     │ ✔ bridge flkbr0                                                                                                     │
+│ ▸ Podman  9 images                     │ ✔ bridge flkbr0                                                                                                     │
 │                                        │ ✔ tap pool 16/16                                                                                                    │
-│ ▸ Services  5 running                  │ ✔ ipv4 forwarding                                                                                                   │
+│ ▸ Services  4 running, 1 off           │ ✔ ipv4 forwarding                                                                                                   │
 │                                        │ ✔ tmux                                                                                                              │
 │                                        │ ✔ mkfs.ext4                                                                                                         │
 │                                        │ ✔ fakeroot                                                                                                          │
@@ -31,7 +31,7 @@
 │                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
 │                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
-│                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
+│                                        │ ✔ flk-agent is older than its source (built at the next deploy)                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

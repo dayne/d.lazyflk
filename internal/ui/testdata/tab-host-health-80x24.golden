@@ -14,9 +14,9 @@
 │                            │ health    ✔ ready                               │
 │ ▸ Storage  fullest 67%     │ data dirs /home/dayne/.local/share/flk          │
 │                            │           /data/minecraft/flk                   │
-│ ▸ Podman  7 images         │           /data/vintagestory/flk                │
+│ ▸ Podman  9 images         │           /data/vintagestory/flk                │
 │                            │                                                 │
-│ ▸ Services  5 running      │ … 26 more (pgdn)                                │
+│ ▸ Services  4 running, 1 … │ … 26 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

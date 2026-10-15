@@ -83,7 +83,7 @@
       "hint": null
     },
     {
-      "label": "flk-agent built (flk exec in releases deployed from now on)",
+      "label": "flk-agent is older than its source (built at the next deploy)",
       "status": "pass",
       "hint": null
     }

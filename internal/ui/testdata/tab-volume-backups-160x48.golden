@@ -17,9 +17,9 @@
 │                                        │   2026-10-13 22:08Z · 20G used · checked clean (journal replayed)                                                   │
 │ ▸ Storage  fullest 67%                 │   mode live · release v9 · took 26s                                                                                 │
 │                                        │   verified clean 2026-10-13 22:08Z                                                                                  │
-│ ▸ Podman  7 images                     │                                                                                                                     │
+│ ▸ Podman  9 images                     │                                                                                                                     │
 │                                        │ world-20261013T111353Z.ext4                                                                                         │
-│ ▸ Services  5 running                  │   2026-10-13 11:14Z · 20G used · checked clean (journal replayed)                                                   │
+│ ▸ Services  4 running, 1 off           │   2026-10-13 11:14Z · 20G used · checked clean (journal replayed)                                                   │
 │                                        │   mode live · release v9 · took 24s                                                                                 │
 │                                        │   verified clean 2026-10-13 22:07Z                                                                                  │
 │                                        │                                                                                                                     │

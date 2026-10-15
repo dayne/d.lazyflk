@@ -7,7 +7,7 @@
 │ ▸ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ! stopped, should be     │
 │ ▸ vintagestory-flk  1/1 ●  │   started 172.30.0.10                           │
 │                            │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│ Host                       │   cpu 4% · 10908MB used · up 30h 42m            │
+│ Host                       │   cpu 4% · 10910MB used · up 31h 32m            │
 │   health ✔                 │                                                 │
 │                            │ ports  tcp/25565 → 10.47.11.3:25565             │
 │ ▸ Storage  fullest 67%     │        udp/19132 → 10.47.11.3:19132             │

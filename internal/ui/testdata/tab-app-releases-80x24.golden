@@ -14,9 +14,9 @@
 │                            │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
 │ ▸ Storage  fullest 67%     │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
 │                            │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
-│ ▸ Podman  7 images         │                                                 │
+│ ▸ Podman  9 images         │                                                 │
 │                            │ kept: can be rolled back to (enter, r) ·        │
-│ ▸ Services  5 running      │   pruned: its image is gone                     │
+│ ▸ Services  4 running, 1 … │   pruned: its image is gone                     │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

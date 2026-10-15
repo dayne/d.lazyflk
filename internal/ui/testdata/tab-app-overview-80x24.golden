@@ -6,7 +6,7 @@
 │   ⇄ tcp/25565 udp/19132    │                                                 │
 │ ▾ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ● started 172.30.0.10    │
 │   ● lucky-harbor-5563      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│   ▢ code_workspace 30GB    │   cpu 4% · 10908MB used · up 30h 42m            │
+│   ▢ code_workspace 30GB    │   cpu 4% · 10910MB used · up 31h 32m            │
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
 │                            │ ports  tcp/25565 → 10.47.11.3:25565             │
 │ Host                       │        udp/19132 → 10.47.11.3:19132             │
@@ -14,9 +14,9 @@
 │                            │   /data/minecraft/flk/world.ext4                │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ ▸ Podman  7 images         │                                                 │
+│ ▸ Podman  9 images         │                                                 │
 │                            │                                                 │
-│ ▸ Services  5 running      │                                                 │
+│ ▸ Services  4 running, 1 … │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

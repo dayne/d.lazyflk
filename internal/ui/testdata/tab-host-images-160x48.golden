@@ -17,9 +17,9 @@
 │                                        │   v3     627M  older release                                                                                        │
 │ ▸ Storage  fullest 67%                 │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
 │                                        │                                                                                                                     │
-│ ▸ Podman  7 images                     │ vintagestory-flk                                                                                                    │
+│ ▸ Podman  9 images                     │ vintagestory-flk                                                                                                    │
 │                                        │   v4     778M  running · current                                                                                    │
-│ ▸ Services  5 running                  │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
+│ ▸ Services  4 running, 1 off           │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
 │                                        │   v3     560M  older release                                                                                        │
 │                                        │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
 │                                        │   v2     558M  older release                                                                                        │

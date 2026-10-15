@@ -16,7 +16,7 @@
 │ │ enter attach  esc cancel                                                 │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
 │                            │ volumes   world → /server                       │
-│ ▸ Services  5 running      │ … 2 more (pgdn)                                 │
+│ ▸ Services  4 running, 1 … │ … 2 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

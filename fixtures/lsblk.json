@@ -30,7 +30,7 @@
                "size": 2147483648,
                "fstype": "ext4",
                "fssize": 2040373248,
-               "fsavail": 1814843392,
+               "fsavail": 1813643264,
                "mountpoints": [
                    "/boot"
                ],
@@ -53,7 +53,7 @@
                      "size": 107374182400,
                      "fstype": "ext4",
                      "fssize": 105089261568,
-                     "fsavail": 70406303744,
+                     "fsavail": 68725288960,
                      "mountpoints": [
                          "/"
                      ],

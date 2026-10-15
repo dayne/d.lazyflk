@@ -4,8 +4,8 @@
 │   ● mellow-aurora-7882                 │ $ df -k --output=target,size,used,avail,pcent /home/dayne/.local/share/flk /data/minecraft/flk                      │
 │   ▢ world 40GB (external)              │   /data/vintagestory/flk                                                                                            │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │                                                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │  30% ███░░░░░░░ /                                                                                                   │
-│   ● lucky-harbor-5563                  │      66G free of 98G                                                                                                │
+│ ▾ opencode-sandbox  1/1 ●              │  32% ███░░░░░░░ /                                                                                                   │
+│   ● lucky-harbor-5563                  │      64G free of 98G                                                                                                │
 │   ▢ code_workspace 30GB                │      holds /home/dayne/.local/share/flk                                                                             │
 │ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
 │   ● frosty-river-2714                  │  67% ██████░░░░ /data/minecraft                                                                                     │
@@ -17,9 +17,9 @@
 │                                        │      holds /data/vintagestory/flk                                                                                   │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │ $ flk disk --json                                                                                                   │
-│ ▸ Podman  7 images                     │ What flk uses  (allocated; sparse files count what's written)                                                       │
+│ ▸ Podman  9 images                     │ What flk uses  (allocated; sparse files count what's written)                                                       │
 │                                        │ state     8.3G in /home/dayne/.local/share/flk                                                                      │
-│ ▸ Services  5 running                  │                                                                                                                     │
+│ ▸ Services  4 running, 1 off           │                                                                                                                     │
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
 │                                        │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
 │                                        │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │

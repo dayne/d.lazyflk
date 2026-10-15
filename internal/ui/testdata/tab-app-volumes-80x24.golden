@@ -14,9 +14,9 @@
 │                            │   backup    2026-10-14 10:00Z (checked clean    │
 │ ▸ Storage  fullest 67%     │     (journal replayed), 7 kept)                 │
 │                            │             verified clean 2026-10-14 10:00Z    │
-│ ▸ Podman  7 images         │                                                 │
+│ ▸ Podman  9 images         │                                                 │
 │                            │ enter on a volume: back up, restore, extend     │
-│ ▸ Services  5 running      │                                                 │
+│ ▸ Services  4 running, 1 … │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

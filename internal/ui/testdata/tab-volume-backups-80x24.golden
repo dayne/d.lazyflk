@@ -14,9 +14,9 @@
 │                            │   2026-10-13 22:15Z · 20G used · checked clean  │
 │ ▸ Storage  fullest 67%     │     (journal replayed)                          │
 │                            │   mode live · release v9 · took 27s             │
-│ ▸ Podman  7 images         │   verified clean 2026-10-13 22:15Z              │
+│ ▸ Podman  9 images         │   verified clean 2026-10-13 22:15Z              │
 │                            │                                                 │
-│ ▸ Services  5 running      │ … 32 more (pgdn)                                │
+│ ▸ Services  4 running, 1 … │ … 32 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤
