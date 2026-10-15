@@ -13,6 +13,7 @@ import (
 
 	"github.com/dayne/d.lazyflk/fixtures"
 	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/providers"
 )
 
 func TestEditor(t *testing.T) {
@@ -185,5 +186,43 @@ func TestEventDetailOneLine(t *testing.T) {
 	if strings.ContainsAny(s, "\n\r") || !strings.Contains(s, "No route to host · rsync: connection unexpectedly closed") ||
 		!strings.HasSuffix(s, "[Receiver] · rsync error: unexplained error (code 255) at io.c(232) [Receiver=3.4.1]") {
 		t.Errorf("%q", s)
+	}
+}
+
+// P on a service edits lazyflk's pins; a missing file is created first,
+// with the services shown now and a note on the format.
+func TestEditPins(t *testing.T) {
+	m := demoModel(t, 120, 40)
+	file := filepath.Join(t.TempDir(), "lazyflk", "pins")
+	m.opt.Providers[2] = providers.Services{PinsFile: file}
+	m.opt.TestApps = "flkt-" // pins are no app's: still editable
+	delete(m.cache, m.opt.Providers[2].Command())
+	send(m, runCmd(m.sync())...)
+	goToKey(t, m, "prov/service/ssh.service")
+	if s := screen(m); !strings.Contains(s, "pinned by default: there's no") || !strings.Contains(s, "P (on a service) creates it") {
+		t.Errorf("service hint:\n%s", s)
+	}
+	press(m, "enter", "P")
+	s := screen(m)
+	if m.attach == nil || !strings.Contains(s, "lazyflk's pins") || !strings.Contains(s, "exist yet") {
+		t.Fatalf("edit pins box:\n%s", s)
+	}
+	at := m.attach
+	m.opt.Demo = false
+	if cmd := m.runEdit(at); cmd == nil { // the editor would run now; don't
+		t.Fatalf("not run: %q", m.note)
+	}
+	b, err := os.ReadFile(file)
+	if err != nil || !strings.HasPrefix(string(b), "# lazyflk pins") || !strings.Contains(string(b), "\nssh.service\n") {
+		t.Errorf("seeded %q, %v", b, err)
+	}
+	j := m.jobs[len(m.jobs)-1]
+	send(m, editDoneMsg{j: j, file: file, before: fileSum(file), created: true})
+	if !strings.HasPrefix(m.note, "created "+file) {
+		t.Errorf("note %q", m.note)
+	}
+	goToKey(t, m, "section/Services")
+	if s := screen(m); !strings.Contains(s, "pinned in ") {
+		t.Errorf("section hint:\n%s", s)
 	}
 }

@@ -63,6 +63,12 @@ type Summarizer interface {
 	Summary(items []Item) string
 }
 
+// Hinter is a provider with a line on how its section is put together
+// and how to change that, shown on the section's Overview.
+type Hinter interface {
+	Hint() string
+}
+
 // Healthy reports whether every item is fine: nothing bad, nothing to warn
 // about, no problems. Healthy sections fold by themselves.
 func Healthy(items []Item) bool {

@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"testing/fstest"
 	"time"
 
 	"github.com/dayne/d.lazyflk/fixtures"
@@ -278,5 +279,81 @@ func TestDemoAppActions(t *testing.T) {
 	}
 	if acts, err := read("opencode-sandbox", "/nowhere/flk.toml"); acts != nil || err != nil {
 		t.Errorf("an app without one: %+v, %v", acts, err)
+	}
+}
+
+// Pins: a default this host doesn't have is left out; a pinned one that's
+// missing shows, with where the pins are and how to change them (P).
+func TestPinsHints(t *testing.T) {
+	h, env := demo()
+	file := filepath.Join(t.TempDir(), "lazyflk", "pins")
+	s := Services{PinsFile: file}
+	items, err := s.Load(context.Background(), h, env)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var p actions.Action
+	for _, a := range items[2].Actions {
+		if a.Key == "P" {
+			p = a
+		}
+	}
+	if p.View != actions.ViewEdit || p.File != file || !strings.Contains(p.Seed, "# lazyflk pins") || !strings.Contains(p.Seed, "\nssh.service\n") {
+		t.Errorf("edit pins: %+v", p)
+	}
+	if !strings.Contains(joined(items[2]), "there's no "+file+" yet. P (on a service) creates it") {
+		t.Errorf("default note:\n%s", joined(items[2]))
+	}
+	os.MkdirAll(filepath.Dir(file), 0o755)
+	os.WriteFile(file, []byte("# mine\nssh\nnope-not-here\n"), 0o644)
+	if got := s.Hint(); got != "pinned in "+file+"; P (on a service) edits the list" {
+		t.Errorf("hint: %s", got)
+	}
+}
+
+// A default pin this host doesn't have (mosquitto, once the broker moved
+// into flk) isn't shown; the same unit pinned by hand is, as "not here".
+func TestMissingDefaultPin(t *testing.T) {
+	_, env := demo()
+	show, _ := fixtures.FS.ReadFile("systemctl-show.txt")
+	blocks := strings.Split(strings.TrimSpace(string(show)), "\n\n")
+	for i, b := range blocks {
+		if strings.Contains(b, "Id=snap.mosquitto.mosquitto.service") {
+			blocks[i] = "Id=snap.mosquitto.mosquitto.service\nLoadState=not-found\nActiveState=inactive\nSubState=dead"
+		}
+	}
+	fsys := fstest.MapFS{}
+	for _, file := range DemoFiles {
+		b, _ := fixtures.FS.ReadFile(file)
+		fsys[file] = &fstest.MapFile{Data: b}
+	}
+	fsys["systemctl-show.txt"] = &fstest.MapFile{Data: []byte(strings.Join(blocks, "\n\n") + "\n")}
+	h := (&Fake{FS: fsys, Files: DemoFiles}).For
+	items, err := Services{}.Load(context.Background(), h, env)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, it := range items {
+		if strings.Contains(it.Key, "mosquitto") {
+			t.Errorf("a missing default is shown: %+v", it)
+		}
+	}
+	if len(items) != 4 {
+		t.Errorf("%d items", len(items))
+	}
+	pins := filepath.Join(t.TempDir(), "pins")
+	os.WriteFile(pins, []byte("ssh\nsnap.mosquitto.mosquitto\nchrony\n"), 0o644) // the fake serves this exact systemctl line
+	items, err = Services{PinsFile: pins}.Load(context.Background(), h, env)
+	if err != nil {
+		t.Fatal(err)
+	}
+	found := false
+	for _, it := range items {
+		if strings.Contains(it.Key, "mosquitto") && strings.HasSuffix(it.Label, "(not here)") && strings.Contains(joined(it), "pinned in "+pins) {
+			found = true
+		}
+	}
+	if !found {
+		t.Errorf("a missing pin should show as not here: %+v", items)
 	}
 }

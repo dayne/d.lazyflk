@@ -10,8 +10,8 @@
 │   ◇ ubuntu:24.04 77M       │ enabled   disabled                              │
 │   ◇ ruby:3.3-alpine 69M    │ since     Thu 2026-10-15 05:37:57 UTC           │
 │   ◇ eclipse-mosquitto:2.1… │                                                 │
-│   ◇ alpine:3.20 7.7M       │ pinned by default; edit ~/.config/lazyflk/pins  │
-│   9 flk images: host Imag… │   (one unit per line) to change                 │
+│   ◇ alpine:3.20 7.7M       │ pinned by default                               │
+│   9 flk images: host Imag… │                                                 │
 │                            │                                                 │
 │ ▾ Services                 │                                                 │
 │   ● flk-net                │                                                 │

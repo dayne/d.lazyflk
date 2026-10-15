@@ -34,15 +34,17 @@ func (m *Model) testGuard(c actions.Command) string {
 }
 
 // testOnly greys out what would act on something other than a test app;
-// reads (logs, record, health, files) and copies stay.
+// reads (logs, record, health, files), copies and lazyflk's own files stay.
 func (m *Model) testOnly(acts []actions.Action, app string) []actions.Action {
 	if m.isTestApp(app) {
 		return acts
 	}
 	out := make([]actions.Action, len(acts))
 	for i, a := range acts {
-		switch a.View {
-		case actions.ViewLogs, actions.ViewRecord, actions.ViewHealth, actions.ViewCopy, actions.ViewFiles:
+		switch {
+		case a.View == actions.ViewLogs, a.View == actions.ViewRecord, a.View == actions.ViewHealth,
+			a.View == actions.ViewCopy, a.View == actions.ViewFiles:
+		case a.View == actions.ViewEdit && app == "": // lazyflk's own files (pins), no app's
 		default:
 			if a.Disabled == "" {
 				a.Disabled = m.notTestApp(app)

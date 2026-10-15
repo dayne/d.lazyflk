@@ -9,7 +9,7 @@
 │   ▢ mqttdata 1GB                       │ enabled   disabled                                                                                                  │
 │   ⇄ 10.47.11.3: tcp/1883               │ since     Thu 2026-10-15 05:37:57 UTC                                                                               │
 │ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │ pinned by default; edit ~/.config/lazyflk/pins (one unit per line) to change                                        │
+│   ● lucky-harbor-5563                  │ pinned by default                                                                                                   │
 │   ▢ code_workspace 30GB                │                                                                                                                     │
 │ ▸ vintagestory-flk  1/1 ●              │                                                                                                                     │
 │                                        │                                                                                                                     │

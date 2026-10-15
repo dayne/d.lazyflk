@@ -122,6 +122,7 @@ type Action struct {
 	View     View
 	Copy     string   // for ViewCopy
 	File     string   // for ViewEdit
+	Seed     string   // for ViewEdit: written to File first when it doesn't exist yet
 	Notes    []string // flk's notes on the command, shown in its form
 	Logs     *Command // for ViewLogs from a provider: the command to follow
 	check    func(vals map[string]string) string

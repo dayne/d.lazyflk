@@ -2,6 +2,7 @@ package ui
 
 import (
 	"fmt"
+	"path/filepath"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -192,8 +193,15 @@ func (m *Model) choose(title string, a actions.Action) tea.Cmd {
 	case actions.ViewFiles:
 		return m.openFiles()
 	case actions.ViewEdit:
-		if n, ok := m.selected(); ok && n.kind >= kindApp && n.kind <= kindPorts {
+		n, ok := m.selected()
+		switch {
+		case ok && n.kind >= kindApp && n.kind <= kindPorts:
 			return m.openEdit(m.apps[n.app].Name, a.File)
+		case ok && n.kind == kindProvider: // lazyflk's own files (pins)
+			m.openEdit("", a.File)
+			if m.attach != nil {
+				m.attach.title, m.attach.seed = "edit ─ "+filepath.Base(a.File), a.Seed
+			}
 		}
 		return nil
 	}

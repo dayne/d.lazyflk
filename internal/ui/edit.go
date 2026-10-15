@@ -16,11 +16,12 @@ import (
 // seeing how flk reads it and deploying it: edit, check, deploy.
 
 type editDoneMsg struct {
-	j      *job
-	err    error
-	app    string
-	file   string
-	before [32]byte
+	j       *job
+	err     error
+	app     string
+	file    string
+	before  [32]byte
+	created bool // the file was new: lazyflk wrote its seed first
 }
 
 // editor is the admin's editor as a command: $VISUAL, then $EDITOR (either
@@ -47,6 +48,10 @@ func (m *Model) openEdit(app, file string) tea.Cmd {
 		m.note = "read-only: editing is off"
 		return nil
 	}
+	if file == "" && app == "" {
+		m.note = "no file to edit here (demo mode has no pins file)"
+		return nil
+	}
 	if file == "" {
 		m.note = "flk doesn't know where " + app + "'s flk.toml is: run flk deploy once in its directory"
 		return nil
@@ -67,6 +72,13 @@ func (m *Model) editKey() tea.Cmd {
 
 // editAbout says what the editor is for, and what comes after.
 func editAbout(at *attachView) []string {
+	if at.app == "" {
+		about := "This opens lazyflk's pins in your editor ($VISUAL, $EDITOR, else vi): the services shown under Services besides flk's own, one systemd unit per line."
+		if _, err := os.Stat(at.file); err != nil && at.seed != "" {
+			about += " The file doesn't exist yet: lazyflk creates it first, with the services shown now and a note on the format."
+		}
+		return []string{about, "", "When you close the editor, Services shows the new list."}
+	}
 	if filepath.Base(at.file) == ".lazyflk.toml" {
 		return []string{"This opens the app's own actions in your editor ($VISUAL, $EDITOR, else vi); saving creates the file if it's new. Each one is a command line with placeholders: see the README's \"App actions\".",
 			"", "When you close the editor, they're in the app's menu (enter)."}
@@ -79,13 +91,27 @@ func editAbout(at *attachView) []string {
 // log like any action.
 func (m *Model) runEdit(at *attachView) tea.Cmd {
 	line := flk.CommandLineFor(at.editor[0], at.editor[1:]...)
-	if !m.isTestApp(at.app) {
+	if at.app != "" && !m.isTestApp(at.app) { // lazyflk's own files are no app's
 		m.note = m.notTestApp(at.app)
 		return nil
 	}
 	if m.opt.Demo {
 		m.note = "demo mode: would run " + line
 		return nil
+	}
+	created := false
+	if at.seed != "" {
+		if _, err := os.Stat(at.file); os.IsNotExist(err) {
+			created = true
+			err := os.MkdirAll(filepath.Dir(at.file), 0o755)
+			if err == nil {
+				err = os.WriteFile(at.file, []byte(at.seed), 0o644)
+			}
+			if err != nil {
+				m.note = "can't create " + at.file + ": " + err.Error()
+				return nil
+			}
+		}
 	}
 	m.jobSeq++
 	j := &job{id: m.jobSeq, title: at.title, line: line, started: m.now()}
@@ -94,7 +120,7 @@ func (m *Model) runEdit(at *attachView) tea.Cmd {
 	cmd.Dir = filepath.Dir(at.file)
 	before := fileSum(at.file)
 	return tea.ExecProcess(cmd, func(err error) tea.Msg {
-		return editDoneMsg{j: j, err: err, app: at.app, file: at.file, before: before}
+		return editDoneMsg{j: j, err: err, app: at.app, file: at.file, before: before, created: created}
 	})
 }
 
@@ -107,9 +133,15 @@ func (m *Model) editDone(msg editDoneMsg) tea.Cmd {
 	case msg.err != nil:
 		j.err = msg.err
 		m.note = "editor: " + exitText(msg.err)
+	case msg.created && fileSum(msg.file) == msg.before:
+		j.lines = append(j.lines, logLine{text: "created " + msg.file, kind: logText})
+		m.note = "created " + msg.file + " with the services shown now; P edits it again"
 	case fileSum(msg.file) == msg.before:
 		j.lines = append(j.lines, logLine{text: name + " unchanged", kind: logText})
 		m.note = name + " unchanged"
+	case msg.app == "":
+		j.lines = append(j.lines, logLine{text: name + " saved", kind: logText})
+		m.note = msg.file + " saved: Services shows the new list"
 	case name == ".lazyflk.toml":
 		j.lines = append(j.lines, logLine{text: name + " saved", kind: logText})
 		m.note = name + " saved: its actions are in the app's menu (enter)"

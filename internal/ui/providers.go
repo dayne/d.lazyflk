@@ -155,6 +155,13 @@ func (m *Model) sectionDetail(n node, w int) (string, []string) {
 		out = append(out, "", styleBad.Render(firstLine(err.Error())))
 	}
 	out = append(out, "", m.sectionSummary(n.prov), "")
+	if h, ok := p.(providers.Hinter); ok {
+		out = out[:len(out)-1]
+		for _, l := range wrap(h.Hint(), w) {
+			out = append(out, styleDim.Render(l))
+		}
+		out = append(out, "")
+	}
 	for j, it := range items {
 		out = append(out, m.providerLine(node{kind: kindProvider, prov: n.prov, item: j, pkey: it.Key}))
 		for _, pr := range it.Problems {

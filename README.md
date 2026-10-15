@@ -64,9 +64,12 @@ open. Folding by hand holds until that app's or section's health changes.
   left behind, with `podman rm --storage` behind a typed confirm),
   long-running test containers, and images that aren't flk's.
 - **Services**: flk's units, then pinned ones from `~/.config/lazyflk/pins`
-  (one unit per line; default `ssh`, `snap.mosquitto.mosquitto`,
-  `chrony`). `l` follows `journalctl -u UNIT -f`; restart/stop/start
-  are `sudo systemctl ...` to copy.
+  (one unit per line). Without that file, the defaults (`ssh`,
+  `snap.mosquitto.mosquitto`, `chrony`) that this host has. `P` on a
+  service opens the pins in your editor, creating the file first with
+  what's shown and a note on the format. `l` follows
+  `journalctl -u UNIT -f`; restart/stop/start are `sudo systemctl ...` to
+  copy.
 
 App actions: a `.lazyflk.toml` next to an app's `flk.toml` adds the app's
 own commands to its menu (and its machines'):

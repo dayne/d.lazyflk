@@ -125,6 +125,12 @@ attention fix rolled it back).
 - [x] Internal names (flk M4 ad960ec, G16 0227eac): flk's `internal_names`
   on the machine Overview, APP.internal on the app's, `internal_hosts` on
   Config. Checked live on a two-machine test app.
+- [x] Pins with hints: a default pin this host doesn't have is left out;
+  `P` on a service edits `~/.config/lazyflk/pins` in the editor (created
+  first with what's shown and a note on the format); each service and the
+  section say where the pins come from. `snap.mosquitto.mosquitto`-style
+  names get `.service` (they have dots but no type). Checked live with a
+  scratch config dir.
 - [ ] Services: a socket-activated unit (ssh here, `TriggeredBy=ssh.socket`)
   shows as off while idle; show it as listening when its socket is active.
 - [ ] Maybe: `/` filters the tree, if a host outgrows folding.

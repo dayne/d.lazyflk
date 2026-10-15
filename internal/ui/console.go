@@ -17,8 +17,9 @@ type attachView struct {
 	title string
 	args  []string
 	// editing a file instead (edit.go): the editor's command line
-	app, file string
+	app, file string // app is "" for lazyflk's own files
 	editor    []string
+	seed      string // written to file first when it doesn't exist yet
 }
 
 type attachDoneMsg struct {

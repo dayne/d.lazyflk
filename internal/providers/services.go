@@ -48,12 +48,22 @@ func (s Services) pins() ([]string, bool) {
 		if l == "" || strings.HasPrefix(l, "#") {
 			continue
 		}
-		if !strings.Contains(l, ".") {
+		if !hasUnitSuffix(l) { // snap.mosquitto.mosquitto has dots, but no type
 			l += ".service"
 		}
 		out = append(out, l)
 	}
 	return out, true
+}
+
+// hasUnitSuffix reports a unit name that already says its type.
+func hasUnitSuffix(u string) bool {
+	for _, t := range []string{".service", ".socket", ".timer", ".mount", ".automount", ".path", ".target", ".slice", ".scope", ".swap", ".device"} {
+		if strings.HasSuffix(u, t) {
+			return true
+		}
+	}
+	return false
 }
 
 func (Services) Name() string { return "Services" }
@@ -73,20 +83,58 @@ func (s Services) Load(ctx context.Context, h Host, env Env) ([]Item, error) {
 	if g, err := run(ctx, h, "id", "-Gn"); err == nil && !canReadJournal(string(g)) {
 		journal = "journalctl only shows your own messages: add yourself to the systemd-journal (or adm) group: sudo usermod -aG systemd-journal $USER"
 	}
-	pinNote := "pinned by default; edit " + or(s.PinsFile, "~/.config/lazyflk/pins") + " (one unit per line) to change"
-	if fromFile {
-		pinNote = "pinned in " + s.PinsFile
-	}
-	var items []Item
+	pinNote := s.Hint()
+	var items, installed []Item
+	var seen []string
 	for i, props := range parseShow(string(out)) {
 		unit := props["Id"]
 		if unit == "" && i < len(units) {
 			unit = units[i]
 		}
 		isFlk := i < len(flkUnits)
-		items = append(items, unitItem(unit, props, isFlk, pinNote, journal))
+		if !isFlk && !fromFile && props["LoadState"] == "not-found" {
+			continue // a default this host doesn't have: not news
+		}
+		it := unitItem(unit, props, isFlk, pinNote, journal)
+		if !isFlk {
+			seen = append(seen, unit)
+		}
+		installed = append(installed, it)
+	}
+	for _, it := range installed {
+		if s.PinsFile != "" {
+			it.Actions = append(it.Actions, actions.Action{Key: "P", Label: "edit pins",
+				Help: "choose the services shown here: " + s.PinsFile + ", one unit per line", View: actions.ViewEdit,
+				File: s.PinsFile, Seed: PinsSeed(seen)})
+		}
+		items = append(items, it)
 	}
 	return items, nil
+}
+
+// Hint says where the pinned services come from, and how to change them.
+func (s Services) Hint() string {
+	_, fromFile := s.pins()
+	switch {
+	case s.PinsFile == "":
+		return "pinned by default"
+	case fromFile:
+		return "pinned in " + s.PinsFile + "; P (on a service) edits the list"
+	}
+	return "pinned by default: there's no " + s.PinsFile + " yet. P (on a service) creates it with these and opens it in your editor"
+}
+
+// PinsSeed is a new pins file: what it's for, then the units shown now.
+func PinsSeed(units []string) string {
+	var b strings.Builder
+	b.WriteString("# lazyflk pins: the services shown under Services, besides flk's own.\n")
+	b.WriteString("# One systemd unit per line (.service may be left off); # starts a comment.\n")
+	b.WriteString("# Logs (l) need the systemd-journal or adm group; start, stop and restart\n")
+	b.WriteString("# need root, so lazyflk copies them as sudo commands instead of running them.\n")
+	for _, u := range units {
+		b.WriteString(u + "\n")
+	}
+	return b.String()
 }
 
 func canReadJournal(groups string) bool {
