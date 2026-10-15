@@ -246,6 +246,42 @@
       ]
     },
     {
+      "name": "start",
+      "usage": "flk start",
+      "summary": "Boot every stopped machine of the app",
+      "options": [
+
+      ],
+      "json": false,
+      "notes": [
+        "One machine: flk machine start ID."
+      ]
+    },
+    {
+      "name": "stop",
+      "usage": "flk stop",
+      "summary": "Stop every machine of the app gracefully; they stay stopped across reboots",
+      "options": [
+
+      ],
+      "json": false,
+      "notes": [
+        "One machine: flk machine stop ID. Every app on the host: flk stop-all (flk resume brings them back)."
+      ]
+    },
+    {
+      "name": "restart",
+      "usage": "flk restart",
+      "summary": "Stop and boot every machine of the app, one at a time",
+      "options": [
+
+      ],
+      "json": false,
+      "notes": [
+        "One machine: flk machine restart ID."
+      ]
+    },
+    {
       "name": "releases",
       "usage": "flk releases SUBCOMMAND",
       "summary": "Release history, and rollback",
@@ -471,9 +507,9 @@
         },
         {
           "name": "start",
-          "usage": "flk machine start ID...",
+          "usage": "flk machine start [ID...]",
           "summary": "Boot machines",
-          "args": "ID...",
+          "args": "[ID...]",
           "options": [
 
           ],
@@ -481,9 +517,9 @@
         },
         {
           "name": "stop",
-          "usage": "flk machine stop ID...",
+          "usage": "flk machine stop [ID...]",
           "summary": "Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); they stay stopped across reboots",
-          "args": "ID...",
+          "args": "[ID...]",
           "options": [
 
           ],
@@ -491,9 +527,9 @@
         },
         {
           "name": "restart",
-          "usage": "flk machine restart ID...",
+          "usage": "flk machine restart [ID...]",
           "summary": "Stop, then boot",
-          "args": "ID...",
+          "args": "[ID...]",
           "options": [
 
           ],
@@ -1170,7 +1206,7 @@
         },
         {
           "name": "create",
-          "usage": "flk volumes create NAME [--size GB] [--path FILE] [--from-dir DIR]",
+          "usage": "flk volumes create NAME [--size GB] [--path FILE] [--from-dir DIR] [--owner UID[:GID]]",
           "summary": "Create a volume for [[mounts]] source = NAME",
           "args": "NAME",
           "options": [
@@ -1192,9 +1228,18 @@
                 "--from-dir DIR"
               ],
               "description": "Fill it with a copy of DIR (owner/group IDs kept as-is)"
+            },
+            {
+              "switches": [
+                "--owner UID[:GID]"
+              ],
+              "description": "Owner of the volume's root directory (GID defaults to UID)"
             }
           ],
-          "json": false
+          "json": false,
+          "notes": [
+            "Without --owner or --from-dir, the root takes the owner of the mount point in the image the first time a machine uses the volume, so a Dockerfile's `chown app /data` still works with the volume mounted over /data."
+          ]
         },
         {
           "name": "import",

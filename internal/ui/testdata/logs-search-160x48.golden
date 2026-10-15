@@ -1,8 +1,5 @@
 ┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────────────────────────────────────────────────────────────────────────────────────── following · /RCON 0/0 ┐
 │ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                                                                                                     │
-│ [14:26:10] [Server thread/INFO]: CoolZebra8896 (/178.63.123.74:9057) lost connection: Disconnected                                                           │
-│ [14:38:04] [Server thread/INFO]: FaintBear7506 (/178.63.179.211:37993) lost connection: Disconnected                                                         │
-│ [14:48:35] [Server thread/INFO]: SillyMole8560 (/178.63.123.77:53207) lost connection: Disconnected                                                          │
 │ [14:59:16] [Server thread/INFO]: GladWolf1869 (/178.63.123.75:17705) lost connection: Disconnected                                                           │
 │ [15:08:41] [Server thread/INFO]: RoyalWolf8978 (/178.63.179.209:34467) lost connection: Disconnected                                                         │
 │ [15:18:48] [Server thread/INFO]: QuietNewt6991 (/178.63.123.78:6339) lost connection: Disconnected                                                           │
@@ -40,6 +37,9 @@
 │ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost connection: Disconnected                                                          │
 │ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
 │ [20:24:28] [Server thread/INFO]: WildHawk3939 (/178.63.123.76:20901) lost connection: Disconnected                                                           │
+│ [20:35:58] [Server thread/INFO]: ProudShark4119 (/178.63.123.76:36939) lost connection: Disconnected                                                         │
+│ [20:47:40] [Server thread/INFO]: LazyLynx0334 (/178.63.179.210:43627) lost connection: Disconnected                                                          │
+│ [20:58:42] [Server thread/INFO]: SlyLynx7985 (/178.63.123.77:40665) lost connection: Disconnected                                                            │
 │                                                                                                                                                              │
 │                                                                                                                                                              │
 │                                                                                                                                                              │

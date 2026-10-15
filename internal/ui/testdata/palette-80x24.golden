@@ -13,8 +13,8 @@
 │ │ launch             Create flk.toml (if missing) in the current director… │ │
 │ │ deploy             Build the image and roll machines to a new release    │ │
 │ │ status             App and machine overview                              │ │
-│ │ releases list      Releases, newest first: current, failed (and why), k… │ │
-│ │ releases rollback  Roll machines back to an older release's image and c… │ │
+│ │ start              Boot every stopped machine of the app                 │ │
+│ │ stop               Stop every machine of the app gracefully; they stay … │ │
 │ │                                                                          │ │
 │ │ flk context [--all] [--json] [--no-host]                                 │ │
 ├ ├──────────────────────────────────────────────────────────────────────────┤─┤

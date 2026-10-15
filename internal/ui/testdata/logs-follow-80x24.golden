@@ -1,8 +1,5 @@
 ┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────────────────── following ┐
 │ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                     │
-│ [17:43:12] [Server thread/INFO]: IcyTiger0819 (/178.63.179.210:1969) lost c… │
-│ [17:54:58] [Server thread/INFO]: HollowCedar1073 (/178.63.123.77:36893) los… │
-│ [18:08:23] [Server thread/INFO]: KeenElk3032 (/46.4.84.244:23521) lost conn… │
 │ [18:19:54] [Server thread/INFO]: JollyLemur8886 (/178.63.123.74:30741) lost… │
 │ [18:20:18] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
 │ [18:29:51] [Server thread/INFO]: SlyElk4148 (/46.4.84.241:15327) lost conne… │
@@ -19,6 +16,9 @@
 │ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost … │
 │ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
 │ [20:24:28] [Server thread/INFO]: WildHawk3939 (/178.63.123.76:20901) lost c… │
+│ [20:35:58] [Server thread/INFO]: ProudShark4119 (/178.63.123.76:36939) lost… │
+│ [20:47:40] [Server thread/INFO]: LazyLynx0334 (/178.63.179.210:43627) lost … │
+│ [20:58:42] [Server thread/INFO]: SlyLynx7985 (/178.63.123.77:40665) lost co… │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ f follow  / search  n/N match  w wrap  g/G top/end  esc back  ? help         │
 └──────────────────────────────────────────────────────────────────────────────┘
