@@ -111,12 +111,15 @@ attention fix rolled it back).
   Config tab (warnings first) and a nudge to `d`; app menu `A` edits
   `.lazyflk.toml`. Checked live on a test app.
 - [x] Machine menu shell asks which user (`ssh console --user`).
-- [ ] **G13** (flk TODO, 39febf8): when a failed deploy ends with flk's
-  "machines unchanged (still on vN)" and `Next:` line, show that line
-  under the job, and `deploy_failed` events in the Events tabs.
-- [ ] **G14** (flk TODO, 39febf8): an owner field in the volume create
-  form when `help --all --json` lists `--owner`; or the root's uid/gid
-  on the volume Overview if flk puts it in `volumes list --json`.
+- [x] **G13** (flk a6c6975): a failed deploy's status says "machines
+  unchanged (still on vN)"; flk's Next: on stderr is styled; deploy.failed
+  is a failure in Events. Checked live with a failing Dockerfile.
+- [x] **G14** (flk a6c6975): new volume has an owner field when flk lists
+  `volumes create --owner` (`flk.Help.HasOption`, so an older flk gets
+  the old form); `owner_from_image` on the volume Overview.
+- [ ] flk a6c6975 also added app-level `flk start|stop|restart`: the app
+  menu could offer them (today: stop all / resume, which keep machines
+  meant to run).
 - [ ] Maybe: `/` filters the tree, if a host outgrows folding.
 
 ## Known gaps
