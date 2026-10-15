@@ -5,11 +5,14 @@ A terminal UI for hosts running [flk](https://github.com/dayne/d.flk)
 scope and design, `TODO.md` for what's open, and `AGENTS.md` if you're an
 agent working on it.
 
-    go install github.com/dayne/d.lazyflk/cmd/lazyflk@latest
-    # or, from a checkout:
-    go build -o lazyflk ./cmd/lazyflk
-    ./lazyflk --demo        # fixtures/, no flk calls
-    ./lazyflk               # flk from --flk, $LAZYFLK_FLK or PATH
+    make                    # what you can do: build, install, update, demo, test...
+    make install            # once: build, and link ~/.local/bin/lazyflk to it
+    make update             # later: git pull and build (the link follows)
+    lazyflk --demo          # fixtures/, no flk calls
+    lazyflk                 # flk from --flk, $LAZYFLK_FLK or PATH
+
+Without make: `go build -o lazyflk ./cmd/lazyflk`, or
+`go install github.com/dayne/d.lazyflk/cmd/lazyflk@latest`.
 
 Flags: `--demo` (actions say what they'd run, and run nothing),
 `--read-only` (no actions), `--no-mouse` (leave the mouse to the

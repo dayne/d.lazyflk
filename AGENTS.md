@@ -39,6 +39,6 @@ Ground rules:
   `flk apps destroy NAME --yes`.
 - **Never run sudo.** Root steps are shown to the admin, not run.
 
-Build and test: `go build -o lazyflk ./cmd/lazyflk`, `go test ./...`
-(`go test ./internal/ui -update` rewrites the screen snapshots; review the
-diff).
+Build and test: `make build`, `make test`, `make check` (what CI runs)
+and `make snapshots` (rewrites the screen snapshots; review the diff); or
+the go commands they show (`make` lists them all).
