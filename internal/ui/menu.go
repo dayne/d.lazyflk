@@ -188,8 +188,6 @@ func (m *Model) choose(title string, a actions.Action) tea.Cmd {
 		return m.openSendLine()
 	case actions.ViewFiles:
 		return m.openFiles()
-	case actions.ViewShell:
-		return m.openShell()
 	case actions.ViewEdit:
 		if n, ok := m.selected(); ok && n.kind >= kindApp && n.kind <= kindPorts {
 			return m.openEdit(m.apps[n.app].Name, a.File)

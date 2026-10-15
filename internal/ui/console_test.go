@@ -229,6 +229,13 @@ func TestShellBox(t *testing.T) {
 	if m.attach == nil || !strings.Contains(s, "$ flk -a minecraft-flk ssh console 225d58f615e7e6") || !strings.Contains(s, "leave the shell: exit, or Ctrl-D") {
 		t.Errorf("shell:\n%s", s)
 	}
+	// the menu's shell asks who to be first
+	press(m, "esc", "enter", "h")
+	typeText(m, "minecraft")
+	press(m, "enter")
+	if s := screen(m); m.attach == nil || !strings.Contains(s, "$ flk -a minecraft-flk ssh console 225d58f615e7e6 --user minecraft") {
+		t.Errorf("shell as a user:\n%s", s)
+	}
 	if got := strings.Join(attachAbout([]string{"-a", "x", "exec", "-t", "--", "top"}), " "); !strings.Contains(got, "comes back when the command ends") {
 		t.Error(got)
 	}

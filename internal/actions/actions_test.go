@@ -481,8 +481,12 @@ func TestExecActions(t *testing.T) {
 	if got := strings.Join(run.Command(map[string]string{"cmd": "/app/server --version", "how": "as is"}).Args, " "); got != "-a minecraft-flk exec -i "+m.ID+" -- /app/server --version" {
 		t.Errorf("no shell: %s", got)
 	}
-	if find(t, acts, "shell").View != ViewShell {
-		t.Error("shell")
+	shell := find(t, acts, "shell")
+	if c := shell.Command(nil); !c.Interactive || strings.Join(c.Args, " ") != "-a minecraft-flk ssh console "+m.ID {
+		t.Errorf("shell as root: %q", c.Args)
+	}
+	if c := shell.Command(map[string]string{"user": " minecraft "}); strings.Join(c.Args, " ") != "-a minecraft-flk ssh console "+m.ID+" --user minecraft" {
+		t.Errorf("shell as a user: %q", c.Args)
 	}
 	m.State = "stopped"
 	for _, act := range For(Target{Kind: Machine, App: a, Machine: m}) {

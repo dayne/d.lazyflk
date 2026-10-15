@@ -101,7 +101,6 @@ const (
 	ViewAttach View = "attach" // the console, in the real terminal
 	ViewSend   View = "send"   // type one line into the console
 	ViewFiles  View = "files"  // browse the volume's files (flk files)
-	ViewShell  View = "shell"  // a shell in the machine, in the real terminal
 	ViewEdit   View = "edit"   // open File in the admin's editor
 )
 
@@ -223,7 +222,15 @@ func machineActions(a flk.App, m flk.Machine) []Action {
 	}
 	console := Action{Key: "c", Label: "console", Help: "attach to its serial console (detach: Ctrl-b d)", View: ViewAttach}
 	send := Action{Key: ">", Label: "send a line", Help: "type one line into the app's stdin and watch the log answer (console --send)", View: ViewSend}
-	shell := Action{Key: "h", Label: "shell", Help: "a shell inside it (bash, else sh), through flk's agent (flk ssh console)", View: ViewShell}
+	shell := Action{Key: "h", Label: "shell", Help: "a shell inside it (bash, else sh), through flk's agent (flk ssh console)",
+		Fields: []Field{{Name: "user", Label: "as user", Help: "a name, UID or UID:GID; empty: root (! on the main view opens one as root)"}},
+		build: func(v map[string]string) Command {
+			args := app(a, "ssh", "console", id)
+			if u := strings.TrimSpace(v["user"]); u != "" {
+				args = append(args, "--user", u)
+			}
+			return Command{Args: args, Interactive: true}
+		}}
 	run := Action{Key: "e", Label: "run a command", Help: "run one command inside it and show its output (flk exec)",
 		Confirm: Ask, Long: true,
 		Fields: []Field{{Name: "cmd", Label: "command", Required: true, Help: "a shell line, run with sh -c inside the machine"},
