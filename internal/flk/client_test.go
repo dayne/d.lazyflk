@@ -314,3 +314,11 @@ func TestBackupsSample(t *testing.T) {
 		t.Errorf("offline backup: %+v", o)
 	}
 }
+
+// owner_from_image (flk a6c6975) decodes; absent means false.
+func TestVolumeOwnerFromImage(t *testing.T) {
+	var v Volume
+	if err := json.Unmarshal([]byte(`{"name":"data","owner_from_image":true}`), &v); err != nil || !v.OwnerFromImage {
+		t.Errorf("%+v %v", v, err)
+	}
+}

@@ -1,5 +1,7 @@
 package flk
 
+import "strings"
+
 // Types mirror flk's JSON output. Every field is optional: flk may omit or
 // null any of them, and unknown fields are ignored. Timestamps stay strings
 // so a format change degrades one value, not the whole decode.
@@ -152,6 +154,9 @@ type Volume struct {
 	AttachedMachine string `json:"attached_machine"`
 	CreatedAt       string `json:"created_at"`
 	RestoredFrom    string `json:"restored_from"` // the backup file it was made from (restore --as)
+	// OwnerFromImage: its root takes the owner of the mount point in the
+	// image when a machine first uses it (flk a6c6975, G14).
+	OwnerFromImage bool `json:"owner_from_image"`
 }
 
 // PortTable is the active/waiting/blocked split flk uses everywhere.
@@ -308,6 +313,38 @@ type Command struct {
 	Notes             []string  `json:"notes"`
 	DefaultSubcommand string    `json:"default_subcommand"`
 	Subcommands       []Command `json:"subcommands"`
+}
+
+// HasOption reports whether this flk's command (by path: "volumes",
+// "create") takes an option (its long switch: "--owner"). Newer flks add
+// options; lazyflk offers them only where flk lists them.
+func (h Help) HasOption(path []string, long string) bool {
+	cmds := h.Commands
+	var c *Command
+	for _, name := range path {
+		c = nil
+		for i := range cmds {
+			if cmds[i].Name == name {
+				c = &cmds[i]
+				break
+			}
+		}
+		if c == nil {
+			return false
+		}
+		cmds = c.Subcommands
+	}
+	if c == nil {
+		return false
+	}
+	for _, o := range c.Options {
+		for _, s := range o.Switches {
+			if s == long || strings.HasPrefix(s, long+" ") || strings.HasPrefix(s, long+"=") {
+				return true
+			}
+		}
+	}
+	return false
 }
 
 type Option struct {

@@ -91,3 +91,13 @@ func TestEditDone(t *testing.T) {
 		t.Errorf("failed editor: %q", m.note)
 	}
 }
+
+// A volume whose root takes the image's owner at first use says so (G14).
+func TestVolumeOwnerFromImage(t *testing.T) {
+	m := demoModel(t, 120, 40)
+	withState(t, m, func(hc *flk.HostContext) { hc.Apps[0].Volumes[0].OwnerFromImage = true })
+	goTo(m, kindVolume)
+	if s := screen(m); !strings.Contains(s, "owner     not set yet: its root takes the image's owner") {
+		t.Errorf("volume overview:\n%s", s)
+	}
+}

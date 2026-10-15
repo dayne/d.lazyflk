@@ -37,6 +37,12 @@ type Target struct {
 	BackupsErr string        // why they couldn't be listed
 	Releases   []flk.Release // the app's releases; nil until loaded
 	StateDir   string        // flk's state dir: volumes outside it are external
+	Help       *flk.Help     // flk's command table, for options newer flks have; nil until loaded
+}
+
+// has reports whether the flk in use takes an option (see flk.Help.HasOption).
+func (t Target) has(long string, path ...string) bool {
+	return t.Help != nil && t.Help.HasOption(path, long)
 }
 
 // External reports a volume whose file lives outside flk's state dir
@@ -372,7 +378,7 @@ func appActions(t Target) []Action {
 				return secretCommand(args, v, running, v["value"]+"\n")
 			}},
 		unset,
-		volumeCreate(a, ""), volumeImport(a), backup(t, nil),
+		volumeCreate(t, ""), volumeImport(a), backup(t, nil),
 		{Key: "l", Label: "logs", Help: "follow all its machines' console output", View: ViewLogs},
 		edit, editActions,
 		destroy,
@@ -524,15 +530,19 @@ func secretCommand(args []string, v map[string]string, running int, stdin string
 	return c
 }
 
-func volumeCreate(a flk.App, name string) Action {
+func volumeCreate(t Target, name string) Action {
+	a := t.App
+	fields := []Field{
+		{Name: "name", Label: "name", Default: name, Required: true, Help: "the [[mounts]] source it's for"},
+		{Name: "size", Label: "size GB", Default: "1", Required: true, Number: true},
+		{Name: "path", Label: "file", Help: "put the image here, e.g. on a bigger disk (empty: flk's state dir)"},
+		{Name: "from", Label: "copy from", Help: "fill it with a copy of this directory (empty: start empty)"},
+	}
+	if t.has("--owner", "volumes", "create") {
+		fields = append(fields, Field{Name: "owner", Label: "owner", Help: "UID[:GID] of its root dir (empty: the image's owner of the mount point, at first use)"})
+	}
 	return Action{Key: "n", Label: "new volume", Help: "create a volume for [[mounts]] source = NAME",
-		Long: true,
-		Fields: []Field{
-			{Name: "name", Label: "name", Default: name, Required: true, Help: "the [[mounts]] source it's for"},
-			{Name: "size", Label: "size GB", Default: "1", Required: true, Number: true},
-			{Name: "path", Label: "file", Help: "put the image here, e.g. on a bigger disk (empty: flk's state dir)"},
-			{Name: "from", Label: "copy from", Help: "fill it with a copy of this directory (empty: start empty)"},
-		},
+		Long: true, Fields: fields,
 		build: func(v map[string]string) Command {
 			args := app(a, "volumes", "create", strings.TrimSpace(v["name"]), "--size", strings.TrimSpace(v["size"]))
 			if p := strings.TrimSpace(v["path"]); p != "" {
@@ -540,6 +550,9 @@ func volumeCreate(a flk.App, name string) Action {
 			}
 			if d := strings.TrimSpace(v["from"]); d != "" {
 				args = append(args, "--from-dir", d)
+			}
+			if o := strings.TrimSpace(v["owner"]); o != "" {
+				args = append(args, "--owner", o)
 			}
 			return Command{Args: args}
 		}}
@@ -796,7 +809,7 @@ func volumeActions(t Target) []Action {
 					Warn: "Deletes " + v.Name + " (" + v.Path + ") and everything in it. This can't be undone."}
 			}})
 	}
-	return append(acts, volumeCreate(a, v.Name))
+	return append(acts, volumeCreate(t, v.Name))
 }
 
 func portsSync() Action {

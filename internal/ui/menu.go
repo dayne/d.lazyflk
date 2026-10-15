@@ -38,6 +38,9 @@ type confirmView struct {
 // target describes the selection for the action table.
 func (m *Model) target(n node) (actions.Target, string, bool) {
 	t := actions.Target{StateDir: m.hc.Flk.StateDir}
+	if h, ok := m.flkHelp(); ok {
+		t.Help = &h
+	}
 	var title string
 	switch n.kind {
 	case kindHost:
@@ -107,11 +110,11 @@ func (m *Model) openMenu() tea.Cmd {
 	}
 	m.menu = &menuView{key: n.key(m.apps)}
 	switch n.kind {
-	case kindVolume: // restore needs the list of backups
-		return m.want(m.backupSource(m.apps[n.app].Name))
+	case kindVolume: // restore needs the list of backups; new volume, flk's options
+		return tea.Batch(m.want(m.backupSource(m.apps[n.app].Name)), m.want(m.helpSource()))
 	case kindApp, kindMachine: // the app's own actions; roll back's releases
 		a := m.apps[n.app]
-		var cmds []tea.Cmd
+		cmds := []tea.Cmd{m.want(m.helpSource())} // options this flk has (volumes create --owner)
 		if n.kind == kindApp {
 			cmds = append(cmds, m.want(m.releasesSource(a.Name)))
 			if len(a.Volumes) > 0 { // roll back --with-volumes needs them

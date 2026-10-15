@@ -176,6 +176,9 @@ func (m *Model) volumeOverview(a flk.App, v flk.Volume) []string {
 	if v.RestoredFrom != "" {
 		out = append(out, field("restored", "from "+v.RestoredFrom))
 	}
+	if v.OwnerFromImage {
+		out = append(out, field("owner", styleDim.Render("not set yet: its root takes the image's owner of the mount point when a machine first uses it")))
+	}
 	return out
 }
 

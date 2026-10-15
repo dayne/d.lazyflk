@@ -532,3 +532,28 @@ func TestPaletteExec(t *testing.T) {
 		t.Error("ssh console: a shell, unless -C")
 	}
 }
+
+// volumes create --owner (flk a6c6975) is offered only by a flk that lists
+// it; an older flk gets the form without it.
+func TestVolumeCreateOwner(t *testing.T) {
+	a := hostContext(t).Apps[0]
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	if err := json.Unmarshal(b, &help); err != nil {
+		t.Fatal(err)
+	}
+	if !help.HasOption([]string{"volumes", "create"}, "--owner") || help.HasOption([]string{"volumes", "create"}, "--own") ||
+		help.HasOption([]string{"volumes", "nope"}, "--owner") || !help.HasOption([]string{"volumes", "create"}, "--size") {
+		t.Error("HasOption")
+	}
+	create := find(t, For(Target{Kind: App, App: a, Help: &help}), "new volume")
+	c := create.Command(map[string]string{"name": "data", "owner": " 1000:1000 "})
+	if got := strings.Join(c.Args, " "); got != "-a "+a.Name+" volumes create data --size 1 --owner 1000:1000" {
+		t.Errorf("with --owner: %s", got)
+	}
+	for _, f := range find(t, For(Target{Kind: App, App: a}), "new volume").Fields {
+		if f.Name == "owner" {
+			t.Error("a flk without --owner (or its help not loaded yet) shouldn't get the field")
+		}
+	}
+}
