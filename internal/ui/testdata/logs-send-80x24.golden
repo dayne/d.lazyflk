@@ -1,24 +1,24 @@
 ┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────────────────── following ┐
 │ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                     │
-│     at knot//org.geysermc.geyser.util.JsonUtils.parseJson(JsonUtils.java:56) │
-│     at knot//org.geysermc.geyser.skin.FloodgateSkinUploader$1.onClose(Flood… │
-│     at knot//org.java_websocket.client.WebSocketClient.onWebsocketClose(Web… │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl… │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl… │
-│     at knot//org.java_websocket.client.WebSocketClient.run(WebSocketClient.… │
-│     at java.base/java.lang.Thread.run(Unknown Source)                        │
-│ [14:33:34] [WebSocketConnectReadThread-127/ERROR]: Got an error              │
-│ java.net.SocketException: Network is unreachable                             │
-│     at java.base/sun.nio.ch.Net.connect0(Native Method)                      │
-│     at java.base/sun.nio.ch.Net.connect(Unknown Source)                      │
-│     at java.base/sun.nio.ch.Net.connect(Unknown Source)                      │
-│     at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)            │
-│     at java.base/java.net.Socket.connect(Unknown Source)                     │
-│     at knot//org.java_websocket.client.WebSocketClient.run(WebSocketClient.… │
-│     at java.base/java.lang.Thread.run(Unknown Source)                        │
-│ [14:33:49] [WebSocketConnectReadThread-129/ERROR]: Unable to resolve the sk… │
-│ [14:34:05] [WebSocketConnectReadThread-131/ERROR]: Unable to resolve the sk… │
-│ [14:36:25] [Server thread/INFO]: DampCrab4410 (/46.4.84.241:58973) lost con… │
+│ [17:43:12] [Server thread/INFO]: IcyTiger0819 (/178.63.179.210:1969) lost c… │
+│ [17:54:58] [Server thread/INFO]: HollowCedar1073 (/178.63.123.77:36893) los… │
+│ [18:08:23] [Server thread/INFO]: KeenElk3032 (/46.4.84.244:23521) lost conn… │
+│ [18:19:54] [Server thread/INFO]: JollyLemur8886 (/178.63.123.74:30741) lost… │
+│ [18:20:18] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
+│ [18:29:51] [Server thread/INFO]: SlyElk4148 (/46.4.84.241:15327) lost conne… │
+│ [18:43:05] [Server thread/INFO]: TidyToad4567 (/46.4.84.241:60773) lost con… │
+│ [18:51:23] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
+│ [18:54:09] [Server thread/INFO]: WittyOtter7266 (/178.63.179.211:15983) los… │
+│ [19:06:58] [Server thread/INFO]: RapidOwl0032 (/46.4.84.241:28813) lost con… │
+│ [19:18:47] [Server thread/INFO]: CalmOwl5301 (/178.63.179.212:13613) lost c… │
+│ [19:30:12] [Server thread/INFO]: 2dMo3nkR (/199.83.103.112:51012) lost conn… │
+│ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) los… │
+│ [19:42:02] [Server thread/INFO]: QuickWasp1340 (/178.63.123.77:52435) lost … │
+│ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost … │
+│ [20:01:52] [Server thread/INFO]: BraveMole2456 (/178.63.179.211:36705) lost… │
+│ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost … │
+│ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
+│ [20:24:28] [Server thread/INFO]: WildHawk3939 (/178.63.123.76:20901) lost c… │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ > say hi█   enter: type it into mellow-aurora-7882's console · esc cancel    │
 └──────────────────────────────────────────────────────────────────────────────┘

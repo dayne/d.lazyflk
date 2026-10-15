@@ -7,20 +7,32 @@
     "pid": 2273109,
     "cpus": 4,
     "memory_mb": 11264,
-    "cpu_percent": 6.0,
-    "rss_mb": 9427,
-    "uptime_s": 1512
+    "cpu_percent": 4.0,
+    "rss_mb": 10900,
+    "uptime_s": 108752
+  },
+  {
+    "app": "opencode-sandbox",
+    "id": "476376ad8e351e",
+    "name": "lucky-harbor-5563",
+    "state": "started",
+    "pid": 2828454,
+    "cpus": 2,
+    "memory_mb": 2048,
+    "cpu_percent": 0.0,
+    "rss_mb": 1774,
+    "uptime_s": 97135
   },
   {
     "app": "vintagestory-flk",
     "id": "f8f979ffff11cf",
     "name": "frosty-river-2714",
     "state": "started",
-    "pid": 2697988,
+    "pid": 3025789,
     "cpus": 4,
     "memory_mb": 6144,
-    "cpu_percent": 10.0,
-    "rss_mb": 3399,
-    "uptime_s": 785
+    "cpu_percent": 8.0,
+    "rss_mb": 3344,
+    "uptime_s": 68392
   }
 ]

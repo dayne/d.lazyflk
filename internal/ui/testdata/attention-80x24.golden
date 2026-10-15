@@ -4,13 +4,13 @@
 │   ! mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ release v9 (of 9) · 2026-10-13 08:31Z           │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ machine 225d58f615e7e6 ! stopped, should be     │
-│   ● frosty-river-2714      │   started 172.30.0.10                           │
-│   ▢ vsdata 40GB (external) │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│   ⇄ tcp/42420 udp/42420    │   cpu 6% · 9427MB used · up 25m                 │
-│                            │                                                 │
-│ Host                       │ ports  tcp/25565 → 10.47.11.3:25565             │
-│   health ✔                 │        udp/19132 → 10.47.11.3:19132             │
+│ ▾ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ! stopped, should be     │
+│   ● lucky-harbor-5563      │   started 172.30.0.10                           │
+│   ▢ code_workspace 30GB    │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
+│ ▾ vintagestory-flk  1/1 ●  │   cpu 4% · 10900MB used · up 30h 12m            │
+│   ● frosty-river-2714      │                                                 │
+│   ▢ vsdata 40GB (external) │ ports  tcp/25565 → 10.47.11.3:25565             │
+│   ⇄ tcp/42420 udp/42420    │        udp/19132 → 10.47.11.3:19132             │
 │                            │ … 12 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ … 1 above                                                                    │

@@ -1,8 +1,8 @@
 {
   "state_dir": {
     "path": "/home/dayne/.local/share/flk",
-    "bytes": 4159946752,
-    "apparent": 9200120205
+    "bytes": 8877764608,
+    "apparent": 58071847177
   },
   "apps": [
     {
@@ -12,7 +12,7 @@
         "apparent": 2969567232
       },
       "rootfs": {
-        "bytes": 375177216,
+        "bytes": 377839616,
         "apparent": 998244352
       },
       "volumes": {
@@ -20,16 +20,43 @@
         "apparent": 0
       },
       "logs": {
-        "bytes": 704512,
-        "apparent": 699687
+        "bytes": 745472,
+        "apparent": 739416
       },
       "external_volumes": {
-        "bytes": 22193954816,
+        "bytes": 22197706752,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 1533915136,
-        "apparent": 3968511271
+        "bytes": 1536618496,
+        "apparent": 3968551000
+      }
+    },
+    {
+      "app": "opencode-sandbox",
+      "images": {
+        "bytes": 2010804224,
+        "apparent": 10889461760
+      },
+      "rootfs": {
+        "bytes": 1840529408,
+        "apparent": 5769265152
+      },
+      "volumes": {
+        "bytes": 857923584,
+        "apparent": 32212254720
+      },
+      "logs": {
+        "bytes": 135168,
+        "apparent": 129171
+      },
+      "external_volumes": {
+        "bytes": 0,
+        "apparent": 0
+      },
+      "total": {
+        "bytes": 4709392384,
+        "apparent": 48871110803
       }
     },
     {
@@ -39,7 +66,7 @@
         "apparent": 3818913792
       },
       "rootfs": {
-        "bytes": 685985792,
+        "bytes": 691113984,
         "apparent": 1376780288
       },
       "volumes": {
@@ -47,38 +74,38 @@
         "apparent": 0
       },
       "logs": {
-        "bytes": 1171456,
-        "apparent": 1165373
+        "bytes": 1654784,
+        "apparent": 1649687
       },
       "external_volumes": {
         "bytes": 8758562816,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 2591227904,
-        "apparent": 5196859453
+        "bytes": 2596839424,
+        "apparent": 5197343767
       }
     }
   ],
   "totals": {
     "images": {
-      "bytes": 3062104064,
-      "apparent": 6788481024
+      "bytes": 5072908288,
+      "apparent": 17677942784
     },
     "rootfs": {
-      "bytes": 1061163008,
-      "apparent": 2375024640
+      "bytes": 2909483008,
+      "apparent": 8144289792
     },
     "volumes": {
-      "bytes": 0,
-      "apparent": 0
+      "bytes": 857923584,
+      "apparent": 32212254720
     },
     "logs": {
-      "bytes": 1875968,
-      "apparent": 1865060
+      "bytes": 2535424,
+      "apparent": 2518274
     },
     "external_volumes": {
-      "bytes": 30952517632,
+      "bytes": 30956269568,
       "apparent": 85899345920
     }
   },
@@ -86,29 +113,40 @@
     "dir": "/data/flk-backups",
     "apps": {
       "minecraft-flk": {
-        "bytes": 154206064640,
-        "apparent": 301197792328,
+        "bytes": 154337181696,
+        "apparent": 301197792353,
         "volumes": {
           "world": {
-            "bytes": 153655853056,
-            "apparent": 300647714503,
+            "bytes": 153786970112,
+            "apparent": 300647714528,
             "count": 7
           }
         }
       },
+      "opencode-sandbox": {
+        "bytes": 0,
+        "apparent": 0,
+        "volumes": {
+          "code_workspace": {
+            "bytes": 0,
+            "apparent": 0,
+            "count": 0
+          }
+        }
+      },
       "vintagestory-flk": {
-        "bytes": 50239463424,
-        "apparent": 257698040520,
+        "bytes": 58790756352,
+        "apparent": 300647714023,
         "volumes": {
           "vsdata": {
-            "bytes": 50239463424,
-            "apparent": 257698040520,
-            "count": 6
+            "bytes": 58790756352,
+            "apparent": 300647714023,
+            "count": 7
           }
         }
       }
     },
-    "bytes": 204445528064,
-    "apparent": 558895832848
+    "bytes": 213127938048,
+    "apparent": 601845506376
   }
 }

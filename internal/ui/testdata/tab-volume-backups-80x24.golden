@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk volumes backups --json   │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ world-20261013T221456Z.ext4                     │
-│   ● frosty-river-2714      │   2026-10-13 22:15Z · 20G used · checked clean  │
-│   ▢ vsdata 40GB (external) │     (journal replayed)                          │
-│   ⇄ tcp/42420 udp/42420    │   mode live · release v9 · took 27s             │
+│ ▾ opencode-sandbox  1/1 ●  │ world-20261014T100001Z.ext4                     │
+│   ● lucky-harbor-5563      │   2026-10-14 10:00Z · 21G used · checked clean  │
+│   ▢ code_workspace 30GB    │     (journal replayed)                          │
+│ ▾ vintagestory-flk  1/1 ●  │   mode live · release v9 · took 25s             │
+│   ● frosty-river-2714      │   verified clean 2026-10-14 10:00Z              │
+│   ▢ vsdata 40GB (external) │                                                 │
+│   ⇄ tcp/42420 udp/42420    │ world-20261013T221456Z.ext4                     │
+│                            │   2026-10-13 22:15Z · 20G used · checked clean  │
+│ Host                       │     (journal replayed)                          │
+│   health ✔                 │   mode live · release v9 · took 27s             │
 │                            │   verified clean 2026-10-13 22:15Z              │
-│ Host                       │                                                 │
-│   health ✔                 │ world-20261013T220808Z.ext4                     │
-│                            │   2026-10-13 22:08Z · 20G used · checked clean  │
-│ Storage                    │     (journal replayed)                          │
-│   / 23%                    │   mode live · release v9 · took 26s             │
-│   /data/minecraft 66%      │   verified clean 2026-10-13 22:08Z              │
-│   /data/vintagestory 13%   │                                                 │
-│                            │ … 31 more (pgdn)                                │
+│ Storage                    │                                                 │
+│   / 30%                    │ … 32 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

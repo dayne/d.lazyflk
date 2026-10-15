@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ flk       0.1.0                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ state     /home/dayne/.local/share/flk                                                                              │
-│   ● frosty-river-2714                  │ source    /home/dayne/flk                                                                                           │
-│   ▢ vsdata 40GB (external)             │ LAN IP    10.47.11.116                                                                                              │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ address   10.47.11.3 (advertised; host.toml address)                                                                │
-│                                        │ boot      installed                                                                                                 │
-│ Host                                   │ health    ✔ ready                                                                                                   │
-│   health ✔                             │ data dirs /home/dayne/.local/share/flk                                                                              │
+│ ▾ opencode-sandbox  1/1 ●              │ state     /home/dayne/.local/share/flk                                                                              │
+│   ● lucky-harbor-5563                  │ source    /home/dayne/flk                                                                                           │
+│   ▢ code_workspace 30GB                │ LAN IP    10.47.11.116                                                                                              │
+│ ▾ vintagestory-flk  1/1 ●              │ address   10.47.11.3 (advertised; host.toml address)                                                                │
+│   ● frosty-river-2714                  │ boot      installed                                                                                                 │
+│   ▢ vsdata 40GB (external)             │ health    ✔ ready                                                                                                   │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ data dirs /home/dayne/.local/share/flk                                                                              │
 │                                        │           /data/minecraft/flk                                                                                       │
-│ Storage                                │           /data/vintagestory/flk                                                                                    │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │ ✔ /dev/kvm read/write                                                                                               │
-│   /data/vintagestory 13%            ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
-│                                     │ u  resume all     nothing to resume                                              │                                     │
-│ Podman                              │ S  stop all       stop every running machine, remembering to resume them         │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
-│   ◇ itzg/minecraft-server:latest 868│ P  prune images   remove container images of apps that no longer exist           │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ h  health         flk doctor: every host check                                   │                                     │
-│   ◇ ruby:3.3-alpine 69M             │                                                                                  │                                     │
-│   ◇ alpine:3.20 7.7M                │ start every machine that should be running                                       │                                     │
-│   5 flk images: host Images tab     │ not now: nothing to resume                                                       │                                     │
-│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│ Services                            │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│   ● flk-net                         └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   ● flk-machines                       │ ✔ backups go to /data/flk-backups: 189.9GB now, about 201.8GB at their keep counts; 182.2GB free; full copies (ext4 │
-│   ● ssh                                │   has no reflinks)                                                                                                  │
-│   ● snap.mosquitto.mosquitto           │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
-│   ● chrony                             │ ✔ flk-agent is older than its source (built at the next deploy)                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ Host                                   │           /data/vintagestory/flk                                                                                    │
+│   health ✔                             │                                                                                                                     │
+│                                        │ ✔ /dev/kvm read/write                                                                                               │
+│ Storage                             ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
+│   / 30%                             │ u  resume all     nothing to resume                                              │                                     │
+│   /data/minecraft 67%               │ S  stop all       stop every running machine, remembering to resume them         │                                     │
+│   /data/vintagestory 13%            │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
+│                                     │ P  prune images   remove container images of apps that no longer exist           │                                     │
+│ Podman                              │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
+│   ◇ 8149e56d2f50 (untagged) 8.7M    │ h  health         flk doctor: every host check                                   │                                     │
+│   ◇ itzg/minecraft-server:latest 868│                                                                                  │                                     │
+│   ◇ dotnet/runtime:10.0 197M        │ start every machine that should be running                                       │                                     │
+│   ◇ eclipse-temurin:25-jre 341M     │ not now: nothing to resume                                                       │                                     │
+│   ◇ ubuntu:24.04 77M                ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│   ◇ ruby:3.3-alpine 69M             │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│   ◇ alpine:3.20 7.7M                └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│   7 flk images: host Images tab        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
+│                                        │   has no reflinks)                                                                                                  │
+│ Services                               │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
+│   ● flk-net                            │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
+│   ● flk-machines                       │                                                                                                                     │
+│   ● ssh                                │                                                                                                                     │
+│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
+│   ● chrony                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

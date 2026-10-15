@@ -1,5 +1,31 @@
 [
   {
+    "repo": "flk.local/opencode-sandbox",
+    "tag": "v4",
+    "id": "afefdc27a884",
+    "size_bytes": 1128271859,
+    "created_at": "2026-10-14T01:31:05Z",
+    "app": "opencode-sandbox",
+    "release": 4,
+    "orphan": false,
+    "current": true,
+    "in_use": true,
+    "running": true
+  },
+  {
+    "repo": "flk.local/opencode-sandbox",
+    "tag": "v3",
+    "id": "51321681ce0f",
+    "size_bytes": 657416592,
+    "created_at": "2026-10-14T00:05:23Z",
+    "app": "opencode-sandbox",
+    "release": 3,
+    "orphan": false,
+    "current": false,
+    "in_use": false,
+    "running": false
+  },
+  {
     "repo": "flk.local/vintagestory-flk",
     "tag": "v4",
     "id": "39469341aaf5",

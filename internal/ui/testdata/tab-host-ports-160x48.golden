@@ -4,17 +4,20 @@
 │   ● mellow-aurora-7882                 │ $ flk ports list --json                                                                                             │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ helper    installed                                                                                                 │
-│ ▾ vintagestory-flk  1/1 ●              │ host      10.47.11.3 · ports from 1024                                                                              │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │ tcp/25565 → 10.47.11.3:25565                                                                                        │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
-│                                        │ udp/19132 → 10.47.11.3:19132                                                                                        │
-│ Host                                   │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
-│   health ✔                             │ tcp/42420 → 10.47.11.3:42420                                                                                        │
+│ ▾ opencode-sandbox  1/1 ●              │ host      10.47.11.3 · ports from 1024                                                                              │
+│   ● lucky-harbor-5563                  │                                                                                                                     │
+│   ▢ code_workspace 30GB                │ tcp/25565 → 10.47.11.3:25565                                                                                        │
+│ ▾ vintagestory-flk  1/1 ●              │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
+│   ● frosty-river-2714                  │ udp/19132 → 10.47.11.3:19132                                                                                        │
+│   ▢ vsdata 40GB (external)             │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ tcp/42420 → 10.47.11.3:42420                                                                                        │
 │                                        │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
-│ Storage                                │ udp/42420 → 10.47.11.3:42420                                                                                        │
-│   / 23%                                │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
-│   /data/minecraft 66%                  │                                                                                                                     │
+│ Host                                   │ udp/42420 → 10.47.11.3:42420                                                                                        │
+│   health ✔                             │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│                                        │                                                                                                                     │
+│ Storage                                │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

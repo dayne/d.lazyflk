@@ -4,7 +4,10 @@
 │   ● mellow-aurora-7882      ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
 │   ▢ world 40GB (external)   │ : vol back▏                                                                                      │                             │
 │   ⇄ 10.47.11.3: tcp/25565 ud│ volumes backup   Copy volumes (default: all of the app's) to the backup dir, then prune old cop… │                             │
-│ ▾ vintagestory-flk  1/1 ●   │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│ ▾ opencode-sandbox  1/1 ●   │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│   ● lucky-harbor-5563       │                                                                                                  │                             │
+│   ▢ code_workspace 30GB     │                                                                                                  │                             │
+│ ▾ vintagestory-flk  1/1 ●   │                                                                                                  │                             │
 │   ● frosty-river-2714       │                                                                                                  │                             │
 │   ▢ vsdata 40GB (external)  │                                                                                                  │                             │
 │   ⇄ 10.47.11.3: tcp/42420 ud│                                                                                                  │                             │
@@ -13,8 +16,8 @@
 │   health ✔                  │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ Storage                     │                                                                                                  │                             │
-│   / 23%                     │                                                                                                  │                             │
-│   /data/minecraft 66%       │                                                                                                  │                             │
+│   / 30%                     │                                                                                                  │                             │
+│   /data/minecraft 67%       │                                                                                                  │                             │
 │   /data/vintagestory 13%    │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ Podman                      │                                                                                                  │                             │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:la│                                                                                                  │                             │
 │   ◇ dotnet/runtime:10.0 197M│                                                                                                  │                             │
 │   ◇ eclipse-temurin:25-jre 3│                                                                                                  │                             │
+│   ◇ ubuntu:24.04 77M        │                                                                                                  │                             │
 │   ◇ ruby:3.3-alpine 69M     │                                                                                                  │                             │
 │   ◇ alpine:3.20 7.7M        │                                                                                                  │                             │
-│   5 flk images: host Images │                                                                                                  │                             │
+│   7 flk images: host Images │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ Services                    │                                                                                                  │                             │
 │   ● flk-net                 │                                                                                                  │                             │
@@ -32,10 +36,6 @@
 │   ● ssh                     │                                                                                                  │                             │
 │   ● snap.mosquitto.mosquitto│                                                                                                  │                             │
 │   ● chrony                  │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │

@@ -4,27 +4,31 @@
 │   ● mellow-aurora-7882                 │ $ flk images --json                                                                                                 │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ minecraft-flk                                                                                                       │
-│ ▾ vintagestory-flk  1/1 ●              │   v9     352M  running · current                                                                                    │
-│   ● frosty-river-2714                  │               built 2026-10-13 08:31Z · cb185335b4e7                                                                │
-│   ▢ vsdata 40GB (external)             │   v8     352M  older release                                                                                        │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
-│                                        │   v7     352M  same image as v8                                                                                     │
-│ Host                                   │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
-│   health ✔                             │                                                                                                                     │
-│                                        │ vintagestory-flk                                                                                                    │
-│ Storage                                │   v4     778M  running · current                                                                                    │
-│   / 23%                                │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
-│   /data/minecraft 66%                  │   v3     560M  older release                                                                                        │
-│   /data/vintagestory 13%               │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
-│                                        │   v2     558M  older release                                                                                        │
-│ Podman                                 │               built 2026-10-13 04:47Z · b54f5b0c0cc6                                                                │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
-│   ◇ itzg/minecraft-server:latest 868M  │ 2.5G in 5 images                                                                                                    │
-│   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │   v9     352M  running · current                                                                                    │
+│   ● lucky-harbor-5563                  │               built 2026-10-13 08:31Z · cb185335b4e7                                                                │
+│   ▢ code_workspace 30GB                │   v8     352M  older release                                                                                        │
+│ ▾ vintagestory-flk  1/1 ●              │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
+│   ● frosty-river-2714                  │   v7     352M  same image as v8                                                                                     │
+│   ▢ vsdata 40GB (external)             │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+│                                        │ opencode-sandbox                                                                                                    │
+│ Host                                   │   v4     1.1G  running · current                                                                                    │
+│   health ✔                             │               built 2026-10-14 01:31Z · afefdc27a884                                                                │
+│                                        │   v3     627M  older release                                                                                        │
+│ Storage                                │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │ vintagestory-flk                                                                                                    │
+│   /data/vintagestory 13%               │   v4     778M  running · current                                                                                    │
+│                                        │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
+│ Podman                                 │   v3     560M  older release                                                                                        │
+│   ◇ 8149e56d2f50 (untagged) 8.7M       │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
+│   ◇ itzg/minecraft-server:latest 868M  │   v2     558M  older release                                                                                        │
+│   ◇ dotnet/runtime:10.0 197M           │               built 2026-10-13 04:47Z · b54f5b0c0cc6                                                                │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │ 4.2G in 7 images                                                                                                    │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

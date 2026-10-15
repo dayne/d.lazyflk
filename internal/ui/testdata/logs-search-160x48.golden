@@ -1,48 +1,48 @@
-┌ Logs ─ minecraft-flk / mellow-aurora-7882 ─────────────────────────────────────────────────────────────────────────────────────────────── paused · /RCON 2/2 ┐
+┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────────────────────────────────────────────────────────────────────────────────────── following · /RCON 0/0 ┐
 │ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                                                                                                     │
-│ [14:18:08] [RCON Listener #1/INFO]: Thread RCON Client /172.30.0.1 started                                                                                   │
-│ [14:18:08] [RCON Client /172.30.0.1 #3/INFO]: Thread RCON Client /172.30.0.1 shutting down                                                                   │
-│ [14:18:36] [Server thread/INFO]: CoolPike6835 (/178.63.123.77:54499) lost connection: Disconnected                                                           │
-│ [14:19:01] [Server thread/INFO]: Server empty for 60 seconds, pausing                                                                                        │
-│ [14:27:05] [Server thread/INFO]: FaintToad1529 (/178.63.179.210:62039) lost connection: Disconnected                                                         │
-│ [14:30:45] [WebSocketConnectReadThread-116/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:30:54] [WebSocketConnectReadThread-118/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:30:54] [WebSocketConnectReadThread-118/ERROR]: Error while handling onClose                                                                              │
-│ java.lang.IllegalArgumentException: Invalid JSON: api.geysermc.org                                                                                           │
-│     at knot//org.geysermc.geyser.util.JsonUtils.parseJson(JsonUtils.java:56)                                                                                 │
-│     at knot//org.geysermc.geyser.skin.FloodgateSkinUploader$1.onClose(FloodgateSkinUploader.java:205)                                                        │
-│     at knot//org.java_websocket.client.WebSocketClient.onWebsocketClose(WebSocketClient.java:688)                                                            │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl.java:557)                                                                        │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl.java:581)                                                                        │
-│     at knot//org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:512)                                                                         │
-│     at java.base/java.lang.Thread.run(Unknown Source)                                                                                                        │
-│ [14:31:05] [WebSocketConnectReadThread-119/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:31:21] [WebSocketConnectReadThread-120/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:31:30] [WebSocketConnectReadThread-121/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:31:30] [WebSocketConnectReadThread-121/ERROR]: Error while handling onClose                                                                              │
-│ java.lang.IllegalArgumentException: Invalid JSON: api.geysermc.org                                                                                           │
-│     at knot//org.geysermc.geyser.util.JsonUtils.parseJson(JsonUtils.java:56)                                                                                 │
-│     at knot//org.geysermc.geyser.skin.FloodgateSkinUploader$1.onClose(FloodgateSkinUploader.java:205)                                                        │
-│     at knot//org.java_websocket.client.WebSocketClient.onWebsocketClose(WebSocketClient.java:688)                                                            │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl.java:557)                                                                        │
-│     at knot//org.java_websocket.WebSocketImpl.closeConnection(WebSocketImpl.java:581)                                                                        │
-│     at knot//org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:512)                                                                         │
-│     at java.base/java.lang.Thread.run(Unknown Source)                                                                                                        │
-│ [14:33:34] [WebSocketConnectReadThread-127/ERROR]: Got an error                                                                                              │
-│ java.net.SocketException: Network is unreachable                                                                                                             │
-│     at java.base/sun.nio.ch.Net.connect0(Native Method)                                                                                                      │
-│     at java.base/sun.nio.ch.Net.connect(Unknown Source)                                                                                                      │
-│     at java.base/sun.nio.ch.Net.connect(Unknown Source)                                                                                                      │
-│     at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)                                                                                            │
-│     at java.base/java.net.Socket.connect(Unknown Source)                                                                                                     │
-│     at knot//org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:491)                                                                         │
-│     at java.base/java.lang.Thread.run(Unknown Source)                                                                                                        │
-│ [14:33:49] [WebSocketConnectReadThread-129/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:34:05] [WebSocketConnectReadThread-131/ERROR]: Unable to resolve the skin api! This can be caused by your connection or the skin api being unreachable.… │
-│ [14:36:25] [Server thread/INFO]: DampCrab4410 (/46.4.84.241:58973) lost connection: Disconnected                                                             │
+│ [14:26:10] [Server thread/INFO]: CoolZebra8896 (/178.63.123.74:9057) lost connection: Disconnected                                                           │
+│ [14:38:04] [Server thread/INFO]: FaintBear7506 (/178.63.179.211:37993) lost connection: Disconnected                                                         │
+│ [14:48:35] [Server thread/INFO]: SillyMole8560 (/178.63.123.77:53207) lost connection: Disconnected                                                          │
+│ [14:59:16] [Server thread/INFO]: GladWolf1869 (/178.63.123.75:17705) lost connection: Disconnected                                                           │
+│ [15:08:41] [Server thread/INFO]: RoyalWolf8978 (/178.63.179.209:34467) lost connection: Disconnected                                                         │
+│ [15:18:48] [Server thread/INFO]: QuietNewt6991 (/178.63.123.78:6339) lost connection: Disconnected                                                           │
+│ [15:29:10] [Server thread/INFO]: IcyRaven6047 (/178.63.179.209:17377) lost connection: Disconnected                                                          │
+│ [15:40:48] [Server thread/INFO]: GrandDeer7417 (/178.63.123.74:13543) lost connection: Disconnected                                                          │
+│ [15:42:48] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [15:50:14] [Server thread/INFO]: LazyWhale1806 (/178.63.179.211:28501) lost connection: Disconnected                                                         │
+│ [16:01:34] [Server thread/INFO]: SlyKoala7352 (/178.63.179.211:1631) lost connection: Disconnected                                                           │
+│ [16:12:44] [Server thread/INFO]: RapidToad0906 (/178.63.123.77:47611) lost connection: Disconnected                                                          │
+│ [16:26:12] [Server thread/INFO]: JollyMole7571 (/176.65.148.253:46232) lost connection: Disconnected                                                         │
+│ [16:36:54] [Server thread/INFO]: QuietViper0305 (/178.63.123.75:59319) lost connection: Disconnected                                                         │
+│ [16:47:29] [Server thread/INFO]: SwiftGecko4161 (/178.63.123.76:4279) lost connection: Disconnected                                                          │
+│ [16:57:08] [Server thread/INFO]: TidyShark8286 (/178.63.123.74:45877) lost connection: Disconnected                                                          │
+│ [17:07:40] [Server thread/INFO]: RapidToad7520 (/178.63.179.212:11539) lost connection: Disconnected                                                         │
+│ [17:12:50] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Timed out                                                                  │
+│ [17:18:23] [Server thread/INFO]: ZanyCrab0451 (/176.65.148.253:50614) lost connection: Disconnected                                                          │
+│ [17:30:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [17:31:02] [Server thread/INFO]: EpicLynx5810 (/176.65.148.253:58390) lost connection: Disconnected                                                          │
+│ [17:43:12] [Server thread/INFO]: IcyTiger0819 (/178.63.179.210:1969) lost connection: Disconnected                                                           │
+│ [17:54:58] [Server thread/INFO]: HollowCedar1073 (/178.63.123.77:36893) lost connection: Disconnected                                                        │
+│ [18:08:23] [Server thread/INFO]: KeenElk3032 (/46.4.84.244:23521) lost connection: Disconnected                                                              │
+│ [18:19:54] [Server thread/INFO]: JollyLemur8886 (/178.63.123.74:30741) lost connection: Disconnected                                                         │
+│ [18:20:18] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [18:29:51] [Server thread/INFO]: SlyElk4148 (/46.4.84.241:15327) lost connection: Disconnected                                                               │
+│ [18:43:05] [Server thread/INFO]: TidyToad4567 (/46.4.84.241:60773) lost connection: Disconnected                                                             │
+│ [18:51:23] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [18:54:09] [Server thread/INFO]: WittyOtter7266 (/178.63.179.211:15983) lost connection: Disconnected                                                        │
+│ [19:06:58] [Server thread/INFO]: RapidOwl0032 (/46.4.84.241:28813) lost connection: Disconnected                                                             │
+│ [19:18:47] [Server thread/INFO]: CalmOwl5301 (/178.63.179.212:13613) lost connection: Disconnected                                                           │
+│ [19:30:12] [Server thread/INFO]: 2dMo3nkR (/199.83.103.112:51012) lost connection: Disconnected                                                              │
+│ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) lost connection: Disconnected                                                        │
+│ [19:42:02] [Server thread/INFO]: QuickWasp1340 (/178.63.123.77:52435) lost connection: Disconnected                                                          │
+│ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost connection: Disconnected                                                          │
+│ [20:01:52] [Server thread/INFO]: BraveMole2456 (/178.63.179.211:36705) lost connection: Disconnected                                                         │
+│ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost connection: Disconnected                                                          │
+│ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [20:24:28] [Server thread/INFO]: WildHawk3939 (/178.63.123.76:20901) lost connection: Disconnected                                                           │
 │                                                                                                                                                              │
 │                                                                                                                                                              │
 │                                                                                                                                                              │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ f follow  / search  n/N match  w wrap  g/G top/end  > send a line  esc back  ? help                                                                          │
+│ no match for "RCON"                                                                                                                                          │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

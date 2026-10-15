@@ -4,17 +4,20 @@
 │   ● mellow-aurora-7882                 │ $ podman ps -a --external --format json · podman images --format json                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ id        f9dfcd225ce9                                                                                              │
-│ ▾ vintagestory-flk  1/1 ●              │ size      868M                                                                                                      │
-│   ● frosty-river-2714                  │ created   2026-10-10T22:25:04Z                                                                                      │
-│   ▢ vsdata 40GB (external)             │ names     docker.io/itzg/minecraft-server:latest                                                                    │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ used      no container uses it                                                                                      │
+│ ▾ opencode-sandbox  1/1 ●              │ size      868M                                                                                                      │
+│   ● lucky-harbor-5563                  │ created   2026-10-10T22:25:04Z                                                                                      │
+│   ▢ code_workspace 30GB                │ names     docker.io/itzg/minecraft-server:latest                                                                    │
+│ ▾ vintagestory-flk  1/1 ●              │ used      no container uses it                                                                                      │
+│   ● frosty-river-2714                  │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │ Not one of flk's (flk.local/*). A Dockerfile's FROM image stays here as                                             │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ the build cache, so later deploys don't download it again.                                                          │
 │                                        │                                                                                                                     │
-│ Host                                   │ Not one of flk's (flk.local/*). A Dockerfile's FROM image stays here as                                             │
-│   health ✔                             │ the build cache, so later deploys don't download it again.                                                          │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Storage                                │                                                                                                                     │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

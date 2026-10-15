@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk doctor --json                             │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ flk       0.1.0                                 │
-│   ● frosty-river-2714      │ state     /home/dayne/.local/share/flk          │
-│   ▢ vsdata 40GB (external) │ source    /home/dayne/flk                       │
-│   ⇄ tcp/42420 udp/42420    │ LAN IP    10.47.11.116                          │
-│                            │ address   10.47.11.3 (advertised; host.toml     │
-│ Host                       │           address)                              │
-│   health ✔                 │ boot      installed                             │
+│ ▾ opencode-sandbox  1/1 ●  │ flk       0.1.0                                 │
+│   ● lucky-harbor-5563      │ state     /home/dayne/.local/share/flk          │
+│   ▢ code_workspace 30GB    │ source    /home/dayne/flk                       │
+│ ▾ vintagestory-flk  1/1 ●  │ LAN IP    10.47.11.116                          │
+│   ● frosty-river-2714      │ address   10.47.11.3 (advertised; host.toml     │
+│   ▢ vsdata 40GB (external) │           address)                              │
+│   ⇄ tcp/42420 udp/42420    │ boot      installed                             │
 │                            │ health    ✔ ready                               │
-│ Storage                    │ data dirs /home/dayne/.local/share/flk          │
-│   / 23%                    │           /data/minecraft/flk                   │
-│   /data/minecraft 66%      │           /data/vintagestory/flk                │
-│   /data/vintagestory 13%   │                                                 │
-│                            │ … 26 more (pgdn)                                │
+│ Host                       │ data dirs /home/dayne/.local/share/flk          │
+│   health ✔                 │           /data/minecraft/flk                   │
+│                            │           /data/vintagestory/flk                │
+│ Storage                    │                                                 │
+│   / 30%                    │ … 26 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

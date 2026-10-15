@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ df -k --output=target,size,used,avail,pcent   │
 │   ⇄ tcp/25565 udp/19132    │   /home/dayne/.local/share/flk                  │
-│ ▾ vintagestory-flk  1/1 ●  │   /data/minecraft/flk /data/vintagestory/flk    │
-│   ● frosty-river-2714      │                                                 │
-│   ▢ vsdata 40GB (external) │  23% ██░░░░░░░░ /                               │
-│   ⇄ tcp/42420 udp/42420    │      72G free of 98G                            │
-│                            │      holds /home/dayne/.local/share/flk         │
-│ Host                       │                                                 │
-│   health ✔                 │  66% ██████░░░░ /data/minecraft                 │
+│ ▾ opencode-sandbox  1/1 ●  │   /data/minecraft/flk /data/vintagestory/flk    │
+│   ● lucky-harbor-5563      │                                                 │
+│   ▢ code_workspace 30GB    │  30% ███░░░░░░░ /                               │
+│ ▾ vintagestory-flk  1/1 ●  │      66G free of 98G                            │
+│   ● frosty-river-2714      │      holds /home/dayne/.local/share/flk         │
+│   ▢ vsdata 40GB (external) │                                                 │
+│   ⇄ tcp/42420 udp/42420    │  67% ██████░░░░ /data/minecraft                 │
 │                            │      32G free of 98G                            │
-│ Storage                    │      holds /data/minecraft/flk                  │
-│   / 23%                    │                                                 │
-│   /data/minecraft 66%      │  13% █░░░░░░░░░ /data/vintagestory              │
-│   /data/vintagestory 13%   │      122G free of 147G                          │
-│                            │ … 25 more (pgdn)                                │
+│ Host                       │      holds /data/minecraft/flk                  │
+│   health ✔                 │                                                 │
+│                            │  13% █░░░░░░░░░ /data/vintagestory              │
+│ Storage                    │      122G free of 147G                          │
+│   / 30%                    │ … 29 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

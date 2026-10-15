@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ $ df -k --output=target,size,used,avail,pcent /home/dayne/.local/share/flk /data/minecraft/flk                      │
 │   ▢ world 40GB (external)              │   /data/vintagestory/flk                                                                                            │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │  23% ██░░░░░░░░ /                                                                                                   │
-│   ● frosty-river-2714                  │      72G free of 98G                                                                                                │
-│   ▢ vsdata 40GB (external)             │      holds /home/dayne/.local/share/flk                                                                             │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
-│                                        │  66% ██████░░░░ /data/minecraft                                                                                     │
-│ Host                                   │      32G free of 98G                                                                                                │
-│   health ✔                             │      holds /data/minecraft/flk                                                                                      │
+│ ▾ opencode-sandbox  1/1 ●              │  30% ███░░░░░░░ /                                                                                                   │
+│   ● lucky-harbor-5563                  │      66G free of 98G                                                                                                │
+│   ▢ code_workspace 30GB                │      holds /home/dayne/.local/share/flk                                                                             │
+│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
+│   ● frosty-river-2714                  │  67% ██████░░░░ /data/minecraft                                                                                     │
+│   ▢ vsdata 40GB (external)             │      32G free of 98G                                                                                                │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │      holds /data/minecraft/flk                                                                                      │
 │                                        │                                                                                                                     │
-│ Storage                                │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
-│   / 23%                                │      122G free of 147G                                                                                              │
-│   /data/minecraft 66%                  │      holds /data/vintagestory/flk                                                                                   │
-│   /data/vintagestory 13%               │                                                                                                                     │
-│                                        │ $ flk disk --json                                                                                                   │
-│ Podman                                 │ What flk uses  (allocated; sparse files count what's written)                                                       │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │ state     3.9G in /home/dayne/.local/share/flk                                                                      │
-│   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
-│   ◇ dotnet/runtime:10.0 197M           │ app                images   rootfs  volumes     logs external                                                       │
-│   ◇ eclipse-temurin:25-jre 341M        │ minecraft-flk        1.1G     358M        -     688K      21G                                                       │
-│   ◇ ruby:3.3-alpine 69M                │ vintagestory-flk     1.8G     654M        -     1.1M     8.2G                                                       │
-│   ◇ alpine:3.20 7.7M                   │ all                  2.9G    1012M        -     1.8M      29G                                                       │
-│   5 flk images: host Images tab        │                                                                                                                     │
-│                                        │ backups   190G in /data/flk-backups                                                                                 │
-│ Services                               │           minecraft-flk    144G                                                                                     │
-│   ● flk-net                            │             world          143G in 7 backups                                                                        │
-│   ● flk-machines                       │           vintagestory-flk 47G                                                                                      │
-│   ● ssh                                │             vsdata         47G in 6 backups                                                                         │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
+│ Host                                   │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
+│   health ✔                             │      122G free of 147G                                                                                              │
+│                                        │      holds /data/vintagestory/flk                                                                                   │
+│ Storage                                │                                                                                                                     │
+│   / 30%                                │ $ flk disk --json                                                                                                   │
+│   /data/minecraft 67%                  │ What flk uses  (allocated; sparse files count what's written)                                                       │
+│   /data/vintagestory 13%               │ state     8.3G in /home/dayne/.local/share/flk                                                                      │
 │                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ Podman                                 │ app                images   rootfs  volumes     logs external                                                       │
+│   ◇ 8149e56d2f50 (untagged) 8.7M       │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
+│   ◇ itzg/minecraft-server:latest 868M  │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
+│   ◇ dotnet/runtime:10.0 197M           │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
+│   ◇ eclipse-temurin:25-jre 341M        │ all                  4.7G     2.7G     818M     2.4M      29G                                                       │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
+│   ◇ ruby:3.3-alpine 69M                │ backups   198G in /data/flk-backups                                                                                 │
+│   ◇ alpine:3.20 7.7M                   │           minecraft-flk    144G                                                                                     │
+│   7 flk images: host Images tab        │             world          143G in 7 backups                                                                        │
+│                                        │           opencode-sandbox 0K                                                                                       │
+│ Services                               │             code_workspace 0K in 0 backups                                                                          │
+│   ● flk-net                            │           vintagestory-flk 55G                                                                                      │
+│   ● flk-machines                       │             vsdata         55G in 7 backups                                                                         │
+│   ● ssh                                │                                                                                                                     │
+│   ● snap.mosquitto.mosquitto           │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
+│   ● chrony                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

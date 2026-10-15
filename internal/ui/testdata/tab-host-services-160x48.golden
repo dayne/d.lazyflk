@@ -4,17 +4,20 @@
 │   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ ✔ flk-net.service  active (exited)                                                                                  │
-│ ▾ vintagestory-flk  1/1 ●              │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│   ● frosty-river-2714                  │   at boot: the bridge, NAT and port forwarding                                                                      │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ ✔ flk-machines.service  active (exited)                                                                             │
-│                                        │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│ Host                                   │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
-│   health ✔                             │                                                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │   enabled · since 2026-10-12 05:44Z                                                                                 │
+│   ● lucky-harbor-5563                  │   at boot: the bridge, NAT and port forwarding                                                                      │
+│   ▢ code_workspace 30GB                │                                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │ ✔ flk-machines.service  active (exited)                                                                             │
+│   ● frosty-river-2714                  │   enabled · since 2026-10-12 05:44Z                                                                                 │
+│   ▢ vsdata 40GB (external)             │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
 │                                        │ oneshot units: healthy is active (exited)                                                                           │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │                                                                                                                     │
+│                                        │                                                                                                                     │
 │ Storage                                │                                                                                                                     │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

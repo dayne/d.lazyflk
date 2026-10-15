@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ name      world                                                                                                     │
 │   ▢ world 40GB (external)              │ id        vol_28392490d0d4d4c7                                                                                      │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ size      40GB                                                                                                      │
-│ ▾ vintagestory-flk  1/1 ●              │ path      /data/minecraft/flk/world.ext4                                                                            │
-│   ● frosty-river-2714                  │           external: outside flk's state dir                                                                         │
-│   ▢ vsdata 40GB (external)             │ attached  mellow-aurora-7882 (225d58f615e7e6)                                                                       │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ created   2026-10-12 05:01Z                                                                                         │
+│ ▾ opencode-sandbox  1/1 ●              │ path      /data/minecraft/flk/world.ext4                                                                            │
+│   ● lucky-harbor-5563                  │           external: outside flk's state dir                                                                         │
+│   ▢ code_workspace 30GB                │ attached  mellow-aurora-7882 (225d58f615e7e6)                                                                       │
+│ ▾ vintagestory-flk  1/1 ●              │ created   2026-10-12 05:01Z                                                                                         │
+│   ● frosty-river-2714                  │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
-│   health ✔                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│ Storage                                │                                                                                                                     │
-│   / 23%                             ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
-│   /data/minecraft 66%               │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
-│   /data/vintagestory 13%            │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
-│                                     │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
-│ Podman                              │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│   ◇ itzg/minecraft-server:latest 868│ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│   ◇ ruby:3.3-alpine 69M             │ D  unregister         attached to machine 225d58f615e7e6: destroy that machine … │                                     │
-│   ◇ alpine:3.20 7.7M                │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
-│   5 flk images: host Images tab     │ n  new volume         create a volume for [[mounts]] source = NAME               │                                     │
-│                                     │                                                                                  │                                     │
-│ Services                            │ look inside it, or a backup of it: list, read, copy out (flk files)              │                                     │
-│   ● flk-net                         │ opens in lazyflk                                                                 │                                     │
-│   ● flk-machines                    ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ● ssh                             │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│   ● snap.mosquitto.mosquitto        └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│   health ✔                          ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
+│                                     │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
+│ Storage                             │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
+│   / 30%                             │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
+│   /data/minecraft 67%               │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
+│   /data/vintagestory 13%            │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│                                     │ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
+│ Podman                              │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│   ◇ 8149e56d2f50 (untagged) 8.7M    │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│   ◇ itzg/minecraft-server:latest 868│ D  unregister         attached to machine 225d58f615e7e6: destroy that machine … │                                     │
+│   ◇ dotnet/runtime:10.0 197M        │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
+│   ◇ eclipse-temurin:25-jre 341M     │ n  new volume         create a volume for [[mounts]] source = NAME               │                                     │
+│   ◇ ubuntu:24.04 77M                │                                                                                  │                                     │
+│   ◇ ruby:3.3-alpine 69M             │ look inside it, or a backup of it: list, read, copy out (flk files)              │                                     │
+│   ◇ alpine:3.20 7.7M                │ opens in lazyflk                                                                 │                                     │
+│   7 flk images: host Images tab     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│ Services                            └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│   ● flk-net                            │                                                                                                                     │
+│   ● flk-machines                       │                                                                                                                     │
+│   ● ssh                                │                                                                                                                     │
+│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

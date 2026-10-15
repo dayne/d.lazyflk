@@ -193,7 +193,7 @@ func TestNavigation(t *testing.T) {
 	if sel() != "app/minecraft-flk" {
 		t.Errorf("up from the top moved to %s", sel())
 	}
-	for range 8 {
+	for range 11 {
 		press(m, "j")
 	}
 	if sel() != "host" {

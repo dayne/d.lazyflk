@@ -1,6 +1,6 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│   ▢ world 40GB (external)  │ image docker.io/itzg/minecraft-server:latest    │
-│   ⇄ tcp/25565 udp/19132    │  Overview                                       │
+│   ● lucky-harbor-5563      │ image docker.io/itzg/minecraft-server:latest    │
+│   ▢ code_workspace 30GB    │  Overview                                       │
 │ ▾ vintagestory-flk  1/1 ●  │                                                 │
 │   ● frosty-river-2714      │ $ podman ps -a --external --format json ·       │
 │   ▢ vsdata 40GB (external) │   podman images --format json                   │

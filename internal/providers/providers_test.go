@@ -32,7 +32,7 @@ func TestStorage(t *testing.T) {
 		t.Fatalf("%d items, %v", len(items), err)
 	}
 	mc := items[1]
-	if mc.Label != "/data/minecraft 66%" || mc.State != OK || !strings.Contains(joined(mc), "holds     /data/minecraft/flk") {
+	if mc.Label != "/data/minecraft 67%" || mc.State != OK || !strings.Contains(joined(mc), "holds     /data/minecraft/flk") {
 		t.Errorf("minecraft disk: %+v", mc)
 	}
 	// the LVM chain, and room left in the volume group

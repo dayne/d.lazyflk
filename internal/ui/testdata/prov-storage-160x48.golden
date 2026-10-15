@@ -3,18 +3,21 @@
 │ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
 │   ● mellow-aurora-7882                 │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json                                                                            │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ used      66% · 32G free of 98G                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ holds     /data/minecraft/flk                                                                                       │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │ devices, from the filesystem down:                                                                                  │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
-│                                        │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
-│ Host                                   │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
-│   health ✔                             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ used      67% · 32G free of 98G                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │ holds     /data/minecraft/flk                                                                                       │
+│   ● lucky-harbor-5563                  │                                                                                                                     │
+│   ▢ code_workspace 30GB                │ devices, from the filesystem down:                                                                                  │
+│ ▾ vintagestory-flk  1/1 ●              │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
+│   ● frosty-river-2714                  │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
+│   ▢ vsdata 40GB (external)             │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
 │                                        │ 1.1T of /dev/nvme0n1p3 isn't in any logical volume yet: room to grow /data/minecraft                                │
-│ Storage                                │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │                                                                                                                     │
+│ Host                                   │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
+│   health ✔                             │                                                                                                                     │
+│                                        │                                                                                                                     │
+│ Storage                                │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

@@ -4,6 +4,9 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ starting flk events…                            │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
+│ ▾ opencode-sandbox  1/1 ●  │                                                 │
+│   ● lucky-harbor-5563      │                                                 │
+│   ▢ code_workspace 30GB    │                                                 │
 │ ▾ vintagestory-flk  1/1 ●  │                                                 │
 │   ● frosty-river-2714      │                                                 │
 │   ▢ vsdata 40GB (external) │                                                 │
@@ -13,10 +16,7 @@
 │   health ✔                 │                                                 │
 │                            │                                                 │
 │ Storage                    │                                                 │
-│   / 23%                    │                                                 │
-│   /data/minecraft 66%      │                                                 │
-│   /data/vintagestory 13%   │                                                 │
-│                            │                                                 │
+│   / 30%                    │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

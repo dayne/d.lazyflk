@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk images --json                             │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ minecraft-flk                                   │
-│   ● frosty-river-2714      │   v9     352M  running · current                │
-│   ▢ vsdata 40GB (external) │               built 2026-10-13 08:31Z ·         │
-│   ⇄ tcp/42420 udp/42420    │             cb185335b4e7                        │
-│                            │   v8     352M  older release                    │
+│ ▾ opencode-sandbox  1/1 ●  │ minecraft-flk                                   │
+│   ● lucky-harbor-5563      │   v9     352M  running · current                │
+│   ▢ code_workspace 30GB    │               built 2026-10-13 08:31Z ·         │
+│ ▾ vintagestory-flk  1/1 ●  │             cb185335b4e7                        │
+│   ● frosty-river-2714      │   v8     352M  older release                    │
+│   ▢ vsdata 40GB (external) │               built 2026-10-12 06:41Z ·         │
+│   ⇄ tcp/42420 udp/42420    │             7f0a0298ab17                        │
+│                            │   v7     352M  same image as v8                 │
 │ Host                       │               built 2026-10-12 06:41Z ·         │
 │   health ✔                 │             7f0a0298ab17                        │
-│                            │   v7     352M  same image as v8                 │
-│ Storage                    │               built 2026-10-12 06:41Z ·         │
-│   / 23%                    │             7f0a0298ab17                        │
-│   /data/minecraft 66%      │                                                 │
-│   /data/vintagestory 13%   │ vintagestory-flk                                │
-│                            │ … 11 more (pgdn)                                │
+│                            │                                                 │
+│ Storage                    │ opencode-sandbox                                │
+│   / 30%                    │ … 19 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

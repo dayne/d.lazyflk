@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk machine status           │
 │   ⇄ tcp/25565 udp/19132    │   225d58f615e7e6                                │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │ {                                               │
-│   ▢ vsdata 40GB (external) │   "id": "225d58f615e7e6",                       │
-│   ⇄ tcp/42420 udp/42420    │   "name": "mellow-aurora-7882",                 │
-│                            │   "app": "minecraft-flk",                       │
-│ Host                       │   "tap_index": 0,                               │
-│   health ✔                 │   "ip": "172.30.0.10",                          │
+│ ▾ opencode-sandbox  1/1 ●  │                                                 │
+│   ● lucky-harbor-5563      │ {                                               │
+│   ▢ code_workspace 30GB    │   "id": "225d58f615e7e6",                       │
+│ ▾ vintagestory-flk  1/1 ●  │   "name": "mellow-aurora-7882",                 │
+│   ● frosty-river-2714      │   "app": "minecraft-flk",                       │
+│   ▢ vsdata 40GB (external) │   "tap_index": 0,                               │
+│   ⇄ tcp/42420 udp/42420    │   "ip": "172.30.0.10",                          │
 │                            │   "mac": "06:00:ac:1e:00:0a",                   │
-│ Storage                    │   "release": 9,                                 │
-│   / 23%                    │   "config": {                                   │
-│   /data/minecraft 66%      │     "cpus": 4,                                  │
-│   /data/vintagestory 13%   │     "memory_mb": 11264,                         │
-│                            │ … 85 more (pgdn)                                │
+│ Host                       │   "release": 9,                                 │
+│   health ✔                 │   "config": {                                   │
+│                            │     "cpus": 4,                                  │
+│ Storage                    │     "memory_mb": 11264,                         │
+│   / 30%                    │ … 85 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

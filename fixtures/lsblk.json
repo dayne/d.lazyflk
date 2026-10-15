@@ -53,7 +53,7 @@
                      "size": 107374182400,
                      "fstype": "ext4",
                      "fssize": 105089261568,
-                     "fsavail": 77716594688,
+                     "fsavail": 70531428352,
                      "mountpoints": [
                          "/"
                      ],
@@ -77,7 +77,7 @@
                      "size": 107374182400,
                      "fstype": "ext4",
                      "fssize": 105089261568,
-                     "fsavail": 33901760512,
+                     "fsavail": 33898008576,
                      "mountpoints": [
                          "/data/minecraft"
                      ],
@@ -89,7 +89,7 @@
                      "size": 429496729600,
                      "fstype": "ext4",
                      "fssize": 421606629376,
-                     "fsavail": 195667251200,
+                     "fsavail": 186984841216,
                      "mountpoints": [
                          "/data/flk-backups"
                      ],

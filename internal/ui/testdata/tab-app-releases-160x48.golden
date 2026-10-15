@@ -4,17 +4,20 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk releases --json                                                                              │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ v9   2026-10-13 08:31Z  Dockerfile  current                                                                         │
-│ ▾ vintagestory-flk  1/1 ●              │      on mellow-aurora-7882                                                                                          │
-│   ● frosty-river-2714                  │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
-│   ▢ vsdata 40GB (external)             │ v7   2026-10-12 06:58Z  Dockerfile  kept                                                                            │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
-│                                        │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
-│ Host                                   │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
-│   health ✔                             │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
+│ ▾ opencode-sandbox  1/1 ●              │      on mellow-aurora-7882                                                                                          │
+│   ● lucky-harbor-5563                  │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
+│   ▢ code_workspace 30GB                │ v7   2026-10-12 06:58Z  Dockerfile  kept                                                                            │
+│ ▾ vintagestory-flk  1/1 ●              │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
+│   ● frosty-river-2714                  │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
+│   ▢ vsdata 40GB (external)             │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
 │                                        │ v2   2026-10-12 05:20Z  Dockerfile  pruned                                                                          │
-│ Storage                                │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│ Host                                   │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
+│   health ✔                             │                                                                                                                     │
+│                                        │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│ Storage                                │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

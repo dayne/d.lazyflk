@@ -7,6 +7,13 @@
     "config_path": "/home/dayne/minecraft.flk/flk.toml"
   },
   {
+    "name": "opencode-sandbox",
+    "machines": 1,
+    "started": 1,
+    "release": 4,
+    "config_path": "/home/dayne/opencode.flk/flk.toml"
+  },
+  {
     "name": "vintagestory-flk",
     "machines": 1,
     "started": 1,

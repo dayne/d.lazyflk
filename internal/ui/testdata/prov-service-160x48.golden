@@ -4,17 +4,20 @@
 │   ● mellow-aurora-7882                 │ $ systemctl show --timestamp=utc -p ... UNIT... · journalctl -u UNIT                                                │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ unit      ssh.service                                                                                               │
-│ ▾ vintagestory-flk  1/1 ●              │ what      OpenBSD Secure Shell server                                                                               │
-│   ● frosty-river-2714                  │ state     active (running)                                                                                          │
-│   ▢ vsdata 40GB (external)             │ enabled   disabled                                                                                                  │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ since     Sat 2026-10-10 04:46:52 UTC                                                                               │
-│                                        │ pid       9022                                                                                                      │
+│ ▾ opencode-sandbox  1/1 ●              │ what      OpenBSD Secure Shell server                                                                               │
+│   ● lucky-harbor-5563                  │ state     active (running)                                                                                          │
+│   ▢ code_workspace 30GB                │ enabled   disabled                                                                                                  │
+│ ▾ vintagestory-flk  1/1 ●              │ since     Sat 2026-10-10 04:46:52 UTC                                                                               │
+│   ● frosty-river-2714                  │ pid       9022                                                                                                      │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ pinned by default; edit ~/.config/lazyflk/pins (one unit per line) to change                                        │
+│                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
-│   health ✔                             │ pinned by default; edit ~/.config/lazyflk/pins (one unit per line) to change                                        │
+│   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Storage                                │                                                                                                                     │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │                                                                                                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Podman                                 │                                                                                                                     │
@@ -22,9 +25,10 @@
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
 │   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
+│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   5 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
@@ -32,10 +36,6 @@
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

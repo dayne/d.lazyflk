@@ -175,6 +175,107 @@
       }
     },
     {
+      "name": "opencode-sandbox",
+      "registered": true,
+      "config_warnings": [
+
+      ],
+      "home": "/home/dayne/.local/share/flk/apps/opencode-sandbox",
+      "config_path": "/home/dayne/opencode.flk/flk.toml",
+      "release": {
+        "version": 4,
+        "tag": "flk.local/opencode-sandbox:v4",
+        "path": "/home/dayne/.local/share/flk/apps/opencode-sandbox/images/v4.ext4",
+        "source": "Dockerfile",
+        "created_at": "2026-10-14T01:31:12Z",
+        "config": {
+          "cpus": 2,
+          "memory_mb": 2048,
+          "env": {
+          },
+          "mount_specs": [
+            {
+              "source": "code_workspace",
+              "destination": "/workspace"
+            }
+          ],
+          "internal_port": null,
+          "ports": [
+
+          ],
+          "kill_timeout": 15,
+          "kernel_args": null,
+          "stdin": "console",
+          "restart": {
+            "policy": "on-failure",
+            "retries": 10
+          },
+          "bind": null,
+          "checks": [
+
+          ],
+          "huge_pages": null
+        }
+      },
+      "releases": 4,
+      "scale": null,
+      "machines": [
+        {
+          "id": "476376ad8e351e",
+          "name": "lucky-harbor-5563",
+          "state": "started",
+          "desired_state": "started",
+          "pid": 2828454,
+          "restart": {
+            "policy": "on-failure",
+            "retries": 10
+          },
+          "restarts": null,
+          "release": 4,
+          "ip": "172.30.0.12",
+          "cpus": 2,
+          "memory_mb": 2048,
+          "huge_pages": null,
+          "internal_port": null,
+          "ports": [
+
+          ],
+          "volumes": [
+            {
+              "volume": "vol_c8d59e9e3f493c50",
+              "destination": "/workspace"
+            }
+          ],
+          "created_at": "2026-10-13T23:49:34Z",
+          "updated_at": "2026-10-14T01:31:13Z"
+        }
+      ],
+      "volumes": [
+        {
+          "id": "vol_c8d59e9e3f493c50",
+          "name": "code_workspace",
+          "size_gb": 30,
+          "path": "/home/dayne/.local/share/flk/apps/opencode-sandbox/volumes/vol_c8d59e9e3f493c50.ext4",
+          "attached_machine": "476376ad8e351e",
+          "created_at": "2026-10-13T23:44:35Z"
+        }
+      ],
+      "secrets": [
+        "GEMINI_API_KEY"
+      ],
+      "ports": {
+        "active": [
+
+        ],
+        "waiting": [
+
+        ],
+        "blocked": [
+
+        ]
+      }
+    },
+    {
       "name": "vintagestory-flk",
       "registered": true,
       "config_warnings": [
@@ -261,7 +362,7 @@
           "name": "frosty-river-2714",
           "state": "started",
           "desired_state": "started",
-          "pid": 2697988,
+          "pid": 3025789,
           "restart": {
             "policy": "on-failure",
             "retries": 1
@@ -292,7 +393,7 @@
             }
           ],
           "created_at": "2026-10-13T04:32:06Z",
-          "updated_at": "2026-10-13T22:29:43Z"
+          "updated_at": "2026-10-14T09:30:16Z"
         }
       ],
       "volumes": [

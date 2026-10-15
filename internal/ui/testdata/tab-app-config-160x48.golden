@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk config show --json                                                                           │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
-│ ▾ vintagestory-flk  1/1 ●              │           port: tcp :25565 within 300s                                                                              │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │ {                                                                                                                   │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
-│                                        │   "parsed": {                                                                                                       │
-│ Host                                   │     "app": "minecraft-flk",                                                                                         │
-│   health ✔                             │     "kill_timeout": 120,                                                                                            │
+│ ▾ opencode-sandbox  1/1 ●              │           port: tcp :25565 within 300s                                                                              │
+│   ● lucky-harbor-5563                  │                                                                                                                     │
+│   ▢ code_workspace 30GB                │ {                                                                                                                   │
+│ ▾ vintagestory-flk  1/1 ●              │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
+│   ● frosty-river-2714                  │   "parsed": {                                                                                                       │
+│   ▢ vsdata 40GB (external)             │     "app": "minecraft-flk",                                                                                         │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "kill_timeout": 120,                                                                                            │
 │                                        │     "build": {                                                                                                      │
-│ Storage                                │       "dockerfile": "Dockerfile"                                                                                    │
-│   / 23%                                │     },                                                                                                              │
-│   /data/minecraft 66%                  │     "env": {                                                                                                        │
-│   /data/vintagestory 13%               │       "TZ": "America/Anchorage",                                                                                    │
-│                                        │       "MC_HEAP": "8G",                                                                                              │
-│ Podman                                 │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│   ◇ itzg/minecraft-server:latest 868M  │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│   ◇ dotnet/runtime:10.0 197M           │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
-│   ◇ eclipse-temurin:25-jre 341M        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
-│   ◇ ruby:3.3-alpine 69M                │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│   ◇ alpine:3.20 7.7M                   │       "RESTART_DELAY": "10",                                                                                        │
-│   5 flk images: host Images tab        │       "MAX_RESTARTS": "5",                                                                                          │
-│                                        │       "RESTART_WINDOW": "600",                                                                                      │
-│ Services                               │       "STOP_TIMEOUT": "100",                                                                                        │
-│   ● flk-net                            │       "DISCORD_NAME": "Minecraft",                                                                                  │
-│   ● flk-machines                       │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
-│   ● ssh                                │     },                                                                                                              │
-│   ● snap.mosquitto.mosquitto           │     "restart": [                                                                                                    │
-│   ● chrony                             │       {                                                                                                             │
-│                                        │         "policy": "on-failure",                                                                                     │
-│                                        │         "retries": 1                                                                                                │
-│                                        │       }                                                                                                             │
-│                                        │     ],                                                                                                              │
+│ Host                                   │       "dockerfile": "Dockerfile"                                                                                    │
+│   health ✔                             │     },                                                                                                              │
+│                                        │     "env": {                                                                                                        │
+│ Storage                                │       "TZ": "America/Anchorage",                                                                                    │
+│   / 30%                                │       "MC_HEAP": "8G",                                                                                              │
+│   /data/minecraft 67%                  │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│   /data/vintagestory 13%               │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│ Podman                                 │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│   ◇ 8149e56d2f50 (untagged) 8.7M       │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
+│   ◇ itzg/minecraft-server:latest 868M  │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
+│   ◇ dotnet/runtime:10.0 197M           │       "RESTART_DELAY": "10",                                                                                        │
+│   ◇ eclipse-temurin:25-jre 341M        │       "MAX_RESTARTS": "5",                                                                                          │
+│   ◇ ubuntu:24.04 77M                   │       "RESTART_WINDOW": "600",                                                                                      │
+│   ◇ ruby:3.3-alpine 69M                │       "STOP_TIMEOUT": "100",                                                                                        │
+│   ◇ alpine:3.20 7.7M                   │       "DISCORD_NAME": "Minecraft",                                                                                  │
+│   7 flk images: host Images tab        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
+│                                        │     },                                                                                                              │
+│ Services                               │     "restart": [                                                                                                    │
+│   ● flk-net                            │       {                                                                                                             │
+│   ● flk-machines                       │         "policy": "on-failure",                                                                                     │
+│   ● ssh                                │         "retries": 1                                                                                                │
+│   ● snap.mosquitto.mosquitto           │       }                                                                                                             │
+│   ● chrony                             │     ],                                                                                                              │
 │                                        │     "flk": {                                                                                                        │
 │                                        │       "backup": {                                                                                                   │
 │                                        │         "mode": "live",                                                                                             │

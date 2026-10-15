@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
-│ ▾ vintagestory-flk  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● frosty-river-2714                  │   cpu 6% · 9427MB used · up 25m                                                                                     │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│                                        │        udp/19132 → 10.47.11.3:19132                                                                                 │
-│ Host                                   │ volume world 40GB (external)                                                                                        │
-│   health ✔                             │   /data/minecraft/flk/world.ext4                                                                                    │
+│ ▾ opencode-sandbox  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
+│   ● lucky-harbor-5563                  │   cpu 4% · 10900MB used · up 30h 12m                                                                                │
+│   ▢ code_workspace 30GB                │                                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│   ● frosty-river-2714                  │        udp/19132 → 10.47.11.3:19132                                                                                 │
+│   ▢ vsdata 40GB (external)             │ volume world 40GB (external)                                                                                        │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   /data/minecraft/flk/world.ext4                                                                                    │
+│                                        │                                                                                                                     │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Storage                                │                                                                                                                     │
-│   / 23%                                │                                                                                                                     │
-│   /data/minecraft 66%                  │                                                                                                                     │
-│   /data/vintagestory 13%               │                                                                                                                     │
-│                                        │                                                                                                                     │
-│ Podman                              ┌ destroy app ─ minecraft-flk ─────────────────────────────────────────────────────┐                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ $ flk apps destroy minecraft-flk --yes                                           │                                     │
+│   / 30%                                │                                                                                                                     │
+│   /data/minecraft 67%               ┌ destroy app ─ minecraft-flk ─────────────────────────────────────────────────────┐                                     │
+│   /data/vintagestory 13%            │ $ flk apps destroy minecraft-flk --yes                                           │                                     │
+│                                     │                                                                                  │                                     │
+│ Podman                              │ Deletes minecraft-flk: 1 machine, 1 volume and its releases. External volume     │                                     │
+│   ◇ 8149e56d2f50 (untagged) 8.7M    │ files are kept. Its backups are kept. This can't be undone.                      │                                     │
 │   ◇ itzg/minecraft-server:latest 868│                                                                                  │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ Deletes minecraft-flk: 1 machine, 1 volume and its releases. External volume     │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ files are kept. Its backups are kept. This can't be undone.                      │                                     │
-│   ◇ ruby:3.3-alpine 69M             │                                                                                  │                                     │
-│   ◇ alpine:3.20 7.7M                │ Type minecraft-flk to confirm: min▏                                              │                                     │
-│   5 flk images: host Images tab     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│                                     │ enter run (once it matches)  esc cancel                                          │                                     │
-│ Services                            └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│   ◇ dotnet/runtime:10.0 197M        │ Type minecraft-flk to confirm: min▏                                              │                                     │
+│   ◇ eclipse-temurin:25-jre 341M     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│   ◇ ubuntu:24.04 77M                │ enter run (once it matches)  esc cancel                                          │                                     │
+│   ◇ ruby:3.3-alpine 69M             └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│ Services                               │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
 │   ● flk-machines                       │                                                                                                                     │
 │   ● ssh                                │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

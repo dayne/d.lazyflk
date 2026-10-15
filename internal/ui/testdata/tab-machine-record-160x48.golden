@@ -4,38 +4,38 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk machine status 225d58f615e7e6                                                                │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ {                                                                                                                   │
-│ ▾ vintagestory-flk  1/1 ●              │   "id": "225d58f615e7e6",                                                                                           │
-│   ● frosty-river-2714                  │   "name": "mellow-aurora-7882",                                                                                     │
-│   ▢ vsdata 40GB (external)             │   "app": "minecraft-flk",                                                                                           │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "tap_index": 0,                                                                                                   │
-│                                        │   "ip": "172.30.0.10",                                                                                              │
-│ Host                                   │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
-│   health ✔                             │   "release": 9,                                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │   "id": "225d58f615e7e6",                                                                                           │
+│   ● lucky-harbor-5563                  │   "name": "mellow-aurora-7882",                                                                                     │
+│   ▢ code_workspace 30GB                │   "app": "minecraft-flk",                                                                                           │
+│ ▾ vintagestory-flk  1/1 ●              │   "tap_index": 0,                                                                                                   │
+│   ● frosty-river-2714                  │   "ip": "172.30.0.10",                                                                                              │
+│   ▢ vsdata 40GB (external)             │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "release": 9,                                                                                                     │
 │                                        │   "config": {                                                                                                       │
-│ Storage                                │     "cpus": 4,                                                                                                      │
-│   / 23%                                │     "memory_mb": 11264,                                                                                             │
-│   /data/minecraft 66%                  │     "env": {                                                                                                        │
-│   /data/vintagestory 13%               │       "TZ": "America/Anchorage",                                                                                    │
-│                                        │       "MC_HEAP": "8G",                                                                                              │
-│ Podman                                 │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│   ◇ itzg/minecraft-server:latest 868M  │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│   ◇ dotnet/runtime:10.0 197M           │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
-│   ◇ eclipse-temurin:25-jre 341M        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
-│   ◇ ruby:3.3-alpine 69M                │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│   ◇ alpine:3.20 7.7M                   │       "RESTART_DELAY": "10",                                                                                        │
-│   5 flk images: host Images tab        │       "MAX_RESTARTS": "5",                                                                                          │
-│                                        │       "RESTART_WINDOW": "600",                                                                                      │
-│ Services                               │       "STOP_TIMEOUT": "100",                                                                                        │
-│   ● flk-net                            │       "DISCORD_NAME": "Minecraft",                                                                                  │
-│   ● flk-machines                       │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
-│   ● ssh                                │     },                                                                                                              │
-│   ● snap.mosquitto.mosquitto           │     "mount_specs": [                                                                                                │
-│   ● chrony                             │       {                                                                                                             │
-│                                        │         "source": "world",                                                                                          │
-│                                        │         "destination": "/server"                                                                                    │
-│                                        │       }                                                                                                             │
-│                                        │     ],                                                                                                              │
+│ Host                                   │     "cpus": 4,                                                                                                      │
+│   health ✔                             │     "memory_mb": 11264,                                                                                             │
+│                                        │     "env": {                                                                                                        │
+│ Storage                                │       "TZ": "America/Anchorage",                                                                                    │
+│   / 30%                                │       "MC_HEAP": "8G",                                                                                              │
+│   /data/minecraft 67%                  │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│   /data/vintagestory 13%               │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│ Podman                                 │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│   ◇ 8149e56d2f50 (untagged) 8.7M       │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
+│   ◇ itzg/minecraft-server:latest 868M  │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
+│   ◇ dotnet/runtime:10.0 197M           │       "RESTART_DELAY": "10",                                                                                        │
+│   ◇ eclipse-temurin:25-jre 341M        │       "MAX_RESTARTS": "5",                                                                                          │
+│   ◇ ubuntu:24.04 77M                   │       "RESTART_WINDOW": "600",                                                                                      │
+│   ◇ ruby:3.3-alpine 69M                │       "STOP_TIMEOUT": "100",                                                                                        │
+│   ◇ alpine:3.20 7.7M                   │       "DISCORD_NAME": "Minecraft",                                                                                  │
+│   7 flk images: host Images tab        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
+│                                        │     },                                                                                                              │
+│ Services                               │     "mount_specs": [                                                                                                │
+│   ● flk-net                            │       {                                                                                                             │
+│   ● flk-machines                       │         "source": "world",                                                                                          │
+│   ● ssh                                │         "destination": "/server"                                                                                    │
+│   ● snap.mosquitto.mosquitto           │       }                                                                                                             │
+│   ● chrony                             │     ],                                                                                                              │
 │                                        │     "internal_port": 25565,                                                                                         │
 │                                        │     "ports": [                                                                                                      │
 │                                        │       {                                                                                                             │

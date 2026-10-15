@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk volumes backups --json   │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ world 40GB (external)                           │
-│   ● frosty-river-2714      │   id        vol_28392490d0d4d4c7                │
-│   ▢ vsdata 40GB (external) │   size      40GB                                │
-│   ⇄ tcp/42420 udp/42420    │   path      /data/minecraft/flk/world.ext4      │
-│                            │             external: outside flk's state dir   │
-│ Host                       │   attached  mellow-aurora-7882 (225d58f615e7e6) │
-│   health ✔                 │   created   2026-10-12 05:01Z                   │
-│                            │   backup    2026-10-13 22:15Z (checked clean    │
-│ Storage                    │     (journal replayed), 7 kept)                 │
-│   / 23%                    │             verified clean 2026-10-13 22:15Z    │
-│   /data/minecraft 66%      │                                                 │
-│   /data/vintagestory 13%   │ enter on a volume: back up, restore, extend     │
+│ ▾ opencode-sandbox  1/1 ●  │ world 40GB (external)                           │
+│   ● lucky-harbor-5563      │   id        vol_28392490d0d4d4c7                │
+│   ▢ code_workspace 30GB    │   size      40GB                                │
+│ ▾ vintagestory-flk  1/1 ●  │   path      /data/minecraft/flk/world.ext4      │
+│   ● frosty-river-2714      │             external: outside flk's state dir   │
+│   ▢ vsdata 40GB (external) │   attached  mellow-aurora-7882 (225d58f615e7e6) │
+│   ⇄ tcp/42420 udp/42420    │   created   2026-10-12 05:01Z                   │
+│                            │   backup    2026-10-14 10:00Z (checked clean    │
+│ Host                       │     (journal replayed), 7 kept)                 │
+│   health ✔                 │             verified clean 2026-10-14 10:00Z    │
 │                            │                                                 │
+│ Storage                    │ enter on a volume: back up, restore, extend     │
+│   / 30%                    │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

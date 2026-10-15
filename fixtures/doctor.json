@@ -73,7 +73,7 @@
       "hint": null
     },
     {
-      "label": "backups go to /data/flk-backups: 189.9GB now, about 201.8GB at their keep counts; 182.2GB free; full copies (ext4 has no reflinks)",
+      "label": "backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 has no reflinks)",
       "status": "pass",
       "hint": null
     },
@@ -83,7 +83,7 @@
       "hint": null
     },
     {
-      "label": "flk-agent is older than its source (built at the next deploy)",
+      "label": "flk-agent built (flk exec in releases deployed from now on)",
       "status": "pass",
       "hint": null
     }

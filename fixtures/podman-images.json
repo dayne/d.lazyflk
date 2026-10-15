@@ -1,5 +1,56 @@
 [
     {
+        "Id": "afefdc27a88471ffa75cf1b15ce053a79e7e74521efbe6f7ec500beb6f637a85",
+        "ParentId": "b36ccd432259a6a5e7e144e131cf78809963677d5072573810dad6ca9a13efa2",
+        "RepoTags": null,
+        "RepoDigests": [
+            "flk.local/opencode-sandbox@sha256:1f09f1a712e38d6d5f1836a2ae76da918c414c2cc288f638047a375cc1f684c3"
+        ],
+        "Size": 1128271859,
+        "SharedSize": 0,
+        "VirtualSize": 1128271859,
+        "Labels": {
+            "io.buildah.version": "1.42.1",
+            "org.opencontainers.image.version": "24.04"
+        },
+        "Containers": 0,
+        "Digest": "sha256:1f09f1a712e38d6d5f1836a2ae76da918c414c2cc288f638047a375cc1f684c3",
+        "History": [
+            "flk.local/opencode-sandbox:v4"
+        ],
+        "Names": [
+            "flk.local/opencode-sandbox:v4"
+        ],
+        "Created": 1791941465,
+        "CreatedAt": "2026-10-14T01:31:05Z"
+    },
+    {
+        "Id": "51321681ce0f85c8a8209d140e864d33e17f03416f35ab72cd178a6300193c06",
+        "ParentId": "5eac52ff03a0f30fb92446e24876f8bdba4f295d0121c8c43136c973efe7b521",
+        "RepoTags": null,
+        "RepoDigests": [
+            "flk.local/opencode-sandbox@sha256:3a82a492f4ad1aa9cef445349534ff3824cbcb83c6de06717bd5cdcf065c5595"
+        ],
+        "Size": 657416592,
+        "SharedSize": 0,
+        "VirtualSize": 657416592,
+        "Labels": {
+            "io.buildah.version": "1.42.1",
+            "org.opencontainers.image.version": "24.04"
+        },
+        "Containers": 0,
+        "Digest": "sha256:3a82a492f4ad1aa9cef445349534ff3824cbcb83c6de06717bd5cdcf065c5595",
+        "History": [
+            "flk.local/opencode-sandbox:v3",
+            "flk.local/opencode-sandbox:v2"
+        ],
+        "Names": [
+            "flk.local/opencode-sandbox:v3"
+        ],
+        "Created": 1791936323,
+        "CreatedAt": "2026-10-14T00:05:23Z"
+    },
+    {
         "Id": "8149e56d2f500066c4196be95f82a4f423ee590c3b8cd073ed9eca5e76db4117",
         "ParentId": "bf8527eb54c3680e728d5b4b383a8ba730d72dae7236fbc8dff97ed6b224a731",
         "RepoTags": null,
@@ -277,6 +328,31 @@
         ],
         "Created": 1790903995,
         "CreatedAt": "2026-10-02T01:19:55Z"
+    },
+    {
+        "Id": "69f919497cada9a8611f3de61df902d9f94bf20f84552ef5bd93125c38608ef9",
+        "ParentId": "",
+        "RepoTags": null,
+        "RepoDigests": [
+            "docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+            "docker.io/library/ubuntu@sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b"
+        ],
+        "Size": 80701300,
+        "SharedSize": 0,
+        "VirtualSize": 80701300,
+        "Labels": {
+            "org.opencontainers.image.version": "24.04"
+        },
+        "Containers": 0,
+        "Digest": "sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+        "History": [
+            "docker.io/library/ubuntu:24.04"
+        ],
+        "Names": [
+            "docker.io/library/ubuntu:24.04"
+        ],
+        "Created": 1789766438,
+        "CreatedAt": "2026-09-18T21:20:38Z"
     },
     {
         "Id": "bcb4ac884729525309f5eef7e42253caf915fa0ea8b35f9d677b3724625780d2",
