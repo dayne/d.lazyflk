@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/fixtures"
 )
 
 func TestParseDFFixture(t *testing.T) {

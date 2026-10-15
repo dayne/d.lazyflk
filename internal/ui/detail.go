@@ -2,11 +2,11 @@ package ui
 
 import (
 	"fmt"
-	"lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/actions"
 	"strings"
 	"time"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // detail returns the right pane's title and Overview lines for a node.

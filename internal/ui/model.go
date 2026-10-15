@@ -11,10 +11,10 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
-	"lazyflk/internal/providers"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/providers"
 )
 
 const minWidth, minHeight = 80, 24
@@ -80,12 +80,12 @@ type Model struct {
 	boxZones  []boxZone
 	footPairs []string
 
-	loadGen   int  // the newest context load; older answers are dropped
+	loadGen     int        // the newest context load; older answers are dropped
 	ev          *eventFeed // flk events --follow (G7), nil until started
 	reloadAgain bool       // an event came in during a load: load again after
 	lastLoad    time.Time  // when the last full context load started
-	quitting  bool // quit once the running job ends
-	quitArmed bool // q pressed once while a job runs
+	quitting    bool       // quit once the running job ends
+	quitArmed   bool       // q pressed once while a job runs
 }
 
 type contextMsg struct {

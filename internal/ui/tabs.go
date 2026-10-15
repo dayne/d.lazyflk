@@ -10,8 +10,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
 )
 
 // Detail tabs per selection (SPEC 5.1). Services and Images on the host

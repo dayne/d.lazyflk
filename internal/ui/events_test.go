@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 func eventLine(at time.Time, app, typ string) flk.Line {

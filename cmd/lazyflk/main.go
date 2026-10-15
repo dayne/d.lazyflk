@@ -12,11 +12,11 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
-	"lazyflk/internal/providers"
-	"lazyflk/internal/ui"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/providers"
+	"github.com/dayne/d.lazyflk/internal/ui"
 )
 
 func main() {

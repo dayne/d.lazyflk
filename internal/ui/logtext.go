@@ -7,7 +7,7 @@ import (
 
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 type logKind int

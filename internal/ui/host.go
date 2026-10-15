@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
 )
 
 // M4: host extras from flk's G4–G10. Each degrades on an older flk: the

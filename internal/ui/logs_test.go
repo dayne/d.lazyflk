@@ -8,8 +8,8 @@ import (
 
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 func TestClassifyLog(t *testing.T) {

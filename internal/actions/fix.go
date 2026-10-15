@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 var (

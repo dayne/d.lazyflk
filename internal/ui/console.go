@@ -7,8 +7,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // attachView explains the console before handing over the terminal

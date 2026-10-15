@@ -8,8 +8,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 func typeText(m *Model, s string) {

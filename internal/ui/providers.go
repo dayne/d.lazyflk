@@ -7,9 +7,9 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
-	"lazyflk/internal/providers"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/providers"
 )
 
 // Providers (SPEC 10): sections below Host for the rest of what the

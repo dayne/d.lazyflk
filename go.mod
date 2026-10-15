@@ -1,4 +1,4 @@
-module lazyflk
+module github.com/dayne/d.lazyflk
 
 go 1.27.2
 

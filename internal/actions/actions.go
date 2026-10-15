@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // Kind is what's selected.

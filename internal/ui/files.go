@@ -12,9 +12,9 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
 )
 
 // filesView browses a volume, or a backup of it, with flk files (flk

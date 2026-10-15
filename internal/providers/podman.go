@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/actions"
 )
 
 // Podman is the containers and images podman keeps next to flk's: test

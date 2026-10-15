@@ -10,8 +10,8 @@ import (
 	"io/fs"
 	"strings"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // Host gives the runner for a program on this host (podman, systemctl,

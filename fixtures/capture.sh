@@ -46,6 +46,6 @@ id -Gn > id-groups.txt
 buildah --version > buildah-version.txt
 journalctl -u chrony.service -n 40 --no-pager -o short-iso > journal-chrony.txt
 
-# flk's version: its last commit outside lazyflk/
+# flk's version: the commit of the flk checkout on PATH
 src="$(dirname "$(readlink -f "$(command -v flk)")")/.."
-echo "captured at flk $(git -C "$src" log -1 --format=%h -- . ':!lazyflk' 2>/dev/null || echo '?'); update fixtures/README.md"
+echo "captured at flk $(git -C "$src" log -1 --format=%h 2>/dev/null || echo '?'); update fixtures/README.md"

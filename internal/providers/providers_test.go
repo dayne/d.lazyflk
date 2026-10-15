@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 func demo() (Host, Env) {

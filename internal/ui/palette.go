@@ -9,8 +9,8 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // paletteView is the command palette (SPEC 5.5): every flk command, from

@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/actions"
 )
 
 // Services is flk's own systemd units, then the ones the admin pins

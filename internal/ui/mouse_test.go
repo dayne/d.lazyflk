@@ -7,8 +7,8 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // at finds text on the screen (the nth occurrence, from 0), as a cell.

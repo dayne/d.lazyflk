@@ -2,11 +2,11 @@ package ui
 
 import (
 	"fmt"
-	"lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/actions"
 	"sort"
 	"strings"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 type nodeKind int

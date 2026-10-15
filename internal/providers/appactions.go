@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // App actions (SPEC 10.4): a .lazyflk.toml next to an app's flk.toml

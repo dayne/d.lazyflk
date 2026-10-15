@@ -13,8 +13,8 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // Tree rows in the demo: app, machine, volume, ports, then the host.

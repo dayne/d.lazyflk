@@ -7,7 +7,7 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/actions"
 )
 
 // An action goes menu → form (if it has fields) → confirm (if it needs

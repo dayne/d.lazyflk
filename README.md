@@ -1,8 +1,12 @@
 # lazyflk
 
-A terminal UI for hosts running [flk](../). See `SPEC.md` for scope and
-milestones, and `AGENTS.md` if you're an agent working on it.
+A terminal UI for hosts running [flk](https://github.com/dayne/d.flk)
+(local Firecracker microVMs with the fly.io workflow). See `SPEC.md` for
+scope and design, `TODO.md` for what's open, and `AGENTS.md` if you're an
+agent working on it.
 
+    go install github.com/dayne/d.lazyflk/cmd/lazyflk@latest
+    # or, from a checkout:
     go build -o lazyflk ./cmd/lazyflk
     ./lazyflk --demo        # fixtures/, no flk calls
     ./lazyflk               # flk from --flk, $LAZYFLK_FLK or PATH

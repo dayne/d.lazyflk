@@ -15,10 +15,10 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
-	"lazyflk/internal/host"
-	"lazyflk/internal/providers"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/providers"
 )
 
 var update = flag.Bool("update", false, "rewrite testdata/*.golden")

@@ -1,7 +1,7 @@
 # lazyflk TODO
 
-lazyflk's own backlog. What lazyflk needs from flk is in `../TODO.md`
-("For lazyflk") and SPEC section 9; G1–G11 are done.
+lazyflk's own backlog. What lazyflk needs from flk is in flk's `TODO.md`
+("For lazyflk", github.com/dayne/d.flk) and SPEC section 9; G1–G11 are done.
 
 ## Future
 

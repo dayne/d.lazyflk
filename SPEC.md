@@ -1,8 +1,9 @@
 # lazyflk: a terminal UI for flk hosts
 
-Status: spec, ready to build. Written 2026-10-12 alongside flk 0.1.0
-(commit a51bf79). lazyflk lives in flk's repo as `lazyflk/`, a separate Go
-module; flk itself stays Ruby and stdlib-only. Real outputs from the
+Status: v1 done 2026-10-13 (section 8). Written 2026-10-12 alongside flk
+0.1.0 (commit a51bf79). lazyflk started in flk's repo as `lazyflk/` and
+moved to its own repo (github.com/dayne/d.lazyflk) on 2026-10-14; it talks
+to flk only through flk's CLI. Real outputs from the
 reference host are in `fixtures/`.
 
 ## 1. Why
@@ -192,11 +193,11 @@ flk on the UI thread.
 - One `flk` client package: runs commands with a context timeout, decodes
   JSON into structs whose fields are optional, and has a fake implementation
   that serves `fixtures/` for tests and `--demo` mode.
-- Layout, under `lazyflk/` in flk's repo with its own `go.mod`:
+- Layout (module `github.com/dayne/d.lazyflk`):
   `cmd/lazyflk/`, `internal/flk/` (client and types), `internal/ui/`
   (views), `internal/actions/` (the action table, which maps selection to
   command), `internal/providers/` (from M5), `fixtures/`. Build output is
-  git-ignored. flk's Ruby code and `tests/run.sh` must not depend on Go.
+  git-ignored. flk must not depend on lazyflk.
 - No config file in v1. Flags: `--read-only`, `--demo` (fixtures, no flk
   calls), `--refresh 5s`, `--flk PATH`.
 
@@ -207,7 +208,7 @@ flk on the UI thread.
 - A fake flk binary (a script that prints fixtures and records argv) checks
   that each action runs exactly the command it displays.
 - Manual run against the real host, using only `flkt-*` test apps for
-  actions (create them from `../tests/apps/hello` or `mcshadow`). **Never
+  actions (create them from flk's `tests/apps/hello` or `mcshadow`). **Never
   run actions against `minecraft-flk` or other real apps while testing.**
 
 v1 is done when, starting from the main view and without leaving lazyflk,
@@ -243,7 +244,7 @@ reboot banner in the followed log (SPEC 5.2), and `x` dismissed it.
 
 ## 9. What flk needs to add first (gaps)
 
-These are flk changes, made in the parent directory (its `AGENTS.md` explains how; the
+These are flk changes, made in flk's repo (its `AGENTS.md` explains how; the
 command table is `lib/flk/commands.rb`, tests `tests/run.sh`). Do G1–G3
 before the matching lazyflk milestone.
 
@@ -329,7 +330,8 @@ in flk (G7 events: c0a98f4). Open items: `TODO.md`.
 
 ## 12. Decisions (owner, 2026-10-12)
 
-- **Home:** `lazyflk/` inside flk's repo, as its own Go module.
+- **Home:** `lazyflk/` inside flk's repo, as its own Go module. (Changed
+  2026-10-14: its own repo, github.com/dayne/d.lazyflk.)
 - **Root steps:** shown as commands to copy, never run (for now).
 - **Beyond flk:** the priority order in section 10 (storage, podman,
   pinned systemd services, app actions), chosen from the reference host.

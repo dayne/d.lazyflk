@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/fixtures"
 )
 
 func fakeClient() (*Client, *Fake) {

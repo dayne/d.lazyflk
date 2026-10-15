@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"lazyflk/internal/actions"
-	"lazyflk/internal/host"
+	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/host"
 )
 
 // Storage is every filesystem holding flk's data, with the

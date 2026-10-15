@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"lazyflk/fixtures"
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/fixtures"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 func hostContext(t *testing.T) flk.HostContext {

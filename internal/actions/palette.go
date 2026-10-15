@@ -3,7 +3,7 @@ package actions
 import (
 	"strings"
 
-	"lazyflk/internal/flk"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // Entry is one command of the palette (SPEC 5.5), from flk's own command
