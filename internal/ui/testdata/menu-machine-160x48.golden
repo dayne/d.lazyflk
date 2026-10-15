@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ id        225d58f615e7e6                                                                                            │
 │   ▢ world 40GB (external)              │ name      mellow-aurora-7882                                                                                        │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ state     ● started                                                                                                 │
-│ ▾ opencode-sandbox  1/1 ●              │ release   v9                                                                                                        │
-│   ● lucky-harbor-5563                  │ ip        172.30.0.10:25565                                                                                         │
-│   ▢ code_workspace 30GB                │ size      4 cpus · 11264MB                                                                                          │
-│ ▾ vintagestory-flk  1/1 ●              │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
-│   ● frosty-river-2714                  │ memory    10910MB used of 11264MB                                                                                   │
-│   ▢ vsdata 40GB (external)             │ up        31h 32m                                                                                                   │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ pid       2273109 (firecracker)                                                                                     │
-│                                     ┌ minecraft-flk / mellow-aurora-7882 ─ actions ────────────────────────────────────┐                                     │
-│ Host                                │ s  start          already running                                                │                                     │
-│   health ✔                          │ S  stop           stop gracefully; it stays stopped, also after reboots          │                                     │
-│                                     │ r  restart        stop, then boot                                                │                                     │
-│ ▸ Storage  fullest 67%              │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
-│                                     │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
-│ ▸ Podman  9 images                  │ l  logs           follow its console output                                      │                                     │
+│ ▾ mqtt-flk  1/1 ●                      │ release   v9                                                                                                        │
+│   ● hidden-comet-2020                  │ ip        172.30.0.10:25565                                                                                         │
+│   ▢ mqttdata 1GB                       │ size      4 cpus · 11264MB                                                                                          │
+│   ⇄ 10.47.11.3: tcp/1883               │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
+│ ▾ opencode-sandbox  1/1 ●              │ memory    10910MB used of 11264MB                                                                                   │
+│   ● lucky-harbor-5563                  │ up        31h 59m                                                                                                   │
+│   ▢ code_workspace 30GB                │ pid       2273109 (firecracker)                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●           ┌ minecraft-flk / mellow-aurora-7882 ─ actions ────────────────────────────────────┐                                     │
+│   ● frosty-river-2714               │ s  start          already running                                                │                                     │
+│   ▢ vsdata 40GB (external)          │ S  stop           stop gracefully; it stays stopped, also after reboots          │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ r  restart        stop, then boot                                                │r-machine names                      │
+│                                     │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
+│ Host                                │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
+│   health ✔                          │ l  logs           follow its console output                                      │                                     │
 │                                     │ c  console        attach to its serial console (detach: Ctrl-b d)                │                                     │
-│ ▸ Services  4 running, 1 off        │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
+│ ▸ Storage  fullest 67%              │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
 │                                     │ R  record         flk machine status: its record and state                       │                                     │
-│                                     │ 1  who            who's online (RCON)                                            │                                     │
+│ ▸ Podman  10 images                 │ 1  who            who's online (RCON)                                            │                                     │
 │                                     │ 2  say            broadcast a message to the players (RCON)                      │                                     │
-│                                     │ 3  save           write the world to disk now and wait until it's saved          │                                     │
+│ ▸ Services  4 running, 1 off        │ 3  save           write the world to disk now and wait until it's saved          │                                     │
 │                                     │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
 │                                     │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
 │                                     │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │

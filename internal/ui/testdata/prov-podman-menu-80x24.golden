@@ -1,10 +1,10 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ image localhost/mqtt-flk-test:latest            │
 │ ▸ minecraft-flk  1/1 ●     │  Overview                                       │
-│ ▸ opencode-sandbox  1/1 ●  │                                                 │
-│ ▸ vintagestory-flk  1/1 ●  │ $ podman ps -a --external --format json ·       │
-│                            │   podman images --format json                   │
-│ Host                       │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │                                                 │
+│ ▸ opencode-sandbox  1/1 ●  │ $ podman ps -a --external --format json ·       │
+│ ▸ vintagestory-flk  1/1 ●  │   podman images --format json                   │
+│                            │                                                 │
 │ ┌ image localhost/mqtt-flk-test:latest ─ actions ──────────────────────────┐ │
 │ │ c  copy: podman image rm localhost/mqt…  lazyflk doesn't delete images;… │ │
 │ │ p  copy: podman image prune              removes images nothing uses or… │ │
@@ -14,9 +14,9 @@
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│   ◇ 8149e56d2f50 (untagge… │   download it again.                            │
-│   ◇ itzg/minecraft-server… │                                                 │
-│   ◇ dotnet/runtime:10.0 1… │                                                 │
+│   ◇ localhost/mqtt-flk-te… │   download it again.                            │
+│   ◇ 7d2e85beb5a7 (untagge… │                                                 │
+│   ◇ 8149e56d2f50 (untagge… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

@@ -4,40 +4,40 @@
 │   ● mellow-aurora-7882                 │ $ df -k --output=target,size,used,avail,pcent /home/dayne/.local/share/flk /data/minecraft/flk                      │
 │   ▢ world 40GB (external)              │   /data/vintagestory/flk                                                                                            │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │                                                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │  32% ███░░░░░░░ /                                                                                                   │
-│   ● lucky-harbor-5563                  │      64G free of 98G                                                                                                │
-│   ▢ code_workspace 30GB                │      holds /home/dayne/.local/share/flk                                                                             │
+│ ▾ mqtt-flk  1/1 ●                      │  32% ███░░░░░░░ /                                                                                                   │
+│   ● hidden-comet-2020                  │      64G free of 98G                                                                                                │
+│   ▢ mqttdata 1GB                       │      holds /home/dayne/.local/share/flk                                                                             │
+│   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │  67% ██████░░░░ /data/minecraft                                                                                     │
+│   ● lucky-harbor-5563                  │      32G free of 98G                                                                                                │
+│   ▢ code_workspace 30GB                │      holds /data/minecraft/flk                                                                                      │
 │ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │  67% ██████░░░░ /data/minecraft                                                                                     │
-│   ▢ vsdata 40GB (external)             │      32G free of 98G                                                                                                │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │      holds /data/minecraft/flk                                                                                      │
+│   ● frosty-river-2714                  │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
+│   ▢ vsdata 40GB (external)             │      122G free of 147G                                                                                              │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │      holds /data/vintagestory/flk                                                                                   │
 │                                        │                                                                                                                     │
-│ Host                                   │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
-│   health ✔                             │      122G free of 147G                                                                                              │
-│                                        │      holds /data/vintagestory/flk                                                                                   │
+│ Host                                   │ $ flk disk --json                                                                                                   │
+│   health ✔                             │ What flk uses  (allocated; sparse files count what's written)                                                       │
+│                                        │ state     8.4G in /home/dayne/.local/share/flk                                                                      │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
-│                                        │ $ flk disk --json                                                                                                   │
-│ ▸ Podman  9 images                     │ What flk uses  (allocated; sparse files count what's written)                                                       │
-│                                        │ state     8.3G in /home/dayne/.local/share/flk                                                                      │
-│ ▸ Services  4 running, 1 off           │                                                                                                                     │
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
-│                                        │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
-│                                        │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
+│ ▸ Podman  10 images                    │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
+│                                        │ mqtt-flk              93M      35M      33M      76K        -                                                       │
+│ ▸ Services  4 running, 1 off           │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
 │                                        │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
-│                                        │ all                  4.7G     2.7G     818M     2.4M      29G                                                       │
+│                                        │ all                  4.8G     2.7G     851M     2.5M      29G                                                       │
 │                                        │                                                                                                                     │
-│                                        │ backups   198G in /data/flk-backups                                                                                 │
+│                                        │ backups   199G in /data/flk-backups                                                                                 │
 │                                        │           minecraft-flk    144G                                                                                     │
 │                                        │             world          143G in 7 backups                                                                        │
+│                                        │           mqtt-flk         2.9M                                                                                     │
+│                                        │             mqttdata       2.9M in 3 backups                                                                        │
 │                                        │           opencode-sandbox 0K                                                                                       │
 │                                        │             code_workspace 0K in 0 backups                                                                          │
 │                                        │           vintagestory-flk 55G                                                                                      │
 │                                        │             vsdata         55G in 7 backups                                                                         │
 │                                        │                                                                                                                     │
 │                                        │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

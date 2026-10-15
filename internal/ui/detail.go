@@ -50,6 +50,10 @@ func (m *Model) appOverview(a flk.App) []string {
 	if a.Scale != nil {
 		out = append(out, fmt.Sprintf("%s %d", styleLabel.Render("scale"), *a.Scale))
 	}
+	if n := internalAnswering(a); n > 0 {
+		out = append(out, fmt.Sprintf("%s %s.internal %s", styleLabel.Render("internal"), a.Name,
+			styleDim.Render("(other machines reach it so; answered by "+plural(n, "machine")+")")))
+	}
 	out = append(out, "")
 	if len(a.Machines) == 0 {
 		out = append(out, styleLabel.Render("machines")+" none")
@@ -80,6 +84,21 @@ func (m *Model) appOverview(a flk.App) []string {
 	return out
 }
 
+// internalAnswering counts the machines whose names (flk's list) include
+// APP.internal: the running ones, with [flk] internal_hosts.
+func internalAnswering(a flk.App) int {
+	n := 0
+	for _, mc := range a.Machines {
+		for _, name := range mc.InternalNames {
+			if name == a.Name+".internal" {
+				n++
+				break
+			}
+		}
+	}
+	return n
+}
+
 func (m *Model) machineOverview(a flk.App, mc flk.Machine) []string {
 	out := []string{
 		field("id", mc.ID),
@@ -99,6 +118,19 @@ func (m *Model) machineOverview(a flk.App, mc flk.Machine) []string {
 			label = "ports"
 		}
 		out = append(out, field(label, fmt.Sprintf("%s/%d → %s", p.Proto, p.Port, forwardedTo(a.Ports, mc, p))))
+	}
+	switch names := mc.InternalNames; {
+	case names == nil: // an older flk
+	case len(names) == 0:
+		out = append(out, field("names", styleDim.Render("none: [flk] internal_hosts = true gives "+a.Name+".internal and per-machine names")))
+	default:
+		for i, n := range names {
+			label := ""
+			if i == 0 {
+				label = "names"
+			}
+			out = append(out, field(label, n))
+		}
 	}
 	for i, mt := range mc.Volumes {
 		label := ""

@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
-│ ▾ opencode-sandbox  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● lucky-harbor-5563                  │   cpu 4% · 10910MB used · up 31h 32m                                                                                │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│   ● frosty-river-2714                  │        udp/19132 → 10.47.11.3:19132                                                                                 │
-│   ▢ vsdata 40GB (external)             │ volume world 40GB (external)                                                                                        │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   /data/minecraft/flk/world.ext4                                                                                    │
+│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
+│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│ ▾ opencode-sandbox  1/1 ●              │        udp/19132 → 10.47.11.3:19132                                                                                 │
+│   ● lucky-harbor-5563                  │ volume world 40GB (external)                                                                                        │
+│   ▢ code_workspace 30GB                │   /data/minecraft/flk/world.ext4                                                                                    │
+│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
+│   ● frosty-river-2714                  │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

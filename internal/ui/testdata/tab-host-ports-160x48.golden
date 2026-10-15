@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk ports list --json                                                                                             │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ helper    installed                                                                                                 │
-│ ▾ opencode-sandbox  1/1 ●              │ host      10.47.11.3 · ports from 1024                                                                              │
-│   ● lucky-harbor-5563                  │                                                                                                                     │
-│   ▢ code_workspace 30GB                │ tcp/25565 → 10.47.11.3:25565                                                                                        │
-│ ▾ vintagestory-flk  1/1 ●              │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
-│   ● frosty-river-2714                  │ udp/19132 → 10.47.11.3:19132                                                                                        │
-│   ▢ vsdata 40GB (external)             │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ tcp/42420 → 10.47.11.3:42420                                                                                        │
+│ ▾ mqtt-flk  1/1 ●                      │ host      10.47.11.3 · ports from 1024                                                                              │
+│   ● hidden-comet-2020                  │                                                                                                                     │
+│   ▢ mqttdata 1GB                       │ tcp/25565 → 10.47.11.3:25565                                                                                        │
+│   ⇄ 10.47.11.3: tcp/1883               │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
+│ ▾ opencode-sandbox  1/1 ●              │ udp/19132 → 10.47.11.3:19132                                                                                        │
+│   ● lucky-harbor-5563                  │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
+│   ▢ code_workspace 30GB                │ tcp/1883 → 10.47.11.3:1883                                                                                          │
+│ ▾ vintagestory-flk  1/1 ●              │   mqtt-flk / hidden-comet-2020 172.30.0.15:1883                                                                     │
+│   ● frosty-river-2714                  │ tcp/42420 → 10.47.11.3:42420                                                                                        │
+│   ▢ vsdata 40GB (external)             │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ udp/42420 → 10.47.11.3:42420                                                                                        │
 │                                        │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
-│ Host                                   │ udp/42420 → 10.47.11.3:42420                                                                                        │
-│   health ✔                             │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

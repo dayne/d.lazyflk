@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ tcp/25565 → 10.47.11.3:25565                    │
 │   ⇄ tcp/25565 udp/19132    │   mellow-aurora-7882 172.30.0.10:25565          │
-│ ▾ opencode-sandbox  1/1 ●  │ udp/19132 → 10.47.11.3:19132                    │
-│   ● lucky-harbor-5563      │   mellow-aurora-7882 172.30.0.10:19132          │
-│   ▢ code_workspace 30GB    │                                                 │
-│ ▸ vintagestory-flk  1/1 ●  │ from this host: 172.30.0.10:25565               │
-│                            │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ udp/19132 → 10.47.11.3:19132                    │
+│ ▸ opencode-sandbox  1/1 ●  │   mellow-aurora-7882 172.30.0.10:19132          │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│                            │ from this host: 172.30.0.10:25565               │
 │ Host                       │                                                 │
 │   health ✔                 │                                                 │
 │                            │                                                 │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ ▸ Podman  9 images         │                                                 │
+│ ▸ Podman  10 images        │                                                 │
 │                            │                                                 │
 │ ▸ Services  4 running, 1 … │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

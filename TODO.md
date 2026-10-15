@@ -117,9 +117,16 @@ attention fix rolled it back).
 - [x] **G14** (flk a6c6975): new volume has an owner field when flk lists
   `volumes create --owner` (`flk.Help.HasOption`, so an older flk gets
   the old form); `owner_from_image` on the volume Overview.
-- [ ] flk a6c6975 also added app-level `flk start|stop|restart`: the app
-  menu could offer them (today: stop all / resume, which keep machines
-  meant to run).
+- [x] App-level `flk start|stop|restart` (a6c6975): app menu s, S, R and
+  `s` on an app; stop all moved to p. Checked live on a test app.
+- [x] `--test-apps flkt-`: actions only on test apps (after a live check
+  stopped mqtt-flk by a wrong selection; it was started again in a
+  minute). Checked live: refused on minecraft-flk.
+- [x] Internal names (flk M4 ad960ec, G16 0227eac): flk's `internal_names`
+  on the machine Overview, APP.internal on the app's, `internal_hosts` on
+  Config. Checked live on a two-machine test app.
+- [ ] Services: a socket-activated unit (ssh here, `TriggeredBy=ssh.socket`)
+  shows as off while idle; show it as listening when its socket is active.
 - [ ] Maybe: `/` filters the tree, if a host outgrows folding.
 
 ## Known gaps

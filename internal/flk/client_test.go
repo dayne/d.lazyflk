@@ -33,7 +33,7 @@ func TestDecodeFixtures(t *testing.T) {
 	if hc.Flk.Version != "0.1.0" || !hc.Host.OK || hc.Host.LanIP != "10.47.11.116" || !hc.Host.BootService {
 		t.Errorf("host context: %+v", hc)
 	}
-	if len(hc.Apps) != 3 || hc.Schema != Schema || hc.Apps[0].Name != app || hc.Apps[0].Release == nil || hc.Apps[0].Release.Version != hc.Apps[0].Machines[0].Release || hc.Apps[0].Scale != nil || hc.Apps[0].ConfigPath != "/home/dayne/minecraft.flk/flk.toml" {
+	if len(hc.Apps) < 3 || hc.Schema != Schema || hc.Apps[0].Name != app || hc.Apps[0].Release == nil || hc.Apps[0].Release.Version != hc.Apps[0].Machines[0].Release || hc.Apps[0].Scale != nil || hc.Apps[0].ConfigPath != "/home/dayne/minecraft.flk/flk.toml" {
 		t.Fatalf("apps: %+v", hc.Apps)
 	}
 	a := hc.Apps[0]
@@ -64,11 +64,11 @@ func TestDecodeFixtures(t *testing.T) {
 	}
 	// G4, G8, G10
 	stats, err := c.Stats(ctx)
-	if err != nil || len(stats) != 3 || stats[0].CPUPercent == nil || stats[0].RSSMB == nil || stats[0].UptimeS == nil || stats[0].MemoryMB != 11264 {
+	if err != nil || len(stats) != len(hc.Apps) || stats[0].CPUPercent == nil || stats[0].RSSMB == nil || stats[0].UptimeS == nil || stats[0].MemoryMB != 11264 {
 		t.Errorf("stats: %+v, %v", stats, err)
 	}
 	du, err := c.DiskUse(ctx)
-	if err != nil || du.StateDir.Path == "" || du.StateDir.Bytes == 0 || len(du.Apps) != 3 || du.Apps[0].Images.Bytes == 0 ||
+	if err != nil || du.StateDir.Path == "" || du.StateDir.Bytes == 0 || len(du.Apps) != len(hc.Apps) || du.Apps[0].Images.Bytes == 0 ||
 		du.Apps[0].ExternalVolumes.Apparent == 0 || du.Backups == nil || du.Backups.Apps[app].Bytes == 0 {
 		t.Errorf("disk: %+v, %v", du, err)
 	}
@@ -82,16 +82,16 @@ func TestDecodeFixtures(t *testing.T) {
 			unused++
 		}
 	}
-	// the reference host runs three apps; older releases' images are kept
-	if err != nil || imgs[0].Release == nil || !imgs[0].Running || imgs[0].SizeBytes == 0 || running != 3 || unused == 0 {
+	// the reference host runs every app; older releases' images are kept
+	if err != nil || imgs[0].Release == nil || !imgs[0].Running || imgs[0].SizeBytes == 0 || running != len(hc.Apps) || unused == 0 {
 		t.Errorf("images: %+v, %v", imgs, err)
 	}
 	apps, err := c.Apps(ctx)
-	if err != nil || len(apps) != 3 || apps[0].Started != 1 || apps[0].ConfigPath == "" {
+	if err != nil || len(apps) != len(hc.Apps) || apps[0].Started != 1 || apps[0].ConfigPath == "" {
 		t.Errorf("apps: %+v, %v", apps, err)
 	}
 	pl, err := c.Ports(ctx)
-	if err != nil || !pl.HelperInstalled || pl.MinPort != 1024 || len(pl.Active) != 4 {
+	if err != nil || !pl.HelperInstalled || pl.MinPort != 1024 || len(pl.Active) < 4 {
 		t.Errorf("ports: %+v, %v", pl, err)
 	}
 	st, err := c.Status(ctx, app)
@@ -320,5 +320,21 @@ func TestVolumeOwnerFromImage(t *testing.T) {
 	var v Volume
 	if err := json.Unmarshal([]byte(`{"name":"data","owner_from_image":true}`), &v); err != nil || !v.OwnerFromImage {
 		t.Errorf("%+v %v", v, err)
+	}
+}
+
+// internal_names (flk 0227eac): [] when off, missing from an older flk.
+func TestInternalNames(t *testing.T) {
+	var on, off, old Machine
+	json.Unmarshal([]byte(`{"internal_names":["a.internal","x.vm.a.internal"]}`), &on)
+	json.Unmarshal([]byte(`{"internal_names":[]}`), &off)
+	json.Unmarshal([]byte(`{}`), &old)
+	if len(on.InternalNames) != 2 || off.InternalNames == nil || len(off.InternalNames) != 0 || old.InternalNames != nil {
+		t.Errorf("on %v, off %#v, old %#v", on.InternalNames, off.InternalNames, old.InternalNames)
+	}
+	c, _ := fakeClient()
+	hc, _ := c.HostContext(context.Background())
+	if n := hc.Apps[0].Machines[0].InternalNames; n == nil || len(n) != 0 {
+		t.Errorf("the fixture's flk has the field, off: %#v", n)
 	}
 }

@@ -1,21 +1,21 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ filesystem /data/minecraft ─  Overview          │
 │ ▸ minecraft-flk  1/1 ●     │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
-│ ▸ vintagestory-flk  1/1 ●  │                                                 │
-│                            │ used      67% · 32G free of 98G                 │
-│ Host                       │ holds     /data/minecraft/flk                   │
-│   health ✔                 │                                                 │
-│                            │ devices, from the filesystem down:              │
-│ ▾ Storage                  │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G,   │
-│   / 32%                    │     ext4                                        │
-│   /data/minecraft 67%      │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
-│   /data/vintagestory 13%   │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
-│                            │                                                 │
-│ ▸ Podman  9 images         │ 1.1T of /dev/nvme0n1p3 isn't in any logical     │
-│                            │   volume yet: room to grow /data/minecraft      │
-│ ▸ Services  4 running, 1 … │   (e.g. sudo lvextend -r -L +10G                │
-│                            │     /dev/mapper/ubuntu--vg-mc--data)            │
+│ ▸ mqtt-flk  1/1 ●          │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
+│ ▸ opencode-sandbox  1/1 ●  │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ used      67% · 32G free of 98G                 │
+│                            │ holds     /data/minecraft/flk                   │
+│ Host                       │                                                 │
+│   health ✔                 │ devices, from the filesystem down:              │
+│                            │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G,   │
+│ ▾ Storage                  │     ext4                                        │
+│   / 32%                    │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
+│   /data/minecraft 67%      │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
+│   /data/vintagestory 13%   │                                                 │
+│                            │ 1.1T of /dev/nvme0n1p3 isn't in any logical     │
+│ ▸ Podman  10 images        │   volume yet: room to grow /data/minecraft      │
+│                            │   (e.g. sudo lvextend -r -L +10G                │
+│ ▸ Services  4 running, 1 … │     /dev/mapper/ubuntu--vg-mc--data)            │
 │                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │

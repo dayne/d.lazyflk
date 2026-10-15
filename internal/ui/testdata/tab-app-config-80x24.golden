@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk config show --json       │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ E edits flk.toml in your editor; d deploys it   │
-│   ● lucky-harbor-5563      │                                                 │
-│   ▢ code_workspace 30GB    │ checks    ready: log line "Started Geyser on    │
-│ ▸ vintagestory-flk  1/1 ●  │           UDP port 19132" within 300s           │
-│                            │           port: tcp :25565 within 300s          │
-│ Host                       │                                                 │
-│   health ✔                 │ {                                               │
-│                            │   "file": "/home/dayne/minecraft.flk/flk.toml", │
-│ ▸ Storage  fullest 67%     │   "parsed": {                                   │
-│                            │     "app": "minecraft-flk",                     │
-│ ▸ Podman  9 images         │     "kill_timeout": 120,                        │
-│                            │     "build": {                                  │
-│ ▸ Services  4 running, 1 … │ … 187 more (pgdn)                               │
+│ ▸ mqtt-flk  1/1 ●          │ E edits flk.toml in your editor; d deploys it   │
+│ ▸ opencode-sandbox  1/1 ●  │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ checks    ready: log line "Started Geyser on    │
+│                            │           UDP port 19132" within 300s           │
+│ Host                       │           port: tcp :25565 within 300s          │
+│   health ✔                 │ internal  off: [flk] internal_hosts = true for  │
+│                            │           APP.internal names                    │
+│ ▸ Storage  fullest 67%     │                                                 │
+│                            │ {                                               │
+│ ▸ Podman  10 images        │   "file": "/home/dayne/minecraft.flk/flk.toml", │
+│                            │   "parsed": {                                   │
+│ ▸ Services  4 running, 1 … │     "app": "minecraft-flk",                     │
+│                            │ … 189 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

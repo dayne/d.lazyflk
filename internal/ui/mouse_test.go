@@ -54,8 +54,8 @@ func TestMouseMain(t *testing.T) {
 	}
 	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
 
-	click(t, m, "frosty-river-2714", 0) // a tree row
-	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" {
+	click(t, m, "hidden-comet-2020", 0) // a tree row
+	if sel() != "machine/mqtt-flk/3b94db4908c652" {
 		t.Errorf("clicked to %s", sel())
 	}
 	click(t, m, "Record", 0) // a tab

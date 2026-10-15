@@ -563,6 +563,13 @@ func configLines(text string, w int) []string {
 		if len(cs.MachineConfig.Checks) == 0 {
 			out = append(out, field("checks", styleDim.Render("none: deploy waits up to 30s for internal_port")))
 		}
+		if ih := cs.MachineConfig.InternalHosts; ih != nil {
+			v := styleDim.Render("off: [flk] internal_hosts = true for APP.internal names")
+			if *ih {
+				v = "on: machines reach each other as APP.internal (in /etc/hosts, after a deploy)"
+			}
+			out = append(out, field("internal", v))
+		}
 		out = append(out, "")
 	}
 	return append(out, strings.Split(strings.TrimRight(cleanText(text), "\n"), "\n")...)

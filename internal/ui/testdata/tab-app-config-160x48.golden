@@ -4,25 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk config show --json                                                                           │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ E edits flk.toml in your editor; d deploys it                                                                       │
+│ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
+│   ● hidden-comet-2020                  │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
+│   ▢ mqttdata 1GB                       │           port: tcp :25565 within 300s                                                                              │
+│   ⇄ 10.47.11.3: tcp/1883               │ internal  off: [flk] internal_hosts = true for APP.internal names                                                   │
 │ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
-│   ▢ code_workspace 30GB                │           port: tcp :25565 within 300s                                                                              │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │ {                                                                                                                   │
-│   ▢ vsdata 40GB (external)             │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "parsed": {                                                                                                       │
-│                                        │     "app": "minecraft-flk",                                                                                         │
-│ Host                                   │     "kill_timeout": 120,                                                                                            │
-│   health ✔                             │     "build": {                                                                                                      │
+│   ● lucky-harbor-5563                  │ {                                                                                                                   │
+│   ▢ code_workspace 30GB                │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │   "parsed": {                                                                                                       │
+│   ● frosty-river-2714                  │     "app": "minecraft-flk",                                                                                         │
+│   ▢ vsdata 40GB (external)             │     "kill_timeout": 120,                                                                                            │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "build": {                                                                                                      │
 │                                        │       "dockerfile": "Dockerfile"                                                                                    │
-│ ▸ Storage  fullest 67%                 │     },                                                                                                              │
-│                                        │     "env": {                                                                                                        │
-│ ▸ Podman  9 images                     │       "TZ": "America/Anchorage",                                                                                    │
-│                                        │       "MC_HEAP": "8G",                                                                                              │
-│ ▸ Services  4 running, 1 off           │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│ Host                                   │     },                                                                                                              │
+│   health ✔                             │     "env": {                                                                                                        │
+│                                        │       "TZ": "America/Anchorage",                                                                                    │
+│ ▸ Storage  fullest 67%                 │       "MC_HEAP": "8G",                                                                                              │
+│                                        │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│ ▸ Podman  10 images                    │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
 │                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│ ▸ Services  4 running, 1 off           │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
 │                                        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
 │                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
 │                                        │       "RESTART_DELAY": "10",                                                                                        │
@@ -39,8 +40,7 @@
 │                                        │       }                                                                                                             │
 │                                        │     ],                                                                                                              │
 │                                        │     "flk": {                                                                                                        │
-│                                        │       "backup": {                                                                                                   │
-│                                        │ … 133 more (pgdn)                                                                                                   │
+│                                        │ … 134 more (pgdn)                                                                                                   │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                                                                                                    │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤

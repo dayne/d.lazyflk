@@ -53,7 +53,7 @@
                      "size": 107374182400,
                      "fstype": "ext4",
                      "fssize": 105089261568,
-                     "fsavail": 68725288960,
+                     "fsavail": 68498407424,
                      "mountpoints": [
                          "/"
                      ],
@@ -89,7 +89,7 @@
                      "size": 429496729600,
                      "fstype": "ext4",
                      "fssize": 421606629376,
-                     "fsavail": 186984841216,
+                     "fsavail": 186930229248,
                      "mountpoints": [
                          "/data/flk-backups"
                      ],

@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
-│ ▾ opencode-sandbox  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● lucky-harbor-5563                  │   cpu 4% · 10910MB used · up 31h 32m                                                                                │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│   ● frosty-river-2714               ┌ volumes backup ─ minecraft-flk ──────────────────────────────────────────────────┐                                     │
-│   ▢ vsdata 40GB (external)          │ Copy volumes (default: all of the app's) to the backup dir, then prune old       │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ copies                                                                           │                                     │
-│                                     │ · How the app is kept from writing comes from [flk.backup] in flk.toml (see flk  │                                     │
-│ Host                                │   help --all): by default its machine is stopped for the copy and started again; │                                     │
-│   health ✔                          │   mode = "live" with pre/post hooks (e.g. save-off / save-on) copies while it    │                                     │
-│                                     │   runs.                                                                          │                                     │
-│ ▸ Storage  fullest 67%              │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
-│                                     │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
-│ ▸ Podman  9 images                  │   machine gets its journal replayed).                                            │                                     │
+│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
+│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│ ▾ opencode-sandbox  1/1 ●           ┌ volumes backup ─ minecraft-flk ──────────────────────────────────────────────────┐                                     │
+│   ● lucky-harbor-5563               │ Copy volumes (default: all of the app's) to the backup dir, then prune old       │                                     │
+│   ▢ code_workspace 30GB             │ copies                                                                           │                                     │
+│ ▾ vintagestory-flk  1/1 ●           │ · How the app is kept from writing comes from [flk.backup] in flk.toml (see flk  │                                     │
+│   ● frosty-river-2714               │   help --all): by default its machine is stopped for the copy and started again; │                                     │
+│   ▢ vsdata 40GB (external)          │   mode = "live" with pre/post hooks (e.g. save-off / save-on) copies while it    │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │   runs.                                                                          │                                     │
+│                                     │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
+│ Host                                │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
+│   health ✔                          │   machine gets its journal replayed).                                            │                                     │
 │                                     │ · With backup_copy_to in ~/.config/flk/host.toml, the new backup is then copied  │                                     │
-│ ▸ Services  4 running, 1 off        │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
+│ ▸ Storage  fullest 67%              │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
 │                                     │   the backup is kept.                                                            │                                     │
-│                                     │                                                                                  │                                     │
+│ ▸ Podman  10 images                 │                                                                                  │                                     │
 │                                     │ app         [minecraft-flk▏                                                    ] │                                     │
-│                                     │             the app (-a); the selection's app by default                         │                                     │
+│ ▸ Services  4 running, 1 off        │             the app (-a); the selection's app by default                         │                                     │
 │                                     │ ID|NAME...  [                                                                  ] │                                     │
 │                                     │ --to DIR    [                                                                  ] │                                     │
 │                                     │ --keep N    [                                                                  ] │                                     │

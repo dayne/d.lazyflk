@@ -4,14 +4,14 @@
 │   ! mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ release v9 (of 9) · 2026-10-13 08:31Z           │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ! stopped, should be     │
-│ ▸ vintagestory-flk  1/1 ●  │   started 172.30.0.10                           │
-│                            │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│ Host                       │   cpu 4% · 10910MB used · up 31h 32m            │
-│   health ✔                 │                                                 │
-│                            │ ports  tcp/25565 → 10.47.11.3:25565             │
-│ ▸ Storage  fullest 67%     │        udp/19132 → 10.47.11.3:19132             │
-│                            │ … 12 more (pgdn)                                │
+│ ▸ mqtt-flk  1/1 ●          │ machine 225d58f615e7e6 ! stopped, should be     │
+│ ▸ opencode-sandbox  1/1 ●  │   started 172.30.0.10                           │
+│ ▸ vintagestory-flk  1/1 ●  │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
+│                            │   cpu 4% · 10910MB used · up 31h 59m            │
+│ Host                       │                                                 │
+│   health ✔                 │ ports  tcp/25565 → 10.47.11.3:25565             │
+│                            │        udp/19132 → 10.47.11.3:19132             │
+│ ▸ Storage  fullest 67%     │ … 12 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ … 1 above                                                                    │
 │ › minecraft-flk: machine 225d58f615e7e6 [mellow-aurora-7882] should be       │

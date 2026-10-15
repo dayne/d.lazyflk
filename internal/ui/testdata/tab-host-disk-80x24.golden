@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ df -k --output=target,size,used,avail,pcent   │
 │   ⇄ tcp/25565 udp/19132    │   /home/dayne/.local/share/flk                  │
-│ ▾ opencode-sandbox  1/1 ●  │   /data/minecraft/flk /data/vintagestory/flk    │
-│   ● lucky-harbor-5563      │                                                 │
-│   ▢ code_workspace 30GB    │  32% ███░░░░░░░ /                               │
-│ ▸ vintagestory-flk  1/1 ●  │      64G free of 98G                            │
-│                            │      holds /home/dayne/.local/share/flk         │
-│ Host                       │                                                 │
-│   health ✔                 │  67% ██████░░░░ /data/minecraft                 │
-│                            │      32G free of 98G                            │
-│ ▸ Storage  fullest 67%     │      holds /data/minecraft/flk                  │
-│                            │                                                 │
-│ ▸ Podman  9 images         │  13% █░░░░░░░░░ /data/vintagestory              │
-│                            │      122G free of 147G                          │
-│ ▸ Services  4 running, 1 … │ … 29 more (pgdn)                                │
+│ ▸ mqtt-flk  1/1 ●          │   /data/minecraft/flk /data/vintagestory/flk    │
+│ ▸ opencode-sandbox  1/1 ●  │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │  32% ███░░░░░░░ /                               │
+│                            │      64G free of 98G                            │
+│ Host                       │      holds /home/dayne/.local/share/flk         │
+│   health ✔                 │                                                 │
+│                            │  67% ██████░░░░ /data/minecraft                 │
+│ ▸ Storage  fullest 67%     │      32G free of 98G                            │
+│                            │      holds /data/minecraft/flk                  │
+│ ▸ Podman  10 images        │                                                 │
+│                            │  13% █░░░░░░░░░ /data/vintagestory              │
+│ ▸ Services  4 running, 1 … │      122G free of 147G                          │
+│                            │ … 33 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

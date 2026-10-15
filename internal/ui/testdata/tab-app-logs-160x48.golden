@@ -3,31 +3,27 @@
 │ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk logs -n 200 --no-tail                                                                        │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ [16:12:44] [Server thread/INFO]: RapidToad0906 (/178.63.123.77:47611) lost connection: Disconnected                 │
-│ ▾ opencode-sandbox  1/1 ●              │ [16:26:12] [Server thread/INFO]: JollyMole7571 (/176.65.148.253:46232) lost connection: Disconnected                │
-│   ● lucky-harbor-5563                  │ [16:36:54] [Server thread/INFO]: QuietViper0305 (/178.63.123.75:59319) lost connection: Disconnected                │
-│   ▢ code_workspace 30GB                │ [16:47:29] [Server thread/INFO]: SwiftGecko4161 (/178.63.123.76:4279) lost connection: Disconnected                 │
-│ ▾ vintagestory-flk  1/1 ●              │ [16:57:08] [Server thread/INFO]: TidyShark8286 (/178.63.123.74:45877) lost connection: Disconnected                 │
-│   ● frosty-river-2714                  │ [17:07:40] [Server thread/INFO]: RapidToad7520 (/178.63.179.212:11539) lost connection: Disconnected                │
-│   ▢ vsdata 40GB (external)             │ [17:12:50] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Timed out                         │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ [17:18:23] [Server thread/INFO]: ZanyCrab0451 (/176.65.148.253:50614) lost connection: Disconnected                 │
-│                                        │ [17:30:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
-│ Host                                   │ [17:31:02] [Server thread/INFO]: EpicLynx5810 (/176.65.148.253:58390) lost connection: Disconnected                 │
-│   health ✔                             │ [17:43:12] [Server thread/INFO]: IcyTiger0819 (/178.63.179.210:1969) lost connection: Disconnected                  │
-│                                        │ [17:54:58] [Server thread/INFO]: HollowCedar1073 (/178.63.123.77:36893) lost connection: Disconnected               │
-│ ▸ Storage  fullest 67%                 │ [18:08:23] [Server thread/INFO]: KeenElk3032 (/46.4.84.244:23521) lost connection: Disconnected                     │
-│                                        │ [18:19:54] [Server thread/INFO]: JollyLemur8886 (/178.63.123.74:30741) lost connection: Disconnected                │
-│ ▸ Podman  9 images                     │ [18:20:18] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
-│                                        │ [18:29:51] [Server thread/INFO]: SlyElk4148 (/46.4.84.241:15327) lost connection: Disconnected                      │
-│ ▸ Services  4 running, 1 off           │ [18:43:05] [Server thread/INFO]: TidyToad4567 (/46.4.84.241:60773) lost connection: Disconnected                    │
-│                                        │ [18:51:23] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
-│                                        │ [18:54:09] [Server thread/INFO]: WittyOtter7266 (/178.63.179.211:15983) lost connection: Disconnected               │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ [16:57:08] [Server thread/INFO]: TidyShark8286 (/178.63.123.74:45877) lost connection: Disconnected                 │
+│ ▾ mqtt-flk  1/1 ●                      │ [17:07:40] [Server thread/INFO]: RapidToad7520 (/178.63.179.212:11539) lost connection: Disconnected                │
+│   ● hidden-comet-2020                  │ [17:12:50] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Timed out                         │
+│   ▢ mqttdata 1GB                       │ [17:18:23] [Server thread/INFO]: ZanyCrab0451 (/176.65.148.253:50614) lost connection: Disconnected                 │
+│   ⇄ 10.47.11.3: tcp/1883               │ [17:30:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
+│ ▾ opencode-sandbox  1/1 ●              │ [17:31:02] [Server thread/INFO]: EpicLynx5810 (/176.65.148.253:58390) lost connection: Disconnected                 │
+│   ● lucky-harbor-5563                  │ [17:43:12] [Server thread/INFO]: IcyTiger0819 (/178.63.179.210:1969) lost connection: Disconnected                  │
+│   ▢ code_workspace 30GB                │ [17:54:58] [Server thread/INFO]: HollowCedar1073 (/178.63.123.77:36893) lost connection: Disconnected               │
+│ ▾ vintagestory-flk  1/1 ●              │ [18:08:23] [Server thread/INFO]: KeenElk3032 (/46.4.84.244:23521) lost connection: Disconnected                     │
+│   ● frosty-river-2714                  │ [18:19:54] [Server thread/INFO]: JollyLemur8886 (/178.63.123.74:30741) lost connection: Disconnected                │
+│   ▢ vsdata 40GB (external)             │ [18:20:18] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ [18:29:51] [Server thread/INFO]: SlyElk4148 (/46.4.84.241:15327) lost connection: Disconnected                      │
+│                                        │ [18:43:05] [Server thread/INFO]: TidyToad4567 (/46.4.84.241:60773) lost connection: Disconnected                    │
+│ Host                                   │ [18:51:23] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
+│   health ✔                             │ [18:54:09] [Server thread/INFO]: WittyOtter7266 (/178.63.179.211:15983) lost connection: Disconnected               │
 │                                        │ [19:06:58] [Server thread/INFO]: RapidOwl0032 (/46.4.84.241:28813) lost connection: Disconnected                    │
-│                                        │ [19:18:47] [Server thread/INFO]: CalmOwl5301 (/178.63.179.212:13613) lost connection: Disconnected                  │
+│ ▸ Storage  fullest 67%                 │ [19:18:47] [Server thread/INFO]: CalmOwl5301 (/178.63.179.212:13613) lost connection: Disconnected                  │
 │                                        │ [19:30:12] [Server thread/INFO]: 2dMo3nkR (/199.83.103.112:51012) lost connection: Disconnected                     │
-│                                        │ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) lost connection: Disconnected               │
+│ ▸ Podman  10 images                    │ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) lost connection: Disconnected               │
 │                                        │ [19:42:02] [Server thread/INFO]: QuickWasp1340 (/178.63.123.77:52435) lost connection: Disconnected                 │
-│                                        │ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost connection: Disconnected                 │
+│ ▸ Services  4 running, 1 off           │ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost connection: Disconnected                 │
 │                                        │ [20:01:52] [Server thread/INFO]: BraveMole2456 (/178.63.179.211:36705) lost connection: Disconnected                │
 │                                        │ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost connection: Disconnected                 │
 │                                        │ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
@@ -40,6 +36,10 @@
 │                                        │ [21:31:20] [Server thread/INFO]: SlyBear4387 (/178.63.179.210:47735) lost connection: Disconnected                  │
 │                                        │ [21:34:27] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
 │                                        │ [21:42:04] [Server thread/INFO]: FuzzyShark3012 (/178.63.123.73:51633) lost connection: Disconnected                │
+│                                        │ [21:52:46] [Server thread/INFO]: FuzzyMule8984 (/178.63.179.212:52959) lost connection: Disconnected                │
+│                                        │ [22:03:34] [Server thread/INFO]: IcyHeron6680 (/178.63.179.209:32847) lost connection: Disconnected                 │
+│                                        │ [22:13:06] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │
+│                                        │ [22:16:26] [Server thread/INFO]: NobleMango0131 (/178.63.123.77:12193) lost connection: Disconnected                │
 │                                        │ l: follow, search, wrap (full screen)                                                                               │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                                                                                                    │

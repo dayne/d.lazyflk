@@ -4,15 +4,19 @@
 │   ● mellow-aurora-7882                 │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json                                                                            │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ used      67% · 32G free of 98G                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │ holds     /data/minecraft/flk                                                                                       │
-│   ● lucky-harbor-5563                  │                                                                                                                     │
-│   ▢ code_workspace 30GB                │ devices, from the filesystem down:                                                                                  │
-│ ▾ vintagestory-flk  1/1 ●              │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
-│   ● frosty-river-2714                  │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
-│   ▢ vsdata 40GB (external)             │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
+│ ▾ mqtt-flk  1/1 ●                      │ holds     /data/minecraft/flk                                                                                       │
+│   ● hidden-comet-2020                  │                                                                                                                     │
+│   ▢ mqttdata 1GB                       │ devices, from the filesystem down:                                                                                  │
+│   ⇄ 10.47.11.3: tcp/1883               │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
+│ ▾ opencode-sandbox  1/1 ●              │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
+│   ● lucky-harbor-5563                  │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
+│   ▢ code_workspace 30GB                │                                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │ 1.1T of /dev/nvme0n1p3 isn't in any logical volume yet: room to grow /data/minecraft                                │
+│   ● frosty-river-2714                  │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
-│                                        │ 1.1T of /dev/nvme0n1p3 isn't in any logical volume yet: room to grow /data/minecraft                                │
-│ Host                                   │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
+│                                        │                                                                                                                     │
+│ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
@@ -20,13 +24,9 @@
 │   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk doctor --json                             │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ flk       0.1.0                                 │
-│   ● lucky-harbor-5563      │ state     /home/dayne/.local/share/flk          │
-│   ▢ code_workspace 30GB    │ source    /home/dayne/flk                       │
-│ ▸ vintagestory-flk  1/1 ●  │ LAN IP    10.47.11.116                          │
-│                            │ address   10.47.11.3 (advertised; host.toml     │
-│ Host                       │           address)                              │
-│   health ✔                 │ boot      installed                             │
-│                            │ health    ✔ ready                               │
-│ ▸ Storage  fullest 67%     │ data dirs /home/dayne/.local/share/flk          │
-│                            │           /data/minecraft/flk                   │
-│ ▸ Podman  9 images         │           /data/vintagestory/flk                │
-│                            │                                                 │
-│ ▸ Services  4 running, 1 … │ … 26 more (pgdn)                                │
+│ ▸ mqtt-flk  1/1 ●          │ flk       0.1.0                                 │
+│ ▸ opencode-sandbox  1/1 ●  │ state     /home/dayne/.local/share/flk          │
+│ ▸ vintagestory-flk  1/1 ●  │ source    /home/dayne/flk                       │
+│                            │ LAN IP    10.47.11.116                          │
+│ Host                       │ address   10.47.11.3 (advertised; host.toml     │
+│   health ✔                 │           address)                              │
+│                            │ boot      installed                             │
+│ ▸ Storage  fullest 67%     │ health    ✔ ready                               │
+│                            │ data dirs /home/dayne/.local/share/flk          │
+│ ▸ Podman  10 images        │           /data/minecraft/flk                   │
+│                            │           /data/vintagestory/flk                │
+│ ▸ Services  4 running, 1 … │                                                 │
+│                            │ … 26 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

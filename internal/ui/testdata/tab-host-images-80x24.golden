@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk images --json                             │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ minecraft-flk                                   │
-│   ● lucky-harbor-5563      │   v9     352M  running · current                │
-│   ▢ code_workspace 30GB    │               built 2026-10-13 08:31Z ·         │
-│ ▸ vintagestory-flk  1/1 ●  │             cb185335b4e7                        │
-│                            │   v8     352M  older release                    │
-│ Host                       │               built 2026-10-12 06:41Z ·         │
-│   health ✔                 │             7f0a0298ab17                        │
-│                            │   v7     352M  same image as v8                 │
-│ ▸ Storage  fullest 67%     │               built 2026-10-12 06:41Z ·         │
+│ ▸ mqtt-flk  1/1 ●          │ minecraft-flk                                   │
+│ ▸ opencode-sandbox  1/1 ●  │   v9     352M  running · current                │
+│ ▸ vintagestory-flk  1/1 ●  │               built 2026-10-13 08:31Z ·         │
+│                            │             cb185335b4e7                        │
+│ Host                       │   v7     352M  older release                    │
+│   health ✔                 │               built 2026-10-12 06:41Z ·         │
 │                            │             7f0a0298ab17                        │
-│ ▸ Podman  9 images         │                                                 │
-│                            │ opencode-sandbox                                │
-│ ▸ Services  4 running, 1 … │ … 19 more (pgdn)                                │
+│ ▸ Storage  fullest 67%     │   v8     352M  same image as v7                 │
+│                            │               built 2026-10-12 06:41Z ·         │
+│ ▸ Podman  10 images        │             7f0a0298ab17                        │
+│                            │                                                 │
+│ ▸ Services  4 running, 1 … │ mqtt-flk                                        │
+│                            │ … 27 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

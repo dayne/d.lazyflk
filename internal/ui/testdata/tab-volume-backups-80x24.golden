@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk volumes backups --json   │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ world-20261014T100001Z.ext4                     │
-│   ● lucky-harbor-5563      │   2026-10-14 10:00Z · 21G used · checked clean  │
-│   ▢ code_workspace 30GB    │     (journal replayed)                          │
-│ ▸ vintagestory-flk  1/1 ●  │   mode live · release v9 · took 25s             │
-│                            │   verified clean 2026-10-14 10:00Z              │
-│ Host                       │                                                 │
-│   health ✔                 │ world-20261013T221456Z.ext4                     │
-│                            │   2026-10-13 22:15Z · 20G used · checked clean  │
-│ ▸ Storage  fullest 67%     │     (journal replayed)                          │
-│                            │   mode live · release v9 · took 27s             │
-│ ▸ Podman  9 images         │   verified clean 2026-10-13 22:15Z              │
-│                            │                                                 │
-│ ▸ Services  4 running, 1 … │ … 32 more (pgdn)                                │
+│ ▸ mqtt-flk  1/1 ●          │ world-20261014T100001Z.ext4                     │
+│ ▸ opencode-sandbox  1/1 ●  │   2026-10-14 10:00Z · 21G used · checked clean  │
+│ ▸ vintagestory-flk  1/1 ●  │     (journal replayed)                          │
+│                            │   mode live · release v9 · took 25s             │
+│ Host                       │   verified clean 2026-10-14 10:00Z              │
+│   health ✔                 │                                                 │
+│                            │ world-20261013T221456Z.ext4                     │
+│ ▸ Storage  fullest 67%     │   2026-10-13 22:15Z · 20G used · checked clean  │
+│                            │     (journal replayed)                          │
+│ ▸ Podman  10 images        │   mode live · release v9 · took 27s             │
+│                            │   verified clean 2026-10-13 22:15Z              │
+│ ▸ Services  4 running, 1 … │                                                 │
+│                            │ … 32 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

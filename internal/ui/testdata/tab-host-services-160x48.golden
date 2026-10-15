@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ ✔ flk-net.service  active (exited)                                                                                  │
+│ ▾ mqtt-flk  1/1 ●                      │   enabled · since 2026-10-12 05:44Z                                                                                 │
+│   ● hidden-comet-2020                  │   at boot: the bridge, NAT and port forwarding                                                                      │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ ✔ flk-machines.service  active (exited)                                                                             │
 │ ▾ opencode-sandbox  1/1 ●              │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│   ● lucky-harbor-5563                  │   at boot: the bridge, NAT and port forwarding                                                                      │
+│   ● lucky-harbor-5563                  │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
 │   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ ✔ flk-machines.service  active (exited)                                                                             │
-│   ● frosty-river-2714                  │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│   ▢ vsdata 40GB (external)             │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
+│ ▾ vintagestory-flk  1/1 ●              │ oneshot units: healthy is active (exited)                                                                           │
+│   ● frosty-river-2714                  │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
-│                                        │ oneshot units: healthy is active (exited)                                                                           │
+│                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

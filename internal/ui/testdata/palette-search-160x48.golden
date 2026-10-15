@@ -4,7 +4,11 @@
 │   ● mellow-aurora-7882      ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
 │   ▢ world 40GB (external)   │ : vol back▏                                                                                      │                             │
 │   ⇄ 10.47.11.3: tcp/25565 ud│ volumes backup   Copy volumes (default: all of the app's) to the backup dir, then prune old cop… │                             │
-│ ▾ opencode-sandbox  1/1 ●   │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│ ▾ mqtt-flk  1/1 ●           │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│   ● hidden-comet-2020       │                                                                                                  │                             │
+│   ▢ mqttdata 1GB            │                                                                                                  │                             │
+│   ⇄ 10.47.11.3: tcp/1883    │                                                                                                  │                             │
+│ ▾ opencode-sandbox  1/1 ●   │                                                                                                  │                             │
 │   ● lucky-harbor-5563       │                                                                                                  │                             │
 │   ▢ code_workspace 30GB     │                                                                                                  │                             │
 │ ▾ vintagestory-flk  1/1 ●   │                                                                                                  │                             │
@@ -17,13 +21,9 @@
 │                             │                                                                                                  │                             │
 │ ▸ Storage  fullest 67%      │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ ▸ Podman  9 images          │                                                                                                  │                             │
+│ ▸ Podman  10 images         │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ ▸ Services  4 running, 1 off│                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │

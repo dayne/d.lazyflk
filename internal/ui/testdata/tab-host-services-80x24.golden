@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk doctor --json                             │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ ✔ flk-net.service  active (exited)              │
-│   ● lucky-harbor-5563      │   enabled · since 2026-10-12 05:44Z             │
-│   ▢ code_workspace 30GB    │   at boot: the bridge, NAT and port forwarding  │
-│ ▸ vintagestory-flk  1/1 ●  │                                                 │
-│                            │ ✔ flk-machines.service  active (exited)         │
-│ Host                       │   enabled · since 2026-10-12 05:44Z             │
-│   health ✔                 │   at boot: flk resume; at shutdown: stops       │
-│                            │     machines gracefully                         │
-│ ▸ Storage  fullest 67%     │                                                 │
-│                            │ oneshot units: healthy is active (exited)       │
-│ ▸ Podman  9 images         │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ ✔ flk-net.service  active (exited)              │
+│ ▸ opencode-sandbox  1/1 ●  │   enabled · since 2026-10-12 05:44Z             │
+│ ▸ vintagestory-flk  1/1 ●  │   at boot: the bridge, NAT and port forwarding  │
+│                            │                                                 │
+│ Host                       │ ✔ flk-machines.service  active (exited)         │
+│   health ✔                 │   enabled · since 2026-10-12 05:44Z             │
+│                            │   at boot: flk resume; at shutdown: stops       │
+│ ▸ Storage  fullest 67%     │     machines gracefully                         │
+│                            │                                                 │
+│ ▸ Podman  10 images        │ oneshot units: healthy is active (exited)       │
 │                            │                                                 │
 │ ▸ Services  4 running, 1 … │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

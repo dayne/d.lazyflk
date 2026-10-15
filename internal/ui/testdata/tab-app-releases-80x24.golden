@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk releases --json          │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ v9   2026-10-13 08:31Z  Dockerfile  current     │
-│   ● lucky-harbor-5563      │      on mellow-aurora-7882                      │
-│   ▢ code_workspace 30GB    │ v8   2026-10-12 07:08Z  Dockerfile  kept        │
-│ ▸ vintagestory-flk  1/1 ●  │ v7   2026-10-12 06:58Z  Dockerfile  kept        │
-│                            │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
-│ Host                       │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
-│   health ✔                 │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
-│                            │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
-│ ▸ Storage  fullest 67%     │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
-│                            │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
-│ ▸ Podman  9 images         │                                                 │
-│                            │ kept: can be rolled back to (enter, r) ·        │
-│ ▸ Services  4 running, 1 … │   pruned: its image is gone                     │
+│ ▸ mqtt-flk  1/1 ●          │ v9   2026-10-13 08:31Z  Dockerfile  current     │
+│ ▸ opencode-sandbox  1/1 ●  │      on mellow-aurora-7882                      │
+│ ▸ vintagestory-flk  1/1 ●  │ v8   2026-10-12 07:08Z  Dockerfile  kept        │
+│                            │ v7   2026-10-12 06:58Z  Dockerfile  kept        │
+│ Host                       │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
+│   health ✔                 │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
+│                            │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
+│ ▸ Storage  fullest 67%     │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
+│                            │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
+│ ▸ Podman  10 images        │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
+│                            │                                                 │
+│ ▸ Services  4 running, 1 … │ kept: can be rolled back to (enter, r) ·        │
+│                            │   pruned: its image is gone                     │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

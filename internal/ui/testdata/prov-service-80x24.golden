@@ -1,8 +1,8 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│   /data/vintagestory 13%   │ service ssh.service ─  Overview                 │
-│                            │                                                 │
-│ ▾ Podman                   │ $ systemctl show --timestamp=utc -p ...         │
-│   ◇ localhost/mqtt-flk-te… │   UNIT... · journalctl -u UNIT                  │
+│                            │ service ssh.service ─  Overview                 │
+│ ▾ Podman                   │                                                 │
+│   ◇ localhost/mqtt-flk-te… │ $ systemctl show --timestamp=utc -p ...         │
+│   ◇ 7d2e85beb5a7 (untagge… │   UNIT... · journalctl -u UNIT                  │
 │   ◇ 8149e56d2f50 (untagge… │                                                 │
 │   ◇ itzg/minecraft-server… │ unit      ssh.service                           │
 │   ◇ dotnet/runtime:10.0 1… │ what      OpenBSD Secure Shell server           │
@@ -11,7 +11,7 @@
 │   ◇ ruby:3.3-alpine 69M    │ since     Thu 2026-10-15 05:37:57 UTC           │
 │   ◇ eclipse-mosquitto:2.1… │                                                 │
 │   ◇ alpine:3.20 7.7M       │ pinned by default; edit ~/.config/lazyflk/pins  │
-│   7 flk images: host Imag… │   (one unit per line) to change                 │
+│   9 flk images: host Imag… │   (one unit per line) to change                 │
 │                            │                                                 │
 │ ▾ Services                 │                                                 │
 │   ● flk-net                │                                                 │

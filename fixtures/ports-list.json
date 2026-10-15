@@ -27,6 +27,17 @@
       "address": "10.47.11.3:19132"
     },
     {
+      "key": "tcp/1883",
+      "bind": "10.47.11.3",
+      "proto": "tcp",
+      "port": 1883,
+      "ip": "172.30.0.15",
+      "internal_port": 1883,
+      "app": "mqtt-flk",
+      "machine": "3b94db4908c652",
+      "address": "10.47.11.3:1883"
+    },
+    {
       "key": "tcp/42420",
       "bind": "10.47.11.3",
       "proto": "tcp",

@@ -146,3 +146,31 @@ func TestAppStartStopKey(t *testing.T) {
 		t.Errorf("s on a running app:\n%s", screen(m))
 	}
 }
+
+// Internal names (flk M4, G16): flk's list on the machine, APP.internal on
+// the app, the setting on Config; off says how to turn it on.
+func TestInternalNames(t *testing.T) {
+	m := demoModel(t, 120, 40)
+	goTo(m, kindMachine)
+	if s := screen(m); !strings.Contains(s, "names     none: [flk] internal_hosts = true") {
+		t.Errorf("off:\n%s", s)
+	}
+	withState(t, m, func(hc *flk.HostContext) {
+		mc := &hc.Apps[0].Machines[0]
+		mc.InternalNames = []string{"minecraft-flk.internal", mc.ID + ".vm.minecraft-flk.internal", mc.Name + ".vm.minecraft-flk.internal"}
+	})
+	goTo(m, kindMachine)
+	s := screen(m)
+	if !strings.Contains(s, "names     minecraft-flk.internal") || !strings.Contains(s, "mellow-aurora-7882.vm.minecraft-flk.internal") {
+		t.Errorf("on:\n%s", s)
+	}
+	goToKey(t, m, "app/minecraft-flk")
+	if s := screen(m); !strings.Contains(s, "internal minecraft-flk.internal (other machines reach it so; answered by 1") {
+		t.Errorf("app:\n%s", s)
+	}
+	m.setTabNamed("Config")
+	send(m, runCmd(m.sync())...)
+	if s := screen(m); !strings.Contains(s, "internal  off: [flk] internal_hosts = true") {
+		t.Errorf("config:\n%s", s)
+	}
+}

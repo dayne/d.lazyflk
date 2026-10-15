@@ -4,9 +4,8 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ starting flk events…                            │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │                                                 │
-│   ● lucky-harbor-5563      │                                                 │
-│   ▢ code_workspace 30GB    │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │                                                 │
+│ ▸ opencode-sandbox  1/1 ●  │                                                 │
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
 │                            │                                                 │
 │ Host                       │                                                 │
@@ -14,9 +13,10 @@
 │                            │                                                 │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ ▸ Podman  9 images         │                                                 │
+│ ▸ Podman  10 images        │                                                 │
 │                            │                                                 │
 │ ▸ Services  4 running, 1 … │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

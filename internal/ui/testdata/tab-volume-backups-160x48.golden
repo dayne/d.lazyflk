@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk volumes backups --json                                                                       │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ world-20261014T100001Z.ext4                                                                                         │
-│ ▾ opencode-sandbox  1/1 ●              │   2026-10-14 10:00Z · 21G used · checked clean (journal replayed)                                                   │
-│   ● lucky-harbor-5563                  │   mode live · release v9 · took 25s                                                                                 │
-│   ▢ code_workspace 30GB                │   verified clean 2026-10-14 10:00Z                                                                                  │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │ world-20261013T221456Z.ext4                                                                                         │
-│   ▢ vsdata 40GB (external)             │   2026-10-13 22:15Z · 20G used · checked clean (journal replayed)                                                   │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   mode live · release v9 · took 27s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:15Z                                                                                  │
-│ Host                                   │                                                                                                                     │
-│   health ✔                             │ world-20261013T220808Z.ext4                                                                                         │
-│                                        │   2026-10-13 22:08Z · 20G used · checked clean (journal replayed)                                                   │
-│ ▸ Storage  fullest 67%                 │   mode live · release v9 · took 26s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:08Z                                                                                  │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▾ mqtt-flk  1/1 ●                      │   2026-10-14 10:00Z · 21G used · checked clean (journal replayed)                                                   │
+│   ● hidden-comet-2020                  │   mode live · release v9 · took 25s                                                                                 │
+│   ▢ mqttdata 1GB                       │   verified clean 2026-10-14 10:00Z                                                                                  │
+│   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
+│ ▾ opencode-sandbox  1/1 ●              │ world-20261013T221456Z.ext4                                                                                         │
+│   ● lucky-harbor-5563                  │   2026-10-13 22:15Z · 20G used · checked clean (journal replayed)                                                   │
+│   ▢ code_workspace 30GB                │   mode live · release v9 · took 27s                                                                                 │
+│ ▾ vintagestory-flk  1/1 ●              │   verified clean 2026-10-13 22:15Z                                                                                  │
+│   ● frosty-river-2714                  │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │ world-20261013T220808Z.ext4                                                                                         │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   2026-10-13 22:08Z · 20G used · checked clean (journal replayed)                                                   │
+│                                        │   mode live · release v9 · took 26s                                                                                 │
+│ Host                                   │   verified clean 2026-10-13 22:08Z                                                                                  │
+│   health ✔                             │                                                                                                                     │
 │                                        │ world-20261013T111353Z.ext4                                                                                         │
-│ ▸ Services  4 running, 1 off           │   2026-10-13 11:14Z · 20G used · checked clean (journal replayed)                                                   │
+│ ▸ Storage  fullest 67%                 │   2026-10-13 11:14Z · 20G used · checked clean (journal replayed)                                                   │
 │                                        │   mode live · release v9 · took 24s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:07Z                                                                                  │
+│ ▸ Podman  10 images                    │   verified clean 2026-10-13 22:07Z                                                                                  │
 │                                        │                                                                                                                     │
-│                                        │ world-20261013T100001Z.ext4                                                                                         │
+│ ▸ Services  4 running, 1 off           │ world-20261013T100001Z.ext4                                                                                         │
 │                                        │   2026-10-13 10:00Z · 20G used · checked clean (journal replayed)                                                   │
 │                                        │   mode live · release v9 · took 20s                                                                                 │
 │                                        │   verified clean 2026-10-13 22:07Z                                                                                  │

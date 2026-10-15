@@ -9,6 +9,11 @@ host: ready, address 10.47.11.3, boot service installed
   port 10.47.11.3:udp/19132 -> 10.47.11.3:19132
   volumes: world 40GB
 
+## mqtt-flk  (v2, 1/1 started)
+  3b94db4908c652 [hidden-comet-2020] started 172.30.0.15:1883
+  port 10.47.11.3:tcp/1883 -> 10.47.11.3:1883
+  volumes: mqttdata 1GB
+
 ## opencode-sandbox  (v4, 1/1 started)
   476376ad8e351e [lucky-harbor-5563] started 172.30.0.12
   volumes: code_workspace 30GB

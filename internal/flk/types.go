@@ -112,6 +112,10 @@ type Machine struct {
 	Volumes      []Mount       `json:"volumes"`
 	CreatedAt    string        `json:"created_at"`
 	UpdatedAt    string        `json:"updated_at"`
+	// InternalNames are the names other machines reach it by, as on its
+	// /etc/hosts line ([flk] internal_hosts, flk 0227eac): [] when off,
+	// nil from an older flk.
+	InternalNames []string `json:"internal_names"`
 }
 
 // Restart is a machine's restart policy ([[restart]] in flk.toml).
@@ -271,6 +275,8 @@ type MachineConfig struct {
 	Mounts       []Mount           `json:"mounts"`
 	Checks       []Check           `json:"checks"`
 	HugePages    string            `json:"huge_pages"`
+	// InternalHosts is [flk] internal_hosts (flk ad960ec); nil from an older flk.
+	InternalHosts *bool `json:"internal_hosts"`
 }
 
 // Check is a health check a machine must pass on deploy (flk 1d428f4).

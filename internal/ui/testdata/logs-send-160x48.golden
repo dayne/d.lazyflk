@@ -1,9 +1,5 @@
 ┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────────────────────────────────────────────────────────────────────────────────────────────────── following ┐
 │ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                                                                                                     │
-│ [15:42:48] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
-│ [15:50:14] [Server thread/INFO]: LazyWhale1806 (/178.63.179.211:28501) lost connection: Disconnected                                                         │
-│ [16:01:34] [Server thread/INFO]: SlyKoala7352 (/178.63.179.211:1631) lost connection: Disconnected                                                           │
-│ [16:12:44] [Server thread/INFO]: RapidToad0906 (/178.63.123.77:47611) lost connection: Disconnected                                                          │
 │ [16:26:12] [Server thread/INFO]: JollyMole7571 (/176.65.148.253:46232) lost connection: Disconnected                                                         │
 │ [16:36:54] [Server thread/INFO]: QuietViper0305 (/178.63.123.75:59319) lost connection: Disconnected                                                         │
 │ [16:47:29] [Server thread/INFO]: SwiftGecko4161 (/178.63.123.76:4279) lost connection: Disconnected                                                          │
@@ -40,6 +36,10 @@
 │ [21:31:20] [Server thread/INFO]: SlyBear4387 (/178.63.179.210:47735) lost connection: Disconnected                                                           │
 │ [21:34:27] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
 │ [21:42:04] [Server thread/INFO]: FuzzyShark3012 (/178.63.123.73:51633) lost connection: Disconnected                                                         │
+│ [21:52:46] [Server thread/INFO]: FuzzyMule8984 (/178.63.179.212:52959) lost connection: Disconnected                                                         │
+│ [22:03:34] [Server thread/INFO]: IcyHeron6680 (/178.63.179.209:32847) lost connection: Disconnected                                                          │
+│ [22:13:06] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                                                               │
+│ [22:16:26] [Server thread/INFO]: NobleMango0131 (/178.63.123.77:12193) lost connection: Disconnected                                                         │
 │                                                                                                                                                              │
 │                                                                                                                                                              │
 │                                                                                                                                                              │

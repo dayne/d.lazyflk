@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ release v9 (of 9) · 2026-10-13 08:31Z           │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ● started 172.30.0.10    │
-│   ● lucky-harbor-5563      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│   ▢ code_workspace 30GB    │   cpu 4% · 10910MB used · up 31h 32m            │
-│ ▸ vintagestory-flk  1/1 ●  │                                                 │
-│                            │ ports  tcp/25565 → 10.47.11.3:25565             │
-│ Host                       │        udp/19132 → 10.47.11.3:19132             │
-│   health ✔                 │ volume world 40GB (external)                    │
-│                            │   /data/minecraft/flk/world.ext4                │
-│ ▸ Storage  fullest 67%     │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ machine 225d58f615e7e6 ● started 172.30.0.10    │
+│ ▸ opencode-sandbox  1/1 ●  │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
+│ ▸ vintagestory-flk  1/1 ●  │   cpu 4% · 10910MB used · up 31h 59m            │
 │                            │                                                 │
-│ ▸ Podman  9 images         │                                                 │
+│ Host                       │ ports  tcp/25565 → 10.47.11.3:25565             │
+│   health ✔                 │        udp/19132 → 10.47.11.3:19132             │
+│                            │ volume world 40GB (external)                    │
+│ ▸ Storage  fullest 67%     │   /data/minecraft/flk/world.ext4                │
+│                            │                                                 │
+│ ▸ Podman  10 images        │                                                 │
 │                            │                                                 │
 │ ▸ Services  4 running, 1 … │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

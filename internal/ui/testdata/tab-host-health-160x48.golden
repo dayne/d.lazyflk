@@ -4,34 +4,34 @@
 │   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ flk       0.1.0                                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │ state     /home/dayne/.local/share/flk                                                                              │
-│   ● lucky-harbor-5563                  │ source    /home/dayne/flk                                                                                           │
-│   ▢ code_workspace 30GB                │ LAN IP    10.47.11.116                                                                                              │
-│ ▾ vintagestory-flk  1/1 ●              │ address   10.47.11.3 (advertised; host.toml address)                                                                │
-│   ● frosty-river-2714                  │ boot      installed                                                                                                 │
-│   ▢ vsdata 40GB (external)             │ health    ✔ ready                                                                                                   │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ data dirs /home/dayne/.local/share/flk                                                                              │
-│                                        │           /data/minecraft/flk                                                                                       │
-│ Host                                   │           /data/vintagestory/flk                                                                                    │
-│   health ✔                             │                                                                                                                     │
-│                                        │ ✔ /dev/kvm read/write                                                                                               │
-│ ▸ Storage  fullest 67%                 │ ✔ firecracker /home/dayne/.local/share/flk/bin/firecracker                                                          │
-│                                        │ ✔ guest kernel /home/dayne/.local/share/flk/kernel/vmlinux                                                          │
-│ ▸ Podman  9 images                     │ ✔ bridge flkbr0                                                                                                     │
+│ ▾ mqtt-flk  1/1 ●                      │ state     /home/dayne/.local/share/flk                                                                              │
+│   ● hidden-comet-2020                  │ source    /home/dayne/flk                                                                                           │
+│   ▢ mqttdata 1GB                       │ LAN IP    10.47.11.116                                                                                              │
+│   ⇄ 10.47.11.3: tcp/1883               │ address   10.47.11.3 (advertised; host.toml address)                                                                │
+│ ▾ opencode-sandbox  1/1 ●              │ boot      installed                                                                                                 │
+│   ● lucky-harbor-5563                  │ health    ✔ ready                                                                                                   │
+│   ▢ code_workspace 30GB                │ data dirs /home/dayne/.local/share/flk                                                                              │
+│ ▾ vintagestory-flk  1/1 ●              │           /data/minecraft/flk                                                                                       │
+│   ● frosty-river-2714                  │           /data/vintagestory/flk                                                                                    │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ ✔ /dev/kvm read/write                                                                                               │
+│                                        │ ✔ firecracker /home/dayne/.local/share/flk/bin/firecracker                                                          │
+│ Host                                   │ ✔ guest kernel /home/dayne/.local/share/flk/kernel/vmlinux                                                          │
+│   health ✔                             │ ✔ bridge flkbr0                                                                                                     │
 │                                        │ ✔ tap pool 16/16                                                                                                    │
-│ ▸ Services  4 running, 1 off           │ ✔ ipv4 forwarding                                                                                                   │
+│ ▸ Storage  fullest 67%                 │ ✔ ipv4 forwarding                                                                                                   │
 │                                        │ ✔ tmux                                                                                                              │
-│                                        │ ✔ mkfs.ext4                                                                                                         │
+│ ▸ Podman  10 images                    │ ✔ mkfs.ext4                                                                                                         │
 │                                        │ ✔ fakeroot                                                                                                          │
-│                                        │ ✔ container engine (podman)                                                                                         │
+│ ▸ Services  4 running, 1 off           │ ✔ container engine (podman)                                                                                         │
 │                                        │ ✔ podman resolves short image names (FROM ruby:3.3)                                                                 │
 │                                        │ ✔ port helper (host ports from 1024)                                                                                │
 │                                        │ ✔ boot service (machines come back after a reboot)                                                                  │
 │                                        │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
-│                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
+│                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 202.0GB at their keep counts; 174.1GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
 │                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
-│                                        │ ✔ flk-agent is older than its source (built at the next deploy)                                                     │
+│                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

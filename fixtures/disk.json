@@ -1,8 +1,8 @@
 {
   "state_dir": {
     "path": "/home/dayne/.local/share/flk",
-    "bytes": 8878432256,
-    "apparent": 58072011822
+    "bytes": 9046953984,
+    "apparent": 60878098716
   },
   "apps": [
     {
@@ -12,7 +12,7 @@
         "apparent": 2969567232
       },
       "rootfs": {
-        "bytes": 377937920,
+        "bytes": 377987072,
         "apparent": 998244352
       },
       "volumes": {
@@ -21,15 +21,42 @@
       },
       "logs": {
         "bytes": 745472,
-        "apparent": 740224
+        "apparent": 740629
       },
       "external_volumes": {
         "bytes": 22197706752,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 1536716800,
-        "apparent": 3968551808
+        "bytes": 1536765952,
+        "apparent": 3968552213
+      }
+    },
+    {
+      "app": "mqtt-flk",
+      "images": {
+        "bytes": 97173504,
+        "apparent": 1149239296
+      },
+      "rootfs": {
+        "bytes": 36536320,
+        "apparent": 583008256
+      },
+      "volumes": {
+        "bytes": 34529280,
+        "apparent": 1073741824
+      },
+      "logs": {
+        "bytes": 77824,
+        "apparent": 72830
+      },
+      "external_volumes": {
+        "bytes": 0,
+        "apparent": 0
+      },
+      "total": {
+        "bytes": 168316928,
+        "apparent": 2806062206
       }
     },
     {
@@ -39,7 +66,7 @@
         "apparent": 10889461760
       },
       "rootfs": {
-        "bytes": 1840730112,
+        "bytes": 1840766976,
         "apparent": 5769265152
       },
       "volumes": {
@@ -55,7 +82,7 @@
         "apparent": 0
       },
       "total": {
-        "bytes": 4709593088,
+        "bytes": 4709629952,
         "apparent": 48871110803
       }
     },
@@ -66,7 +93,7 @@
         "apparent": 3818913792
       },
       "rootfs": {
-        "bytes": 691322880,
+        "bytes": 691396608,
         "apparent": 1376780288
       },
       "volumes": {
@@ -74,35 +101,35 @@
         "apparent": 0
       },
       "logs": {
-        "bytes": 1671168,
-        "apparent": 1667973
+        "bytes": 1679360,
+        "apparent": 1674417
       },
       "external_volumes": {
         "bytes": 8758562816,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 2597064704,
-        "apparent": 5197362053
+        "bytes": 2597146624,
+        "apparent": 5197368497
       }
     }
   ],
   "totals": {
     "images": {
-      "bytes": 5072908288,
-      "apparent": 17677942784
+      "bytes": 5170081792,
+      "apparent": 18827182080
     },
     "rootfs": {
-      "bytes": 2909990912,
-      "apparent": 8144289792
+      "bytes": 2946686976,
+      "apparent": 8727298048
     },
     "volumes": {
-      "bytes": 857923584,
-      "apparent": 32212254720
+      "bytes": 892452864,
+      "apparent": 33285996544
     },
     "logs": {
-      "bytes": 2551808,
-      "apparent": 2537368
+      "bytes": 2637824,
+      "apparent": 2617047
     },
     "external_volumes": {
       "bytes": 30956269568,
@@ -113,13 +140,24 @@
     "dir": "/data/flk-backups",
     "apps": {
       "minecraft-flk": {
-        "bytes": 154337181696,
-        "apparent": 301197792353,
+        "bytes": 154388701184,
+        "apparent": 301249284605,
         "volumes": {
           "world": {
             "bytes": 153786970112,
             "apparent": 300647714528,
             "count": 7
+          }
+        }
+      },
+      "mqtt-flk": {
+        "bytes": 3063808,
+        "apparent": 3221226607,
+        "volumes": {
+          "mqttdata": {
+            "bytes": 3063808,
+            "apparent": 3221226607,
+            "count": 3
           }
         }
       },
@@ -146,7 +184,7 @@
         }
       }
     },
-    "bytes": 213127938048,
-    "apparent": 601845506376
+    "bytes": 213182521344,
+    "apparent": 605118225235
   }
 }

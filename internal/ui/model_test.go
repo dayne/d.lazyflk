@@ -187,18 +187,19 @@ func TestLogsSnapshots(t *testing.T) {
 func TestNavigation(t *testing.T) {
 	m := demoModel(t, 80, 24)
 	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
-	if sel() != "app/minecraft-flk" {
+	first, last := m.apps[0], m.apps[len(m.apps)-1]
+	if sel() != "app/"+first.Name {
 		t.Fatalf("starts on %s", sel())
 	}
 	press(m, "up")
-	if sel() != "app/minecraft-flk" {
+	if sel() != "app/"+first.Name {
 		t.Errorf("up from the top moved to %s", sel())
 	}
-	for range 8 { // vintagestory-flk is folded to fit 24 rows
+	for i := 0; sel() != "host"; i++ {
+		if i > 40 {
+			t.Fatalf("never reached host; on %s", sel())
+		}
 		press(m, "j")
-	}
-	if sel() != "host" {
-		t.Errorf("after the apps is %s", sel())
 	}
 	for range 50 {
 		press(m, "j")
@@ -206,27 +207,36 @@ func TestNavigation(t *testing.T) {
 	if sel() != "section/Services" {
 		t.Errorf("bottom is %s (the last section, folded)", sel())
 	}
+	foldedApps := func() (n int) {
+		for _, nd := range m.nodes {
+			if nd.kind == kindApp && nd.folded {
+				n++
+			}
+		}
+		return n
+	}
 	goTo(m, kindHost)
 	press(m, "k")
-	if sel() != "app/vintagestory-flk" || !m.nodes[m.cursor].folded {
-		t.Errorf("above host is %s", sel())
+	if sel() != "app/"+last.Name || !m.nodes[m.cursor].folded {
+		t.Errorf("above host is %s (the last app, folded to fit 24 rows)", sel())
 	}
+	before := foldedApps()
 	press(m, "right", "down") // opening it folds another healthy app to fit
-	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" || !strings.Contains(m.Render(), "▸ opencode-sandbox") {
-		t.Errorf("expanded: on %s\n%s", sel(), screen(m))
+	if sel() != "machine/"+last.Name+"/"+last.Machines[0].ID || foldedApps() != before {
+		t.Errorf("expanded: on %s, %d folded (was %d)\n%s", sel(), foldedApps(), before, screen(m))
 	}
-	press(m, "left") // collapse from a child selects the app; opencode-sandbox fits again
-	if sel() != "app/vintagestory-flk" || !strings.Contains(screen(m), "▸ vintagestory-flk") || !strings.Contains(screen(m), "▾ opencode-sandbox") {
+	press(m, "left") // collapse from a child selects the app; the other one fits again
+	if sel() != "app/"+last.Name || !m.nodes[m.cursor].folded || foldedApps() != before {
 		t.Errorf("collapsed: on %s\n%s", sel(), screen(m))
 	}
 	press(m, "right", "down")
-	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" {
+	if sel() != "machine/"+last.Name+"/"+last.Machines[0].ID {
 		t.Errorf("expanded: on %s", sel())
 	}
 	// a refresh keeps the selection
 	hc, _ := m.opt.Client.HostContext(context.Background())
 	send(m, contextMsg{gen: m.loadGen, hc: hc})
-	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" {
+	if sel() != "machine/"+last.Name+"/"+last.Machines[0].ID {
 		t.Errorf("after refresh: on %s", sel())
 	}
 	if _, cmd := m.Update(key("q")); cmd == nil {
@@ -240,7 +250,7 @@ func TestSections(t *testing.T) {
 	m := demoModel(t, 160, 48)
 	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
 	s := screen(m)
-	for _, want := range []string{"▸ Storage  fullest 67%", "▸ Podman  9 images", "▸ Services  4 running, 1 off"} {
+	for _, want := range []string{"▸ Storage  fullest 67%", "▸ Podman  ", " images", "▸ Services  4 running, 1 off"} {
 		if !strings.Contains(s, want) {
 			t.Errorf("no %q\n%s", want, s)
 		}
@@ -506,7 +516,7 @@ func TestReleaseLines(t *testing.T) {
 func TestConfigLines(t *testing.T) {
 	raw, _ := fixtures.FS.ReadFile("config-minecraft-flk.json")
 	s := ansi.Strip(strings.Join(configLines(string(raw), 80), "\n"))
-	if !strings.HasPrefix(s, `checks    ready: log line "Started Geyser on UDP port 19132" within 300s`+"\n          port: tcp :25565 within 300s\n\n{") {
+	if !strings.HasPrefix(s, `checks    ready: log line "Started Geyser on UDP port 19132" within 300s`+"\n          port: tcp :25565 within 300s\ninternal  off: [flk] internal_hosts = true for APP.internal names\n\n{") {
 		t.Errorf("fixture:\n%s", s)
 	}
 	s = ansi.Strip(strings.Join(configLines(`{"warnings": ["unknown key kill_timout; flk ignores it (did you mean kill_timeout?)"], "machine_config": {}}`, 80), "\n"))

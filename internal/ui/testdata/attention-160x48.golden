@@ -4,26 +4,26 @@
 │   ! mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ! stopped, should be started 172.30.0.10                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● lucky-harbor-5563                  │   cpu 4% · 10910MB used · up 31h 32m                                                                                │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│   ● frosty-river-2714                  │        udp/19132 → 10.47.11.3:19132                                                                                 │
-│   ▢ vsdata 40GB (external)             │ volume world 40GB (external)                                                                                        │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   /data/minecraft/flk/world.ext4                                                                                    │
+│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
+│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│ ▾ opencode-sandbox  1/1 ●              │        udp/19132 → 10.47.11.3:19132                                                                                 │
+│   ● lucky-harbor-5563                  │ volume world 40GB (external)                                                                                        │
+│   ▢ code_workspace 30GB                │   /data/minecraft/flk/world.ext4                                                                                    │
+│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
+│   ● frosty-river-2714                  │ ! machine 225d58f615e7e6 should be running but is stopped                                                           │
+│   ▢ vsdata 40GB (external)             │ ! machine 225d58f615e7e6 [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); see   │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   why: flk logs -i 225d58f615e7e6 --no-tail; bring it back: flk resume                                              │
+│                                        │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Host                                   │ ! machine 225d58f615e7e6 should be running but is stopped                                                           │
-│   health ✔                             │ ! machine 225d58f615e7e6 [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); see   │
-│                                        │   why: flk logs -i 225d58f615e7e6 --no-tail; bring it back: flk resume                                              │
-│ ▸ Storage  fullest 67%                 │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
+│ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

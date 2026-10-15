@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ name      world                                 │
 │   ⇄ tcp/25565 udp/19132    │ id        vol_28392490d0d4d4c7                  │
-│ ▾ opencode-sandbox  1/1 ●  │ size      40GB                                  │
-│   ● lucky-harbor-5563      │ path      /data/minecraft/flk/world.ext4        │
-│   ▢ code_workspace 30GB    │           external: outside flk's state dir     │
-│ ▸ vintagestory-flk  1/1 ●  │ attached  mellow-aurora-7882 (225d58f615e7e6)   │
-│                            │ created   2026-10-12 05:01Z                     │
-│ Host                       │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ size      40GB                                  │
+│ ▸ opencode-sandbox  1/1 ●  │ path      /data/minecraft/flk/world.ext4        │
+│ ▸ vintagestory-flk  1/1 ●  │           external: outside flk's state dir     │
+│                            │ attached  mellow-aurora-7882 (225d58f615e7e6)   │
+│ Host                       │ created   2026-10-12 05:01Z                     │
 │   health ✔                 │                                                 │
 │                            │                                                 │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ ▸ Podman  9 images         │                                                 │
+│ ▸ Podman  10 images        │                                                 │
 │                            │                                                 │
 │ ▸ Services  4 running, 1 … │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk machine status 225d58f615e7e6                                                                │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ {                                                                                                                   │
-│ ▾ opencode-sandbox  1/1 ●              │   "id": "225d58f615e7e6",                                                                                           │
-│   ● lucky-harbor-5563                  │   "name": "mellow-aurora-7882",                                                                                     │
-│   ▢ code_workspace 30GB                │   "app": "minecraft-flk",                                                                                           │
-│ ▾ vintagestory-flk  1/1 ●              │   "tap_index": 0,                                                                                                   │
-│   ● frosty-river-2714                  │   "ip": "172.30.0.10",                                                                                              │
-│   ▢ vsdata 40GB (external)             │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "release": 9,                                                                                                     │
-│                                        │   "config": {                                                                                                       │
-│ Host                                   │     "cpus": 4,                                                                                                      │
-│   health ✔                             │     "memory_mb": 11264,                                                                                             │
-│                                        │     "env": {                                                                                                        │
-│ ▸ Storage  fullest 67%                 │       "TZ": "America/Anchorage",                                                                                    │
-│                                        │       "MC_HEAP": "8G",                                                                                              │
-│ ▸ Podman  9 images                     │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│ ▾ mqtt-flk  1/1 ●                      │   "id": "225d58f615e7e6",                                                                                           │
+│   ● hidden-comet-2020                  │   "name": "mellow-aurora-7882",                                                                                     │
+│   ▢ mqttdata 1GB                       │   "app": "minecraft-flk",                                                                                           │
+│   ⇄ 10.47.11.3: tcp/1883               │   "tap_index": 0,                                                                                                   │
+│ ▾ opencode-sandbox  1/1 ●              │   "ip": "172.30.0.10",                                                                                              │
+│   ● lucky-harbor-5563                  │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
+│   ▢ code_workspace 30GB                │   "release": 9,                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │   "config": {                                                                                                       │
+│   ● frosty-river-2714                  │     "cpus": 4,                                                                                                      │
+│   ▢ vsdata 40GB (external)             │     "memory_mb": 11264,                                                                                             │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "env": {                                                                                                        │
+│                                        │       "TZ": "America/Anchorage",                                                                                    │
+│ Host                                   │       "MC_HEAP": "8G",                                                                                              │
+│   health ✔                             │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
 │                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│ ▸ Services  4 running, 1 off           │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│ ▸ Storage  fullest 67%                 │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
 │                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
-│                                        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
+│ ▸ Podman  10 images                    │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
 │                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│                                        │       "RESTART_DELAY": "10",                                                                                        │
+│ ▸ Services  4 running, 1 off           │       "RESTART_DELAY": "10",                                                                                        │
 │                                        │       "MAX_RESTARTS": "5",                                                                                          │
 │                                        │       "RESTART_WINDOW": "600",                                                                                      │
 │                                        │       "STOP_TIMEOUT": "100",                                                                                        │

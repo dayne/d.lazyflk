@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
-│ ▾ opencode-sandbox  1/1 ●              │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● lucky-harbor-5563                  │   cpu 4% · 10910MB used · up 31h 32m                                                                                │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●           ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
-│   ● frosty-river-2714               │ d  deploy            build the image and roll machines to a new release          │                                     │
-│   ▢ vsdata 40GB (external)          │ r  roll back         back to an older release's image and config, rolled out li… │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ s  start             all running                                                 │                                     │
-│                                     │ S  stop              stop every machine gracefully; they stay stopped, also aft… │                                     │
-│ Host                                │ R  restart           stop and boot every machine, one at a time                  │                                     │
-│   health ✔                          │ c  scale             set the number of machines                                  │                                     │
-│                                     │ u  resume            nothing to resume                                           │                                     │
-│ ▸ Storage  fullest 67%              │ p  stop all          stop its running machines for now: they stay meant to run,… │                                     │
-│                                     │ e  set secret        set a secret; the value goes to flk on stdin, never on the… │                                     │
-│ ▸ Podman  9 images                  │ U  unset secret      no secrets                                                  │                                     │
+│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
+│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883            ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
+│ ▾ opencode-sandbox  1/1 ●           │ d  deploy            build the image and roll machines to a new release          │                                     │
+│   ● lucky-harbor-5563               │ r  roll back         back to an older release's image and config, rolled out li… │                                     │
+│   ▢ code_workspace 30GB             │ s  start             all running                                                 │                                     │
+│ ▾ vintagestory-flk  1/1 ●           │ S  stop              stop every machine gracefully; they stay stopped, also aft… │                                     │
+│   ● frosty-river-2714               │ R  restart           stop and boot every machine, one at a time                  │                                     │
+│   ▢ vsdata 40GB (external)          │ c  scale             set the number of machines                                  │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ u  resume            nothing to resume                                           │                                     │
+│                                     │ p  stop all          stop its running machines for now: they stay meant to run,… │                                     │
+│ Host                                │ e  set secret        set a secret; the value goes to flk on stdin, never on the… │                                     │
+│   health ✔                          │ U  unset secret      no secrets                                                  │                                     │
 │                                     │ n  new volume        create a volume for [[mounts]] source = NAME                │                                     │
-│ ▸ Services  4 running, 1 off        │ i  import volume     register an existing ext4 image; flk never deletes it       │                                     │
+│ ▸ Storage  fullest 67%              │ i  import volume     register an existing ext4 image; flk never deletes it       │                                     │
 │                                     │ b  back up           copy all of minecraft-flk's volumes to the backup dir, the… │                                     │
-│                                     │ l  logs              follow all its machines' console output                     │                                     │
+│ ▸ Podman  10 images                 │ l  logs              follow all its machines' console output                     │                                     │
 │                                     │ E  edit flk.toml     open it in your editor; then Config shows how flk reads it… │                                     │
-│                                     │ A  edit app actions  this menu's own commands for the app: .lazyflk.toml next t… │                                     │
+│ ▸ Services  4 running, 1 off        │ A  edit app actions  this menu's own commands for the app: .lazyflk.toml next t… │                                     │
 │                                     │ D  destroy app       delete the app, its machines, releases and volumes          │                                     │
 │                                     │ 1  who               who's online (RCON)                                         │                                     │
 │                                     │ 2  say               broadcast a message to the players (RCON)                   │                                     │

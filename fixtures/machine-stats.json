@@ -9,7 +9,19 @@
     "memory_mb": 11264,
     "cpu_percent": 4.0,
     "rss_mb": 10910,
-    "uptime_s": 113552
+    "uptime_s": 115150
+  },
+  {
+    "app": "mqtt-flk",
+    "id": "3b94db4908c652",
+    "name": "hidden-comet-2020",
+    "state": "started",
+    "pid": 3695028,
+    "cpus": 1,
+    "memory_mb": 256,
+    "cpu_percent": 0.0,
+    "rss_mb": 71,
+    "uptime_s": 1434
   },
   {
     "app": "opencode-sandbox",
@@ -19,9 +31,9 @@
     "pid": 2828454,
     "cpus": 2,
     "memory_mb": 2048,
-    "cpu_percent": 0.0,
+    "cpu_percent": 2.0,
     "rss_mb": 1774,
-    "uptime_s": 101935
+    "uptime_s": 103533
   },
   {
     "app": "vintagestory-flk",
@@ -31,8 +43,8 @@
     "pid": 3025789,
     "cpus": 4,
     "memory_mb": 6144,
-    "cpu_percent": 6.0,
-    "rss_mb": 3344,
-    "uptime_s": 73192
+    "cpu_percent": 8.0,
+    "rss_mb": 3345,
+    "uptime_s": 74790
   }
 ]

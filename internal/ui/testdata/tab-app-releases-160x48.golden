@@ -4,26 +4,26 @@
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk releases --json                                                                              │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ v9   2026-10-13 08:31Z  Dockerfile  current                                                                         │
-│ ▾ opencode-sandbox  1/1 ●              │      on mellow-aurora-7882                                                                                          │
-│   ● lucky-harbor-5563                  │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
-│   ▢ code_workspace 30GB                │ v7   2026-10-12 06:58Z  Dockerfile  kept                                                                            │
-│ ▾ vintagestory-flk  1/1 ●              │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
-│   ● frosty-river-2714                  │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
-│   ▢ vsdata 40GB (external)             │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
-│                                        │ v2   2026-10-12 05:20Z  Dockerfile  pruned                                                                          │
-│ Host                                   │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
+│ ▾ mqtt-flk  1/1 ●                      │      on mellow-aurora-7882                                                                                          │
+│   ● hidden-comet-2020                  │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
+│   ▢ mqttdata 1GB                       │ v7   2026-10-12 06:58Z  Dockerfile  kept                                                                            │
+│   ⇄ 10.47.11.3: tcp/1883               │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
+│ ▾ opencode-sandbox  1/1 ●              │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
+│   ● lucky-harbor-5563                  │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
+│   ▢ code_workspace 30GB                │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
+│ ▾ vintagestory-flk  1/1 ●              │ v2   2026-10-12 05:20Z  Dockerfile  pruned                                                                          │
+│   ● frosty-river-2714                  │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│                                        │                                                                                                                     │
+│ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
-│                                        │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  9 images                     │                                                                                                                     │
+│ ▸ Podman  10 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running, 1 off           │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
