@@ -16,6 +16,9 @@ import (
 type attachView struct {
 	title string
 	args  []string
+	// editing a file instead (edit.go): the editor's command line
+	app, file string
+	editor    []string
 }
 
 type attachDoneMsg struct {
@@ -88,11 +91,15 @@ func (m *Model) openAttach() tea.Cmd {
 func (m *Model) attachBox() []string {
 	w := min(m.width-4, 84)
 	inner := w - 4
-	body := []string{styleTitle.Render("$ " + flk.CommandLine(m.attach.args...)), ""}
-	for _, p := range attachAbout(m.attach.args) {
+	line, about, verb := flk.CommandLine(m.attach.args...), attachAbout(m.attach.args), "attach"
+	if m.attach.editor != nil {
+		line, about, verb = flk.CommandLineFor(m.attach.editor[0], m.attach.editor[1:]...), editAbout(m.attach), "edit"
+	}
+	body := []string{styleTitle.Render("$ " + line), ""}
+	for _, p := range about {
 		body = append(body, wrap(p, inner)...)
 	}
-	return box(m.attach.title, body, m.hints("enter", "attach", "esc", "cancel"), w)
+	return box(m.attach.title, body, m.hints("enter", verb, "esc", "cancel"), w)
 }
 
 // attachAbout says what gets the terminal and how to come back.
@@ -159,6 +166,9 @@ func (m *Model) attachKey(k string) tea.Cmd {
 // runAttach suspends the UI and runs the console in the real terminal; it
 // goes in the command log like any action.
 func (m *Model) runAttach(at *attachView) tea.Cmd {
+	if at.editor != nil {
+		return m.runEdit(at)
+	}
 	r, ok := m.opt.Client.Runner.(flk.Interactiver)
 	if !ok || m.opt.Demo {
 		m.note = "demo mode: would run " + flk.CommandLine(at.args...)

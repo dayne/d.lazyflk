@@ -3,23 +3,25 @@
 │ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
 │   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk config show --json                                                                           │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
-│ ▾ opencode-sandbox  1/1 ●              │           port: tcp :25565 within 300s                                                                              │
-│   ● lucky-harbor-5563                  │                                                                                                                     │
-│   ▢ code_workspace 30GB                │ {                                                                                                                   │
-│ ▾ vintagestory-flk  1/1 ●              │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
-│   ● frosty-river-2714                  │   "parsed": {                                                                                                       │
-│   ▢ vsdata 40GB (external)             │     "app": "minecraft-flk",                                                                                         │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "kill_timeout": 120,                                                                                            │
-│                                        │     "build": {                                                                                                      │
-│ Host                                   │       "dockerfile": "Dockerfile"                                                                                    │
-│   health ✔                             │     },                                                                                                              │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ E edits flk.toml in your editor; d deploys it                                                                       │
+│ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
+│   ● lucky-harbor-5563                  │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
+│   ▢ code_workspace 30GB                │           port: tcp :25565 within 300s                                                                              │
+│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
+│   ● frosty-river-2714                  │ {                                                                                                                   │
+│   ▢ vsdata 40GB (external)             │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   "parsed": {                                                                                                       │
+│                                        │     "app": "minecraft-flk",                                                                                         │
+│ Host                                   │     "kill_timeout": 120,                                                                                            │
+│   health ✔                             │     "build": {                                                                                                      │
+│                                        │       "dockerfile": "Dockerfile"                                                                                    │
+│ ▸ Storage  fullest 67%                 │     },                                                                                                              │
 │                                        │     "env": {                                                                                                        │
-│ ▸ Storage  fullest 67%                 │       "TZ": "America/Anchorage",                                                                                    │
+│ ▸ Podman  7 images                     │       "TZ": "America/Anchorage",                                                                                    │
 │                                        │       "MC_HEAP": "8G",                                                                                              │
-│ ▸ Podman  7 images                     │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│ ▸ Services  5 running                  │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
 │                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│ ▸ Services  5 running                  │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
 │                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
 │                                        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
 │                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
@@ -38,9 +40,7 @@
 │                                        │     ],                                                                                                              │
 │                                        │     "flk": {                                                                                                        │
 │                                        │       "backup": {                                                                                                   │
-│                                        │         "mode": "live",                                                                                             │
-│                                        │         "pre": [                                                                                                    │
-│                                        │ … 130 more (pgdn)                                                                                                   │
+│                                        │ … 132 more (pgdn)                                                                                                   │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                                                                                                    │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤

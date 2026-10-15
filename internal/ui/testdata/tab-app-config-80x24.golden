@@ -4,19 +4,19 @@
 │   ● mellow-aurora-7882     │                                                 │
 │   ▢ world 40GB (external)  │ $ flk -a minecraft-flk config show --json       │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ checks    ready: log line "Started Geyser on    │
-│   ● lucky-harbor-5563      │           UDP port 19132" within 300s           │
-│   ▢ code_workspace 30GB    │           port: tcp :25565 within 300s          │
-│ ▸ vintagestory-flk  1/1 ●  │                                                 │
-│                            │ {                                               │
-│ Host                       │   "file": "/home/dayne/minecraft.flk/flk.toml", │
-│   health ✔                 │   "parsed": {                                   │
+│ ▾ opencode-sandbox  1/1 ●  │ E edits flk.toml in your editor; d deploys it   │
+│   ● lucky-harbor-5563      │                                                 │
+│   ▢ code_workspace 30GB    │ checks    ready: log line "Started Geyser on    │
+│ ▸ vintagestory-flk  1/1 ●  │           UDP port 19132" within 300s           │
+│                            │           port: tcp :25565 within 300s          │
+│ Host                       │                                                 │
+│   health ✔                 │ {                                               │
+│                            │   "file": "/home/dayne/minecraft.flk/flk.toml", │
+│ ▸ Storage  fullest 67%     │   "parsed": {                                   │
 │                            │     "app": "minecraft-flk",                     │
-│ ▸ Storage  fullest 67%     │     "kill_timeout": 120,                        │
+│ ▸ Podman  7 images         │     "kill_timeout": 120,                        │
 │                            │     "build": {                                  │
-│ ▸ Podman  7 images         │       "dockerfile": "Dockerfile"                │
-│                            │     },                                          │
-│ ▸ Services  5 running      │ … 184 more (pgdn)                               │
+│ ▸ Services  5 running      │ … 186 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

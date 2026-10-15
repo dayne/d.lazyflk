@@ -271,6 +271,9 @@ func (m *Model) tabBody(n node, tab string, w, h int) []string {
 		case "Logs":
 			return append(out, m.logPreview(v, h-len(out))...)
 		case "Config":
+			if !m.opt.ReadOnly {
+				out = append(out, styleDim.Render("E edits flk.toml in your editor; d deploys it"), "")
+			}
 			return append(out, configLines(v, w)...)
 		}
 		return append(out, strings.Split(strings.TrimRight(cleanText(v), "\n"), "\n")...)

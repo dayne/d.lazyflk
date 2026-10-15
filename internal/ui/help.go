@@ -32,6 +32,7 @@ var mainHelp = struct {
 		{"!", "a shell inside the machine (flk ssh console; exit to come back)"},
 		{">", "type a line into the machine's console, and watch its log answer"},
 		{"d", "deploy the selected app"},
+		{"E", "edit the app's flk.toml in your editor; Config then shows how flk reads it"},
 		{"a", "go through Needs attention; enter runs the fix flk suggests"},
 		{"L", "command log: what lazyflk ran, with its output"},
 		{":", "every flk command: find it, fill in a form, run it"},

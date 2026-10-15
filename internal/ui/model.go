@@ -226,6 +226,8 @@ func (m *Model) update(msg tea.Msg) tea.Cmd {
 		return m.jobChunk(msg)
 	case attachDoneMsg:
 		return m.attachDone(msg)
+	case editDoneMsg:
+		return m.editDone(msg)
 	case sendLineMsg:
 		if m.opt.ReadOnly {
 			return nil
@@ -319,6 +321,8 @@ func (m *Model) key(msg tea.KeyPressMsg) tea.Cmd {
 		return m.openGuides()
 	case ">":
 		return m.openSendLine()
+	case "E":
+		return m.editKey()
 	case "up", "k":
 		m.move(-1)
 	case "down", "j":

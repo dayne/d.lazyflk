@@ -6,6 +6,7 @@ package actions
 
 import (
 	"fmt"
+	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
@@ -101,6 +102,7 @@ const (
 	ViewSend   View = "send"   // type one line into the console
 	ViewFiles  View = "files"  // browse the volume's files (flk files)
 	ViewShell  View = "shell"  // a shell in the machine, in the real terminal
+	ViewEdit   View = "edit"   // open File in the admin's editor
 )
 
 type Action struct {
@@ -114,6 +116,7 @@ type Action struct {
 	Long     bool   // takes a while; the UI keeps its output in view
 	View     View
 	Copy     string   // for ViewCopy
+	File     string   // for ViewEdit
 	Notes    []string // flk's notes on the command, shown in its form
 	Logs     *Command // for ViewLogs from a provider: the command to follow
 	check    func(vals map[string]string) string
@@ -276,8 +279,15 @@ func appActions(t Target) []Action {
 			}
 			return withChecks(Command{Args: args, Warn: warn}, v)
 		}}
+	edit := Action{Key: "E", Label: "edit flk.toml", Help: "open it in your editor; then Config shows how flk reads it, and d deploys it",
+		View: ViewEdit, File: a.ConfigPath}
+	editActions := Action{Key: "A", Label: "edit app actions", Help: "this menu's own commands for the app: .lazyflk.toml next to flk.toml (new when you save it)",
+		View: ViewEdit}
 	if a.ConfigPath == "" {
 		deploy.Disabled = "flk doesn't know where its flk.toml is: run flk deploy once in its directory"
+		edit.Disabled, editActions.Disabled = deploy.Disabled, deploy.Disabled
+	} else {
+		editActions.File = filepath.Join(filepath.Dir(a.ConfigPath), ".lazyflk.toml")
 	}
 	scale := ""
 	if a.Scale != nil {
@@ -357,6 +367,7 @@ func appActions(t Target) []Action {
 		unset,
 		volumeCreate(a, ""), volumeImport(a), backup(t, nil),
 		{Key: "l", Label: "logs", Help: "follow all its machines' console output", View: ViewLogs},
+		edit, editActions,
 		destroy,
 	}
 	return acts

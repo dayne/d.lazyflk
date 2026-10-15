@@ -77,7 +77,8 @@ UI shows the rest of what this admin looks after, in this order (chosen from
 what the reference host actually runs; see section 10): storage, podman
 containers and images, pinned systemd services, per-app actions.
 
-**Out:** editing flk.toml in the TUI (open `$EDITOR` instead), multi-host
+**Out:** editing flk.toml in the TUI (`E` opens it in `$EDITOR` instead,
+then shows `config show` and offers deploy; added 2026-10-14), multi-host
 management, a web UI, metrics history and graphs.
 
 ## 5. Screens

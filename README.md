@@ -25,8 +25,10 @@ Keys: `↑↓` move, `←→` fold, `tab`/`1`…`9` tabs, `pgup`/`pgdn` scroll a
 machine, `esc` back), `?` help for the current view, `q` quit.
 
 Actions: `enter` or `x` opens the selection's actions; `s` starts or stops
-a machine, `d` deploys an app, `a` goes through Needs attention (`enter`
-runs the fix flk names). Each action shows its flk command first, asks
+a machine, `d` deploys an app, `E` edits its flk.toml in `$VISUAL` or
+`$EDITOR` (else vi; then the Config tab shows how flk reads it, and `d`
+deploys it), `a` goes through Needs attention (`enter` runs the fix flk
+names). The app menu's `A` edits its `.lazyflk.toml`. Each action shows its flk command first, asks
 before anything disruptive, and wants the name typed before destroying
 data. Output streams into a full-screen view (`ctrl+c` interrupts, `esc`
 hides it while it runs); `L` is the log of everything run. Secret values go
