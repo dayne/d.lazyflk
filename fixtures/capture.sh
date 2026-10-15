@@ -32,6 +32,16 @@ F machine stats --all --json > machine-stats.json
 F disk --json > disk.json
 F images --json > images.json
 
+# each app's own actions (.lazyflk.toml next to its flk.toml), when it has them
+python3 -c "
+import json
+for a in json.load(open('context-all.json'))['apps']:
+    if a.get('config_path'): print(a['name'], a['config_path'])
+" | while read -r app cfg; do
+  f="$(dirname "$cfg")/.lazyflk.toml"
+  if [ -f "$f" ]; then cp "$f" "lazyflk-$app.toml"; else rm -f "lazyflk-$app.toml"; fi
+done
+
 # df over flk's mount_dirs (they start with the state dir)
 df -k --output=target,size,used,avail,pcent $(python3 -c "import json; print(' '.join(json.load(open('context-all.json'))['mount_dirs']))") > df.txt
 

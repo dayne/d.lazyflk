@@ -234,8 +234,10 @@ func (m *Model) appActionsSource(a flk.App) *source {
 	path := providers.LazyflkFile(a.ConfigPath)
 	return &source{cmd: "read " + path, ttl: 10 * time.Second,
 		load: func(context.Context) (any, error) {
-			list, err := providers.LoadAppActions(a.ConfigPath)
-			return list, err
+			if read := m.opt.AppActions; read != nil {
+				return read(a.Name, a.ConfigPath)
+			}
+			return providers.LoadAppActions(a.ConfigPath)
 		}}
 }
 

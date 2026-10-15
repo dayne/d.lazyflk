@@ -267,3 +267,15 @@ func TestDemoFilesExist(t *testing.T) {
 		t.Errorf("demo action: %q", l.Text)
 	}
 }
+
+// --demo serves each app's actions from fixtures, never the host's files.
+func TestDemoAppActions(t *testing.T) {
+	read := DemoAppActions(fixtures.FS)
+	acts, err := read("minecraft-flk", "/nowhere/flk.toml")
+	if err != nil || len(acts) == 0 || acts[0].Name != "who" {
+		t.Errorf("minecraft-flk: %+v, %v", acts, err)
+	}
+	if acts, err := read("opencode-sandbox", "/nowhere/flk.toml"); acts != nil || err != nil {
+		t.Errorf("an app without one: %+v, %v", acts, err)
+	}
+}

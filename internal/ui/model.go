@@ -30,6 +30,9 @@ type Options struct {
 	ReadOnly  bool
 	NoMouse   bool          // leave the mouse to the terminal (its own selection)
 	Refresh   time.Duration // 0: load once
+	// AppActions reads an app's own actions; nil: its .lazyflk.toml, next
+	// to its flk.toml.
+	AppActions func(app, configPath string) ([]providers.AppAction, error)
 }
 
 type Model struct {

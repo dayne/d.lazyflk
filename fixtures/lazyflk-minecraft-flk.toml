@@ -1,0 +1,30 @@
+# .lazyflk.toml: minecraft-flk's own actions in lazyflk's menu (enter on the
+# app or its machine). Each runs with sh -c in this directory, after lazyflk
+# shows the expanded command and asks. {input} is asked for when the action
+# runs: any one line of text, passed as data (never run as shell; lazyflk 4673104).
+# Anything with sudo is only offered to copy (lazyflk never runs root steps).
+
+[actions.who]
+run  = "bin/mc-cmd list"
+help = "who's online (RCON)"
+
+[actions.say]
+run  = "bin/mc-cmd say {input}"
+help = "broadcast a message to the players (RCON)"
+
+[actions.save]
+# the console, not RCON: a big world takes longer than RCON's 10s
+run  = "flk -a {app} console {machine} --send 'save-all flush' --wait-log 'Saved the game' --timeout 300"
+help = "write the world to disk now and wait until it's saved"
+
+[actions.backup]
+run  = "bin/mc-backup"
+help = "the nightly backup, now: live (no restart, ~25s), checked, newest 7 kept"
+
+[actions.backup-check]
+run  = "bin/mc-backup --check"
+help = "preflight only: mounts, flk, lock, status; makes no backup"
+
+[actions.whitelist]
+run  = "bin/mc-cmd whitelist add {input}"
+help = "let a player in: type their name (RCON)"

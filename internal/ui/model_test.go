@@ -77,8 +77,9 @@ func press(m *Model, keys ...string) {
 
 func newDemo(fsys fs.FS) *Model {
 	return New(Options{Client: flk.New(flk.NewFake(fsys)), Disk: fixtureDisk, Demo: true,
-		Host:      (&providers.Fake{FS: fsys, Files: providers.DemoFiles}).For,
-		Providers: []providers.Provider{providers.Storage{}, providers.Podman{Now: demoNow}, providers.Services{}}})
+		Host:       (&providers.Fake{FS: fsys, Files: providers.DemoFiles}).For,
+		AppActions: providers.DemoAppActions(fsys),
+		Providers:  []providers.Provider{providers.Storage{}, providers.Podman{Now: demoNow}, providers.Services{}}})
 }
 
 // demoNow is when the fixtures were captured, for anything showing ages.

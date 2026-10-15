@@ -28,6 +28,7 @@ digests only.
 | backups-verified.json | `flk -a flkt-lazyflk-bk volumes backups --json` at flk a04fcc6: a test app (since destroyed) after a backup, `volumes verify` and `volumes copy --dest` to a scratch dir |
 | files-ls-PATH.json, files-cat-PATH.txt | `flk -a flkt-lazyflk-fs files ls data:/PATH --json` and `files cat data:/PATH` at flk ef6f865 (PATH's / as -, root for /): a test app (since destroyed) whose volume has a small tree. The fake serves them for any app and volume |
 | events.txt | `flk events --all --json -n 60` at flk c0a98f4 (JSON lines; mostly the flk session's test apps). The fake serves it for any `events` command |
+| lazyflk-APP.toml | each app's `.lazyflk.toml` (next to its flk.toml), copied as is: its own actions for lazyflk's menu. --demo and the tests read these, never the host's |
 | df.txt | `df -k --output=target,size,used,avail,pcent MOUNT_DIRS...` (the `mount_dirs` of context-all.json, which start with the state dir) |
 | machine-stats.json | `flk machine stats --all --json` |
 | disk.json | `flk disk --json` |

@@ -52,11 +52,13 @@ func main() {
 	disk := host.DF
 	hostRunner := realHost
 	provs := []providers.Provider{providers.Storage{}, providers.Podman{}, providers.Services{PinsFile: providers.PinsPath()}}
+	var appActions func(app, configPath string) ([]providers.AppAction, error) // nil: the real .lazyflk.toml
 	if *demo {
 		runner = flk.NewFake(fixtures.FS)
 		disk = demoDisk
 		hostRunner = (&providers.Fake{FS: fixtures.FS, Files: providers.DemoFiles}).For
 		provs[2] = providers.Services{} // the default pins, as captured
+		appActions = providers.DemoAppActions(fixtures.FS)
 	} else {
 		path, err := flk.FindFlk(*flkPath)
 		if err != nil {
@@ -66,7 +68,7 @@ func main() {
 		runner = flk.Exec{Path: path}
 	}
 
-	m := ui.New(ui.Options{Client: flk.New(runner), Disk: disk, Demo: *demo, Host: hostRunner, Providers: provs, ReadOnly: *readOnly, NoMouse: *noMouse, Refresh: *refresh})
+	m := ui.New(ui.Options{Client: flk.New(runner), Disk: disk, Demo: *demo, Host: hostRunner, Providers: provs, ReadOnly: *readOnly, NoMouse: *noMouse, Refresh: *refresh, AppActions: appActions})
 	if _, err := tea.NewProgram(m).Run(); err != nil {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 		os.Exit(1)

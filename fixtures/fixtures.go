@@ -4,5 +4,5 @@ package fixtures
 
 import "embed"
 
-//go:embed *.json *.txt
+//go:embed *.json *.txt *.toml
 var FS embed.FS

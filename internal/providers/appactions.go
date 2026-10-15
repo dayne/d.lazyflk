@@ -2,6 +2,7 @@ package providers
 
 import (
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -56,6 +57,19 @@ func LoadAppActions(configPath string) ([]AppAction, error) {
 		return nil, err
 	}
 	return ParseAppActions(string(b))
+}
+
+// DemoAppActions serves each app's .lazyflk.toml from captured fixtures
+// (lazyflk-APP.toml), for --demo and the tests, which mustn't depend on
+// the files of the host they run on.
+func DemoAppActions(fsys fs.FS) func(app, configPath string) ([]AppAction, error) {
+	return func(app, _ string) ([]AppAction, error) {
+		b, err := fs.ReadFile(fsys, "lazyflk-"+app+".toml")
+		if err != nil {
+			return nil, nil
+		}
+		return ParseAppActions(string(b))
+	}
 }
 
 var (
