@@ -8,6 +8,7 @@ import (
 	"io/fs"
 	"os"
 	"os/exec"
+	"runtime/debug"
 	"time"
 
 	tea "charm.land/bubbletea/v2"
@@ -22,7 +23,7 @@ import (
 func main() {
 	fs := flag.NewFlagSet("lazyflk", flag.ContinueOnError)
 	fs.Usage = func() {
-		fmt.Fprintln(fs.Output(), "usage: lazyflk [--demo] [--read-only] [--no-mouse] [--refresh 5s] [--flk PATH]")
+		fmt.Fprintln(fs.Output(), "usage: lazyflk [--demo] [--read-only] [--no-mouse] [--refresh 5s] [--flk PATH] [--version]")
 		fs.PrintDefaults()
 	}
 	demo := fs.Bool("demo", false, "show captured output from fixtures/ instead of running flk")
@@ -30,6 +31,7 @@ func main() {
 	noMouse := fs.Bool("no-mouse", false, "don't use the mouse (leaves click-and-drag selection to the terminal)")
 	refresh := fs.Duration("refresh", 5*time.Second, "how often to reload flk context --all --json (0: load once)")
 	flkPath := fs.String("flk", "", "flk binary (default: $LAZYFLK_FLK, then PATH)")
+	showVersion := fs.Bool("version", false, "print lazyflk's version and exit")
 	if err := fs.Parse(os.Args[1:]); err != nil {
 		if err == flag.ErrHelp {
 			os.Exit(0)
@@ -39,6 +41,11 @@ func main() {
 	if fs.NArg() > 0 {
 		fmt.Fprintf(os.Stderr, "Error: unexpected argument %q\n", fs.Arg(0))
 		os.Exit(2)
+	}
+	if *showVersion {
+		info, _ := debug.ReadBuildInfo()
+		fmt.Println(version(info))
+		return
 	}
 
 	var runner flk.Runner
@@ -64,6 +71,36 @@ func main() {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 		os.Exit(1)
 	}
+}
+
+// version says which lazyflk this is: the module version when installed
+// with go install NAME@VERSION, and the git commit it was built from.
+func version(info *debug.BuildInfo) string {
+	if info == nil {
+		return "lazyflk (unknown version)"
+	}
+	v := info.Main.Version
+	if v == "" || v == "(devel)" {
+		v = "devel"
+	}
+	var rev, modified string
+	for _, s := range info.Settings {
+		switch s.Key {
+		case "vcs.revision":
+			rev = s.Value
+		case "vcs.modified":
+			if s.Value == "true" {
+				modified = ", modified"
+			}
+		}
+	}
+	if len(rev) > 7 {
+		rev = rev[:7]
+	}
+	if rev == "" {
+		return "lazyflk " + v
+	}
+	return "lazyflk " + v + " (commit " + rev + modified + ")"
 }
 
 // realHost runs host tools for the providers; a missing one fails when

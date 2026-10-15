@@ -1,0 +1,27 @@
+# Build, vet and test against fixtures/ (no flk needed).
+name: test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+      - run: go vet ./...
+      - run: go build -o lazyflk ./cmd/lazyflk
+      - run: ./lazyflk --version
+      - name: go test -race
+        env:
+          CGO_ENABLED: "1"
+        run: go test -race ./...

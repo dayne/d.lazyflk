@@ -11,9 +11,10 @@ Ground rules:
 - **flk's CLI is the only interface** (SPEC section 3.1). Run `flk ... --json`;
   never read `~/.local/share/flk` or call firecracker, tmux or nft directly.
   If flk lacks something, it's a gap: check SPEC section 9 and propose the
-  flk change instead of working around it. Gaps go in the "For lazyflk"
-  section of flk's `TODO.md`, and are built and tested in flk's repo (its
-  `AGENTS.md`, `tests/run.sh`), not here.
+  flk change instead of working around it. Another agent develops flk:
+  register gaps with it (the "For lazyflk" section of flk's `TODO.md`, and
+  a message to the flk session if one is running), never build them here
+  or in flk's repo yourself.
 - **Learn flk from flk:** `flk help --all` (full reference),
   `flk help --all --json` (the command table, ideal for the palette),
   `flk context --all`.
@@ -25,10 +26,11 @@ Ground rules:
   the flk commit named in `fixtures/README.md`. Build and test against it
   first (`--demo`), and add new fixtures by running the same commands
   (`fixtures/capture.sh`), never by hand-editing them.
-- **Don't touch real apps.** This host runs real game servers
-  (`minecraft-flk`, `vintagestory-flk`) with players' data. Read-only
-  commands against them are fine; for anything that starts, stops, deploys
-  or destroys, use test apps named `flkt-*` (create them from
+- **Don't touch real apps.** Every app not named `flkt-*` is real: on the
+  reference host, game servers with players' data (`minecraft-flk`,
+  `vintagestory-flk`) and `opencode-sandbox`. Read-only commands against
+  them are fine; for anything that starts, stops, deploys or destroys, use
+  test apps named `flkt-*` (create them from
   `$FLK_SRC/tests/apps/hello` or `mcshadow`) and clean them up with
   `flk apps destroy NAME --yes`.
 - **Never run sudo.** Root steps are shown to the admin, not run.
