@@ -25,7 +25,7 @@ Keys: `↑↓` move, `←→` fold, `tab`/`1`…`9` tabs, `pgup`/`pgdn` scroll a
 machine, `esc` back), `?` help for the current view, `q` quit.
 
 Actions: `enter` or `x` opens the selection's actions; `s` starts or stops
-a machine, `d` deploys an app, `E` edits its flk.toml in `$VISUAL` or
+a machine (or all of an app's: `flk start`/`flk stop`), `d` deploys an app, `E` edits its flk.toml in `$VISUAL` or
 `$EDITOR` (else vi; then the Config tab shows how flk reads it, and `d`
 deploys it), `a` goes through Needs attention (`enter` runs the fix flk
 names). The app menu's `A` edits its `.lazyflk.toml`. Each action shows its flk command first, asks

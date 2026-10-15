@@ -315,6 +315,25 @@ type Command struct {
 	Subcommands       []Command `json:"subcommands"`
 }
 
+// HasCommand reports whether this flk has a command (by path: "start").
+func (h Help) HasCommand(path ...string) bool {
+	cmds := h.Commands
+	for _, name := range path {
+		var next *Command
+		for i := range cmds {
+			if cmds[i].Name == name {
+				next = &cmds[i]
+				break
+			}
+		}
+		if next == nil {
+			return false
+		}
+		cmds = next.Subcommands
+	}
+	return len(path) > 0
+}
+
 // HasOption reports whether this flk's command (by path: "volumes",
 // "create") takes an option (its long switch: "--owner"). Newer flks add
 // options; lazyflk offers them only where flk lists them.

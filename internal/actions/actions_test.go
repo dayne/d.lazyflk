@@ -557,3 +557,44 @@ func TestVolumeCreateOwner(t *testing.T) {
 		}
 	}
 }
+
+// flk start|stop|restart (a6c6975) for all of an app's machines, offered
+// by a flk that has them; stop all moves to p.
+func TestAppLifecycle(t *testing.T) {
+	a := hostContext(t).Apps[0] // one machine, running
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	json.Unmarshal(b, &help)
+	if !help.HasCommand("start") || !help.HasCommand("volumes", "create") || help.HasCommand("nope") || help.HasCommand() {
+		t.Error("HasCommand")
+	}
+	acts := For(Target{Kind: App, App: a, Help: &help})
+	start, stop, restart := find(t, acts, "start"), find(t, acts, "stop"), find(t, acts, "restart")
+	if start.Key != "s" || start.Disabled != "all running" || stop.Key != "S" || stop.Confirm != Ask || restart.Key != "R" {
+		t.Errorf("start %+v\nstop %+v\nrestart %+v", start, stop, restart)
+	}
+	if got := stop.Command(nil); got.Line() != "flk -a "+a.Name+" stop" || !strings.Contains(got.Warn, "also after a reboot") {
+		t.Errorf("stop: %s / %s", got.Line(), got.Warn)
+	}
+	if got := restart.Command(nil).Line(); got != "flk -a "+a.Name+" restart" {
+		t.Errorf("restart: %s", got)
+	}
+	if find(t, acts, "stop all").Key != "p" {
+		t.Error("stop all moved to p")
+	}
+	keys := map[string]string{}
+	for _, act := range acts {
+		if act.Key == "" {
+			continue
+		}
+		if other, dup := keys[act.Key]; dup {
+			t.Errorf("key %s: %s and %s", act.Key, other, act.Label)
+		}
+		keys[act.Key] = act.Label
+	}
+	for _, act := range For(Target{Kind: App, App: a}) {
+		if act.Label == "start" || act.Label == "restart" {
+			t.Errorf("an older flk (or help not loaded) has no app-level %s", act.Label)
+		}
+	}
+}

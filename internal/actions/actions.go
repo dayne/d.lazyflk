@@ -313,7 +313,7 @@ func appActions(t Target) []Action {
 	if should == 0 {
 		resume.Disabled = "nothing to resume"
 	}
-	stopAll := Action{Key: "S", Label: "stop all", Help: "stop its running machines; resume brings them back",
+	stopAll := Action{Key: "p", Label: "stop all", Help: "stop its running machines for now: they stay meant to run, and resume (u) brings them back",
 		Confirm: Ask, Long: true, build: func(map[string]string) Command {
 			return Command{Args: app(a, "stop-all"),
 				Warn: fmt.Sprintf("Stops %s of %s. They stay meant to run: resume (u) starts them again.", plural(running, "machine"), a.Name)}
@@ -354,8 +354,12 @@ func appActions(t Target) []Action {
 			}
 			return Command{Args: args, Warn: warn + " This can't be undone."}
 		}}
-	acts := []Action{deploy, rollback(a, t.Releases, t.Backups, running),
-		{Key: "c", Label: "scale", Help: "set the number of machines",
+	acts := []Action{deploy, rollback(a, t.Releases, t.Backups, running)}
+	if t.Help != nil && t.Help.HasCommand("start") { // flk a6c6975: every machine of the app at once
+		acts = append(acts, appLifecycle(a, running)...)
+	}
+	acts = append(acts,
+		Action{Key: "c", Label: "scale", Help: "set the number of machines",
 			Confirm: Ask, Long: true,
 			Fields: []Field{{Name: "count", Label: "machines", Default: scale, Required: true, Number: true}},
 			build: func(v map[string]string) Command {
@@ -367,7 +371,7 @@ func appActions(t Target) []Action {
 				return Command{Args: app(a, "scale", "count", strconv.Itoa(n)), Warn: warn}
 			}},
 		resume, stopAll,
-		{Key: "e", Label: "set secret", Help: "set a secret; the value goes to flk on stdin, never on the command line",
+		Action{Key: "e", Label: "set secret", Help: "set a secret; the value goes to flk on stdin, never on the command line",
 			Confirm: Ask,
 			Fields: []Field{
 				{Name: "name", Label: "name", Required: true, Help: "an env var name, e.g. API_KEY"},
@@ -379,11 +383,38 @@ func appActions(t Target) []Action {
 			}},
 		unset,
 		volumeCreate(t, ""), volumeImport(a), backup(t, nil),
-		{Key: "l", Label: "logs", Help: "follow all its machines' console output", View: ViewLogs},
+		Action{Key: "l", Label: "logs", Help: "follow all its machines' console output", View: ViewLogs},
 		edit, editActions,
 		destroy,
-	}
+	)
 	return acts
+}
+
+// appLifecycle is start, stop and restart for all of an app's machines
+// (flk start|stop|restart), like the machine menu's for one.
+func appLifecycle(a flk.App, running int) []Action {
+	stopped := len(a.Machines) - running
+	start := Action{Key: "s", Label: "start", Help: "boot every stopped machine",
+		Long: true, build: fixed(app(a, "start")...)}
+	stop := Action{Key: "S", Label: "stop", Help: "stop every machine gracefully; they stay stopped, also after reboots",
+		Confirm: Ask, Long: true, build: func(map[string]string) Command {
+			return Command{Args: app(a, "stop"),
+				Warn: fmt.Sprintf("Stops %s of %s. They stay stopped until started (s), also after a reboot.", plural(running, "running machine"), a.Name)}
+		}}
+	restart := Action{Key: "R", Label: "restart", Help: "stop and boot every machine, one at a time",
+		Confirm: Ask, Long: true, build: func(map[string]string) Command {
+			return Command{Args: app(a, "restart"),
+				Warn: fmt.Sprintf("Restarts %s of %s, one at a time.", plural(len(a.Machines), "machine"), a.Name)}
+		}}
+	switch {
+	case len(a.Machines) == 0:
+		start.Disabled, stop.Disabled, restart.Disabled = "no machines: deploy first", "no machines", "no machines"
+	case stopped == 0:
+		start.Disabled = "all running"
+	case running == 0:
+		stop.Disabled = "nothing running"
+	}
+	return []Action{start, stop, restart}
 }
 
 // checksField is --no-rollback: what happens to a machine that fails its

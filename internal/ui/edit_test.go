@@ -136,3 +136,13 @@ func TestFailedDeployUnchanged(t *testing.T) {
 		t.Errorf("a roll that touched machines isn't unchanged: %q", u)
 	}
 }
+
+// s on an app: start what's stopped, else stop them all (flk stop).
+func TestAppStartStopKey(t *testing.T) {
+	m := demoModel(t, 100, 30)
+	goToKey(t, m, "app/minecraft-flk")
+	press(m, "s")
+	if m.confirm == nil || !strings.Contains(screen(m), "$ flk -a minecraft-flk stop") {
+		t.Errorf("s on a running app:\n%s", screen(m))
+	}
+}

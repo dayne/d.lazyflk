@@ -151,7 +151,8 @@ func (m *Model) sync() tea.Cmd {
 	}
 	n := m.nodes[m.cursor]
 	tab := m.tabName(n)
-	cmds := []tea.Cmd{m.want(m.tabSource(n, tab)), m.want(m.diskSource())}
+	cmds := []tea.Cmd{m.want(m.tabSource(n, tab)), m.want(m.diskSource()),
+		m.want(m.helpSource())} // what this flk can do (options and commands newer flks add); cached for an hour
 	if m.quick() {
 		cmds = append(cmds, m.want(m.doctorSource()))
 	}
@@ -390,6 +391,12 @@ func (m *Model) shortcut(k string) tea.Cmd {
 		label = "start"
 		if mc := m.apps[n.app].Machines[n.machine]; mc.Started() {
 			label = "stop"
+		}
+	case k == "s" && n.kind == kindApp: // flk start|stop (a6c6975): start any stopped, else stop
+		a := m.apps[n.app]
+		label = "stop"
+		if startedCount(a) < len(a.Machines) {
+			label = "start"
 		}
 	case k == "d" && n.kind >= kindApp && n.kind <= kindPorts:
 		n = node{kind: kindApp, app: n.app}
