@@ -174,3 +174,16 @@ func TestInternalNames(t *testing.T) {
 		t.Errorf("config:\n%s", s)
 	}
 }
+
+// An event whose detail carries rsync's lines stays one entry (they used
+// to break the Events tab's layout).
+func TestEventDetailOneLine(t *testing.T) {
+	m := demoModel(t, 100, 30)
+	e := flk.Event{At: "2026-10-15T05:13:38.580Z", App: "flkt-x", Type: "backup.copy_failed",
+		Detail: "data: copy to nohost:/srv/flk failed: ssh: No route to host\nrsync: connection unexpectedly closed (0 bytes received so far) [Receiver]\r\nrsync error: unexplained error (code 255) at io.c(232) [Receiver=3.4.1]\n"}
+	s := ansi.Strip(m.eventLine(e, true))
+	if strings.ContainsAny(s, "\n\r") || !strings.Contains(s, "No route to host · rsync: connection unexpectedly closed") ||
+		!strings.HasSuffix(s, "[Receiver] · rsync error: unexplained error (code 255) at io.c(232) [Receiver=3.4.1]") {
+		t.Errorf("%q", s)
+	}
+}

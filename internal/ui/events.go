@@ -235,10 +235,23 @@ func (m *Model) eventLine(e flk.Event, withApp bool) string {
 	if who != "" {
 		s += "  " + styleDim.Render(who)
 	}
-	if e.Detail != "" {
-		s += "  " + e.Detail
+	if d := oneLine(e.Detail); d != "" {
+		s += "  " + d
 	}
 	return s
+}
+
+// oneLine keeps a free-text field on one entry: a detail can carry a
+// tool's lines (rsync's errors after flk's), and a newline or control
+// code inside a row breaks the layout.
+func oneLine(s string) string {
+	var parts []string
+	for _, l := range strings.Split(s, "\n") {
+		if l = strings.TrimSpace(cleanLog(l)); l != "" {
+			parts = append(parts, l)
+		}
+	}
+	return strings.Join(parts, " · ")
 }
 
 // eventStyle colours a type by how it went. Every boot is one of
