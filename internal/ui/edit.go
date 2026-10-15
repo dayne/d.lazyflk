@@ -79,6 +79,10 @@ func editAbout(at *attachView) []string {
 // log like any action.
 func (m *Model) runEdit(at *attachView) tea.Cmd {
 	line := flk.CommandLineFor(at.editor[0], at.editor[1:]...)
+	if !m.isTestApp(at.app) {
+		m.note = m.notTestApp(at.app)
+		return nil
+	}
 	if m.opt.Demo {
 		m.note = "demo mode: would run " + line
 		return nil

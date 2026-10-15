@@ -23,7 +23,7 @@ import (
 func main() {
 	fs := flag.NewFlagSet("lazyflk", flag.ContinueOnError)
 	fs.Usage = func() {
-		fmt.Fprintln(fs.Output(), "usage: lazyflk [--demo] [--read-only] [--no-mouse] [--refresh 5s] [--flk PATH] [--version]")
+		fmt.Fprintln(fs.Output(), "usage: lazyflk [--demo] [--read-only] [--no-mouse] [--refresh 5s] [--flk PATH] [--test-apps PREFIX] [--version]")
 		fs.PrintDefaults()
 	}
 	demo := fs.Bool("demo", false, "show captured output from fixtures/ instead of running flk")
@@ -32,6 +32,7 @@ func main() {
 	refresh := fs.Duration("refresh", 5*time.Second, "how often to reload flk context --all --json (0: load once)")
 	flkPath := fs.String("flk", "", "flk binary (default: $LAZYFLK_FLK, then PATH)")
 	showVersion := fs.Bool("version", false, "print lazyflk's version and exit")
+	testApps := fs.String("test-apps", "", "run actions only on apps whose name starts with this (e.g. flkt-); for live checks next to real apps")
 	if err := fs.Parse(os.Args[1:]); err != nil {
 		if err == flag.ErrHelp {
 			os.Exit(0)
@@ -68,7 +69,7 @@ func main() {
 		runner = flk.Exec{Path: path}
 	}
 
-	m := ui.New(ui.Options{Client: flk.New(runner), Disk: disk, Demo: *demo, Host: hostRunner, Providers: provs, ReadOnly: *readOnly, NoMouse: *noMouse, Refresh: *refresh, AppActions: appActions})
+	m := ui.New(ui.Options{Client: flk.New(runner), Disk: disk, Demo: *demo, Host: hostRunner, Providers: provs, ReadOnly: *readOnly, NoMouse: *noMouse, Refresh: *refresh, AppActions: appActions, TestApps: *testApps})
 	if _, err := tea.NewProgram(m).Run(); err != nil {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 		os.Exit(1)

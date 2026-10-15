@@ -598,3 +598,22 @@ func TestAppLifecycle(t *testing.T) {
 		}
 	}
 }
+
+func TestTargetApp(t *testing.T) {
+	for _, c := range []struct {
+		cmd  Command
+		want string
+	}{
+		{Command{Args: []string{"-a", "flkt-x", "machine", "stop", "id"}}, "flkt-x"},
+		{Command{Args: []string{"--app", "minecraft-flk", "deploy"}}, "minecraft-flk"},
+		{Command{Args: []string{"--app=flkt-y", "stop"}}, "flkt-y"},
+		{Command{Args: []string{"apps", "destroy", "mqtt-flk", "--yes"}}, "mqtt-flk"},
+		{Command{Args: []string{"stop-all"}}, ""},
+		{Command{Args: []string{"exec", "--", "-a", "flkt-x"}}, ""}, // after --: the machine's, not flk's
+		{Command{Program: "podman", Args: []string{"-a", "flkt-x"}}, ""},
+	} {
+		if got := TargetApp(c.cmd); got != c.want {
+			t.Errorf("%v: %q, want %q", c.cmd.Args, got, c.want)
+		}
+	}
+}

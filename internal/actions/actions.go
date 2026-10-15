@@ -939,3 +939,27 @@ func Custom(key, label, help string, needsInput bool, make func(input string) (C
 	}
 	return a
 }
+
+// TargetApp is the one app a command acts on: its -a/--app, or the NAME
+// of apps destroy. "" when it isn't an flk command, or acts on no single
+// app (host-wide ones: stop-all, resume, ports sync, apps prune...).
+// --test-apps lets only commands on test apps run.
+func TargetApp(c Command) string {
+	if c.Program != "" {
+		return ""
+	}
+	args := c.Args
+	for i, a := range args {
+		switch {
+		case a == "--":
+			return ""
+		case (a == "-a" || a == "--app") && i+1 < len(args):
+			return args[i+1]
+		case strings.HasPrefix(a, "--app="):
+			return strings.TrimPrefix(a, "--app=")
+		case a == "apps" && i+2 < len(args) && args[i+1] == "destroy":
+			return args[i+2]
+		}
+	}
+	return ""
+}

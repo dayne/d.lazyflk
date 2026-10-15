@@ -33,6 +33,7 @@ type Options struct {
 	// AppActions reads an app's own actions; nil: its .lazyflk.toml, next
 	// to its flk.toml.
 	AppActions func(app, configPath string) ([]providers.AppAction, error)
+	TestApps   string // run actions only on apps named this* (--test-apps flkt-)
 }
 
 type Model struct {
@@ -882,6 +883,9 @@ func (m *Model) topRule(w int) string {
 	}
 	if m.opt.ReadOnly {
 		status = append(status, "read-only")
+	}
+	if m.opt.TestApps != "" {
+		status = append(status, "test apps: "+m.opt.TestApps+"*")
 	}
 	if m.opt.Demo {
 		status = append(status, "demo")

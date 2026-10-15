@@ -55,6 +55,10 @@ type jobChunkMsg struct {
 
 // runJob starts an action's command, shown in the job modal.
 func (m *Model) runJob(title string, c actions.Command) tea.Cmd {
+	if why := m.testGuard(c); why != "" {
+		m.note = why
+		return nil
+	}
 	m.jobSeq++
 	j := &job{id: m.jobSeq, title: title, args: c.Args, line: c.Line(), started: m.now()}
 	m.addJob(j)

@@ -13,7 +13,9 @@ agent working on it.
 
 Flags: `--demo` (actions say what they'd run, and run nothing),
 `--read-only` (no actions), `--no-mouse` (leave the mouse to the
-terminal), `--refresh 5s` (0 loads once), `--flk PATH`, `--version`.
+terminal), `--refresh 5s` (0 loads once), `--flk PATH`, `--version`,
+`--test-apps flkt-` (actions only on apps named `flkt-*`; everything else
+stays readable: for trying things out next to real apps).
 
 Mouse: click a tree row, a tab, a menu or palette entry, a Needs attention
 entry (again to run its fix) or a footer key; the wheel scrolls what's

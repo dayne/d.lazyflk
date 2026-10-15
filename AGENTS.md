@@ -30,8 +30,9 @@ Ground rules:
   reference host, game servers with players' data (`minecraft-flk`,
   `vintagestory-flk`), `opencode-sandbox` and `mqtt-flk`; new ones appear
   without notice, and an app with a problem sorts first in the tree. In a
-  live run, read the confirm box: press y only when its `$ flk -a NAME`
-  names a `flkt-*` app. Read-only commands against
+  live run, always start lazyflk with `--test-apps flkt-` (it refuses
+  actions on any other app), and still read the confirm box: press y only
+  when its `$ flk -a NAME` names a `flkt-*` app. Read-only commands against
   them are fine; for anything that starts, stops, deploys or destroys, use
   test apps named `flkt-*` (create them from
   `$FLK_SRC/tests/apps/hello` or `mcshadow`) and clean them up with

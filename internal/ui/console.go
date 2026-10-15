@@ -169,6 +169,10 @@ func (m *Model) runAttach(at *attachView) tea.Cmd {
 	if at.editor != nil {
 		return m.runEdit(at)
 	}
+	if why := m.testGuard(actions.Command{Args: at.args}); why != "" {
+		m.note = why
+		return nil
+	}
 	r, ok := m.opt.Client.Runner.(flk.Interactiver)
 	if !ok || m.opt.Demo {
 		m.note = "demo mode: would run " + flk.CommandLine(at.args...)
@@ -213,6 +217,12 @@ func (m *Model) attachDone(msg attachDoneMsg) tea.Cmd {
 // shows up in the log being followed.
 func (m *Model) sendLine(msg sendLineMsg) tea.Cmd {
 	c := actions.Command{Args: []string{"-a", msg.app, "console", msg.id, "--send", msg.text}}
+	if why := m.testGuard(c); why != "" {
+		if msg.v != nil {
+			msg.v.note = why
+		}
+		return nil
+	}
 	m.jobSeq++
 	j := &job{id: m.jobSeq, title: "send ─ " + msg.app, args: c.Args, line: c.Line(), started: m.now(), quiet: true}
 	m.addJob(j)

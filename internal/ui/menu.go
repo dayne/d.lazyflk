@@ -86,13 +86,13 @@ func (m *Model) menuActions() ([]actions.Action, string) {
 	}
 	if n.kind == kindProvider {
 		it := m.providerItem(n)
-		return it.Actions, it.Title
+		return m.testOnly(it.Actions, ""), it.Title
 	}
 	t, title, ok := m.target(n)
 	if !ok {
 		return nil, ""
 	}
-	return append(actions.For(t), m.appActions(n)...), title
+	return m.testOnly(append(actions.For(t), m.appActions(n)...), t.App.Name), title
 }
 
 func (m *Model) openMenu() tea.Cmd {
@@ -219,6 +219,10 @@ func (m *Model) choose(title string, a actions.Action) tea.Cmd {
 }
 
 func (m *Model) confirmOrRun(title string, a actions.Action, c actions.Command) tea.Cmd {
+	if why := m.testGuard(c); why != "" {
+		m.note = why
+		return nil
+	}
 	if c.Interactive {
 		m.attach = &attachView{title: title, args: c.Args}
 		return nil
