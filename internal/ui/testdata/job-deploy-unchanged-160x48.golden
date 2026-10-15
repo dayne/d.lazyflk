@@ -1,0 +1,48 @@
+┌ deploy ─ minecraft-flk ─ ✘ failed after 12s · machines unchanged (still on v9) ──────────────────────────────────────────────────────────────────────────────┐
+│ $ flk -a minecraft-flk deploy                                                                                                                                │
+│                                                                                                                                                              │
+│ ==> Building image flk.local/minecraft-flk:v10                                                                                                               │
+│ STEP 3/7: RUN groupadd -g 1000 mc                                                                                                                            │
+│ groupadd: GID '1000' already exists                                                                                                                          │
+│ Error: build failed; machines unchanged (still on v9)                                                                                                        │
+│ Next: flk deploy (after fixing the build)   or: flk status                                                                                                   │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ esc close  ↑↓ pgup/dn scroll  w wrap  y copy command  L command log                                                                                          │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

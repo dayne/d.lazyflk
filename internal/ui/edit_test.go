@@ -6,8 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/x/ansi"
 
 	"github.com/dayne/d.lazyflk/fixtures"
 	"github.com/dayne/d.lazyflk/internal/flk"
@@ -99,5 +101,38 @@ func TestVolumeOwnerFromImage(t *testing.T) {
 	goTo(m, kindVolume)
 	if s := screen(m); !strings.Contains(s, "owner     not set yet: its root takes the image's owner") {
 		t.Errorf("volume overview:\n%s", s)
+	}
+}
+
+// A deploy whose build failed: flk's cause, its Error: and Next: lines
+// (G13), and the status says the machines weren't touched.
+func TestFailedDeployUnchanged(t *testing.T) {
+	for _, sz := range [][2]int{{80, 24}, {160, 48}} {
+		m := demoModel(t, sz[0], sz[1])
+		start := time.Date(2026, 10, 14, 21, 0, 0, 0, time.UTC)
+		m.now = func() time.Time { return start.Add(12 * time.Second) }
+		j := &job{id: 1, title: "deploy ─ minecraft-flk", line: "flk -a minecraft-flk deploy", started: start, ended: start.Add(12 * time.Second),
+			err: errors.New("exit status 1")}
+		for _, l := range []flk.Line{
+			{Text: "==> Building image flk.local/minecraft-flk:v10"},
+			{Text: "STEP 3/7: RUN groupadd -g 1000 mc", Stderr: true},
+			{Text: "groupadd: GID '1000' already exists", Stderr: true},
+			{Text: "Error: build failed; machines unchanged (still on v9)", Stderr: true},
+			{Text: "Next: flk deploy (after fixing the build)   or: flk status", Stderr: true},
+		} {
+			j.lines = append(j.lines, classifyJobLine(l))
+		}
+		m.addJob(j)
+		m.shown = j
+		if got := ansi.Strip(j.status(m.now())); got != "✘ failed after 12s · machines unchanged (still on v9)" {
+			t.Errorf("status: %q", got)
+		}
+		if k := j.lines[4].kind; k != logHeader {
+			t.Errorf("Next: on stderr is %v, want a header", k)
+		}
+		snap(t, m, "job-deploy-unchanged")
+	}
+	if u := unchanged(&job{lines: []logLine{{text: "Error: v10 failed its health checks", kind: logError}}}); u != "" {
+		t.Errorf("a roll that touched machines isn't unchanged: %q", u)
 	}
 }

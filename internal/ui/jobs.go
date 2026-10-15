@@ -85,6 +85,8 @@ func classifyJobLine(l flk.Line) logLine {
 	switch {
 	case l.Stderr && strings.HasPrefix(ll.text, "Error:"):
 		ll.kind = logError
+	case l.Stderr && strings.HasPrefix(ll.text, "Next:"): // after an Error: (flk a6c6975)
+		ll.kind = logHeader
 	case l.Stderr:
 		ll.kind = logText // progress and warnings go to stderr too
 	case strings.HasPrefix(ll.text, "==>"), strings.HasPrefix(ll.text, "Next:"):
@@ -173,9 +175,21 @@ func (j *job) status(now time.Time) string {
 	case j.stopped:
 		return styleWarn.Render("interrupted after " + took(j.ended))
 	case j.err != nil:
+		if u := unchanged(j); u != "" { // flk says what happened; the exit status adds nothing
+			return styleBad.Render("✘ failed after "+took(j.ended)) + " · " + styleOK.Render(u)
+		}
 		return styleBad.Render("✘ failed (" + exitText(j.err) + ") after " + took(j.ended))
 	}
 	return styleOK.Render("✔ done in " + took(j.ended))
+}
+
+// unchanged is flk's word that a failed deploy left every machine as it
+// was ("machines unchanged (still on v9)", flk G13), or "".
+func unchanged(j *job) string {
+	if _, rest, ok := strings.Cut(lastError(j), "machines unchanged"); ok {
+		return "machines unchanged" + rest
+	}
+	return ""
 }
 
 func (j *job) icon() string {
