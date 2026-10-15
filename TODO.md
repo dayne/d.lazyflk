@@ -96,6 +96,29 @@ attention fix rolled it back).
   whole hints and keep `? help` and `esc`; tree ports drop the host's
   own address when narrow; port lines name the address once.
 
+## Sprint 1 after the split (2026-10-14)
+
+- [x] `--version`; GitHub Actions (gofmt, vet, build, `go test -race`:
+  the race detector can't run on the reference host, no C compiler);
+  AGENTS.md: every non-`flkt-*` app is real (`opencode-sandbox` too),
+  and flk gaps go to the flk agent.
+- [x] Fixtures at flk 39febf8 (a third app, with no ports).
+- [x] **Healthy folds** (SPEC 5.1): Storage, Podman and Services fold to
+  a summary line while fine and open by themselves on a problem; healthy
+  apps fold from the bottom when the tree doesn't fit; a fold by hand
+  holds until the health changes.
+- [x] **Edit, check, deploy:** `E` opens flk.toml in `$EDITOR`, then the
+  Config tab (warnings first) and a nudge to `d`; app menu `A` edits
+  `.lazyflk.toml`. Checked live on a test app.
+- [x] Machine menu shell asks which user (`ssh console --user`).
+- [ ] **G13** (flk TODO, 39febf8): when a failed deploy ends with flk's
+  "machines unchanged (still on vN)" and `Next:` line, show that line
+  under the job, and `deploy_failed` events in the Events tabs.
+- [ ] **G14** (flk TODO, 39febf8): an owner field in the volume create
+  form when `help --all --json` lists `--owner`; or the root's uid/gid
+  on the volume Overview if flk puts it in `volumes list --json`.
+- [ ] Maybe: `/` filters the tree, if a host outgrows folding.
+
 ## Known gaps
 
 - [x] **Reboots and log rotation** pin a banner in the followed log
