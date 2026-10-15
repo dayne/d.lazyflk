@@ -93,6 +93,10 @@ func (m *Model) menuActions() ([]actions.Action, string) {
 }
 
 func (m *Model) openMenu() tea.Cmd {
+	if n, ok := m.selected(); ok && n.kind == kindSection { // nothing to do to a section but open it
+		m.fold(!n.folded)
+		return nil
+	}
 	if m.opt.ReadOnly {
 		m.note = "read-only: actions are off (started with --read-only)"
 		return nil

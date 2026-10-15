@@ -15,27 +15,27 @@
 │ Host                                │ s  start          already running                                                │                                     │
 │   health ✔                          │ S  stop           stop gracefully; it stays stopped, also after reboots          │                                     │
 │                                     │ r  restart        stop, then boot                                                │                                     │
-│ Storage                             │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
-│   / 30%                             │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
-│   /data/minecraft 67%               │ l  logs           follow its console output                                      │                                     │
-│   /data/vintagestory 13%            │ c  console        attach to its serial console (detach: Ctrl-b d)                │                                     │
-│                                     │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
-│ Podman                              │ R  record         flk machine status: its record and state                       │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ 1  who            who's online (RCON)                                            │                                     │
-│   ◇ itzg/minecraft-server:latest 868│ 2  say            broadcast a message to the players (RCON)                      │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ 3  save           write the world to disk now and wait until it's saved          │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
-│   ◇ ubuntu:24.04 77M                │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
-│   ◇ ruby:3.3-alpine 69M             │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │
-│   ◇ alpine:3.20 7.7M                │                                                                                  │                                     │
-│   7 flk images: host Images tab     │ boot it                                                                          │                                     │
+│ ▸ Storage  fullest 67%              │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
+│                                     │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
+│ ▸ Podman  7 images                  │ l  logs           follow its console output                                      │                                     │
+│                                     │ c  console        attach to its serial console (detach: Ctrl-b d)                │                                     │
+│ ▸ Services  5 running               │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
+│                                     │ R  record         flk machine status: its record and state                       │                                     │
+│                                     │ 1  who            who's online (RCON)                                            │                                     │
+│                                     │ 2  say            broadcast a message to the players (RCON)                      │                                     │
+│                                     │ 3  save           write the world to disk now and wait until it's saved          │                                     │
+│                                     │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
+│                                     │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
+│                                     │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │
+│                                     │                                                                                  │                                     │
+│                                     │ boot it                                                                          │                                     │
 │                                     │ not now: already running                                                         │                                     │
-│ Services                            ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ● flk-net                         │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│   ● flk-machines                    └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

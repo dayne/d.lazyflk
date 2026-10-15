@@ -15,27 +15,27 @@
 │ Host                                │ c  scale          set the number of machines                                     │                                     │
 │   health ✔                          │ u  resume         nothing to resume                                              │                                     │
 │                                     │ S  stop all       stop its running machines; resume brings them back             │                                     │
-│ Storage                             │ e  set secret     set a secret; the value goes to flk on stdin, never on the co… │                                     │
-│   / 30%                             │ U  unset secret   no secrets                                                     │                                     │
-│   /data/minecraft 67%               │ n  new volume     create a volume for [[mounts]] source = NAME                   │                                     │
-│   /data/vintagestory 13%            │ i  import volume  register an existing ext4 image; flk never deletes it          │                                     │
-│                                     │ b  back up        copy all of minecraft-flk's volumes to the backup dir, then p… │                                     │
-│ Podman                              │ l  logs           follow all its machines' console output                        │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ D  destroy app    delete the app, its machines, releases and volumes             │                                     │
-│   ◇ itzg/minecraft-server:latest 868│ 1  who            who's online (RCON)                                            │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ 2  say            broadcast a message to the players (RCON)                      │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ 3  save           write the world to disk now and wait until it's saved          │                                     │
-│   ◇ ubuntu:24.04 77M                │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
-│   ◇ ruby:3.3-alpine 69M             │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
-│   ◇ alpine:3.20 7.7M                │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │
-│   7 flk images: host Images tab     │                                                                                  │                                     │
+│ ▸ Storage  fullest 67%              │ e  set secret     set a secret; the value goes to flk on stdin, never on the co… │                                     │
+│                                     │ U  unset secret   no secrets                                                     │                                     │
+│ ▸ Podman  7 images                  │ n  new volume     create a volume for [[mounts]] source = NAME                   │                                     │
+│                                     │ i  import volume  register an existing ext4 image; flk never deletes it          │                                     │
+│ ▸ Services  5 running               │ b  back up        copy all of minecraft-flk's volumes to the backup dir, then p… │                                     │
+│                                     │ l  logs           follow all its machines' console output                        │                                     │
+│                                     │ D  destroy app    delete the app, its machines, releases and volumes             │                                     │
+│                                     │ 1  who            who's online (RCON)                                            │                                     │
+│                                     │ 2  say            broadcast a message to the players (RCON)                      │                                     │
+│                                     │ 3  save           write the world to disk now and wait until it's saved          │                                     │
+│                                     │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
+│                                     │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
+│                                     │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │
+│                                     │                                                                                  │                                     │
 │                                     │ build the image and roll machines to a new release                               │                                     │
-│ Services                            │ $ flk -a minecraft-flk deploy                                                    │                                     │
-│   ● flk-net                         ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ● flk-machines                    │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│   ● ssh                             └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                     │ $ flk -a minecraft-flk deploy                                                    │                                     │
+│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

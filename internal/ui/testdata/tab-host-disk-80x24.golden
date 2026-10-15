@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │   /data/minecraft/flk /data/vintagestory/flk    │
 │   ● lucky-harbor-5563      │                                                 │
 │   ▢ code_workspace 30GB    │  30% ███░░░░░░░ /                               │
-│ ▾ vintagestory-flk  1/1 ●  │      66G free of 98G                            │
-│   ● frosty-river-2714      │      holds /home/dayne/.local/share/flk         │
-│   ▢ vsdata 40GB (external) │                                                 │
-│   ⇄ tcp/42420 udp/42420    │  67% ██████░░░░ /data/minecraft                 │
+│ ▸ vintagestory-flk  1/1 ●  │      66G free of 98G                            │
+│                            │      holds /home/dayne/.local/share/flk         │
+│ Host                       │                                                 │
+│   health ✔                 │  67% ██████░░░░ /data/minecraft                 │
 │                            │      32G free of 98G                            │
-│ Host                       │      holds /data/minecraft/flk                  │
-│   health ✔                 │                                                 │
-│                            │  13% █░░░░░░░░░ /data/vintagestory              │
-│ Storage                    │      122G free of 147G                          │
-│   / 30%                    │ … 29 more (pgdn)                                │
+│ ▸ Storage  fullest 67%     │      holds /data/minecraft/flk                  │
+│                            │                                                 │
+│ ▸ Podman  7 images         │  13% █░░░░░░░░░ /data/vintagestory              │
+│                            │      122G free of 147G                          │
+│ ▸ Services  5 running      │ … 29 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

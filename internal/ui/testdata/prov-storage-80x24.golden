@@ -1,22 +1,22 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ ▾ minecraft-flk  1/1 ●     │ filesystem /data/minecraft ─  Overview          │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▾ opencode-sandbox  1/1 ●  │ used      67% · 32G free of 98G                 │
-│   ● lucky-harbor-5563      │ holds     /data/minecraft/flk                   │
-│   ▢ code_workspace 30GB    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │ devices, from the filesystem down:              │
-│   ● frosty-river-2714      │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G,   │
-│   ▢ vsdata 40GB (external) │     ext4                                        │
-│   ⇄ tcp/42420 udp/42420    │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
-│                            │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
-│ Host                       │                                                 │
-│   health ✔                 │ 1.1T of /dev/nvme0n1p3 isn't in any logical     │
+│ Apps                       │ filesystem /data/minecraft ─  Overview          │
+│ ▸ minecraft-flk  1/1 ●     │                                                 │
+│ ▸ opencode-sandbox  1/1 ●  │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│                            │ used      67% · 32G free of 98G                 │
+│ Host                       │ holds     /data/minecraft/flk                   │
+│   health ✔                 │                                                 │
+│                            │ devices, from the filesystem down:              │
+│ ▾ Storage                  │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G,   │
+│   / 30%                    │     ext4                                        │
+│   /data/minecraft 67%      │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
+│   /data/vintagestory 13%   │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
+│                            │                                                 │
+│ ▸ Podman  7 images         │ 1.1T of /dev/nvme0n1p3 isn't in any logical     │
 │                            │   volume yet: room to grow /data/minecraft      │
-│ Storage                    │   (e.g. sudo lvextend -r -L +10G                │
-│   / 30%                    │     /dev/mapper/ubuntu--vg-mc--data)            │
-│   /data/minecraft 67%      │                                                 │
+│ ▸ Services  5 running      │   (e.g. sudo lvextend -r -L +10G                │
+│                            │     /dev/mapper/ubuntu--vg-mc--data)            │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

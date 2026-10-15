@@ -15,27 +15,27 @@
 │ Host                                   │           /data/vintagestory/flk                                                                                    │
 │   health ✔                             │                                                                                                                     │
 │                                        │ ✔ /dev/kvm read/write                                                                                               │
-│ Storage                                │ ✔ firecracker /home/dayne/.local/share/flk/bin/firecracker                                                          │
-│   / 30%                                │ ✔ guest kernel /home/dayne/.local/share/flk/kernel/vmlinux                                                          │
-│   /data/minecraft 67%                  │ ✔ bridge flkbr0                                                                                                     │
-│   /data/vintagestory 13%               │ ✔ tap pool 16/16                                                                                                    │
-│                                        │ ✔ ipv4 forwarding                                                                                                   │
-│ Podman                                 │ ✔ tmux                                                                                                              │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │ ✔ mkfs.ext4                                                                                                         │
-│   ◇ itzg/minecraft-server:latest 868M  │ ✔ fakeroot                                                                                                          │
-│   ◇ dotnet/runtime:10.0 197M           │ ✔ container engine (podman)                                                                                         │
-│   ◇ eclipse-temurin:25-jre 341M        │ ✔ podman resolves short image names (FROM ruby:3.3)                                                                 │
-│   ◇ ubuntu:24.04 77M                   │ ✔ port helper (host ports from 1024)                                                                                │
-│   ◇ ruby:3.3-alpine 69M                │ ✔ boot service (machines come back after a reboot)                                                                  │
-│   ◇ alpine:3.20 7.7M                   │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
-│   7 flk images: host Images tab        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
+│ ▸ Storage  fullest 67%                 │ ✔ firecracker /home/dayne/.local/share/flk/bin/firecracker                                                          │
+│                                        │ ✔ guest kernel /home/dayne/.local/share/flk/kernel/vmlinux                                                          │
+│ ▸ Podman  7 images                     │ ✔ bridge flkbr0                                                                                                     │
+│                                        │ ✔ tap pool 16/16                                                                                                    │
+│ ▸ Services  5 running                  │ ✔ ipv4 forwarding                                                                                                   │
+│                                        │ ✔ tmux                                                                                                              │
+│                                        │ ✔ mkfs.ext4                                                                                                         │
+│                                        │ ✔ fakeroot                                                                                                          │
+│                                        │ ✔ container engine (podman)                                                                                         │
+│                                        │ ✔ podman resolves short image names (FROM ruby:3.3)                                                                 │
+│                                        │ ✔ port helper (host ports from 1024)                                                                                │
+│                                        │ ✔ boot service (machines come back after a reboot)                                                                  │
+│                                        │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
+│                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
-│ Services                               │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
-│   ● flk-net                            │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
+│                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

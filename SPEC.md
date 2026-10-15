@@ -103,6 +103,12 @@ management, a web UI, metrics history and graphs.
 - **Left: tree.** Apps (expand to machines, volumes, ports), then Host.
   Icons: started `●`, stopped `○`, should-run-but-stopped `!`, external
   volume marked. Order: apps with problems first, then by name.
+  Below Host, the providers' sections (section 10). **Healthy folds:** a
+  section with nothing wrong is one line (`▸ Podman  7 images`) and opens
+  by itself when something there needs attention; when the tree doesn't
+  fit, healthy apps fold too, from the bottom up. A fold made by hand holds
+  until that app's or section's health changes. (Added 2026-10-14, as the
+  reference host grew to three apps.)
 - **Right: detail tabs** for the selection. App: Overview, Logs, Ports,
   Volumes, Releases, Secrets, Config (`flk config show`, read-only). Machine:
   Overview, Logs, Record (`flk machine status`). Host: Health

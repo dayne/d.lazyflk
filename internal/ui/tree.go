@@ -20,6 +20,7 @@ const (
 	kindPorts
 	kindHost
 	kindProvider // an item of a provider's section (Storage, Podman, Services)
+	kindSection  // a provider's heading: folds, and says how it is when folded
 )
 
 // node is one line of the left tree. app, machine and volume index into
@@ -33,6 +34,7 @@ type node struct {
 	prov    int // kindProvider: the provider, and its item
 	item    int
 	pkey    string // kindProvider: the item's stable key
+	folded  bool   // kindApp, kindSection: its lines are hidden
 }
 
 func (n node) selectable() bool { return n.kind >= kindApp }
@@ -52,6 +54,8 @@ func (n node) key(apps []flk.App) string {
 		return "host"
 	case kindProvider:
 		return "prov/" + n.pkey
+	case kindSection:
+		return "section/" + n.text
 	}
 	return ""
 }
@@ -135,15 +139,17 @@ func startedCount(a flk.App) int {
 	return n
 }
 
-// buildTree lays out apps (expanded unless collapsed) and the host.
-func buildTree(hc *flk.HostContext, apps []flk.App, collapsed map[string]bool, extra ...node) []node {
+// buildTree lays out apps (each expanded unless folded says otherwise) and
+// the host.
+func buildTree(hc *flk.HostContext, apps []flk.App, folded func(a flk.App) bool, extra ...node) []node {
 	nodes := []node{{kind: kindHeading, text: "Apps"}}
 	if len(apps) == 0 {
 		nodes = append(nodes, node{kind: kindInfo, text: "no apps: flk help first-app"})
 	}
 	for i, a := range apps {
-		nodes = append(nodes, node{kind: kindApp, app: i})
-		if collapsed["app/"+a.Name] {
+		f := folded(a)
+		nodes = append(nodes, node{kind: kindApp, app: i, folded: f})
+		if f {
 			continue
 		}
 		for j := range a.Machines {
@@ -169,6 +175,8 @@ func (m *Model) treeLine(n node) string {
 		return styleDim.Render("  " + n.text)
 	case kindProvider:
 		return m.providerLine(n)
+	case kindSection:
+		return m.sectionLine(n)
 	case kindHost:
 		if m.hc.Host.OK {
 			return "  health " + styleOK.Render("✔")
@@ -178,10 +186,7 @@ func (m *Model) treeLine(n node) string {
 	a := m.apps[n.app]
 	switch n.kind {
 	case kindApp:
-		arrow := "▾"
-		if m.collapsed["app/"+a.Name] {
-			arrow = "▸"
-		}
+		arrow := foldArrow(n.folded)
 		started := startedCount(a)
 		icon := styleOK.Render("●")
 		if started < len(a.Machines) || len(a.Machines) == 0 {
@@ -206,6 +211,13 @@ func (m *Model) treeLine(n node) string {
 		return "  ⇄ " + strings.Join(portKeys(a.Ports, true), " ")
 	}
 	return ""
+}
+
+func foldArrow(folded bool) string {
+	if folded {
+		return "▸"
+	}
+	return "▾"
 }
 
 func machineIcon(mc flk.Machine) string {

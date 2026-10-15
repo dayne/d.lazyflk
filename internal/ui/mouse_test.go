@@ -64,7 +64,7 @@ func TestMouseMain(t *testing.T) {
 	}
 	click(t, m, "minecraft-flk  1/1", 0)
 	click(t, m, "minecraft-flk  1/1", 0) // clicking the selected app folds it
-	if !m.collapsed["app/minecraft-flk"] {
+	if sel() != "app/minecraft-flk" || !m.nodes[m.cursor].folded {
 		t.Error("second click should fold the app")
 	}
 	click(t, m, "vintagestory-flk  1/1", 0)

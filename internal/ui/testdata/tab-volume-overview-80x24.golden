@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │ size      40GB                                  │
 │   ● lucky-harbor-5563      │ path      /data/minecraft/flk/world.ext4        │
 │   ▢ code_workspace 30GB    │           external: outside flk's state dir     │
-│ ▾ vintagestory-flk  1/1 ●  │ attached  mellow-aurora-7882 (225d58f615e7e6)   │
-│   ● frosty-river-2714      │ created   2026-10-12 05:01Z                     │
-│   ▢ vsdata 40GB (external) │                                                 │
-│   ⇄ tcp/42420 udp/42420    │                                                 │
-│                            │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ attached  mellow-aurora-7882 (225d58f615e7e6)   │
+│                            │ created   2026-10-12 05:01Z                     │
 │ Host                       │                                                 │
 │   health ✔                 │                                                 │
 │                            │                                                 │
-│ Storage                    │                                                 │
-│   / 30%                    │                                                 │
+│ ▸ Storage  fullest 67%     │                                                 │
+│                            │                                                 │
+│ ▸ Podman  7 images         │                                                 │
+│                            │                                                 │
+│ ▸ Services  5 running      │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

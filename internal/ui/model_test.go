@@ -193,7 +193,7 @@ func TestNavigation(t *testing.T) {
 	if sel() != "app/minecraft-flk" {
 		t.Errorf("up from the top moved to %s", sel())
 	}
-	for range 11 {
+	for range 8 { // vintagestory-flk is folded to fit 24 rows
 		press(m, "j")
 	}
 	if sel() != "host" {
@@ -202,21 +202,21 @@ func TestNavigation(t *testing.T) {
 	for range 50 {
 		press(m, "j")
 	}
-	if sel() != "prov/service/chrony.service" {
-		t.Errorf("bottom is %s (the last provider item)", sel())
+	if sel() != "section/Services" {
+		t.Errorf("bottom is %s (the last section, folded)", sel())
 	}
 	goTo(m, kindHost)
 	press(m, "k")
-	if sel() != "ports/vintagestory-flk" {
+	if sel() != "app/vintagestory-flk" || !m.nodes[m.cursor].folded {
 		t.Errorf("above host is %s", sel())
 	}
-	before := len(m.nodes)
-	press(m, "left") // collapse from a child selects the app: its machine, volume and ports go
-	if sel() != "app/vintagestory-flk" || len(m.nodes) != before-3 {
-		t.Errorf("collapsed: on %s, %d nodes", sel(), len(m.nodes))
+	press(m, "right", "down") // opening it folds another healthy app to fit
+	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" || !strings.Contains(m.Render(), "▸ opencode-sandbox") {
+		t.Errorf("expanded: on %s\n%s", sel(), screen(m))
 	}
-	if !strings.Contains(m.Render(), "▸ vintagestory-flk") {
-		t.Error("collapsed app should show ▸")
+	press(m, "left") // collapse from a child selects the app; opencode-sandbox fits again
+	if sel() != "app/vintagestory-flk" || !strings.Contains(screen(m), "▸ vintagestory-flk") || !strings.Contains(screen(m), "▾ opencode-sandbox") {
+		t.Errorf("collapsed: on %s\n%s", sel(), screen(m))
 	}
 	press(m, "right", "down")
 	if sel() != "machine/vintagestory-flk/f8f979ffff11cf" {
@@ -230,6 +230,61 @@ func TestNavigation(t *testing.T) {
 	}
 	if _, cmd := m.Update(key("q")); cmd == nil {
 		t.Error("q should quit")
+	}
+}
+
+// Healthy sections fold to a summary line; enter or → opens one, ← on an
+// item folds it back onto its heading.
+func TestSections(t *testing.T) {
+	m := demoModel(t, 160, 48)
+	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
+	s := screen(m)
+	for _, want := range []string{"▸ Storage  fullest 67%", "▸ Podman  7 images", "▸ Services  5 running"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("no %q\n%s", want, s)
+		}
+	}
+	if strings.Contains(s, "/data/minecraft 67%") {
+		t.Error("a healthy section's items should be folded")
+	}
+	goToKey(t, m, "section/Storage")
+	if title, _ := m.detail(m.nodes[m.cursor]); title != "Storage" || !strings.Contains(screen(m), "/data/minecraft 67%") {
+		t.Errorf("section detail %q\n%s", title, screen(m))
+	}
+	press(m, "enter")
+	if !strings.Contains(screen(m), "▾ Storage") || m.menu != nil {
+		t.Errorf("enter should open the section\n%s", screen(m))
+	}
+	press(m, "down", "left")
+	if sel() != "section/Storage" || !m.nodes[m.cursor].folded {
+		t.Errorf("left from an item: on %s", sel())
+	}
+	// the admin's choice holds across refreshes while the health is the same
+	press(m, "right")
+	hc, _ := m.opt.Client.HostContext(context.Background())
+	send(m, contextMsg{gen: m.loadGen, hc: hc})
+	if !strings.Contains(screen(m), "▾ Storage") {
+		t.Error("an opened section should stay open")
+	}
+}
+
+// A fold made while healthy gives way when something goes wrong, and
+// the other way round.
+func TestFoldChoice(t *testing.T) {
+	m := demoModel(t, 80, 24)
+	m.folds["section/X"] = foldChoice{folded: true, healthy: true}
+	if !m.isFolded("section/X", true, false) {
+		t.Error("the admin's fold holds while healthy")
+	}
+	if m.isFolded("section/X", false, false) {
+		t.Error("a problem should open it")
+	}
+	if _, ok := m.folds["section/X"]; ok {
+		t.Error("the stale choice should be dropped")
+	}
+	m.folds["app/Y"] = foldChoice{folded: false, healthy: false}
+	if !m.isFolded("app/Y", true, true) {
+		t.Error("opened while broken, healthy again: back to auto")
 	}
 }
 

@@ -15,27 +15,27 @@
 │ Host                                   │     "cpus": 4,                                                                                                      │
 │   health ✔                             │     "memory_mb": 11264,                                                                                             │
 │                                        │     "env": {                                                                                                        │
-│ Storage                                │       "TZ": "America/Anchorage",                                                                                    │
-│   / 30%                                │       "MC_HEAP": "8G",                                                                                              │
-│   /data/minecraft 67%                  │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│   /data/vintagestory 13%               │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│ Podman                                 │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
-│   ◇ itzg/minecraft-server:latest 868M  │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│   ◇ dotnet/runtime:10.0 197M           │       "RESTART_DELAY": "10",                                                                                        │
-│   ◇ eclipse-temurin:25-jre 341M        │       "MAX_RESTARTS": "5",                                                                                          │
-│   ◇ ubuntu:24.04 77M                   │       "RESTART_WINDOW": "600",                                                                                      │
-│   ◇ ruby:3.3-alpine 69M                │       "STOP_TIMEOUT": "100",                                                                                        │
-│   ◇ alpine:3.20 7.7M                   │       "DISCORD_NAME": "Minecraft",                                                                                  │
-│   7 flk images: host Images tab        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
+│ ▸ Storage  fullest 67%                 │       "TZ": "America/Anchorage",                                                                                    │
+│                                        │       "MC_HEAP": "8G",                                                                                              │
+│ ▸ Podman  7 images                     │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│ ▸ Services  5 running                  │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│                                        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
+│                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
+│                                        │       "RESTART_DELAY": "10",                                                                                        │
+│                                        │       "MAX_RESTARTS": "5",                                                                                          │
+│                                        │       "RESTART_WINDOW": "600",                                                                                      │
+│                                        │       "STOP_TIMEOUT": "100",                                                                                        │
+│                                        │       "DISCORD_NAME": "Minecraft",                                                                                  │
+│                                        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
 │                                        │     },                                                                                                              │
-│ Services                               │     "mount_specs": [                                                                                                │
-│   ● flk-net                            │       {                                                                                                             │
-│   ● flk-machines                       │         "source": "world",                                                                                          │
-│   ● ssh                                │         "destination": "/server"                                                                                    │
-│   ● snap.mosquitto.mosquitto           │       }                                                                                                             │
-│   ● chrony                             │     ],                                                                                                              │
+│                                        │     "mount_specs": [                                                                                                │
+│                                        │       {                                                                                                             │
+│                                        │         "source": "world",                                                                                          │
+│                                        │         "destination": "/server"                                                                                    │
+│                                        │       }                                                                                                             │
+│                                        │     ],                                                                                                              │
 │                                        │     "internal_port": 25565,                                                                                         │
 │                                        │     "ports": [                                                                                                      │
 │                                        │       {                                                                                                             │

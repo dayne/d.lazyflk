@@ -15,27 +15,27 @@
 │ Host                                   │ ! machine 225d58f615e7e6 should be running but is stopped                                                           │
 │   health ✔                             │ ! machine 225d58f615e7e6 [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); see   │
 │                                        │   why: flk logs -i 225d58f615e7e6 --no-tail; bring it back: flk resume                                              │
-│ Storage                                │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
-│   / 30%                                │                                                                                                                     │
-│   /data/minecraft 67%                  │                                                                                                                     │
-│   /data/vintagestory 13%               │                                                                                                                     │
+│ ▸ Storage  fullest 67%                 │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
 │                                        │                                                                                                                     │
-│ Podman                                 │                                                                                                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
-│   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
-│   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
-│   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
-│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
-│   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
-│   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   7 flk images: host Images tab        │                                                                                                                     │
+│ ▸ Podman  7 images                     │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Services                               │                                                                                                                     │
-│   ● flk-net                            │                                                                                                                     │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│ ▸ Services  5 running                  │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ … 1 above                                                                                                                                                    │

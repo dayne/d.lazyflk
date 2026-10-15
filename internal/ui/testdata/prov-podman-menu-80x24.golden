@@ -1,10 +1,10 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│   ● lucky-harbor-5563      │ image docker.io/itzg/minecraft-server:latest    │
-│   ▢ code_workspace 30GB    │  Overview                                       │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │ $ podman ps -a --external --format json ·       │
-│   ▢ vsdata 40GB (external) │   podman images --format json                   │
-│   ⇄ tcp/42420 udp/42420    │                                                 │
+│ Apps                       │ image docker.io/itzg/minecraft-server:latest    │
+│ ▸ minecraft-flk  1/1 ●     │  Overview                                       │
+│ ▸ opencode-sandbox  1/1 ●  │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ $ podman ps -a --external --format json ·       │
+│                            │   podman images --format json                   │
+│ Host                       │                                                 │
 │ ┌ image docker.io/itzg/minecraft-server:latest ─ actions ──────────────────┐ │
 │ │ c  copy: podman image rm docker.io/itz…  lazyflk doesn't delete images;… │ │
 │ │ p  copy: podman image prune              removes images nothing uses or… │ │
@@ -14,9 +14,9 @@
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│ Podman                     │ the build cache, so later deploys don't         │
-│   ◇ 8149e56d2f50 (untagge… │   download it again.                            │
-│   ◇ itzg/minecraft-server… │                                                 │
+│   ◇ itzg/minecraft-server… │ the build cache, so later deploys don't         │
+│   ◇ dotnet/runtime:10.0 1… │   download it again.                            │
+│   ◇ eclipse-temurin:25-jr… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

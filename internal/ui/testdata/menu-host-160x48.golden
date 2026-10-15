@@ -15,27 +15,27 @@
 │ Host                                   │           /data/vintagestory/flk                                                                                    │
 │   health ✔                             │                                                                                                                     │
 │                                        │ ✔ /dev/kvm read/write                                                                                               │
-│ Storage                             ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
-│   / 30%                             │ u  resume all     nothing to resume                                              │                                     │
-│   /data/minecraft 67%               │ S  stop all       stop every running machine, remembering to resume them         │                                     │
-│   /data/vintagestory 13%            │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
-│                                     │ P  prune images   remove container images of apps that no longer exist           │                                     │
-│ Podman                              │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ h  health         flk doctor: every host check                                   │                                     │
-│   ◇ itzg/minecraft-server:latest 868│                                                                                  │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ start every machine that should be running                                       │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ not now: nothing to resume                                                       │                                     │
-│   ◇ ubuntu:24.04 77M                ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ◇ ruby:3.3-alpine 69M             │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│   ◇ alpine:3.20 7.7M                └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   7 flk images: host Images tab        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
+│ ▸ Storage  fullest 67%              ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
+│                                     │ u  resume all     nothing to resume                                              │                                     │
+│ ▸ Podman  7 images                  │ S  stop all       stop every running machine, remembering to resume them         │                                     │
+│                                     │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
+│ ▸ Services  5 running               │ P  prune images   remove container images of apps that no longer exist           │                                     │
+│                                     │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
+│                                     │ h  health         flk doctor: every host check                                   │                                     │
+│                                     │                                                                                  │                                     │
+│                                     │ start every machine that should be running                                       │                                     │
+│                                     │ not now: nothing to resume                                                       │                                     │
+│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 201.8GB at their keep counts; 174.1GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
-│ Services                               │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
-│   ● flk-net                            │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
+│                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

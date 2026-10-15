@@ -15,12 +15,13 @@ var mainHelp = struct {
 		"○ stopped, ! should run but doesn't), volumes (▢) and forwarded ports (⇄), " +
 		"then the host. Right: tabs for the selection. Bottom: what needs attention, " +
 		"from flk context --all. Below Host: Storage, Podman and Services, the rest of " +
-		"what this host runs. Each tab shows the command that fills it, and every " +
+		"what this host runs. What's healthy folds (▸) to one line, and opens (▾) by " +
+		"itself when something there goes wrong. Each tab shows the command that fills it, and every " +
 		"action shows the command it runs before running it (L lists them all). " +
 		"Changes show as they happen (flk events --follow); the Events tabs list them.",
 	keys: []helpKey{
 		{"↑ ↓  k j", "move in the tree"},
-		{"← →", "fold or unfold an app"},
+		{"← →", "fold or unfold an app or a section (enter opens a section too)"},
 		{"tab  shift+tab", "next or previous tab"},
 		{"1 … 9", "jump to a tab"},
 		{"pgup pgdn", "scroll the tab (also ctrl+u ctrl+d)"},

@@ -184,3 +184,20 @@ func or(s, fallback string) string {
 	}
 	return s
 }
+
+// Summary counts the units running, and the others (stopped, not here).
+func (Services) Summary(items []Item) string {
+	var running, other int
+	for _, it := range items {
+		if it.State == OK {
+			running++
+		} else {
+			other++
+		}
+	}
+	s := fmt.Sprintf("%d running", running)
+	if other > 0 {
+		s += fmt.Sprintf(", %d off", other)
+	}
+	return s
+}

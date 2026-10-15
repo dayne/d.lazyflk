@@ -15,27 +15,27 @@
 │ Host                                   │ ports     tcp/25565 → 10.47.11.3:25565                                                                              │
 │   health ✔                             │           udp/19132 → 10.47.11.3:19132                                                                              │
 │                                        │ volumes   world → /server                                                                                           │
-│ Storage                                │ created   2026-10-12 05:01Z                                                                                         │
-│   / 30%                                │ updated   2026-10-13 22:17Z                                                                                         │
-│   /data/minecraft 67%                  │                                                                                                                     │
-│   /data/vintagestory 13%               │                                                                                                                     │
+│ ▸ Storage  fullest 67%                 │ created   2026-10-12 05:01Z                                                                                         │
+│                                        │ updated   2026-10-13 22:17Z                                                                                         │
+│ ▸ Podman  7 images                     │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Podman                                 │                                                                                                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
-│   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
-│   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
-│   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
-│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
-│   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
-│   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   7 flk images: host Images tab        │                                                                                                                     │
+│ ▸ Services  5 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Services                               │                                                                                                                     │
-│   ● flk-net                            │                                                                                                                     │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

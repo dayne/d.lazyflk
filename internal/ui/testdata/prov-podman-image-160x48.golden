@@ -15,12 +15,12 @@
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Storage                                │                                                                                                                     │
+│ ▾ Storage                              │                                                                                                                     │
 │   / 30%                                │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Podman                                 │                                                                                                                     │
+│ ▾ Podman                               │                                                                                                                     │
 │   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
 │   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
@@ -30,12 +30,12 @@
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
 │   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Services                               │                                                                                                                     │
-│   ● flk-net                            │                                                                                                                     │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│ ▸ Services  5 running                  │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

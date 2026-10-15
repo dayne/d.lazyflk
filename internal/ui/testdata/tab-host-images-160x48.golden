@@ -15,27 +15,27 @@
 │ Host                                   │   v4     1.1G  running · current                                                                                    │
 │   health ✔                             │               built 2026-10-14 01:31Z · afefdc27a884                                                                │
 │                                        │   v3     627M  older release                                                                                        │
-│ Storage                                │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
-│   / 30%                                │                                                                                                                     │
-│   /data/minecraft 67%                  │ vintagestory-flk                                                                                                    │
-│   /data/vintagestory 13%               │   v4     778M  running · current                                                                                    │
-│                                        │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
-│ Podman                                 │   v3     560M  older release                                                                                        │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
-│   ◇ itzg/minecraft-server:latest 868M  │   v2     558M  older release                                                                                        │
-│   ◇ dotnet/runtime:10.0 197M           │               built 2026-10-13 04:47Z · b54f5b0c0cc6                                                                │
-│   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
-│   ◇ ubuntu:24.04 77M                   │ 4.2G in 7 images                                                                                                    │
-│   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
-│   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   7 flk images: host Images tab        │                                                                                                                     │
+│ ▸ Storage  fullest 67%                 │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
 │                                        │                                                                                                                     │
-│ Services                               │                                                                                                                     │
-│   ● flk-net                            │                                                                                                                     │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│ ▸ Podman  7 images                     │ vintagestory-flk                                                                                                    │
+│                                        │   v4     778M  running · current                                                                                    │
+│ ▸ Services  5 running                  │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
+│                                        │   v3     560M  older release                                                                                        │
+│                                        │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
+│                                        │   v2     558M  older release                                                                                        │
+│                                        │               built 2026-10-13 04:47Z · b54f5b0c0cc6                                                                │
+│                                        │                                                                                                                     │
+│                                        │ 4.2G in 7 images                                                                                                    │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

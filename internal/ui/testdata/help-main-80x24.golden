@@ -3,13 +3,14 @@
 │ running, ○ stopped, ! should run but doesn't), volumes (▢) and forwarded     │
 │ ports (⇄), then the host. Right: tabs for the selection. Bottom: what needs  │
 │ attention, from flk context --all. Below Host: Storage, Podman and Services, │
-│ the rest of what this host runs. Each tab shows the command that fills it,   │
-│ and every action shows the command it runs before running it (L lists them   │
-│ all). Changes show as they happen (flk events --follow); the Events tabs     │
-│ list them.                                                                   │
+│ the rest of what this host runs. What's healthy folds (▸) to one line, and   │
+│ opens (▾) by itself when something there goes wrong. Each tab shows the      │
+│ command that fills it, and every action shows the command it runs before     │
+│ running it (L lists them all). Changes show as they happen (flk events       │
+│ --follow); the Events tabs list them.                                        │
 │                                                                              │
 │ ↑ ↓  k j           move in the tree                                          │
-│ ← →                fold or unfold an app                                     │
+│ ← →                fold or unfold an app or a section (enter opens a sectio… │
 │ tab  shift+tab     next or previous tab                                      │
 │ 1 … 9              jump to a tab                                             │
 │ pgup pgdn          scroll the tab (also ctrl+u ctrl+d)                       │
@@ -17,8 +18,7 @@
 │ enter  x           actions for the selection (start, stop, deploy, secrets,… │
 │ s                  start or stop the selected machine                        │
 │ c                  attach to the machine's console (detach: Ctrl-b d)        │
-│ !                  a shell inside the machine (flk ssh console; exit to com… │
-│ … 9 more (↓)                                                                 │
+│ … 10 more (↓)                                                                │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ ↑↓ scroll · any other key closes this help                                   │
 └──────────────────────────────────────────────────────────────────────────────┘

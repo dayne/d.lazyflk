@@ -226,3 +226,20 @@ func shortRef(ref string) string {
 	}
 	return strings.TrimPrefix(ref, "library/")
 }
+
+// Summary counts containers and images that aren't flk's.
+func (Podman) Summary(items []Item) string {
+	var containers, images int
+	for _, it := range items {
+		switch {
+		case strings.HasPrefix(it.Key, "podman/c/"):
+			containers++
+		case strings.HasPrefix(it.Key, "podman/i/"):
+			images++
+		}
+	}
+	if containers == 0 {
+		return count(images, "image")
+	}
+	return count(containers, "container") + ", " + count(images, "image")
+}

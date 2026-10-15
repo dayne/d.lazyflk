@@ -15,27 +15,27 @@
 │ Host                        │ status             App and machine overview                                                      │                             │
 │   health ✔                  │ releases list      Releases, newest first: current, failed (and why), kept for rollback, or pru… │                             │
 │                             │ releases rollback  Roll machines back to an older release's image and config (default: the one … │                             │
-│ Storage                     │ disk               Disk space flk uses, per app: release images, machine disks, volumes, logs; … │                             │
-│   / 30%                     │ images             flk's container images (flk.local/APP:vN): size, whether a machine runs that… │                             │
-│   /data/minecraft 67%       │ apps list          All apps on this host                                                         │                             │
-│   /data/vintagestory 13%    │ apps destroy       Destroy an app, its machines and volumes                                      │                             │
-│                             │ apps prune         Remove container images (and with --backups, backups) left behind by apps th… │                             │
-│ Podman                      │ config show        Print the parsed flk.toml / fly.toml and the machine config flk derives from… │                             │
-│   ◇ 8149e56d2f50 (untagged) │ machine list       Machines of the app                                                           │                             │
-│   ◇ itzg/minecraft-server:la│ machine start      Boot machines                                                                 │                             │
-│   ◇ dotnet/runtime:10.0 197M│ machine stop       Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); they… │                             │
-│   ◇ eclipse-temurin:25-jre 3│ machine restart    Stop, then boot                                                               │                             │
-│   ◇ ubuntu:24.04 77M        │ machine destroy    Delete machines (their volumes are kept, unattached)                          │                             │
-│   ◇ ruby:3.3-alpine 69M     │ machine revive     Restart a machine that exited on its own, per its restart policy (run by flk… │                             │
-│   ◇ alpine:3.20 7.7M        │ machine stats      CPU and memory use of machines (default: all of the app's)                    │                             │
-│   7 flk images: host Images │ machine status     Machine record and state as JSON (an array when given several IDs)            │                             │
+│ ▸ Storage  fullest 67%      │ disk               Disk space flk uses, per app: release images, machine disks, volumes, logs; … │                             │
+│                             │ images             flk's container images (flk.local/APP:vN): size, whether a machine runs that… │                             │
+│ ▸ Podman  7 images          │ apps list          All apps on this host                                                         │                             │
+│                             │ apps destroy       Destroy an app, its machines and volumes                                      │                             │
+│ ▸ Services  5 running       │ apps prune         Remove container images (and with --backups, backups) left behind by apps th… │                             │
+│                             │ config show        Print the parsed flk.toml / fly.toml and the machine config flk derives from… │                             │
+│                             │ machine list       Machines of the app                                                           │                             │
+│                             │ machine start      Boot machines                                                                 │                             │
+│                             │ machine stop       Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); they… │                             │
+│                             │ machine restart    Stop, then boot                                                               │                             │
+│                             │ machine destroy    Delete machines (their volumes are kept, unattached)                          │                             │
+│                             │ machine revive     Restart a machine that exited on its own, per its restart policy (run by flk… │                             │
+│                             │ machine stats      CPU and memory use of machines (default: all of the app's)                    │                             │
+│                             │ machine status     Machine record and state as JSON (an array when given several IDs)            │                             │
 │                             │ machine config     The Firecracker VM config as JSON (an array when given several IDs)           │                             │
-│ Services                    │ scale count        Create or destroy machines to reach N                                         │                             │
-│   ● flk-net                 │ logs               Serial console output (app stdout/stderr and boot messages)                   │                             │
-│   ● flk-machines            │ console            Attach to a machine's serial console, or --send one line to the app's stdin   │                             │
-│   ● ssh                     │ exec               Run a command in a running machine and return its output and exit status      │                             │
-│   ● snap.mosquitto.mosquitto│ ssh console        An interactive shell in a machine (like fly ssh console); -C runs one command │                             │
-│   ● chrony                  │ proxy              Forward a local TCP port to a machine                                         │                             │
+│                             │ scale count        Create or destroy machines to reach N                                         │                             │
+│                             │ logs               Serial console output (app stdout/stderr and boot messages)                   │                             │
+│                             │ console            Attach to a machine's serial console, or --send one line to the app's stdin   │                             │
+│                             │ exec               Run a command in a running machine and return its output and exit status      │                             │
+│                             │ ssh console        An interactive shell in a machine (like fly ssh console); -C runs one command │                             │
+│                             │ proxy              Forward a local TCP port to a machine                                         │                             │
 │                             │ ports list         Forwarded ports: active, waiting (another machine has it) or blocked (and wh… │                             │
 │                             │ ports sync         Rewrite the host's port map from the running machines                         │                             │
 │                             │ ports reap         Tidy machines that exited on their own and hand their ports on (run automati… │                             │

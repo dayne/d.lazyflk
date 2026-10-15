@@ -43,10 +43,10 @@ type Model struct {
 	err     error            // last load error, shown alongside stale data
 	loading bool
 
-	nodes     []node
-	cursor    int // index into nodes; always a selectable node once loaded
-	top       int // first tree line shown
-	collapsed map[string]bool
+	nodes  []node
+	cursor int                   // index into nodes; always a selectable node once loaded
+	top    int                   // first tree line shown
+	folds  map[string]foldChoice // the admin's own folds, by node key
 
 	tabs      map[nodeKind]int // selected tab per kind of selection
 	detailTop int              // detail pane scroll
@@ -98,7 +98,7 @@ type contextMsg struct {
 type tickMsg struct{}
 
 func New(opt Options) *Model {
-	return &Model{opt: opt, now: time.Now, collapsed: map[string]bool{}, loading: true,
+	return &Model{opt: opt, now: time.Now, folds: map[string]foldChoice{}, loading: true,
 		tabs: map[nodeKind]int{}, cache: map[string]*fetched{}}
 }
 
@@ -166,6 +166,9 @@ func (m *Model) update(msg tea.Msg) tea.Cmd {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		m.width, m.height = msg.Width, msg.Height
+		if m.hc != nil && m.cursor >= 0 && m.cursor < len(m.nodes) { // whether healthy apps fold depends on the height
+			m.rebuild(m.nodes[m.cursor].key(m.apps))
+		}
 	case contextMsg:
 		if msg.gen != m.loadGen {
 			return nil
@@ -485,21 +488,78 @@ func (m *Model) setContext(hc flk.HostContext) {
 	m.rebuild(key)
 }
 
+// foldChoice is the admin's own fold of an app or a section. It holds
+// while the health it was made under does: a section folded while healthy
+// opens by itself when something there goes wrong.
+type foldChoice struct{ folded, healthy bool }
+
+// isFolded is whether key is folded: the admin's choice while it holds,
+// else auto.
+func (m *Model) isFolded(key string, healthy, auto bool) bool {
+	if c, ok := m.folds[key]; ok {
+		if c.healthy == healthy {
+			return c.folded
+		}
+		delete(m.folds, key)
+	}
+	return auto
+}
+
+// rebuild lays out the tree and keeps the selection on key, or on what
+// holds it when key is folded away. Healthy sections fold; healthy apps
+// fold too when the tree wouldn't fit otherwise.
 func (m *Model) rebuild(key string) {
-	m.nodes = buildTree(m.hc, m.apps, m.collapsed, m.providerNodes()...)
-	m.cursor = -1
-	for i, n := range m.nodes {
-		if !n.selectable() {
-			continue
-		}
-		if m.cursor < 0 {
-			m.cursor = i
-		}
-		if n.key(m.apps) == key {
-			m.cursor = i
-			break
+	sections := m.providerNodes()
+	auto := map[string]bool{} // healthy apps folded to fit
+	build := func() []node {
+		return buildTree(m.hc, m.apps, func(a flk.App) bool {
+			return m.isFolded("app/"+a.Name, m.appHealthy(a), auto[a.Name])
+		}, sections...)
+	}
+	m.nodes = build()
+	for i := len(m.apps) - 1; i >= 0 && m.height > 0 && len(m.nodes) > m.treeHeight(); i-- { // from the bottom up
+		if a := m.apps[i]; m.appHealthy(a) {
+			auto[a.Name] = true
+			m.nodes = build()
 		}
 	}
+	m.cursor = -1
+	for _, k := range []string{key, m.holderKey(key)} {
+		for i, n := range m.nodes {
+			if n.selectable() && n.key(m.apps) == k {
+				m.cursor = i
+				return
+			}
+		}
+	}
+	for i, n := range m.nodes {
+		if n.selectable() {
+			m.cursor = i
+			return
+		}
+	}
+}
+
+func (m *Model) appHealthy(a flk.App) bool { return len(appProblems(a, m.hc.NextSteps)) == 0 }
+
+// holderKey is the app or section a node key folds into ("" if none).
+func (m *Model) holderKey(key string) string {
+	kind, rest, _ := strings.Cut(key, "/")
+	switch kind {
+	case "machine", "volume", "ports":
+		app, _, _ := strings.Cut(rest, "/")
+		return "app/" + app
+	case "prov":
+		for i, p := range m.opt.Providers {
+			items, _, _ := m.providerData(i)
+			for _, it := range items {
+				if it.Key == rest {
+					return "section/" + p.Name()
+				}
+			}
+		}
+	}
+	return ""
 }
 
 func (m *Model) move(delta int) {
@@ -514,20 +574,24 @@ func (m *Model) move(delta int) {
 	}
 }
 
-// fold collapses or expands the selected app (or the app of a selected child).
+// fold folds or opens the selected app or section (or the one holding the
+// selection).
 func (m *Model) fold(collapse bool) {
 	if m.hc == nil {
 		return
 	}
 	n := m.nodes[m.cursor]
-	if n.kind < kindApp || n.kind > kindPorts {
+	var key string
+	var healthy bool
+	switch {
+	case n.kind >= kindApp && n.kind <= kindPorts:
+		key, healthy = "app/"+m.apps[n.app].Name, m.appHealthy(m.apps[n.app])
+	case n.kind == kindProvider || n.kind == kindSection:
+		key, healthy = "section/"+m.opt.Providers[n.prov].Name(), m.sectionHealthy(n.prov)
+	default:
 		return
 	}
-	key := "app/" + m.apps[n.app].Name
-	if m.collapsed[key] == collapse {
-		return
-	}
-	m.collapsed[key] = collapse
+	m.folds[key] = foldChoice{folded: collapse, healthy: healthy}
 	m.rebuild(key)
 }
 
@@ -1165,9 +1229,8 @@ func (m *Model) mainZones(lw, body, attnRows int) {
 		}
 		n := m.nodes[j]
 		m.addZone(2, 2+lw-2, 1+i, func() tea.Cmd {
-			if m.cursor == j && n.kind == kindApp {
-				m.cursor = j
-				m.fold(!m.collapsed["app/"+m.apps[n.app].Name])
+			if m.cursor == j && (n.kind == kindApp || n.kind == kindSection) {
+				m.fold(!n.folded)
 				return nil
 			}
 			m.cursor, m.attn = j, false

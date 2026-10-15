@@ -57,6 +57,31 @@ type Provider interface {
 	Load(ctx context.Context, h Host, env Env) ([]Item, error)
 }
 
+// Summarizer is a provider that says in a few words how its section is
+// (the line shown while the section is folded): "7 images", "fullest 67%".
+type Summarizer interface {
+	Summary(items []Item) string
+}
+
+// Healthy reports whether every item is fine: nothing bad, nothing to warn
+// about, no problems. Healthy sections fold by themselves.
+func Healthy(items []Item) bool {
+	for _, it := range items {
+		if it.State == Bad || it.State == Warn || len(it.Problems) > 0 {
+			return false
+		}
+	}
+	return true
+}
+
+// count is "1 image", "7 images".
+func count(n int, what string) string {
+	if n == 1 {
+		return "1 " + what
+	}
+	return fmt.Sprintf("%d %ss", n, what)
+}
+
 // All is the providers in SPEC 10's order (app actions live in the app's
 // own menu, not here).
 func All() []Provider { return []Provider{Storage{}, Podman{}, Services{}} }

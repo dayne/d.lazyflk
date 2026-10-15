@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │ machine 225d58f615e7e6 ● started 172.30.0.10    │
 │   ● lucky-harbor-5563      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
 │   ▢ code_workspace 30GB    │   cpu 4% · 10900MB used · up 30h 12m            │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │ ports  tcp/25565 → 10.47.11.3:25565             │
-│   ▢ vsdata 40GB (external) │        udp/19132 → 10.47.11.3:19132             │
-│   ⇄ tcp/42420 udp/42420    │ volume world 40GB (external)                    │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│                            │ ports  tcp/25565 → 10.47.11.3:25565             │
+│ Host                       │        udp/19132 → 10.47.11.3:19132             │
+│   health ✔                 │ volume world 40GB (external)                    │
 │                            │   /data/minecraft/flk/world.ext4                │
-│ Host                       │                                                 │
-│   health ✔                 │                                                 │
+│ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ Storage                    │                                                 │
-│   / 30%                    │                                                 │
+│ ▸ Podman  7 images         │                                                 │
+│                            │                                                 │
+│ ▸ Services  5 running      │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

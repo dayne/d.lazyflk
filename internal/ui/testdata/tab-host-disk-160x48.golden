@@ -15,27 +15,27 @@
 │ Host                                   │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
 │   health ✔                             │      122G free of 147G                                                                                              │
 │                                        │      holds /data/vintagestory/flk                                                                                   │
-│ Storage                                │                                                                                                                     │
-│   / 30%                                │ $ flk disk --json                                                                                                   │
-│   /data/minecraft 67%                  │ What flk uses  (allocated; sparse files count what's written)                                                       │
-│   /data/vintagestory 13%               │ state     8.3G in /home/dayne/.local/share/flk                                                                      │
+│ ▸ Storage  fullest 67%                 │                                                                                                                     │
+│                                        │ $ flk disk --json                                                                                                   │
+│ ▸ Podman  7 images                     │ What flk uses  (allocated; sparse files count what's written)                                                       │
+│                                        │ state     8.3G in /home/dayne/.local/share/flk                                                                      │
+│ ▸ Services  5 running                  │                                                                                                                     │
+│                                        │ app                images   rootfs  volumes     logs external                                                       │
+│                                        │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
+│                                        │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
+│                                        │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
+│                                        │ all                  4.7G     2.7G     818M     2.4M      29G                                                       │
 │                                        │                                                                                                                     │
-│ Podman                                 │ app                images   rootfs  volumes     logs external                                                       │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
-│   ◇ itzg/minecraft-server:latest 868M  │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
-│   ◇ dotnet/runtime:10.0 197M           │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
-│   ◇ eclipse-temurin:25-jre 341M        │ all                  4.7G     2.7G     818M     2.4M      29G                                                       │
-│   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
-│   ◇ ruby:3.3-alpine 69M                │ backups   198G in /data/flk-backups                                                                                 │
-│   ◇ alpine:3.20 7.7M                   │           minecraft-flk    144G                                                                                     │
-│   7 flk images: host Images tab        │             world          143G in 7 backups                                                                        │
+│                                        │ backups   198G in /data/flk-backups                                                                                 │
+│                                        │           minecraft-flk    144G                                                                                     │
+│                                        │             world          143G in 7 backups                                                                        │
 │                                        │           opencode-sandbox 0K                                                                                       │
-│ Services                               │             code_workspace 0K in 0 backups                                                                          │
-│   ● flk-net                            │           vintagestory-flk 55G                                                                                      │
-│   ● flk-machines                       │             vsdata         55G in 7 backups                                                                         │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
-│   ● chrony                             │                                                                                                                     │
+│                                        │             code_workspace 0K in 0 backups                                                                          │
+│                                        │           vintagestory-flk 55G                                                                                      │
+│                                        │             vsdata         55G in 7 backups                                                                         │
+│                                        │                                                                                                                     │
+│                                        │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

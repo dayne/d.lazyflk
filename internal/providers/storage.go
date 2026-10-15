@@ -168,3 +168,20 @@ func human(b int64) string {
 	}
 	return strings.TrimSpace(host.Human(b / 1024))
 }
+
+// Summary is the fullest filesystem's use.
+func (Storage) Summary(items []Item) string {
+	fullest := -1
+	for _, it := range items {
+		var pct int
+		if i := strings.LastIndexByte(it.Label, ' '); i >= 0 {
+			if _, err := fmt.Sscanf(it.Label[i+1:], "%d%%", &pct); err == nil && pct > fullest {
+				fullest = pct
+			}
+		}
+	}
+	if fullest < 0 {
+		return count(len(items), "filesystem")
+	}
+	return fmt.Sprintf("fullest %d%%", fullest)
+}

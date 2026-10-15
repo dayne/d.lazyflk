@@ -14,12 +14,26 @@ import (
 	"github.com/dayne/d.lazyflk/internal/providers"
 )
 
+// goToKey selects a node, opening the app or section that holds it first
+// if it's folded away (as the admin would: select it, →).
 func goToKey(t *testing.T, m *Model, key string) {
 	t.Helper()
-	for i, n := range m.nodes {
-		if n.key(m.apps) == key {
-			m.cursor = i
-			send(m) // let sync load what it shows
+	find := func(k string) bool {
+		for i, n := range m.nodes {
+			if n.key(m.apps) == k {
+				m.cursor = i
+				send(m) // let sync load what it shows
+				return true
+			}
+		}
+		return false
+	}
+	if find(key) {
+		return
+	}
+	if h := m.holderKey(key); h != "" && find(h) {
+		press(m, "right")
+		if find(key) {
 			return
 		}
 	}
@@ -80,6 +94,10 @@ func TestProviderActions(t *testing.T) {
 	m := demoModel(t, 100, 30)
 	m.opt.Providers = append(m.opt.Providers, stubProvider{})
 	send(m, runCmd(m.reload())...)
+	// a section with a problem stays open, with its items, and says so
+	if s := screen(m); !strings.Contains(s, "▾ Stub !") || !strings.Contains(s, "▢ old-build (build)") || !strings.Contains(s, "▸ Podman") {
+		t.Errorf("an unhealthy section should open by itself\n%s", s)
+	}
 	// a provider's problem is in Needs attention, with its fix
 	var fix *attnItem
 	for _, it := range m.attnItems() {

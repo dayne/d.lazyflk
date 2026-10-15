@@ -17,7 +17,7 @@ terminal), `--refresh 5s` (0 loads once), `--flk PATH`, `--version`.
 
 Mouse: click a tree row, a tab, a menu or palette entry, a Needs attention
 entry (again to run its fix) or a footer key; the wheel scrolls what's
-under it. Clicking the selected app folds it. With the mouse on, select
+under it. Clicking the selected app or section folds it. With the mouse on, select
 text with Shift held (Option on macOS), or start with `--no-mouse`.
 
 Keys: `↑↓` move, `←→` fold, `tab`/`1`…`9` tabs, `pgup`/`pgdn` scroll a tab,
@@ -48,7 +48,11 @@ context --all --json --no-host` and takes host health from `flk doctor
 --json` every 30s; an older flk still works, with the full context each
 time and those tabs saying what's missing.
 
-Beyond flk (SPEC 10), sections below Host:
+Beyond flk (SPEC 10), sections below Host. A healthy section folds to one
+line (`▸ Podman  7 images`) and opens by itself when something there needs
+attention; `→`/`enter` opens one, `←` folds it. When the tree doesn't fit,
+healthy apps fold too, from the bottom, so the ones with problems stay
+open. Folding by hand holds until that app's or section's health changes.
 - **Storage**: each filesystem holding flk's data and backups, its devices
   (`lsblk`: disk, partition, LVM volume), LVM snapshots, and room left in
   the volume group (growing is a `sudo lvextend` to copy).

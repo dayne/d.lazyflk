@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │ v9   2026-10-13 08:31Z  Dockerfile  current     │
 │   ● lucky-harbor-5563      │      on mellow-aurora-7882                      │
 │   ▢ code_workspace 30GB    │ v8   2026-10-12 07:08Z  Dockerfile  kept        │
-│ ▾ vintagestory-flk  1/1 ●  │ v7   2026-10-12 06:58Z  Dockerfile  kept        │
-│   ● frosty-river-2714      │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
-│   ▢ vsdata 40GB (external) │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
-│   ⇄ tcp/42420 udp/42420    │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
+│ ▸ vintagestory-flk  1/1 ●  │ v7   2026-10-12 06:58Z  Dockerfile  kept        │
+│                            │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
+│ Host                       │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
+│   health ✔                 │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
 │                            │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
-│ Host                       │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
-│   health ✔                 │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
-│                            │                                                 │
-│ Storage                    │ kept: can be rolled back to (enter, r) ·        │
-│   / 30%                    │   pruned: its image is gone                     │
+│ ▸ Storage  fullest 67%     │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
+│                            │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
+│ ▸ Podman  7 images         │                                                 │
+│                            │ kept: can be rolled back to (enter, r) ·        │
+│ ▸ Services  5 running      │   pruned: its image is gone                     │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

@@ -14,6 +14,8 @@ func (m *Model) detail(n node) (string, []string) {
 	switch n.kind {
 	case kindProvider:
 		return m.providerDetail(n, 1<<20)
+	case kindSection:
+		return m.sectionDetail(n, 1<<20)
 	case kindApp:
 		a := m.apps[n.app]
 		return a.Name, m.appOverview(a)

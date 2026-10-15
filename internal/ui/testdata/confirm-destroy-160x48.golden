@@ -15,27 +15,27 @@
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Storage                                │                                                                                                                     │
-│   / 30%                                │                                                                                                                     │
-│   /data/minecraft 67%               ┌ destroy app ─ minecraft-flk ─────────────────────────────────────────────────────┐                                     │
-│   /data/vintagestory 13%            │ $ flk apps destroy minecraft-flk --yes                                           │                                     │
-│                                     │                                                                                  │                                     │
-│ Podman                              │ Deletes minecraft-flk: 1 machine, 1 volume and its releases. External volume     │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │ files are kept. Its backups are kept. This can't be undone.                      │                                     │
-│   ◇ itzg/minecraft-server:latest 868│                                                                                  │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │ Type minecraft-flk to confirm: min▏                                              │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ◇ ubuntu:24.04 77M                │ enter run (once it matches)  esc cancel                                          │                                     │
-│   ◇ ruby:3.3-alpine 69M             └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   7 flk images: host Images tab        │                                                                                                                     │
+│ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ Services                               │                                                                                                                     │
-│   ● flk-net                            │                                                                                                                     │
-│   ● flk-machines                       │                                                                                                                     │
-│   ● ssh                                │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
-│   ● chrony                             │                                                                                                                     │
+│ ▸ Podman  7 images                  ┌ destroy app ─ minecraft-flk ─────────────────────────────────────────────────────┐                                     │
+│                                     │ $ flk apps destroy minecraft-flk --yes                                           │                                     │
+│ ▸ Services  5 running               │                                                                                  │                                     │
+│                                     │ Deletes minecraft-flk: 1 machine, 1 volume and its releases. External volume     │                                     │
+│                                     │ files are kept. Its backups are kept. This can't be undone.                      │                                     │
+│                                     │                                                                                  │                                     │
+│                                     │ Type minecraft-flk to confirm: min▏                                              │                                     │
+│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ enter run (once it matches)  esc cancel                                          │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

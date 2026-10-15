@@ -222,6 +222,10 @@ func (m *Model) tabBody(n node, tab string, w, h int) []string {
 		_, lines := m.providerDetail(n, w)
 		return lines
 	}
+	if n.kind == kindSection {
+		_, lines := m.sectionDetail(n, w)
+		return lines
+	}
 	if tab == "Events" { // from the events stream, not a command per tab
 		switch n.kind {
 		case kindApp:

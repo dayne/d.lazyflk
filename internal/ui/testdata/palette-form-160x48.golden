@@ -15,27 +15,27 @@
 │ Host                                │   help --all): by default its machine is stopped for the copy and started again; │                                     │
 │   health ✔                          │   mode = "live" with pre/post hooks (e.g. save-off / save-on) copies while it    │                                     │
 │                                     │   runs.                                                                          │                                     │
-│ Storage                             │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
-│   / 30%                             │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
-│   /data/minecraft 67%               │   machine gets its journal replayed).                                            │                                     │
-│   /data/vintagestory 13%            │ · With backup_copy_to in ~/.config/flk/host.toml, the new backup is then copied  │                                     │
-│                                     │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
-│ Podman                              │   the backup is kept.                                                            │                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M    │                                                                                  │                                     │
-│   ◇ itzg/minecraft-server:latest 868│ app         [minecraft-flk▏                                                    ] │                                     │
-│   ◇ dotnet/runtime:10.0 197M        │             the app (-a); the selection's app by default                         │                                     │
-│   ◇ eclipse-temurin:25-jre 341M     │ ID|NAME...  [                                                                  ] │                                     │
-│   ◇ ubuntu:24.04 77M                │ --to DIR    [                                                                  ] │                                     │
-│   ◇ ruby:3.3-alpine 69M             │ --keep N    [                                                                  ] │                                     │
-│   ◇ alpine:3.20 7.7M                │ --mode MODE [                                                                  ] │                                     │
-│   7 flk images: host Images tab     │ --no-check  ‹ no ›                                                               │                                     │
+│ ▸ Storage  fullest 67%              │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
+│                                     │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
+│ ▸ Podman  7 images                  │   machine gets its journal replayed).                                            │                                     │
+│                                     │ · With backup_copy_to in ~/.config/flk/host.toml, the new backup is then copied  │                                     │
+│ ▸ Services  5 running               │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
+│                                     │   the backup is kept.                                                            │                                     │
+│                                     │                                                                                  │                                     │
+│                                     │ app         [minecraft-flk▏                                                    ] │                                     │
+│                                     │             the app (-a); the selection's app by default                         │                                     │
+│                                     │ ID|NAME...  [                                                                  ] │                                     │
+│                                     │ --to DIR    [                                                                  ] │                                     │
+│                                     │ --keep N    [                                                                  ] │                                     │
+│                                     │ --mode MODE [                                                                  ] │                                     │
+│                                     │ --no-check  ‹ no ›                                                               │                                     │
 │                                     │ --no-copy   ‹ no ›                                                               │                                     │
-│ Services                            │                                                                                  │                                     │
-│   ● flk-net                         │ $ flk -a minecraft-flk volumes backup                                            │                                     │
-│   ● flk-machines                    ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│   ● ssh                             │ tab ↑↓ field  ←→ choose  enter next step  esc cancel                             │                                     │
-│   ● snap.mosquitto.mosquitto        └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│   ● chrony                             │                                                                                                                     │
+│                                     │                                                                                  │                                     │
+│                                     │ $ flk -a minecraft-flk volumes backup                                            │                                     │
+│                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
+│                                     │ tab ↑↓ field  ←→ choose  enter next step  esc cancel                             │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │

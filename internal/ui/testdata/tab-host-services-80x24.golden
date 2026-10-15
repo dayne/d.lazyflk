@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │ ✔ flk-net.service  active (exited)              │
 │   ● lucky-harbor-5563      │   enabled · since 2026-10-12 05:44Z             │
 │   ▢ code_workspace 30GB    │   at boot: the bridge, NAT and port forwarding  │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │ ✔ flk-machines.service  active (exited)         │
-│   ▢ vsdata 40GB (external) │   enabled · since 2026-10-12 05:44Z             │
-│   ⇄ tcp/42420 udp/42420    │   at boot: flk resume; at shutdown: stops       │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│                            │ ✔ flk-machines.service  active (exited)         │
+│ Host                       │   enabled · since 2026-10-12 05:44Z             │
+│   health ✔                 │   at boot: flk resume; at shutdown: stops       │
 │                            │     machines gracefully                         │
-│ Host                       │                                                 │
-│   health ✔                 │ oneshot units: healthy is active (exited)       │
+│ ▸ Storage  fullest 67%     │                                                 │
+│                            │ oneshot units: healthy is active (exited)       │
+│ ▸ Podman  7 images         │                                                 │
 │                            │                                                 │
-│ Storage                    │                                                 │
-│   / 30%                    │                                                 │
+│ ▸ Services  5 running      │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

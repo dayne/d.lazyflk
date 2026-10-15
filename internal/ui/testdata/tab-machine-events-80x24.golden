@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │                                                 │
 │   ● lucky-harbor-5563      │                                                 │
 │   ▢ code_workspace 30GB    │                                                 │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │                                                 │
-│   ▢ vsdata 40GB (external) │                                                 │
-│   ⇄ tcp/42420 udp/42420    │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
 │                            │                                                 │
 │ Host                       │                                                 │
 │   health ✔                 │                                                 │
 │                            │                                                 │
-│ Storage                    │                                                 │
-│   / 30%                    │                                                 │
+│ ▸ Storage  fullest 67%     │                                                 │
+│                            │                                                 │
+│ ▸ Podman  7 images         │                                                 │
+│                            │                                                 │
+│ ▸ Services  5 running      │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

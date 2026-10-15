@@ -3,7 +3,7 @@
 │   /data/minecraft 67%      │                                                 │
 │   /data/vintagestory 13%   │ $ systemctl show --timestamp=utc -p ...         │
 │                            │   UNIT... · journalctl -u UNIT                  │
-│ Podman                     │                                                 │
+│ ▾ Podman                   │                                                 │
 │   ◇ 8149e56d2f50 (untagge… │ unit      ssh.service                           │
 │   ◇ itzg/minecraft-server… │ what      OpenBSD Secure Shell server           │
 │   ◇ dotnet/runtime:10.0 1… │ state     active (running)                      │
@@ -13,7 +13,7 @@
 │   ◇ alpine:3.20 7.7M       │                                                 │
 │   7 flk images: host Imag… │ pinned by default; edit ~/.config/lazyflk/pins  │
 │                            │   (one unit per line) to change                 │
-│ Services                   │                                                 │
+│ ▾ Services                 │                                                 │
 │   ● flk-net                │                                                 │
 │   ● flk-machines           │                                                 │
 │   ● ssh                    │                                                 │

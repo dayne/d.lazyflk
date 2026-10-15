@@ -15,27 +15,27 @@
 │ Host                        │                                                                                                  │                             │
 │   health ✔                  │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ Storage                     │                                                                                                  │                             │
-│   / 30%                     │                                                                                                  │                             │
-│   /data/minecraft 67%       │                                                                                                  │                             │
-│   /data/vintagestory 13%    │                                                                                                  │                             │
+│ ▸ Storage  fullest 67%      │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ Podman                      │                                                                                                  │                             │
-│   ◇ 8149e56d2f50 (untagged) │                                                                                                  │                             │
-│   ◇ itzg/minecraft-server:la│                                                                                                  │                             │
-│   ◇ dotnet/runtime:10.0 197M│                                                                                                  │                             │
-│   ◇ eclipse-temurin:25-jre 3│                                                                                                  │                             │
-│   ◇ ubuntu:24.04 77M        │                                                                                                  │                             │
-│   ◇ ruby:3.3-alpine 69M     │                                                                                                  │                             │
-│   ◇ alpine:3.20 7.7M        │                                                                                                  │                             │
-│   7 flk images: host Images │                                                                                                  │                             │
+│ ▸ Podman  7 images          │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ Services                    │                                                                                                  │                             │
-│   ● flk-net                 │                                                                                                  │                             │
-│   ● flk-machines            │                                                                                                  │                             │
-│   ● ssh                     │                                                                                                  │                             │
-│   ● snap.mosquitto.mosquitto│                                                                                                  │                             │
-│   ● chrony                  │                                                                                                  │                             │
+│ ▸ Services  5 running       │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
+│                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │

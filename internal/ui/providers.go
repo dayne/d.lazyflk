@@ -2,6 +2,7 @@ package ui
 
 import (
 	"context"
+	"fmt"
 	"path/filepath"
 	"time"
 
@@ -80,11 +81,17 @@ func (m *Model) isProviderKey(key string) bool {
 	return false
 }
 
+// providerNodes is a section per provider: its heading, and its items
+// unless it's folded. A healthy section folds by itself (SPEC 5.1).
 func (m *Model) providerNodes() []node {
 	var out []node
 	for i, p := range m.opt.Providers {
 		items, err, loaded := m.providerData(i)
-		out = append(out, node{kind: kindInfo}, node{kind: kindHeading, text: p.Name()})
+		folded := m.isFolded("section/"+p.Name(), m.sectionHealthy(i), m.sectionHealthy(i))
+		out = append(out, node{kind: kindInfo}, node{kind: kindSection, text: p.Name(), prov: i, folded: folded})
+		if folded {
+			continue
+		}
 		switch {
 		case !loaded:
 			out = append(out, node{kind: kindInfo, text: "loading…"})
@@ -98,6 +105,63 @@ func (m *Model) providerNodes() []node {
 		}
 	}
 	return out
+}
+
+// sectionHealthy is whether a provider's section has nothing to show:
+// still loading, or every item fine. An error isn't healthy.
+func (m *Model) sectionHealthy(i int) bool {
+	items, err, _ := m.providerData(i)
+	return err == nil && providers.Healthy(items)
+}
+
+// sectionSummary says how a section is in a few words, for its folded line.
+func (m *Model) sectionSummary(i int) string {
+	items, err, loaded := m.providerData(i)
+	switch {
+	case !loaded:
+		return "loading…"
+	case err != nil && len(items) == 0:
+		return "can't list"
+	case len(items) == 0:
+		return "nothing here"
+	}
+	if s, ok := m.opt.Providers[i].(providers.Summarizer); ok {
+		return s.Summary(items)
+	}
+	return fmt.Sprintf("%d items", len(items))
+}
+
+func (m *Model) sectionLine(n node) string {
+	s := foldArrow(n.folded) + " " + styleTitle.Render(n.text)
+	if n.folded {
+		s += "  " + styleDim.Render(m.sectionSummary(n.prov))
+	}
+	if !m.sectionHealthy(n.prov) {
+		s += " " + styleBad.Render("!")
+	}
+	return s
+}
+
+// sectionDetail is a section's Overview: every item's line, and what's
+// wrong.
+func (m *Model) sectionDetail(n node, w int) (string, []string) {
+	p := m.opt.Providers[n.prov]
+	items, err, _ := m.providerData(n.prov)
+	var out []string
+	for _, l := range wrapIndent("$ "+p.Command(), w) {
+		out = append(out, styleDim.Render(l))
+	}
+	if err != nil {
+		out = append(out, "", styleBad.Render(firstLine(err.Error())))
+	}
+	out = append(out, "", m.sectionSummary(n.prov), "")
+	for j, it := range items {
+		out = append(out, m.providerLine(node{kind: kindProvider, prov: n.prov, item: j, pkey: it.Key}))
+		for _, pr := range it.Problems {
+			out = append(out, "    "+styleBad.Render("! ")+pr)
+		}
+	}
+	return p.Name(), out
 }
 
 func (m *Model) providerLine(n node) string {

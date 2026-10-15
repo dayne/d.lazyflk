@@ -7,16 +7,16 @@
 │ ▾ opencode-sandbox  1/1 ●  │ checks    ready: log line "Started Geyser on    │
 │   ● lucky-harbor-5563      │           UDP port 19132" within 300s           │
 │   ▢ code_workspace 30GB    │           port: tcp :25565 within 300s          │
-│ ▾ vintagestory-flk  1/1 ●  │                                                 │
-│   ● frosty-river-2714      │ {                                               │
-│   ▢ vsdata 40GB (external) │   "file": "/home/dayne/minecraft.flk/flk.toml", │
-│   ⇄ tcp/42420 udp/42420    │   "parsed": {                                   │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│                            │ {                                               │
+│ Host                       │   "file": "/home/dayne/minecraft.flk/flk.toml", │
+│   health ✔                 │   "parsed": {                                   │
 │                            │     "app": "minecraft-flk",                     │
-│ Host                       │     "kill_timeout": 120,                        │
-│   health ✔                 │     "build": {                                  │
-│                            │       "dockerfile": "Dockerfile"                │
-│ Storage                    │     },                                          │
-│   / 30%                    │ … 184 more (pgdn)                               │
+│ ▸ Storage  fullest 67%     │     "kill_timeout": 120,                        │
+│                            │     "build": {                                  │
+│ ▸ Podman  7 images         │       "dockerfile": "Dockerfile"                │
+│                            │     },                                          │
+│ ▸ Services  5 running      │ … 184 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤
