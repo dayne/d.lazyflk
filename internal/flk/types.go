@@ -82,6 +82,9 @@ type Release struct {
 	// volumes backed up by the roll to this release (flk 3f618a4,
 	// [flk.backup] before_deploy): the data from before it
 	Backups []ReleaseBackup `json:"backups"`
+	// BuildLog is the file with the build's whole output (flk R1, 7f0317f):
+	// "" from an older flk, or once flk pruned it.
+	BuildLog string `json:"build_log"`
 }
 
 type ReleaseBackup struct {
@@ -436,6 +439,7 @@ type Event struct {
 	Type    string `json:"type"` // machine.started, deploy.failed, … (flk help --all, "Events")
 	Release int    `json:"release"`
 	Detail  string `json:"detail"`
+	Log     string `json:"log"` // deploy.failed: the build's log file (flk R1)
 }
 
 // FileEntry is a row of `flk files ls VOL:PATH --json` (flk ef6f865).

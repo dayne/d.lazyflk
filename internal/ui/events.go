@@ -238,6 +238,9 @@ func (m *Model) eventLine(e flk.Event, withApp bool) string {
 	if d := oneLine(e.Detail); d != "" {
 		s += "  " + d
 	}
+	if e.Log != "" {
+		s += styleDim.Render("  build log: " + e.Log)
+	}
 	return s
 }
 

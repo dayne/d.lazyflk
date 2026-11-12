@@ -521,6 +521,9 @@ func (m *Model) releaseLines(a flk.App, rels []flk.Release, w int) []string {
 				out = append(out, "     "+styleBad.Render(l))
 			}
 		}
+		if r.BuildLog != "" && (r.Failed() || r.Version == current) {
+			out = append(out, styleDim.Render("     build log: "+r.BuildLog))
+		}
 		if names := running[r.Version]; len(names) > 0 {
 			out = append(out, styleDim.Render("     on "+strings.Join(names, ", ")))
 		}

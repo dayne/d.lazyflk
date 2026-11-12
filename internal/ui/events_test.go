@@ -1,12 +1,14 @@
 package ui
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
 	"testing"
 	"time"
 
+	"github.com/charmbracelet/x/ansi"
 	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
@@ -106,5 +108,28 @@ func TestEventStyle(t *testing.T) {
 		if got := eventStyle(typ); got != want {
 			t.Errorf("%s: %q", typ, got)
 		}
+	}
+}
+
+// A failed deploy's event and a release name the build's log file (flk R1).
+func TestBuildLogShown(t *testing.T) {
+	// a line of `flk events --all --json` at flk 39e07f4 (a test app of flk's own tests)
+	const line = `{"at":"2026-11-12T01:43:34.825Z","app":"flkt-hello-05-buildlog-763a","machine":null,"type":"deploy.failed","detail":"build failed; machines unchanged (no machines yet): ERROR: pin is stale","log":"/s/apps/flkt-hello-05-buildlog-763a/builds/v1-failed-20261112T014334825Z.log"}`
+	var e flk.Event
+	if err := json.Unmarshal([]byte(line), &e); err != nil {
+		t.Fatal(err)
+	}
+	m := demoModel(t, 160, 48)
+	if s := ansi.Strip(m.eventLine(e, true)); !strings.Contains(s, "ERROR: pin is stale  build log: /s/apps/flkt-hello-05-buildlog-763a/builds/v1-failed-20261112T014334825Z.log") {
+		t.Errorf("event: %s", s)
+	}
+	a := m.apps[0]
+	rels := []flk.Release{
+		{Version: a.Release.Version, BuildLog: "/s/builds/cur.log", Image: true},
+		{Version: a.Release.Version - 1, BuildLog: "/s/builds/old.log", Image: true},
+	}
+	s := ansi.Strip(strings.Join(m.releaseLines(a, rels, 100), "\n"))
+	if !strings.Contains(s, "build log: /s/builds/cur.log") || strings.Contains(s, "old.log") {
+		t.Errorf("releases:\n%s", s)
 	}
 }
