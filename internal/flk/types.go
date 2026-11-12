@@ -421,6 +421,9 @@ type BackupCopy struct {
 	OK      bool    `json:"ok"`
 	Seconds float64 `json:"seconds"`
 	Error   string  `json:"error"`
+	// PrunedAt is when flk found the copy gone from To (pruned there by
+	// backup_copy_keep; flk 56721dc): "" while it's there.
+	PrunedAt string `json:"pruned_at"`
 }
 
 // Event is a line of `flk events --json` (flk c0a98f4, G7): something

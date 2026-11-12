@@ -41,8 +41,14 @@ problems show up there with the fix. Then find the symptom below.
   (with `FLK_TAPS=32` for more machines).
 - `build failed; machines unchanged (still on vN)`: the build (or a check
   before the roll) failed, and no machine was stopped or changed: they
-  still run vN. Fix the cause shown above it and deploy again. The same
-  Dockerfile should fail under `podman build`.
+  still run vN. Fix the cause shown above it ("The build said:") and deploy
+  again. The build's whole output is in the `Build log:` file it names
+  (also in the `deploy.failed` event's `log`), so there's no need to
+  build again to read it.
+- `not enough space to build the rootfs in DIR`: turning the image into
+  the release's disk needs about twice the image's size, free next to
+  flk's images (`flk disk` shows where they are and what they take). Free
+  space there (`flk images`, `flk apps prune`); `/tmp` isn't used.
 - `groupadd: GID '1000' already exists` (or `useradd: UID 1000 is not
   unique`): ubuntu:23.04 and later ship user `ubuntu` as 1000:1000. Rename
   it (`usermod -l NEW -d /home/NEW -m ubuntu && groupmod -n NEW ubuntu`) or
@@ -50,7 +56,8 @@ problems show up there with the fix. Then find the symptom below.
 - The app can't write to its volume (`Permission denied` under the mount
   point): the volume's root is owned by root. A volume made with
   `flk volumes create` takes the owner of the mount point in the image on
-  its first use; for an older one, or another owner:
+  its first use, or else the image's USER (the deploy says which); for an
+  older one, one that had data already, or another owner:
   `flk machine stop ID`, `flk files chown UID:GID VOL:/`, start again
   (or create volumes with `--owner UID:GID`).
 - `nothing listening on IP:PORT after 30s`: the app is up but not on
@@ -93,6 +100,21 @@ problems show up there with the fix. Then find the symptom below.
 **After a reboot nothing runs**
 - `flk doctor` "boot service": `sudo /home/dayne/flk/setup-host.sh --install-service`.
 - Now: `sudo /home/dayne/flk/setup-host.sh`, then `flk resume`.
+- Machines were killed at shutdown, not stopped (`flk events`: "the host
+  went down with it running"): doctor's "not a flk service" warning says
+  how to move them; "predates flk-tmux.service":
+  `sudo /home/dayne/flk/setup-host.sh --install-service`.
+
+- After restoring flk's state dir from a backup that skipped the
+  machines' `rootfs.ext4` (copies of the release images): `flk resume`
+  makes each missing one again from its release image and says so. "root
+  disk is missing, and so is vN's image": `flk deploy`.
+
+**After an apt upgrade every machine is stopped**
+- needrestart restarted `flk-tmux.service`, which stops the machines
+  gracefully first. Units installed before it learned to resume after a
+  restart leave them stopped. Now: `flk resume`. For next time:
+  `sudo /home/dayne/flk/setup-host.sh --install-service` (doctor warns until then).
 
 **Where things are**
 - Machine files: `/home/dayne/.local/share/flk/apps/APP/machines/ID/` (console.log,

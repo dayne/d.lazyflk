@@ -5,12 +5,12 @@
 │ operate         Day to day: changes, logs, consoles, reboots, disk, updates  │
 │ troubleshoot    Symptom -> cause -> command                                  │
 │ uninstall       Removing apps, host setup and files                          │
+│ bugs            Reporting flk bugs from an app: the BUGS.flk.md format       │
+│ dockerfile      Writing a Dockerfile for flk: the guest is a VM, not a cont… │
+│ host            Looking after the host while apps run: services, upgrades, … │
 │                                                                              │
 │ Each is `flk help TOPIC`, from the flk you have. flk help --all is the full… │
 │ the command palette (:) has every command.                                   │
-│                                                                              │
-│                                                                              │
-│                                                                              │
 │                                                                              │
 │                                                                              │
 │                                                                              │

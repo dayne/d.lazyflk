@@ -11,8 +11,8 @@ digests only.
 | context-all-nohost.json | `flk context --all --json --no-host` |
 | context-minecraft-flk.json | `flk -a minecraft-flk context --json` |
 | context.txt | `flk context` (in ~, outside any app dir) |
-| help-all.json | `flk help --all --json` |
-| help-TOPIC.txt | `flk help TOPIC` for cheatsheet, install, first-app, operate, troubleshoot, uninstall |
+| help-all.json | `flk help --all --json` (recaptured at flk 39e07f4, 2026-11-11) |
+| help-TOPIC.txt | `flk help TOPIC` for cheatsheet, install, first-app, operate, troubleshoot, uninstall, dockerfile, host, bugs (at flk 39e07f4) |
 | doctor.json | `flk doctor --json` |
 | apps-list.json | `flk apps list --json` |
 | ports-list.json | `flk ports list --json` |
@@ -25,6 +25,7 @@ digests only.
 | config-minecraft-flk.json | `flk -a minecraft-flk config show --json` (same as without --json) |
 | backups-minecraft-flk.json | `flk -a minecraft-flk volumes backups --json` |
 | backups-sample.json | `flk -a flkt-lazyflk-m2 volumes backups --json` at flk 407ff4d: a test app (since destroyed) after one offline and one stop-mode backup |
+| backups-pruned.json | `flk -a enshrouded-flk volumes backups --json` at flk 39e07f4 (read-only, a real app): nightly backups whose older copies were pruned at backup_copy_to (`pruned_at`) |
 | backups-verified.json | `flk -a flkt-lazyflk-bk volumes backups --json` at flk a04fcc6: a test app (since destroyed) after a backup, `volumes verify` and `volumes copy --dest` to a scratch dir |
 | files-ls-PATH.json, files-cat-PATH.txt | `flk -a flkt-lazyflk-fs files ls data:/PATH --json` and `files cat data:/PATH` at flk ef6f865 (PATH's / as -, root for /): a test app (since destroyed) whose volume has a small tree. The fake serves them for any app and volume |
 | events.txt | `flk events --all --json -n 60` at flk c0a98f4 (JSON lines; mostly the flk session's test apps). The fake serves it for any `events` command |

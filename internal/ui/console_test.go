@@ -202,7 +202,7 @@ func TestSendLine(t *testing.T) {
 func TestGuides(t *testing.T) {
 	m := demoModel(t, 80, 24)
 	press(m, "H")
-	if got := m.topics(); strings.Join(got, " ") != "cheatsheet install first-app operate troubleshoot uninstall" {
+	if got := m.topics(); strings.Join(got, " ") != "cheatsheet install first-app operate troubleshoot uninstall bugs dockerfile host" {
 		t.Errorf("topics %v", got)
 	}
 	press(m, "down", "down", "down", "enter") // operate

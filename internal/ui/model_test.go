@@ -719,6 +719,26 @@ func TestBackupVerifyAndCopies(t *testing.T) {
 }
 
 // Commands shown before running are never cut: long words break.
+// A copy pruned at its destination isn't shown as a copy that's there.
+func TestPrunedCopies(t *testing.T) {
+	raw, _ := fixtures.FS.ReadFile("backups-pruned.json")
+	var bs []flk.Backup
+	if err := json.Unmarshal(raw, &bs); err != nil || len(bs) < 4 {
+		t.Fatalf("%d backups, %v", len(bs), err)
+	}
+	newest, oldest := bs[0], bs[len(bs)-1]
+	if len(newest.Copies) != 1 || newest.Copies[0].PrunedAt != "" || len(oldest.Copies) != 1 || oldest.Copies[0].PrunedAt == "" {
+		t.Fatalf("copies: %+v, %+v", newest.Copies, oldest.Copies)
+	}
+	if s := ansi.Strip(copyText(newest.Copies[0])); !strings.HasPrefix(s, "copied to "+newest.Copies[0].To) {
+		t.Errorf("there: %q", s)
+	}
+	s := ansi.Strip(copyText(oldest.Copies[0]))
+	if strings.Contains(s, "copied") || !strings.Contains(s, "no copy at "+oldest.Copies[0].To+" any more: pruned there "+when(oldest.Copies[0].PrunedAt)) {
+		t.Errorf("pruned: %q", s)
+	}
+}
+
 func TestWrapLongWord(t *testing.T) {
 	path := "/tmp/" + strings.Repeat("abcdefghij", 5)
 	got := wrap("flk volumes copy --dest "+path+" done", 20)

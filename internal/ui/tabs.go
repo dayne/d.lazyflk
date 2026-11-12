@@ -451,6 +451,9 @@ func copyText(c flk.BackupCopy) string {
 	if !c.OK {
 		return styleBad.Render("copy to "+c.To+" failed") + " " + when(c.At) + ": " + or(c.Error, "?")
 	}
+	if c.PrunedAt != "" { // was there; isn't any more
+		return styleDim.Render("no copy at " + c.To + " any more: pruned there " + when(c.PrunedAt))
+	}
 	return styleOK.Render("copied") + " to " + c.To + " " + when(c.At)
 }
 

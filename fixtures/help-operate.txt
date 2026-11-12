@@ -66,7 +66,12 @@ stopped but counts as "should be running": `flk resume` starts it again.
 
 **Reboots.** With `flk-machines.service` installed (`flk doctor` checks),
 machines stop gracefully at shutdown and come back at boot. Without it:
-`sudo /home/dayne/flk/setup-host.sh`, then `flk resume`.
+`sudo /home/dayne/flk/setup-host.sh`, then `flk resume`. Machines run in flk's
+tmux server, which `flk-tmux.service` owns (flk starts it when needed), so
+none lives in a login session that shutdown kills first; doctor warns if
+one does. Restarting that unit (needrestart does after some apt upgrades)
+stops the machines gracefully and starts them again: a short outage, not
+a lasting one.
 
 **Secrets and config.** `flk secrets set K=V` restarts running machines;
 `--stage` waits for the next deploy or restart. `flk config show` prints the
@@ -113,6 +118,9 @@ if a disk isn't covered, e.g. a `nofail` or network mount: then re-run
     backup_dir  = "/data/flk-backups"   # ideally another disk than the volumes
     backup_keep = 7                     # per volume
 
+(or: `flk config set backup_dir=/data/flk-backups backup_keep=7`, which
+checks the values; `flk config show --host` prints the file.)
+
 Then `flk volumes backup` copies all of the app's volumes there (sparse:
 only used space), checks each copy with e2fsck, and deletes the oldest past
 `keep`. By default the machine is stopped for the copy and started again
@@ -132,7 +140,8 @@ survive that disk. Add `backup_copy_to = "/mnt/usb/flk"` (another disk) or
 `~/.config/flk/host.toml`, and every `flk volumes backup` then copies the
 new backup there too, keeping `backup_copy_keep` (default `backup_keep`) per
 volume. `flk volumes copy` sends one by hand (it skips what's already
-there), `flk volumes backups` shows where each backup was copied, and
+there), `flk volumes backups` shows where each backup's copy still is
+(`--json`: a copy pruned there has `pruned_at`), and
 `flk doctor` warns when a volume's newest copy is older than
 `backup_copy_warn_days` (8).
 

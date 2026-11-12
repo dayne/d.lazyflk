@@ -1,0 +1,202 @@
+[
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-11T10:00:07Z",
+    "seconds": 5.3,
+    "verify": "clean",
+    "verified_at": "2026-11-11T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 656868 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-11T10:00:14Z",
+        "ok": true,
+        "seconds": 7.6
+      }
+    ],
+    "file": "endata-20261111T100001Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261111T100001Z.ext4",
+    "bytes_used": 222511104
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-10T10:00:07Z",
+    "seconds": 5.4,
+    "verify": "clean",
+    "verified_at": "2026-11-10T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 656868 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-10T10:00:15Z",
+        "ok": true,
+        "seconds": 7.5
+      }
+    ],
+    "file": "endata-20261110T100002Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261110T100002Z.ext4",
+    "bytes_used": 219090944
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-09T10:00:07Z",
+    "seconds": 5.4,
+    "verify": "clean",
+    "verified_at": "2026-11-09T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 656868 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-09T10:00:14Z",
+        "ok": true,
+        "seconds": 7.4
+      }
+    ],
+    "file": "endata-20261109T100001Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261109T100001Z.ext4",
+    "bytes_used": 215019520
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-08T10:00:06Z",
+    "seconds": 5.3,
+    "verify": "clean",
+    "verified_at": "2026-11-08T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 932510 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-08T10:00:14Z",
+        "ok": true,
+        "seconds": 7.3,
+        "pruned_at": "2026-11-11T10:00:14Z"
+      }
+    ],
+    "file": "endata-20261108T100001Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261108T100001Z.ext4",
+    "bytes_used": 213659648
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-07T10:00:07Z",
+    "seconds": 5.3,
+    "verify": "clean",
+    "verified_at": "2026-11-07T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 598858 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-07T10:00:14Z",
+        "ok": true,
+        "seconds": 6.9,
+        "pruned_at": "2026-11-11T10:00:14Z"
+      }
+    ],
+    "file": "endata-20261107T100002Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261107T100002Z.ext4",
+    "bytes_used": 202944512
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-06T10:00:06Z",
+    "seconds": 5.3,
+    "verify": "clean",
+    "verified_at": "2026-11-06T10:00:06Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 598858 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-06T10:00:13Z",
+        "ok": true,
+        "seconds": 7.0,
+        "pruned_at": "2026-11-11T10:00:14Z"
+      }
+    ],
+    "file": "endata-20261106T100001Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261106T100001Z.ext4",
+    "bytes_used": 202944512
+  },
+  {
+    "app": "enshrouded-flk",
+    "volume_id": "vol_592e3379d947fd0a",
+    "volume": "endata",
+    "size_gb": 10,
+    "source": "/data/enshrouded/endata.ext4",
+    "machine": "9c0506c2b04571",
+    "release": 6,
+    "mode": "pause",
+    "check": "clean",
+    "journal_replayed": true,
+    "created_at": "2026-11-05T10:00:07Z",
+    "seconds": 5.3,
+    "verify": "clean",
+    "verified_at": "2026-11-05T10:00:07Z",
+    "verify_detail": "e2fsck -n: clean; verify hook: passed: en-verify-backup: ok: world0.ksd 599210 bytes, 10 ring backups",
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-05T10:00:14Z",
+        "ok": true,
+        "seconds": 7.0,
+        "pruned_at": "2026-11-11T10:00:14Z"
+      }
+    ],
+    "file": "endata-20261105T100002Z.ext4",
+    "path": "/data/flk-backups/enshrouded-flk/endata/endata-20261105T100002Z.ext4",
+    "bytes_used": 202801152
+  }
+]

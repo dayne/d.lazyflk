@@ -15,7 +15,7 @@ F context --all --json --no-host > context-all-nohost.json
 (cd ~ && NO_COLOR=1 flk context) > context.txt
 F -a $APP context --json > context-$APP.json
 F help --all --json > help-all.json
-for t in cheatsheet install first-app operate troubleshoot uninstall; do F help $t > help-$t.txt; done
+for t in cheatsheet install first-app operate troubleshoot uninstall dockerfile host bugs; do F help $t > help-$t.txt; done
 F doctor --json > doctor.json
 F apps list --json > apps-list.json
 F ports list --json > ports-list.json

@@ -115,7 +115,7 @@ func TestDecodeFixtures(t *testing.T) {
 		t.Errorf("machine status: %+v, %v", rec, err)
 	}
 	help, err := c.Help(ctx)
-	if err != nil || len(help.Commands) == 0 || len(help.Topics) != 6 || help.Schema != 1 {
+	if err != nil || len(help.Commands) == 0 || len(help.Topics) != 9 || help.Schema != 1 {
 		t.Fatalf("help: %v", err)
 	}
 	var console *Command
@@ -158,7 +158,7 @@ func TestEveryFixtureServed(t *testing.T) {
 	if rs, err := c.Releases(ctx, "minecraft-flk"); err != nil || !rs[len(rs)-1].Current || !rs[len(rs)-1].Image || rs[len(rs)-1].Machines != 1 || rs[0].Image {
 		t.Errorf("releases: %+v %v", rs, err)
 	}
-	for _, topic := range []string{"cheatsheet", "install", "first-app", "operate", "troubleshoot", "uninstall"} {
+	for _, topic := range []string{"cheatsheet", "install", "first-app", "operate", "troubleshoot", "uninstall", "dockerfile", "host", "bugs"} {
 		if out, err := c.Run(ctx, "help", topic); err != nil || len(out) == 0 {
 			t.Errorf("help %s: %v", topic, err)
 		}
@@ -208,7 +208,7 @@ func TestEveryFixtureServed(t *testing.T) {
 		// tests check those), and so are the apps' own actions (lazyflk-APP.toml)
 		hostTool := strings.HasPrefix(name, "lazyflk-") || strings.HasPrefix(name, "podman-") || strings.HasPrefix(name, "journal-") ||
 			strings.HasPrefix(name, "lsblk") || name == "systemctl-show.txt" || name == "id-groups.txt" || name == "buildah-version.txt"
-		if !served[name] && name != "df.txt" && name != "backups-sample.json" && name != "backups-verified.json" && !hostTool {
+		if !served[name] && name != "df.txt" && name != "backups-sample.json" && name != "backups-verified.json" && name != "backups-pruned.json" && !hostTool {
 			t.Errorf("fixture %s is never served", name)
 		}
 	}

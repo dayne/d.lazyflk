@@ -50,7 +50,7 @@
     {
       "name": "help",
       "usage": "flk help [COMMAND|TOPIC] [SUBCOMMAND] [--all] [--json]",
-      "summary": "Show help for flk, a command, or a topic (cheatsheet, install, first-app, operate, troubleshoot, uninstall)",
+      "summary": "Show help for flk, a command, or a topic (cheatsheet, install, first-app, operate, troubleshoot, uninstall, dockerfile, host, bugs)",
       "args": "[COMMAND|TOPIC] [SUBCOMMAND]",
       "options": [
         {
@@ -87,14 +87,20 @@
     },
     {
       "name": "setup",
-      "usage": "flk setup",
+      "usage": "flk setup [--fix]",
       "summary": "Download firecracker + guest kernel (no root), then run doctor",
       "options": [
-
+        {
+          "switches": [
+            "--fix"
+          ],
+          "description": "Apply auto-fixable issues after setup: PATH symlink and podman short-name registries"
+        }
       ],
       "json": false,
       "notes": [
-        "Root setup (bridge, taps, NAT, port helper) is separate: sudo /home/dayne/flk/setup-host.sh"
+        "Root setup (bridge, taps, NAT, port helper, boot units) is separate: sudo /home/dayne/flk/setup-host.sh --install-service",
+        "--fix also creates ~/.local/bin/flk and configures podman short image names (FROM ruby:3.3) if either is missing. Safe to re-run."
       ]
     },
     {
@@ -112,7 +118,7 @@
       "json": true,
       "notes": [
         "--json prints {\"schema\", \"ok\", \"checks\": [{\"label\", \"status\", \"hint\"}], \"services\": [...]}; status is pass, fail or warn. warn means flk works but an optional feature (port forwarding) is off; ok is false only when a check fails.",
-        "services: flk-net.service and flk-machines.service as systemd sees them: {\"unit\", \"installed\", \"enabled\", \"active\", \"sub\", \"result\", \"since\"}."
+        "services: flk-net.service, flk-machines.service and flk-tmux.service as systemd sees them: {\"unit\", \"installed\", \"enabled\", \"active\", \"sub\", \"result\", \"since\"}."
       ]
     },
     {
@@ -202,7 +208,7 @@
     },
     {
       "name": "deploy",
-      "usage": "flk deploy [--image IMAGE] [--no-rollback]",
+      "usage": "flk deploy [--image IMAGE] [--no-rollback] [--no-backup]",
       "summary": "Build the image and roll machines to a new release",
       "options": [
         {
@@ -216,6 +222,12 @@
             "--no-rollback"
           ],
           "description": "Leave a machine that fails its health checks on the new release (to debug it)"
+        },
+        {
+          "switches": [
+            "--no-backup"
+          ],
+          "description": "Skip this deploy's [flk.backup] before_deploy backups (and so the volumes' way back)"
         }
       ],
       "json": false,
@@ -223,9 +235,10 @@
         "Reads flk.toml / fly.toml in the current directory, or with -a APP the file flk recorded at the app's last launch/deploy, so it works from anywhere.",
         "Creates machines on the first deploy (count from `flk scale count`, default 1); later deploys stop, update and reboot each machine in turn.",
         "With health checks ([checks], services tcp_checks/http_checks, http_service checks; type tcp, http, or flk's log), each machine must pass them before the next is updated. One that fails goes back to its previous release, the release is marked failed, and the deploy stops (exit 1).",
-        "Without checks it waits up to 30s per machine for internal_port to accept connections, then warns but carries on.",
+        "Without checks it waits up to 30s per machine for a tcp internal_port to accept connections, then warns but carries on. A udp one can't be waited for: add a [checks] type = \"log\" to have the deploy wait for the app.",
         "Warns about flk.toml keys it doesn't know (typos).",
-        "Volumes named in [[mounts]] must exist first: flk volumes create NAME --size 1 (one per machine)."
+        "Volumes named in [[mounts]] must exist first: flk volumes create NAME --size 1 (one per machine).",
+        "With [flk.backup] before_deploy, a backup that fails (its verify hook, say) stops the deploy and the machine starts again on its old release; --no-backup deploys without it. When the machine's release never passed its health checks, a failed verify only warns: there's nothing good on the volume to protect."
       ]
     },
     {
@@ -358,19 +371,52 @@
     },
     {
       "name": "images",
-      "usage": "flk images [--json]",
-      "summary": "flk's container images (flk.local/APP:vN): size, whether a machine runs that release, orphans",
+      "usage": "flk images SUBCOMMAND",
+      "summary": "flk's container images, and pruning them",
       "options": [
-        {
-          "switches": [
-            "--json"
-          ],
-          "description": "Print JSON instead of a table"
-        }
+
       ],
-      "json": true,
-      "notes": [
-        "Read-only. Images of destroyed apps (orphan) go with flk apps prune; deploys keep the last two per app."
+      "json": false,
+      "default_subcommand": "list",
+      "subcommands": [
+        {
+          "name": "list",
+          "usage": "flk images list [--json]",
+          "summary": "flk's container images (flk.local/APP:vN): size, whether a machine runs that release, orphans",
+          "aliases": [
+            "ls"
+          ],
+          "options": [
+            {
+              "switches": [
+                "--json"
+              ],
+              "description": "Print JSON instead of a table"
+            }
+          ],
+          "json": true,
+          "notes": [
+            "Read-only. Images of destroyed apps (orphan) go with flk images prune (or flk apps prune); deploys keep the last two per app."
+          ]
+        },
+        {
+          "name": "prune",
+          "usage": "flk images prune [--dry-run]",
+          "summary": "Free podman's (or docker's) store of what flk doesn't keep",
+          "options": [
+            {
+              "switches": [
+                "--dry-run"
+              ],
+              "description": "Only say what would go"
+            }
+          ],
+          "json": false,
+          "notes": [
+            "Removes the image tags a deploy would prune (past [flk] keep_releases, except releases a machine is on), the images of destroyed apps, and dangling images (no tag, no child). Base images and build caches stay, so the next deploy doesn't download or rebuild everything.",
+            "Use it instead of podman image prune -a, which also removes flk's kept images (rollback) and every base image. To prune the rest of the store and spare flk's: podman image prune -a --filter label!=flk.app (images flk built since it labels them: flk.app, flk.release; [build] image apps aren't labelled)."
+          ]
+        }
       ]
     },
     {
@@ -451,7 +497,7 @@
     {
       "name": "config",
       "usage": "flk config SUBCOMMAND",
-      "summary": "Inspect the app config",
+      "summary": "Inspect or set flk config",
       "options": [
 
       ],
@@ -460,17 +506,38 @@
       "subcommands": [
         {
           "name": "show",
-          "usage": "flk config show [--json]",
-          "summary": "Print the parsed flk.toml / fly.toml and the machine config flk derives from it",
+          "usage": "flk config show [--json] [--host]",
+          "summary": "Print the parsed flk.toml / fly.toml (or host config with --host)",
           "options": [
             {
               "switches": [
                 "--json"
               ],
               "description": "Accepted; the output is always JSON"
+            },
+            {
+              "switches": [
+                "--host"
+              ],
+              "description": "Show host settings (/home/dayne/.config/flk/host.toml) instead of app config"
             }
           ],
           "json": true
+        },
+        {
+          "name": "set",
+          "usage": "flk config set KEY=VALUE...",
+          "summary": "Set host-level config values in /home/dayne/.config/flk/host.toml",
+          "args": "KEY=VALUE...",
+          "options": [
+
+          ],
+          "json": false,
+          "notes": [
+            "Known keys: backup_dir, backup_keep, address, bind, backup_copy_to, backup_copy_keep, backup_copy_warn_days",
+            "Examples: flk config set backup_dir=/mnt/backups   flk config set backup_keep=5",
+            "Values are written to /home/dayne/.config/flk/host.toml (created if missing). Run `flk doctor` to verify."
+          ]
         }
       ]
     },
@@ -1247,7 +1314,7 @@
           ],
           "json": false,
           "notes": [
-            "Without --owner or --from-dir, the root takes the owner of the mount point in the image the first time a machine uses the volume, so a Dockerfile's `chown app /data` still works with the volume mounted over /data."
+            "Without --owner or --from-dir, the root takes the owner of the mount point in the image the first time a machine uses the volume, so a Dockerfile's `chown app /data` still works with the volume mounted over /data. With no such mount point (or a root-owned one), it takes the image's USER instead. A volume that already holds data is never re-owned."
           ]
         },
         {
@@ -1506,6 +1573,9 @@
     "first-app": "Launch, configure, deploy and check an app",
     "operate": "Day to day: changes, logs, consoles, reboots, disk, updates",
     "troubleshoot": "Symptom -> cause -> command",
-    "uninstall": "Removing apps, host setup and files"
+    "uninstall": "Removing apps, host setup and files",
+    "dockerfile": "Writing a Dockerfile for flk: the guest is a VM, not a container",
+    "host": "Looking after the host while apps run: services, upgrades, disk space",
+    "bugs": "Reporting flk bugs from an app: the BUGS.flk.md format"
   }
 }

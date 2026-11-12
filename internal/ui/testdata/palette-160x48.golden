@@ -19,11 +19,13 @@
 │ Host                        │ releases list       Releases, newest first: current, failed (and why), kept for rollback, or pr… │                             │
 │   health ✔                  │ releases rollback   Roll machines back to an older release's image and config (default: the one… │                             │
 │                             │ disk                Disk space flk uses, per app: release images, machine disks, volumes, logs;… │                             │
-│ ▸ Storage  fullest 67%      │ images              flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
-│                             │ apps list           All apps on this host                                                        │                             │
-│ ▸ Podman  10 images         │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
-│                             │ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
-│ ▸ Services  4 running, 1 off│ config show         Print the parsed flk.toml / fly.toml and the machine config flk derives fro… │                             │
+│ ▸ Storage  fullest 67%      │ images list         flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
+│                             │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
+│ ▸ Podman  10 images         │ apps list           All apps on this host                                                        │                             │
+│                             │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
+│ ▸ Services  4 running, 1 off│ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
+│                             │ config show         Print the parsed flk.toml / fly.toml (or host config with --host)            │                             │
+│                             │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
 │                             │ machine list        Machines of the app                                                          │                             │
 │                             │ machine start       Boot machines                                                                │                             │
 │                             │ machine stop        Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); the… │                             │
@@ -37,8 +39,6 @@
 │                             │ scale count         Create or destroy machines to reach N                                        │                             │
 │                             │ logs                Serial console output (app stdout/stderr and boot messages)                  │                             │
 │                             │ console             Attach to a machine's serial console, or --send one line to the app's stdin  │                             │
-│                             │ exec                Run a command in a running machine and return its output and exit status     │                             │
-│                             │ ssh console         An interactive shell in a machine (like fly ssh console); -C runs one comma… │                             │
 │                             │                                                                                                  │                             │
 │                             │ flk context [--all] [--json] [--no-host]                                                         │                             │
 ├ Needs attention ────────────├──────────────────────────────────────────────────────────────────────────────────────────────────┤─────────────────────────────┤
