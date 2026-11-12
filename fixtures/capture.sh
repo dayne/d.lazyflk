@@ -53,6 +53,8 @@ lsblk -e7 -b --json -o NAME,PATH,TYPE,SIZE,FSTYPE,FSSIZE,FSAVAIL,MOUNTPOINTS,MOD
 systemctl show --timestamp=utc \
   -p Id,Description,LoadState,ActiveState,SubState,UnitFileState,ActiveEnterTimestamp,StateChangeTimestamp,MainPID,Result,NRestarts \
   flk-net.service flk-machines.service ssh.service snap.mosquitto.mosquitto.service chrony.service > systemctl-show.txt
+# the socket unit of each pinned service that's stopped (ssh while nobody is connecting)
+systemctl show -p Id,LoadState,ActiveState ssh.socket > systemctl-show-sockets.txt
 id -Gn > id-groups.txt
 buildah --version > buildah-version.txt
 journalctl -u chrony.service -n 40 --no-pager -o short-iso > journal-chrony.txt

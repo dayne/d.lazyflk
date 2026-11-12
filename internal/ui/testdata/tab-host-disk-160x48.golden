@@ -23,7 +23,7 @@
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
 │ ▸ Podman  10 images                    │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
 │                                        │ mqtt-flk              93M      35M      33M      76K        -                                                       │
-│ ▸ Services  4 running, 1 off           │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
+│ ▸ Services  4 running, 1 listening     │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
 │                                        │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
 │                                        │ all                  4.8G     2.7G     851M     2.5M      29G                                                       │
 │                                        │                                                                                                                     │

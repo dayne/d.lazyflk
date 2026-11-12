@@ -23,7 +23,7 @@
 │                                     │ Deletes minecraft-flk: 1 machine, 1 volume and its releases. External volume     │                                     │
 │ ▸ Podman  10 images                 │ files are kept. Its backups are kept. This can't be undone.                      │                                     │
 │                                     │                                                                                  │                                     │
-│ ▸ Services  4 running, 1 off        │ Type minecraft-flk to confirm: min▏                                              │                                     │
+│ ▸ Services  4 running, 1 listening  │ Type minecraft-flk to confirm: min▏                                              │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │                                     │ enter run (once it matches)  esc cancel                                          │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │

@@ -23,7 +23,7 @@
 │                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
 │ ▸ Podman  10 images                    │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
 │                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│ ▸ Services  4 running, 1 off           │       "RESTART_DELAY": "10",                                                                                        │
+│ ▸ Services  4 running, 1 listening     │       "RESTART_DELAY": "10",                                                                                        │
 │                                        │       "MAX_RESTARTS": "5",                                                                                          │
 │                                        │       "RESTART_WINDOW": "600",                                                                                      │
 │                                        │       "STOP_TIMEOUT": "100",                                                                                        │

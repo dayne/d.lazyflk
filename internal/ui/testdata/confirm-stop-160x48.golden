@@ -23,7 +23,7 @@
 │                                     │ 225d58f615e7e6 [mellow-aurora-7882] stops (SIGTERM to the app, killed after its  │                                     │
 │ ▸ Podman  10 images                 │ kill_timeout).                                                                   │                                     │
 │                                     │                                                                                  │                                     │
-│ ▸ Services  4 running, 1 off        │ Run it?                                                                          │                                     │
+│ ▸ Services  4 running, 1 listening  │ Run it?                                                                          │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │                                     │ y run  n esc cancel                                                              │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │

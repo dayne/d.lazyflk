@@ -44,6 +44,7 @@ Host commands for the providers (SPEC 10), as run by lazyflk:
 | podman-images.json | `podman images --format json` |
 | lsblk.json | `lsblk -e7 -b --json -o NAME,PATH,TYPE,SIZE,FSTYPE,FSSIZE,FSAVAIL,MOUNTPOINTS,MODEL` |
 | lsblk-snapshot.json | the same, at flk 6183c62, while an LVM snapshot of /data/minecraft existed (since removed); not recaptured |
+| systemctl-show-sockets.txt | `systemctl show -p Id,LoadState,ActiveState ssh.socket` (2026-11-11): the socket unit of the one pinned service that's stopped in systemctl-show.txt; active, so ssh is listening, not off |
 | systemctl-show.txt | `systemctl show --timestamp=utc -p Id,Description,LoadState,ActiveState,SubState,UnitFileState,ActiveEnterTimestamp,StateChangeTimestamp,MainPID,Result,NRestarts` for flk's units and the default pins |
 | id-groups.txt | `id -Gn` |
 | buildah-version.txt | `buildah --version` (present: build containers are removed with buildah rm) |

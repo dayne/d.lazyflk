@@ -661,3 +661,41 @@ func TestNoBackupAndFreeSpace(t *testing.T) {
 		keys[x.Key] = true
 	}
 }
+
+// Volume menu o: flk files chown on the volume's root, machine stopped.
+func TestVolumeOwner(t *testing.T) {
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	json.Unmarshal(b, &help)
+	hc := hostContext(t)
+	a := hc.Apps[0]
+	v := a.Volumes[0]
+	tg := Target{Kind: Volume, App: a, Volume: v, StateDir: hc.Flk.StateDir, Help: &help}
+	if find(t, For(tg), "owner").Disabled == "" {
+		t.Error("its machine is running")
+	}
+	tg.App.Machines = nil
+	o := find(t, For(tg), "owner")
+	if o.Disabled != "" || o.Check(nil) == "" || o.Check(map[string]string{"owner": "mc:mc"}) == "" || o.Check(map[string]string{"owner": "1000"}) != "" {
+		t.Errorf("%+v", o)
+	}
+	if got := o.Command(map[string]string{"owner": "1000:1000"}).Line(); got != "flk -a minecraft-flk files chown 1000:1000 world:/" {
+		t.Error(got)
+	}
+	if got := o.Command(map[string]string{"owner": "1000", "what": "everything in it"}).Line(); got != "flk -a minecraft-flk files chown 1000 world:/ --recursive" {
+		t.Error(got)
+	}
+	keys := map[string]bool{}
+	for _, x := range For(tg) {
+		if keys[x.Key] {
+			t.Errorf("volume key %s used twice", x.Key)
+		}
+		keys[x.Key] = true
+	}
+	tg.Help = nil
+	for _, x := range For(tg) {
+		if x.Label == "owner" {
+			t.Error("an older flk has no files chown")
+		}
+	}
+}

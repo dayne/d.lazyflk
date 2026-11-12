@@ -5,7 +5,7 @@
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ unit      ssh.service                                                                                               │
 │ ▾ mqtt-flk  1/1 ●                      │ what      OpenBSD Secure Shell server                                                                               │
-│   ● hidden-comet-2020                  │ state     inactive (dead)                                                                                           │
+│   ● hidden-comet-2020                  │ state     listening: ssh.socket is active and starts it on a connection                                             │
 │   ▢ mqttdata 1GB                       │ enabled   disabled                                                                                                  │
 │   ⇄ 10.47.11.3: tcp/1883               │ since     Thu 2026-10-15 05:37:57 UTC                                                                               │
 │ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
@@ -37,7 +37,7 @@
 │ ▾ Services                             │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
 │   ● flk-machines                       │                                                                                                                     │
-│   ○ ssh                                │                                                                                                                     │
+│   ◌ ssh (listening)                    │                                                                                                                     │
 │   ● snap.mosquitto.mosquitto           │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
 │                                        │                                                                                                                     │

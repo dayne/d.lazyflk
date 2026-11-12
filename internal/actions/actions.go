@@ -824,7 +824,30 @@ func volumeActions(t Target) []Action {
 
 	browse := Action{Key: "f", Label: "browse files", Help: "look inside it, or a backup of it: list, read, copy out (flk files)", View: ViewFiles}
 
+	owner := Action{Key: "o", Label: "owner", Help: "give its files to the user the app runs as, when it can't write its volume (flk files chown, machine stopped)",
+		Confirm: Ask, Disabled: inUse,
+		Fields: []Field{{Name: "owner", Label: "UID:GID", Required: true, Help: "numbers, e.g. 1000:1000 (the image's USER: id inside the machine, or flk.toml)"},
+			{Name: "what", Label: "of", Choices: []string{"its root (/)", "everything in it"}, Help: "everything: --recursive"}},
+		check: func(val map[string]string) string {
+			if o := strings.TrimSpace(val["owner"]); o != "" && !ownerRE.MatchString(o) {
+				return "UID or UID:GID, as numbers"
+			}
+			return ""
+		},
+		build: func(val map[string]string) Command {
+			args := app(a, "files", "chown", strings.TrimSpace(val["owner"]), v.Name+":/")
+			what := v.Name + "'s root directory"
+			if val["what"] == "everything in it" {
+				args = append(args, "--recursive")
+				what = "every file in " + v.Name
+			}
+			return Command{Args: args, Warn: "Changes the owner of " + what + ", then checks the volume (e2fsck). Its machine stays stopped until you start it."}
+		}}
+
 	acts := []Action{browse, backup(t, &v), verify, cp, restore, restoreAs, extend, move}
+	if t.Help != nil && t.Help.HasCommand("files", "chown") {
+		acts = append(acts, owner)
+	}
 	attached := ""
 	if v.AttachedMachine != "" {
 		attached = "attached to machine " + v.AttachedMachine + ": destroy that machine (or scale down) first"
@@ -1020,6 +1043,8 @@ func HostSettings(t Target, first string) (Action, bool) {
 	}
 	return act, true
 }
+
+var ownerRE = regexp.MustCompile(`^[0-9]+(:[0-9]+)?$`)
 
 var sudoRE = regexp.MustCompile(`sudo [^;,()]+`)
 

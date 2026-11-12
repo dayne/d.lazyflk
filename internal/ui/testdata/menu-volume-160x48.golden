@@ -12,18 +12,18 @@
 │   ● lucky-harbor-5563                  │                                                                                                                     │
 │   ▢ code_workspace 30GB                │                                                                                                                     │
 │ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)          ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
-│                                     │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
-│ Host                                │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
-│   health ✔                          │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
-│                                     │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│ ▸ Storage  fullest 67%              │ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
-│                                     │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│ ▸ Podman  10 images                 │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│   ● frosty-river-2714               ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
+│   ▢ vsdata 40GB (external)          │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
+│                                     │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
+│ Host                                │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
+│   health ✔                          │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│                                     │ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
+│ ▸ Storage  fullest 67%              │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│                                     │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│ ▸ Podman  10 images                 │ o  owner              machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
 │                                     │ D  unregister         attached to machine 225d58f615e7e6: destroy that machine … │                                     │
-│ ▸ Services  4 running, 1 off        │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
+│ ▸ Services  4 running, 1 listening  │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
 │                                     │ n  new volume         create a volume for [[mounts]] source = NAME               │                                     │
 │                                     │                                                                                  │                                     │
 │                                     │ look inside it, or a backup of it: list, read, copy out (flk files)              │                                     │

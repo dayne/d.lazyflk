@@ -23,7 +23,7 @@
 │                                        │   mode live · release v9 · took 24s                                                                                 │
 │ ▸ Podman  10 images                    │   verified clean 2026-10-13 22:07Z                                                                                  │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 off           │ world-20261013T100001Z.ext4                                                                                         │
+│ ▸ Services  4 running, 1 listening     │ world-20261013T100001Z.ext4                                                                                         │
 │                                        │   2026-10-13 10:00Z · 20G used · checked clean (journal replayed)                                                   │
 │                                        │   mode live · release v9 · took 20s                                                                                 │
 │                                        │   verified clean 2026-10-13 22:07Z                                                                                  │

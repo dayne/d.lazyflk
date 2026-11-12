@@ -23,7 +23,7 @@
 │                                     │ output, and what you type goes to its stdin. It isn't a shell (h opens one), and │                                     │
 │ ▸ Podman  10 images                 │ Ctrl-C there doesn't stop the app (use stop).                                    │                                     │
 │                                     │                                                                                  │                                     │
-│ ▸ Services  4 running, 1 off        │ To come back to lazyflk, detach: Ctrl-b d.                                       │                                     │
+│ ▸ Services  4 running, 1 listening  │ To come back to lazyflk, detach: Ctrl-b d.                                       │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │                                     │ enter attach  esc cancel                                                         │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │

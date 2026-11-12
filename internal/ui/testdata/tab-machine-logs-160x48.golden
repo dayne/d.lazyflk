@@ -23,7 +23,7 @@
 │                                        │ [19:30:12] [Server thread/INFO]: 2dMo3nkR (/199.83.103.112:51012) lost connection: Disconnected                     │
 │ ▸ Podman  10 images                    │ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) lost connection: Disconnected               │
 │                                        │ [19:42:02] [Server thread/INFO]: QuickWasp1340 (/178.63.123.77:52435) lost connection: Disconnected                 │
-│ ▸ Services  4 running, 1 off           │ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost connection: Disconnected                 │
+│ ▸ Services  4 running, 1 listening     │ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost connection: Disconnected                 │
 │                                        │ [20:01:52] [Server thread/INFO]: BraveMole2456 (/178.63.179.211:36705) lost connection: Disconnected                │
 │                                        │ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost connection: Disconnected                 │
 │                                        │ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost connection: Disconnected                      │

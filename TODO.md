@@ -140,7 +140,10 @@ R1 (on flk main, 7f0317f):
   events get a `"log"` field with the path, and their `detail` carries the
   build's first error line. `flk releases --json` gets `build_log`. Idea:
   `l` on a failed deploy or release opens its log in the log viewer.
-- [ ] **Volume owner from the image's USER**: new volumes take it, and a
+- [x] **Volume owner from the image's USER** (done 2026-11-11: volume
+  menu `o` owner runs `flk files chown UID[:GID] VOL:/`, or
+  `--recursive`, machine stopped; always offered, not only after a
+  "can't write" failure. Checked live on a test app): new volumes take it, and a
   deploy says so. No new command: `flk files chown UID:GID VOL:/` (machine
   stopped) already repairs one. Idea: a volume menu entry for it, shown
   when the machine fails with "can't write /data".
@@ -243,8 +246,9 @@ M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
   section say where the pins come from. `snap.mosquitto.mosquitto`-style
   names get `.service` (they have dots but no type). Checked live with a
   scratch config dir.
-- [ ] Services: a socket-activated unit (ssh here, `TriggeredBy=ssh.socket`)
-  shows as off while idle; show it as listening when its socket is active.
+- [x] Services: a socket-activated unit (ssh here) showed as off while
+  idle; now `◌ ssh (listening)` when NAME.socket is active, and the
+  section says "4 running, 1 listening" (2026-11-11).
 - [ ] Maybe: `/` filters the tree, if a host outgrows folding.
 
 ## Stopped on purpose (2026-11-11)

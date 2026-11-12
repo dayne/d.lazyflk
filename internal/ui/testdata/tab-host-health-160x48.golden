@@ -23,7 +23,7 @@
 │                                        │ ✔ tmux                                                                                                              │
 │ ▸ Podman  10 images                    │ ✔ mkfs.ext4                                                                                                         │
 │                                        │ ✔ fakeroot                                                                                                          │
-│ ▸ Services  4 running, 1 off           │ ✔ container engine (podman)                                                                                         │
+│ ▸ Services  4 running, 1 listening     │ ✔ container engine (podman)                                                                                         │
 │                                        │ ✔ podman resolves short image names (FROM ruby:3.3)                                                                 │
 │                                        │ ✔ port helper (host ports from 1024)                                                                                │
 │                                        │ ✔ boot service (machines come back after a reboot)                                                                  │

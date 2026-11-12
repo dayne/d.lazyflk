@@ -101,6 +101,7 @@ func (s Services) Load(ctx context.Context, h Host, env Env) ([]Item, error) {
 		}
 		installed = append(installed, it)
 	}
+	listening(ctx, h, installed)
 	for _, it := range installed {
 		if s.PinsFile != "" {
 			it.Actions = append(it.Actions, actions.Action{Key: "P", Label: "edit pins",
@@ -110,6 +111,44 @@ func (s Services) Load(ctx context.Context, h Host, env Env) ([]Item, error) {
 		items = append(items, it)
 	}
 	return items, nil
+}
+
+// socketProps is what listening asks about a service's socket unit.
+const socketProps = "Id,LoadState,ActiveState"
+
+// listening marks the stopped services whose socket unit (NAME.socket) is
+// active: systemd starts them on a connection (ssh on Ubuntu), so idle
+// isn't off. One more systemctl call, only when something is stopped.
+func listening(ctx context.Context, h Host, items []Item) {
+	bySocket := map[string]int{}
+	var sockets []string
+	for i, it := range items {
+		unit := strings.TrimPrefix(it.Key, "service/")
+		if name, ok := strings.CutSuffix(unit, ".service"); ok && it.State == Off && !strings.HasSuffix(it.Label, "(not here)") {
+			bySocket[name+".socket"] = i
+			sockets = append(sockets, name+".socket")
+		}
+	}
+	if len(sockets) == 0 {
+		return
+	}
+	out, err := run(ctx, h, "systemctl", append([]string{"show", "-p", socketProps}, sockets...)...)
+	if err != nil {
+		return
+	}
+	for _, p := range parseShow(string(out)) {
+		i, ok := bySocket[p["Id"]]
+		if !ok || p["LoadState"] != "loaded" || p["ActiveState"] != "active" {
+			continue
+		}
+		it := &items[i]
+		it.Label, it.State = "◌ "+strings.TrimPrefix(it.Label, "○ ")+" (listening)", OK
+		for j, l := range it.Lines {
+			if strings.HasPrefix(l, field("state", "")) {
+				it.Lines[j] = field("state", "listening: "+p["Id"]+" is active and starts it on a connection")
+			}
+		}
+	}
 }
 
 // Hint says where the pinned services come from, and how to change them.
@@ -233,17 +272,24 @@ func or(s, fallback string) string {
 	return s
 }
 
-// Summary counts the units running, and the others (stopped, not here).
+// Summary counts the units running, the ones waiting on their socket, and
+// the others (stopped, not here).
 func (Services) Summary(items []Item) string {
-	var running, other int
+	var running, waiting, other int
 	for _, it := range items {
-		if it.State == OK {
+		switch {
+		case strings.HasSuffix(it.Label, "(listening)"):
+			waiting++
+		case it.State == OK:
 			running++
-		} else {
+		default:
 			other++
 		}
 	}
 	s := fmt.Sprintf("%d running", running)
+	if waiting > 0 {
+		s += fmt.Sprintf(", %d listening", waiting)
+	}
 	if other > 0 {
 		s += fmt.Sprintf(", %d off", other)
 	}

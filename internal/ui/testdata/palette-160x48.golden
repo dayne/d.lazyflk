@@ -23,7 +23,7 @@
 │                             │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
 │ ▸ Podman  10 images         │ apps list           All apps on this host                                                        │                             │
 │                             │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
-│ ▸ Services  4 running, 1 off│ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
+│ ▸ Services  4 running, 1 lis│ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
 │                             │ config show         Print the parsed flk.toml / fly.toml (or host config with --host)            │                             │
 │                             │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
 │                             │ machine list        Machines of the app                                                          │                             │

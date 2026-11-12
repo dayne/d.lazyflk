@@ -23,7 +23,7 @@
 │                                        │   v3     627M  older release                                                                                        │
 │ ▸ Podman  10 images                    │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 off           │ vintagestory-flk                                                                                                    │
+│ ▸ Services  4 running, 1 listening     │ vintagestory-flk                                                                                                    │
 │                                        │   v4     778M  running · current                                                                                    │
 │                                        │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
 │                                        │   v3     560M  older release                                                                                        │

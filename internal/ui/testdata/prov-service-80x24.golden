@@ -6,17 +6,17 @@
 │   ◇ 8149e56d2f50 (untagge… │                                                 │
 │   ◇ itzg/minecraft-server… │ unit      ssh.service                           │
 │   ◇ dotnet/runtime:10.0 1… │ what      OpenBSD Secure Shell server           │
-│   ◇ eclipse-temurin:25-jr… │ state     inactive (dead)                       │
-│   ◇ ubuntu:24.04 77M       │ enabled   disabled                              │
-│   ◇ ruby:3.3-alpine 69M    │ since     Thu 2026-10-15 05:37:57 UTC           │
-│   ◇ eclipse-mosquitto:2.1… │                                                 │
-│   ◇ alpine:3.20 7.7M       │ pinned by default                               │
-│   9 flk images: host Imag… │                                                 │
+│   ◇ eclipse-temurin:25-jr… │ state     listening: ssh.socket is active and   │
+│   ◇ ubuntu:24.04 77M       │           starts it on a connection             │
+│   ◇ ruby:3.3-alpine 69M    │ enabled   disabled                              │
+│   ◇ eclipse-mosquitto:2.1… │ since     Thu 2026-10-15 05:37:57 UTC           │
+│   ◇ alpine:3.20 7.7M       │                                                 │
+│   9 flk images: host Imag… │ pinned by default                               │
 │                            │                                                 │
 │ ▾ Services                 │                                                 │
 │   ● flk-net                │                                                 │
 │   ● flk-machines           │                                                 │
-│   ○ ssh                    │                                                 │
+│   ◌ ssh (listening)        │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ ✔ nothing needs attention                                                    │
 ├──────────────────────────────────────────────────────────────────────────────┤

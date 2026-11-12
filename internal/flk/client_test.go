@@ -211,7 +211,7 @@ func TestEveryFixtureServed(t *testing.T) {
 		// decoded below; the host tools' fixtures are the providers' (their
 		// tests check those), and so are the apps' own actions (lazyflk-APP.toml)
 		hostTool := strings.HasPrefix(name, "lazyflk-") || strings.HasPrefix(name, "podman-") || strings.HasPrefix(name, "journal-") ||
-			strings.HasPrefix(name, "lsblk") || name == "systemctl-show.txt" || name == "id-groups.txt" || name == "buildah-version.txt"
+			strings.HasPrefix(name, "lsblk") || name == "systemctl-show.txt" || name == "systemctl-show-sockets.txt" || name == "id-groups.txt" || name == "buildah-version.txt"
 		if !served[name] && name != "df.txt" && name != "backups-sample.json" && name != "backups-verified.json" && name != "backups-pruned.json" && !hostTool {
 			t.Errorf("fixture %s is never served", name)
 		}

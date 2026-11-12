@@ -250,7 +250,7 @@ func TestSections(t *testing.T) {
 	m := demoModel(t, 160, 48)
 	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
 	s := screen(m)
-	for _, want := range []string{"▸ Storage  fullest 67%", "▸ Podman  ", " images", "▸ Services  4 running, 1 off"} {
+	for _, want := range []string{"▸ Storage  fullest 67%", "▸ Podman  ", " images", "▸ Services  4 running, 1 listening"} {
 		if !strings.Contains(s, want) {
 			t.Errorf("no %q\n%s", want, s)
 		}

@@ -146,7 +146,7 @@ func TestServices(t *testing.T) {
 		t.Errorf("flk-net: %+v", items[0])
 	}
 	// captured idle: ssh is socket-activated on the reference host
-	if items[2].Label != "○ ssh" || items[2].Logs == nil || items[2].Logs.Line() != "journalctl -u ssh.service -f -n 200 --no-pager -o short-iso" {
+	if items[2].Label != "◌ ssh (listening)" || items[2].State != OK || !strings.Contains(joined(items[2]), "ssh.socket is active") || items[2].Logs == nil || items[2].Logs.Line() != "journalctl -u ssh.service -f -n 200 --no-pager -o short-iso" {
 		t.Errorf("ssh: %+v", items[2])
 	}
 	for _, a := range items[2].Actions[1:] {
