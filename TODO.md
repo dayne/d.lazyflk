@@ -273,6 +273,22 @@ M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
   client addresses. Fine in a private repo; before publishing, capture it
   from a test app or have capture.sh mask them.
 
+## From flk's lazyflk-gaps branch (c4afa65, 40ae7f4, 1cb50a2; 2026-11-11)
+
+What lazyflk asked flk for the same day. Each is used only where flk has
+it, so lazyflk works the same with flk main until the branch is merged.
+- [x] `flk releases log`: app menu `B` build log opens the newest build's
+  output (failed or not) in the log viewer; a read, so it works on any app
+  under --test-apps. Checked live on a test app with the branch's flk.
+  Not yet: `l` straight from a failed deploy's event or job, or picking
+  an older release's log.
+- [x] `next_steps_detail`: a step of kind `stopped` is what stays out of
+  Needs attention; the " is stopped;" wording is only the fallback for a
+  flk without the field. The other kinds (setup, info, ok) aren't used yet.
+- [x] `config set bind=A,B` and `config unset`: the settings form offers
+  a bind with several addresses, and a field emptied is unset (set and
+  unset are two commands: one at a time). Tested on fixtures only.
+
 ## Known gaps
 
 - [x] **Reboots and log rotation** pin a banner in the followed log

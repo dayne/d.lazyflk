@@ -6,10 +6,10 @@
 │   ⇄ 10.47.11.7: udp/15637              │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
 │ ▾ minecraft-flk  1/1 ●                 │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
 │   ● mellow-aurora-7882                 │   cpu 4% · 10963MB used · up 6d 8h                                                                                  │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132 ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
-│ ▾ mqtt-flk  1/1 ●                   │ d  deploy            build the image and roll machines to a new release          │                                     │
-│   ● hidden-comet-2020               │ r  roll back         back to an older release's image and config, rolled out li… │                                     │
+│   ▢ world 40GB (external)           ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132 │ d  deploy            build the image and roll machines to a new release          │                                     │
+│ ▾ mqtt-flk  1/1 ●                   │ r  roll back         back to an older release's image and config, rolled out li… │                                     │
+│   ● hidden-comet-2020               │ B  build log         the newest build's output, failed or not (flk releases log) │                                     │
 │   ▢ mqttdata 1GB                    │ s  start             all running                                                 │                                     │
 │   ⇄ 10.47.11.3: tcp/1883            │ S  stop              stop every machine gracefully; they stay stopped, also aft… │                                     │
 │ ▾ vintagestory-flk  1/1 ●           │ R  restart           stop and boot every machine, one at a time                  │                                     │

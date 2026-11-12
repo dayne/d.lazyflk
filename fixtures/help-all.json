@@ -44,7 +44,8 @@
       "json": true,
       "notes": [
         "Run this first. It resolves the app the same way other commands do (-a APP, or flk.toml / fly.toml in the current directory) and works even when there is none.",
-        "Also tidies machines that exited on their own, like status does."
+        "Also tidies machines that exited on their own, like status does.",
+        "--json: next_steps are plain strings; next_steps_detail has the same steps in the same order as {text, app, machine, kind}, kind one of problem, optional, stopped (a machine stopped on purpose), setup (what a new app still needs), info, ok."
       ]
     },
     {
@@ -99,7 +100,7 @@
       ],
       "json": false,
       "notes": [
-        "Root setup (bridge, taps, NAT, port helper, boot units) is separate: sudo /home/dayne/flk/setup-host.sh --install-service",
+        "Root setup (bridge, taps, NAT, port helper, boot units) is separate: sudo /home/dayne/flk-lz/setup-host.sh --install-service",
         "--fix also creates ~/.local/bin/flk and configures podman short image names (FROM ruby:3.3) if either is missing. Safe to re-run."
       ]
     },
@@ -140,7 +141,7 @@
       "json": false,
       "notes": [
         "Should be running: started, restarted, deployed or scaled, and not stopped with `flk machine stop` since. A machine whose app exited counts too.",
-        "flk-machines.service runs it at boot (sudo /home/dayne/flk/setup-host.sh --install-service).",
+        "flk-machines.service runs it at boot (sudo /home/dayne/flk-lz/setup-host.sh --install-service).",
         "-a APP limits it to one app."
       ]
     },
@@ -320,6 +321,26 @@
             }
           ],
           "json": true
+        },
+        {
+          "name": "log",
+          "usage": "flk releases log [VERSION|FILE] [--failed]",
+          "summary": "Print a build's output (default: the newest build, failed or not)",
+          "args": "[VERSION|FILE]",
+          "options": [
+            {
+              "switches": [
+                "--failed"
+              ],
+              "description": "The newest failed build's log (of VERSION, if given)"
+            }
+          ],
+          "json": false,
+          "notes": [
+            "Every build's output is kept in APP/builds/: vN.log for each kept release, and the last 3 failed builds as vN-failed-TIME.log (a failed build reuses its version, so a failed first deploy has v1 failed logs and no release).",
+            "VERSION is vN or N; FILE is a log's name as releases --json (build_log) or a deploy.failed event (log) gives it.",
+            "Exit 1 with Error: when there's no such log (pruned with its release, a rollback, which builds nothing, or a release from before flk kept logs)."
+          ]
         },
         {
           "name": "rollback",
@@ -535,8 +556,23 @@
           "json": false,
           "notes": [
             "Known keys: backup_dir, backup_keep, address, bind, backup_copy_to, backup_copy_keep, backup_copy_warn_days",
-            "Examples: flk config set backup_dir=/mnt/backups   flk config set backup_keep=5",
-            "Values are written to /home/dayne/.config/flk/host.toml (created if missing). Run `flk doctor` to verify."
+            "Examples: flk config set backup_dir=/mnt/backups   flk config set backup_keep=5   flk config set bind=10.0.0.5,10.0.0.6",
+            "bind=A,B (a comma) writes a list; one address stays a string.",
+            "Values are written to /home/dayne/.config/flk/host.toml (created if missing), and checked before the file is replaced (a bad value leaves it unchanged). Run `flk doctor` to verify."
+          ]
+        },
+        {
+          "name": "unset",
+          "usage": "flk config unset KEY...",
+          "summary": "Remove host-level config values from /home/dayne/.config/flk/host.toml (flk's defaults apply)",
+          "args": "KEY...",
+          "options": [
+
+          ],
+          "json": false,
+          "notes": [
+            "Known keys: backup_dir, backup_keep, address, bind, backup_copy_to, backup_copy_keep, backup_copy_warn_days. A key that isn't set is reported, not an error.",
+            "Checked like set before the file is replaced."
           ]
         }
       ]

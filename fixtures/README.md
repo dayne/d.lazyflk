@@ -1,7 +1,9 @@
 # Fixtures
 
-Real output from the reference host (flk 0.1.0, commit cf4b96f, 2026-11-11:
-seven apps, three of them stopped on purpose, one doctor warning),
+Real output from the reference host (flk 0.1.0, commit 1cb50a2, 2026-11-11:
+seven apps, three of them stopped on purpose, one doctor warning;
+1cb50a2 is flk's branch lazyflk-gaps, ~/flk-lz, before its merge to
+main: recapture once it's merged),
 captured with the commands below by `./capture.sh` (read-only; run it
 with no `flkt-*` test apps on the host, then review the diff). The tests
 find `minecraft-flk` by name and don't count on the host's other apps,
@@ -29,6 +31,7 @@ digests only.
 | config-minecraft-flk.json | `flk -a minecraft-flk config show --json` (same as without --json) |
 | backups-minecraft-flk.json | `flk -a minecraft-flk volumes backups --json` |
 | backups-sample.json | `flk -a flkt-lazyflk-m2 volumes backups --json` at flk 407ff4d: a test app (since destroyed) after one offline and one stop-mode backup |
+| releases-log.txt | `flk -a flkt-lazyflk-bl releases log`: the build log of a test app (tests/apps/hello, since destroyed), deployed for it. The fake serves it for any app |
 | config-host.json | `flk config show --host`: host.toml as flk parses it, always JSON |
 | backups-pruned.json | `flk -a enshrouded-flk volumes backups --json` at flk 39e07f4 (read-only, a real app): nightly backups whose older copies were pruned at backup_copy_to (`pruned_at`) |
 | backups-verified.json | `flk -a flkt-lazyflk-bk volumes backups --json` at flk a04fcc6: a test app (since destroyed) after a backup, `volumes verify` and `volumes copy --dest` to a scratch dir |

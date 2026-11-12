@@ -503,6 +503,7 @@ func (m *Model) setContext(hc flk.HostContext) {
 	if m.hc != nil && m.cursor < len(m.nodes) {
 		key = m.nodes[m.cursor].key(m.apps)
 	}
+	hc.NextSteps = attentionSteps(hc) // stopped on purpose: the panel's last line, not a step
 	m.hc = &hc
 	m.apps = sortApps(hc.Apps, hc.NextSteps)
 	m.rebuild(key)
@@ -660,9 +661,6 @@ func (m *Model) attnItems() []attnItem {
 		items = append(items, attnItem{icon: styleBad.Render("✘"), text: "refresh failed: " + firstLine(m.err.Error())})
 	}
 	for _, s := range m.hc.NextSteps {
-		if isParkedStep(m.apps, s) {
-			continue // stopped on purpose: counted in the panel's last line
-		}
 		it := attnItem{icon: styleWarn.Render("!"), text: s}
 		if fix, ok := actions.Fix(s, m.apps); ok && !m.opt.ReadOnly {
 			it.fix = &fix

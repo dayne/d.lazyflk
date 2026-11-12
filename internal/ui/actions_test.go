@@ -441,3 +441,24 @@ func TestAttentionOpensSettings(t *testing.T) {
 		t.Errorf("unchanged:\n%s", screen(m))
 	}
 }
+
+// App menu B: the newest build's log opens in the log viewer (a read, so
+// it's there for real apps under --test-apps too).
+func TestBuildLogOpens(t *testing.T) {
+	m := demoModel(t, 160, 48)
+	m.opt.TestApps = "flkt-"
+	press(m, "enter", "B")
+	if m.logs == nil {
+		t.Fatalf("no log viewer:\n%s", screen(m))
+	}
+	send(m) // let the stream's lines land
+	s := screen(m)
+	for _, want := range []string{"build log", "$ flk -a minecraft-flk releases log", "# flk: build of ", "STEP 1/3: FROM"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("missing %q:\n%s", want, s)
+		}
+	}
+	if len(m.jobs) != 0 {
+		t.Error("reading a log isn't an action")
+	}
+}

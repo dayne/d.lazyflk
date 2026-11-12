@@ -24,6 +24,19 @@ type HostContext struct {
 	Host      Host     `json:"host"`
 	Apps      []App    `json:"apps"`
 	NextSteps []string `json:"next_steps"`
+	// NextStepsDetail is NextSteps again, in order, each with what it's
+	// about and its kind (flk 40ae7f4); nil from an older flk.
+	NextStepsDetail []StepDetail `json:"next_steps_detail"`
+}
+
+// StepDetail is one next step: Text is the next_steps string exactly;
+// App and Machine are "" when it isn't about one. Kind is problem,
+// optional, stopped (a machine stopped on purpose), setup, info or ok.
+type StepDetail struct {
+	Text    string `json:"text"`
+	App     string `json:"app"`
+	Machine string `json:"machine"`
+	Kind    string `json:"kind"`
 }
 
 type FlkInfo struct {

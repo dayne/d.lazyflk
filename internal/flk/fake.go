@@ -99,6 +99,8 @@ func fixtureFor(args []string) (string, bool) {
 		return "context-" + app + ".json", true
 	case cmd == "status --json":
 		return "status-" + app + ".json", true
+	case cmd == "releases log": // any app's: a test app's build (see fixtures/README.md)
+		return "releases-log.txt", true
 	case cmd == "releases --json":
 		return "releases-" + app + ".json", true
 	case cmd == "volumes list --json":

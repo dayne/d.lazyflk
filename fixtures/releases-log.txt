@@ -1,0 +1,10 @@
+# flk: build of flkt-lazyflk-bl v1, 2026-11-12T02:24:46Z
+STEP 1/3: FROM docker.io/library/alpine:3.20
+STEP 2/3: CMD ["sh", "-c", "echo \"$GREETING\"; echo \"app=$FLY_APP_NAME region=$FLY_REGION release=$FLK_RELEASE\""]
+--> ae947186a4ce
+STEP 3/3: LABEL "flk.app"="flkt-lazyflk-bl" "flk.release"="1"
+COMMIT flk.local/flkt-lazyflk-bl:v1
+--> f376e1dd6ca0
+Successfully tagged flk.local/flkt-lazyflk-bl:v1
+f376e1dd6ca0b961e54a0e2b99352ff8dd61c9aff26c7357d65cba3be42bd267
+    rootfs: 11MB used, 525MB image -> /home/dayne/.local/share/flk/apps/flkt-lazyflk-bl/images/v1.ext4

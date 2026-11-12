@@ -783,3 +783,38 @@ func TestWrapIndentFits(t *testing.T) {
 		t.Errorf("path lost: %q", got)
 	}
 }
+
+// flk says which steps are only a stopped machine (next_steps_detail, flk
+// 40ae7f4); its wording is the fallback for an older flk, not the rule.
+func TestStepKinds(t *testing.T) {
+	app := flk.App{Name: "aaa", Machines: []flk.Machine{{ID: "a1", State: "stopped", DesiredState: "stopped"}}}
+	hc := flk.HostContext{Apps: []flk.App{app}, NextSteps: []string{
+		"aaa: machine a1 [x] is parked (new wording); start it: flk machine start a1",
+		"aaa: machine a1 [x] is stopped; start it: flk machine start a1",
+		"optional: something",
+	}}
+	if got := attentionSteps(hc); len(got) != 2 || got[1] != "optional: something" {
+		t.Errorf("by wording: %v", got)
+	}
+	hc.NextStepsDetail = []flk.StepDetail{
+		{Text: hc.NextSteps[0], App: "aaa", Machine: "a1", Kind: "stopped"},
+		{Text: hc.NextSteps[1], App: "aaa", Machine: "a1", Kind: "problem"}, // flk's kind wins over the wording
+		{Text: hc.NextSteps[2], Kind: "optional"},
+	}
+	if got := attentionSteps(hc); len(got) != 2 || got[0] != hc.NextSteps[1] {
+		t.Errorf("by kind: %v", got)
+	}
+
+	// the fixtures' flk has the field: every stopped step is out of the panel
+	m := demoModel(t, 160, 48)
+	raw, _ := m.opt.Client.HostContext(context.Background())
+	stopped := 0
+	for _, d := range raw.NextStepsDetail {
+		if d.Kind == "stopped" {
+			stopped++
+		}
+	}
+	if len(raw.NextStepsDetail) != len(raw.NextSteps) || len(m.hc.NextSteps) != len(raw.NextSteps)-stopped {
+		t.Errorf("%d steps, %d detailed, %d stopped, %d shown", len(raw.NextSteps), len(raw.NextStepsDetail), stopped, len(m.hc.NextSteps))
+	}
+}

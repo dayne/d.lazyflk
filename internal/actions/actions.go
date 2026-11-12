@@ -303,6 +303,10 @@ func appActions(t Target) []Action {
 		deploy.Fields = append(deploy.Fields, Field{Name: "backup", Label: "backup first", Choices: []string{"as configured", "skip it"},
 			Help: "with [flk.backup] before_deploy, volumes are backed up first and a failed backup stops the deploy; skip it: deploy without (--no-backup)"})
 	}
+	// flk c4afa65: the newest build's whole output, failed or not (what to
+	// read after a failed deploy). It opens in the log viewer.
+	buildLog := Action{Key: "B", Label: "build log", Help: "the newest build's output, failed or not (flk releases log)",
+		View: ViewLogs, Logs: &Command{Args: app(a, "releases", "log")}}
 	edit := Action{Key: "E", Label: "edit flk.toml", Help: "open it in your editor; then Config shows how flk reads it, and d deploys it",
 		View: ViewEdit, File: a.ConfigPath}
 	editActions := Action{Key: "A", Label: "edit app actions", Help: "this menu's own commands for the app: .lazyflk.toml next to flk.toml (new when you save it)",
@@ -366,6 +370,9 @@ func appActions(t Target) []Action {
 			return Command{Args: args, Warn: warn + " This can't be undone."}
 		}}
 	acts := []Action{deploy, rollback(a, t.Releases, t.Backups, running)}
+	if t.Help != nil && t.Help.HasCommand("releases", "log") {
+		acts = append(acts, buildLog)
+	}
 	if t.Help != nil && t.Help.HasCommand("start") { // flk a6c6975: every machine of the app at once
 		acts = append(acts, appLifecycle(a, running)...)
 	}
@@ -1004,42 +1011,71 @@ func HostSettings(t Target, first string) (Action, bool) {
 		act.Disabled = "loading the settings…"
 		return act, true
 	}
+	// flk 1cb50a2: config set KEY=A,B writes a list, and config unset removes
+	// keys. Before it, set wrote one value: a key with several is left to the file.
+	lists := t.Help.HasCommand("config", "unset")
+	norm := func(v string) string { // "A, B" and "A,B" are the same list
+		var parts []string
+		for _, x := range strings.Split(v, ",") {
+			if x = strings.TrimSpace(x); x != "" {
+				parts = append(parts, x)
+			}
+		}
+		return strings.Join(parts, ",")
+	}
 	var offered []string
 	for _, k := range keys {
 		f := Field{Name: k, Label: k, Help: settingHelp[k], Default: hc.Value(k),
 			Number: strings.HasSuffix(k, "_keep") || strings.HasSuffix(k, "_days")}
-		if hc.Count(k) > 1 { // config set writes one value: it would drop the others
+		if hc.Count(k) > 1 && !lists {
 			act.Notes = append(act.Notes, fmt.Sprintf("%s has %d values (%s): edit %s to change it", k, hc.Count(k), hc.Value(k), hc.File))
 			continue
+		}
+		if lists && f.Default != "" {
+			f.Help = strings.TrimSpace(f.Help + " (emptied: unset, flk's default applies)")
+		}
+		if lists && k == "bind" {
+			f.Help += "; several: A,B"
 		}
 		offered = append(offered, k)
 		act.Fields = append(act.Fields, f)
 	}
-	changed := func(vals map[string]string) []string {
-		var out []string
+	changed := func(vals map[string]string) (set, unset []string) {
 		for _, k := range offered {
-			if v := strings.TrimSpace(vals[k]); v != "" && v != hc.Value(k) {
-				out = append(out, k+"="+v)
+			v, shown := vals[k]
+			switch v = norm(v); {
+			case v == "" && shown && lists && hc.Value(k) != "": // the form had it, the admin emptied it
+				unset = append(unset, k)
+			case v != "" && v != norm(hc.Value(k)):
+				set = append(set, k+"="+v)
 			}
 		}
-		return out
+		return set, unset
 	}
 	act.check = func(vals map[string]string) string {
-		if len(changed(vals)) == 0 {
+		set, unset := changed(vals)
+		switch {
+		case len(set) == 0 && len(unset) == 0:
 			return "nothing changed"
+		case len(set) > 0 && len(unset) > 0:
+			return "changing values and emptying others are two commands (flk config set, flk config unset): one at a time"
 		}
 		return ""
 	}
 	act.build = func(vals map[string]string) Command {
-		ch := changed(vals)
-		warn := "Writes " + hc.File + ". flk checks the result first: a value it refuses changes nothing. Then see Health (flk doctor)."
-		for _, c := range ch {
-			if strings.HasPrefix(c, "address=") || strings.HasPrefix(c, "bind=") {
-				warn += " address and bind decide where every app's ports are forwarded."
-				break
+		set, unset := changed(vals)
+		check := " flk checks the result first: if it refuses, nothing changes. Then see Health (flk doctor)."
+		ports := ""
+		for _, c := range append(append([]string(nil), set...), unset...) {
+			if k, _, _ := strings.Cut(c, "="); k == "address" || k == "bind" {
+				ports = " address and bind decide where every app's ports are forwarded."
 			}
 		}
-		return Command{Args: append([]string{"config", "set"}, ch...), Warn: warn}
+		if len(set) == 0 && len(unset) > 0 {
+			return Command{Args: append([]string{"config", "unset"}, unset...),
+				Warn: "Removes " + strings.Join(unset, ", ") + " from " + hc.File + ": flk's defaults apply." + check + ports}
+		}
+		return Command{Args: append([]string{"config", "set"}, set...), Warn: "Writes " + hc.File + "." + check + ports}
 	}
 	return act, true
 }

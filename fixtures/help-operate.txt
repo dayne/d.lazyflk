@@ -66,7 +66,7 @@ stopped but counts as "should be running": `flk resume` starts it again.
 
 **Reboots.** With `flk-machines.service` installed (`flk doctor` checks),
 machines stop gracefully at shutdown and come back at boot. Without it:
-`sudo /home/dayne/flk/setup-host.sh`, then `flk resume`. Machines run in flk's
+`sudo /home/dayne/flk-lz/setup-host.sh`, then `flk resume`. Machines run in flk's
 tmux server, which `flk-tmux.service` owns (flk starts it when needed), so
 none lives in a login session that shutdown kills first; doctor warns if
 one does. Restarting that unit (needrestart does after some apt upgrades)
@@ -92,7 +92,7 @@ or per app, `[flk] bind = "10.47.11.3"` in flk.toml (a list works; `"all"`
 undoes a host-wide bind), then `flk deploy`. Host settings apply at the
 next `flk ports sync`. Two apps can then use the same port on different
 addresses. `bind` needs the port helper from a current
-`sudo /home/dayne/flk/setup-host.sh`; until then flk keeps forwarding on every
+`sudo /home/dayne/flk-lz/setup-host.sh`; until then flk keeps forwarding on every
 address and `flk doctor` says so. doctor also warns about an address
 that isn't on this host (expected for a floating one another host holds).
 
@@ -111,7 +111,7 @@ images of destroyed apps. Volumes on other disks (`--path`):
 put the disk in `/etc/fstab` (without `nofail`) and reboots mount it before
 machines start, and stop machines before unmounting it. `flk doctor` warns
 if a disk isn't covered, e.g. a `nofail` or network mount: then re-run
-`sudo /home/dayne/flk/setup-host.sh --install-service` once.
+`sudo /home/dayne/flk-lz/setup-host.sh --install-service` once.
 
 **Backups.** Set where they go once, in `~/.config/flk/host.toml`:
 
@@ -165,7 +165,7 @@ On a schedule, with a systemd user timer (no root;
     # ~/.config/systemd/user/flk-backup-APP.service
     [Service]
     Type=oneshot
-    ExecStart=/home/dayne/flk/bin/flk -a APP volumes backup
+    ExecStart=/home/dayne/flk-lz/bin/flk -a APP volumes backup
 
     # ~/.config/systemd/user/flk-backup-APP.timer
     [Timer]
@@ -179,7 +179,7 @@ On a schedule, with a systemd user timer (no root;
 Machines deployed before flk had `live` backups write their cache out
 lazily (up to 35s): redeploy them, or use `settle = 35` until then.
 
-**Updating flk.** `git -C /home/dayne/flk pull`, then `flk setup` for a newer
+**Updating flk.** `git -C /home/dayne/flk-lz pull`, then `flk setup` for a newer
 firecracker or kernel. Running machines pick changes up on their next
 deploy or restart.
 

@@ -714,3 +714,96 @@ func TestVolumeOwner(t *testing.T) {
 		}
 	}
 }
+
+// flk 1cb50a2: the settings form sets a list (bind=A,B) and unsets a key
+// the admin emptied; an older flk gets neither.
+func TestHostSettingsListsAndUnset(t *testing.T) {
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	json.Unmarshal(b, &help)
+	cfg := &flk.HostConfig{File: "/h/host.toml", Settings: map[string]any{
+		"backup_dir": "/b", "backup_keep": float64(7), "bind": []any{"10.0.0.1", "10.0.0.2"}}}
+	set, ok := HostSettings(Target{Kind: Host, Help: &help, HostConfig: cfg}, "")
+	if !ok || set.Disabled != "" {
+		t.Fatalf("%+v", set)
+	}
+	shown := map[string]string{} // as the form holds them: every field, prefilled
+	for _, f := range set.Fields {
+		shown[f.Name] = f.Default
+	}
+	if shown["bind"] != "10.0.0.1, 10.0.0.2" || set.Check(shown) != "nothing changed" {
+		t.Errorf("unchanged: %v / %q", shown, set.Check(shown))
+	}
+	with := func(k, v string) map[string]string {
+		m := map[string]string{}
+		for a, b := range shown {
+			m[a] = b
+		}
+		m[k] = v
+		return m
+	}
+	if got := set.Command(with("bind", "10.0.0.1, 10.0.0.3")).Line(); got != "flk config set bind=10.0.0.1,10.0.0.3" {
+		t.Error(got)
+	}
+	c := set.Command(with("backup_dir", ""))
+	if c.Line() != "flk config unset backup_dir" || !strings.Contains(c.Warn, "Removes backup_dir from /h/host.toml") {
+		t.Errorf("%s / %s", c.Line(), c.Warn)
+	}
+	if got := set.Command(with("address", "")).Line(); got != "flk config set" || set.Check(with("address", "")) != "nothing changed" {
+		t.Errorf("a key that isn't set can't be unset: %s", got)
+	}
+	both := with("backup_dir", "")
+	both["backup_keep"] = "9"
+	if why := set.Check(both); !strings.Contains(why, "one at a time") {
+		t.Errorf("set and unset: %q", why)
+	}
+
+	// an older flk: one value per key, no unset
+	var old flk.Help
+	json.Unmarshal(b, &old)
+	for i := range old.Commands {
+		if old.Commands[i].Name == "config" {
+			var subs []flk.Command
+			for _, sc := range old.Commands[i].Subcommands {
+				if sc.Name != "unset" {
+					subs = append(subs, sc)
+				}
+			}
+			old.Commands[i].Subcommands = subs
+		}
+	}
+	set, _ = HostSettings(Target{Kind: Host, Help: &old, HostConfig: cfg}, "")
+	for _, f := range set.Fields {
+		if f.Name == "bind" {
+			t.Error("an older flk's config set would drop the second bind")
+		}
+	}
+	if got := set.Check(map[string]string{"backup_dir": "", "backup_keep": "7"}); got != "nothing changed" {
+		t.Errorf("an older flk can't unset: %q", got)
+	}
+}
+
+// flk c4afa65: the app menu opens the newest build's log in the viewer.
+func TestBuildLogAction(t *testing.T) {
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	json.Unmarshal(b, &help)
+	a := mc(t, hostContext(t))
+	acts := For(Target{Kind: App, App: a, Help: &help})
+	bl := find(t, acts, "build log")
+	if bl.View != ViewLogs || bl.Logs == nil || bl.Logs.Line() != "flk -a minecraft-flk releases log" {
+		t.Errorf("%+v", bl)
+	}
+	keys := map[string]bool{}
+	for _, x := range acts {
+		if keys[x.Key] {
+			t.Errorf("app key %s used twice", x.Key)
+		}
+		keys[x.Key] = true
+	}
+	for _, x := range For(Target{Kind: App, App: a}) {
+		if x.Label == "build log" {
+			t.Error("an older flk has no releases log")
+		}
+	}
+}

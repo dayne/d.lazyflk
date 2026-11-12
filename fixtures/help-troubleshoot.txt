@@ -37,14 +37,15 @@ problems show up there with the fix. Then find the symptom below.
 - `The interrupted build left N build containers`: Ctrl-C during the
   image build leaves podman's working containers mounted; run the
   `buildah rm ...` it prints (doctor reports ones older than an hour).
-- `tap pool exhausted` / `flktapN missing`: `sudo /home/dayne/flk/setup-host.sh`
+- `tap pool exhausted` / `flktapN missing`: `sudo /home/dayne/flk-lz/setup-host.sh`
   (with `FLK_TAPS=32` for more machines).
 - `build failed; machines unchanged (still on vN)`: the build (or a check
   before the roll) failed, and no machine was stopped or changed: they
   still run vN. Fix the cause shown above it ("The build said:") and deploy
   again. The build's whole output is in the `Build log:` file it names
   (also in the `deploy.failed` event's `log`), so there's no need to
-  build again to read it.
+  build again to read it: `flk releases log` prints the newest
+  (`--failed`, or a release `vN`).
 - `not enough space to build the rootfs in DIR`: turning the image into
   the release's disk needs about twice the image's size, free next to
   flk's images (`flk disk` shows where they are and what they take). Free
@@ -81,7 +82,7 @@ problems show up there with the fix. Then find the symptom below.
 **The machine has no network** (DNS or downloads fail inside it)
 - `flk doctor`: bridge, taps and ipv4 forwarding.
 - Another firewall (Docker, ufw, firewalld) may be dropping forwarded
-  traffic: `/home/dayne/flk/flk-sanity.sh` checks, `sudo /home/dayne/flk/setup-host.sh` fixes.
+  traffic: `/home/dayne/flk-lz/flk-sanity.sh` checks, `sudo /home/dayne/flk-lz/setup-host.sh` fixes.
 
 **The app misbehaves only under flk**
 - Process substitution, `/dev/stdout`, `/dev/fd`: supported.
@@ -92,18 +93,18 @@ problems show up there with the fix. Then find the symptom below.
   "no flk-agent to boot it with"; install Go (see `flk help install`).
 
 **Can't start machines: /dev/kvm, groups**
-- `flk doctor` says `/dev/kvm` isn't accessible: `sudo /home/dayne/flk/setup-host.sh`,
+- `flk doctor` says `/dev/kvm` isn't accessible: `sudo /home/dayne/flk-lz/setup-host.sh`,
   then log out and back in.
 - "flk's tmux server started before you joined the kvm group": stop the
   machines, then `tmux -L flk kill-server`.
 
 **After a reboot nothing runs**
-- `flk doctor` "boot service": `sudo /home/dayne/flk/setup-host.sh --install-service`.
-- Now: `sudo /home/dayne/flk/setup-host.sh`, then `flk resume`.
+- `flk doctor` "boot service": `sudo /home/dayne/flk-lz/setup-host.sh --install-service`.
+- Now: `sudo /home/dayne/flk-lz/setup-host.sh`, then `flk resume`.
 - Machines were killed at shutdown, not stopped (`flk events`: "the host
   went down with it running"): doctor's "not a flk service" warning says
   how to move them; "predates flk-tmux.service":
-  `sudo /home/dayne/flk/setup-host.sh --install-service`.
+  `sudo /home/dayne/flk-lz/setup-host.sh --install-service`.
 
 - After restoring flk's state dir from a backup that skipped the
   machines' `rootfs.ext4` (copies of the release images): `flk resume`
@@ -114,7 +115,7 @@ problems show up there with the fix. Then find the symptom below.
 - needrestart restarted `flk-tmux.service`, which stops the machines
   gracefully first. Units installed before it learned to resume after a
   restart leave them stopped. Now: `flk resume`. For next time:
-  `sudo /home/dayne/flk/setup-host.sh --install-service` (doctor warns until then).
+  `sudo /home/dayne/flk-lz/setup-host.sh --install-service` (doctor warns until then).
 
 **Where things are**
 - Machine files: `/home/dayne/.local/share/flk/apps/APP/machines/ID/` (console.log,

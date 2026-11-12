@@ -1,6 +1,6 @@
 # flk host overview
 
-flk 0.1.0  state: /home/dayne/.local/share/flk  source: /home/dayne/flk
+flk 0.1.0  state: /home/dayne/.local/share/flk  source: /home/dayne/flk-lz
 host: ready, address 10.47.11.3, boot service installed
 
 ## enshrouded-flk  (v6, 1/1 started)

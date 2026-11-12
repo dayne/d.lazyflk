@@ -3,7 +3,7 @@
 What's safe to do on the host, and what stops machines.
 
 **flk's services.** Three systemd units, from
-`sudo /home/dayne/flk/setup-host.sh --install-service`:
+`sudo /home/dayne/flk-lz/setup-host.sh --install-service`:
 - `flk-net.service`: the bridge, the tap pool and the nft rules. Its stop
   removes them (`setup-host.sh --down`) from under running machines:
   `flk stop-all` before restarting it, `flk resume` after.

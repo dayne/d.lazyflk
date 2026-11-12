@@ -73,17 +73,37 @@ func appProblems(a flk.App, steps []string) []string {
 		out = append(out, fmt.Sprintf("port %s blocked: %s", p.Shown(), p.Blocked))
 	}
 	for _, s := range steps {
-		if rest, ok := strings.CutPrefix(s, a.Name+": "); ok && !parkedStep(a, rest) {
+		if rest, ok := strings.CutPrefix(s, a.Name+": "); ok {
 			out = append(out, rest)
 		}
 	}
 	return out
 }
 
-// parkedStep is whether one of an app's next steps (without its "APP: ")
-// only says that a machine the admin stopped is stopped ("machine ID
-// [NAME] is stopped; start it: ..."). flk lists those; here they aren't
-// problems. Any other wording stays one.
+// attentionSteps is flk's next steps without the ones that only say a
+// machine the admin stopped is stopped: flk lists those, here they aren't
+// problems (the panel counts them in one line). flk says which they are
+// (next_steps_detail, kind stopped); an older flk is told by its wording.
+func attentionSteps(hc flk.HostContext) []string {
+	kind := map[string]string{}
+	for _, d := range hc.NextStepsDetail {
+		kind[d.Text] = d.Kind
+	}
+	var out []string
+	for _, s := range hc.NextSteps {
+		k, known := kind[s]
+		if k == "stopped" || (!known && isParkedStep(hc.Apps, s)) {
+			continue
+		}
+		out = append(out, s)
+	}
+	return out
+}
+
+// parkedStep is, for a flk without next_steps_detail, whether one of an
+// app's next steps (without its "APP: ") only says that a machine the
+// admin stopped is stopped ("machine ID [NAME] is stopped; start it:
+// ..."). Any other wording stays a problem.
 func parkedStep(a flk.App, rest string) bool {
 	if !strings.Contains(rest, " is stopped;") {
 		return false

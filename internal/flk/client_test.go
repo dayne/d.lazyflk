@@ -222,6 +222,9 @@ func TestEveryFixtureServed(t *testing.T) {
 		hcfg.Value("bind") != "10.47.11.3" || hcfg.Count("bind") != 1 || hcfg.Value("nope") != "" {
 		t.Errorf("host config: %+v, %v", hcfg, err)
 	}
+	if out, err := c.Run(ctx, "-a", "minecraft-flk", "releases", "log"); err != nil || !strings.HasPrefix(string(out), "# flk: build of ") {
+		t.Errorf("releases log: %q, %v", out, err)
+	}
 	c.QuickContext(ctx)
 	c.Stats(ctx)
 	c.DiskUse(ctx)

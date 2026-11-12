@@ -3,7 +3,7 @@
   "flk": {
     "version": "0.1.0",
     "state_dir": "/home/dayne/.local/share/flk",
-    "source": "/home/dayne/flk"
+    "source": "/home/dayne/flk-lz"
   },
   "mount_dirs": [
     "/home/dayne/.local/share/flk",
@@ -1036,5 +1036,25 @@
     "ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb",
     "opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e",
     "valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8"
+  ],
+  "next_steps_detail": [
+    {
+      "text": "ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb",
+      "app": "ncm",
+      "machine": "11489866771bbb",
+      "kind": "stopped"
+    },
+    {
+      "text": "opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e",
+      "app": "opencode-sandbox",
+      "machine": "476376ad8e351e",
+      "kind": "stopped"
+    },
+    {
+      "text": "valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8",
+      "app": "valheim-flk",
+      "machine": "c99fe500e58ab8",
+      "kind": "stopped"
+    }
   ]
 }

@@ -3,7 +3,7 @@
   "flk": {
     "version": "0.1.0",
     "state_dir": "/home/dayne/.local/share/flk",
-    "source": "/home/dayne/flk",
+    "source": "/home/dayne/flk-lz",
     "reference": "flk help --all"
   },
   "host": {
@@ -235,5 +235,19 @@
   "next_steps": [
     "optional: 3 destroyed apps still have container images -> flk apps prune",
     "all good; try: curl http://172.30.0.10:25565/ (logs: flk logs)"
+  ],
+  "next_steps_detail": [
+    {
+      "text": "optional: 3 destroyed apps still have container images -> flk apps prune",
+      "app": null,
+      "machine": null,
+      "kind": "optional"
+    },
+    {
+      "text": "all good; try: curl http://172.30.0.10:25565/ (logs: flk logs)",
+      "app": "minecraft-flk",
+      "machine": null,
+      "kind": "ok"
+    }
   ]
 }
