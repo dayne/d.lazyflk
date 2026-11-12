@@ -366,3 +366,54 @@ func isRead(argv []string) bool {
 	}
 	return strings.HasSuffix(line, " releases --json") || strings.HasSuffix(line, " volumes backups --json")
 }
+
+// The host menu's settings form (flk config set): prefilled from host.toml,
+// and only what changed is set.
+func TestHostSettings(t *testing.T) {
+	m := demoModel(t, 160, 48)
+	goTo(m, kindHost)
+	press(m, "enter")
+	send(m) // let the menu's loads land
+	press(m, "c")
+	s := screen(m)
+	for _, want := range []string{"backup_dir", "/data/flk-backups", "backup_copy_warn_days", "Known keys:"} {
+		if !strings.Contains(s, want) {
+			t.Fatalf("form misses %q:\n%s", want, s)
+		}
+	}
+	press(m, "enter")
+	if m.form == nil || !strings.Contains(screen(m), "nothing changed") {
+		t.Fatalf("unchanged:\n%s", screen(m))
+	}
+	press(m, "down") // backup_keep
+	press(m, "9")    // after the 7 that is there
+	press(m, "enter")
+	if m.confirm == nil || !strings.Contains(screen(m), "$ flk config set backup_keep=79") || !strings.Contains(screen(m), "host.toml") {
+		t.Fatalf("confirm:\n%s", screen(m))
+	}
+	press(m, "y")
+	if got := actionCalls(m); len(got) != 1 || got[0] != "flk config set backup_keep=79" {
+		t.Errorf("ran %v", got)
+	}
+}
+
+// Doctor's "no backup_dir set" names a placeholder path, so its fix is the
+// settings form with backup_dir first, not that command.
+func TestAttentionOpensSettings(t *testing.T) {
+	m := demoModel(t, 160, 48)
+	withState(t, m, func(hc *flk.HostContext) {
+		hc.NextSteps = []string{"optional: no backup_dir set -> flk config set backup_dir=/path/to/backups"}
+	})
+	press(m, "a")
+	if !strings.Contains(screen(m), "→ enter: settings: set backup_dir in host.toml") {
+		t.Fatalf("hint:\n%s", screen(m))
+	}
+	press(m, "enter")
+	if m.form == nil || len(m.form.act.Fields) == 0 || m.form.act.Fields[0].Name != "backup_dir" {
+		t.Fatalf("form:\n%s", screen(m))
+	}
+	press(m, "enter")
+	if len(actionCalls(m)) != 0 || !strings.Contains(screen(m), "nothing changed") {
+		t.Errorf("unchanged:\n%s", screen(m))
+	}
+}

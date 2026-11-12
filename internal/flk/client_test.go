@@ -188,6 +188,10 @@ func TestEveryFixtureServed(t *testing.T) {
 	if out, err := c.Run(ctx, "events", "--all", "--json", "-n", "200"); err != nil || !strings.Contains(string(out), `"type":"deploy.succeeded"`) {
 		t.Errorf("events: %v", err)
 	}
+	if hcfg, err := c.HostConfig(ctx); err != nil || !strings.HasSuffix(hcfg.File, "/host.toml") || hcfg.Value("backup_keep") != "7" ||
+		hcfg.Value("bind") != "10.47.11.3" || hcfg.Count("bind") != 1 || hcfg.Value("nope") != "" {
+		t.Errorf("host config: %+v, %v", hcfg, err)
+	}
 	c.QuickContext(ctx)
 	c.Stats(ctx)
 	c.DiskUse(ctx)

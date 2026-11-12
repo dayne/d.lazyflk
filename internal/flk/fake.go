@@ -90,6 +90,7 @@ func fixtureFor(args []string) (string, bool) {
 			"doctor --json":                  "doctor.json",
 			"apps list --json":               "apps-list.json",
 			"ports list --json":              "ports-list.json",
+			"config show --host":             "config-host.json",
 		}[cmd]
 		return name, ok
 	}

@@ -5,6 +5,7 @@ package ui
 import (
 	"context"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
@@ -192,6 +193,10 @@ func (m *Model) update(msg tea.Msg) tea.Cmd {
 		if m.reloadAgain { // an event came in while this loaded
 			m.reloadAgain = false
 			return m.reload()
+		}
+		if m.hc != nil && settingRE.MatchString(strings.Join(m.hc.NextSteps, "\n")) {
+			// a step's fix is the settings form: have host.toml ready for it
+			return tea.Batch(m.want(m.helpSource()), m.want(m.hostConfigSource()))
 		}
 	case tickMsg:
 		if m.loading || (m.eventsLive() && m.now().Sub(m.lastLoad) < eventBackstop) {
@@ -638,7 +643,13 @@ func (m *Model) layout() (left, right int) {
 type attnItem struct {
 	icon, text string
 	fix        *actions.Action
+	setting    string // the fix is the host settings form, led by this key
 }
+
+// settingRE finds the host setting a step says to set ("flk config set
+// backup_dir=/path/to/backups": the value is a placeholder, so the fix is
+// the form, not that command).
+var settingRE = regexp.MustCompile(`flk config set ([a-z_]+)=`)
 
 func (m *Model) attnItems() []attnItem {
 	if m.hc == nil {
@@ -655,6 +666,9 @@ func (m *Model) attnItems() []attnItem {
 		it := attnItem{icon: styleWarn.Render("!"), text: s}
 		if fix, ok := actions.Fix(s, m.apps); ok && !m.opt.ReadOnly {
 			it.fix = &fix
+		}
+		if k := settingRE.FindStringSubmatch(s); k != nil && !m.opt.ReadOnly {
+			it.setting, it.fix = k[1], &actions.Action{Label: "settings: set " + k[1] + " in host.toml"}
 		}
 		items = append(items, it)
 	}
@@ -779,10 +793,32 @@ func (m *Model) attnKey(k string) tea.Cmd {
 			m.note = "no fix lazyflk can run for this one"
 			return nil
 		}
+		if it.setting != "" {
+			return m.openSettings(it.setting)
+		}
 		m.attn = false
 		return m.choose("needs attention", *it.fix)
 	}
 	return nil
+}
+
+// openSettings opens the host settings form with key leading it. The
+// form needs what host.toml has now: when that isn't loaded yet it's
+// fetched, and enter again opens it.
+func (m *Model) openSettings(key string) tea.Cmd {
+	load := tea.Batch(m.want(m.helpSource()), m.want(m.hostConfigSource()))
+	t, _, _ := m.target(node{kind: kindHost})
+	act, ok := actions.HostSettings(t, key)
+	switch {
+	case !ok:
+		m.note = "this flk has no config set: see the step"
+		return load
+	case act.Disabled != "":
+		m.note = "loading the host's settings: enter again in a moment"
+		return load
+	}
+	m.attn = false
+	return m.choose("needs attention", act)
 }
 
 func (m *Model) treeHeight() int {

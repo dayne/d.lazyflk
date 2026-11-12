@@ -25,6 +25,7 @@ digests only.
 | config-minecraft-flk.json | `flk -a minecraft-flk config show --json` (same as without --json) |
 | backups-minecraft-flk.json | `flk -a minecraft-flk volumes backups --json` |
 | backups-sample.json | `flk -a flkt-lazyflk-m2 volumes backups --json` at flk 407ff4d: a test app (since destroyed) after one offline and one stop-mode backup |
+| config-host.json | `flk config show --host` (at flk 39e07f4): host.toml as flk parses it, always JSON |
 | backups-pruned.json | `flk -a enshrouded-flk volumes backups --json` at flk 39e07f4 (read-only, a real app): nightly backups whose older copies were pruned at backup_copy_to (`pruned_at`) |
 | backups-verified.json | `flk -a flkt-lazyflk-bk volumes backups --json` at flk a04fcc6: a test app (since destroyed) after a backup, `volumes verify` and `volumes copy --dest` to a scratch dir |
 | files-ls-PATH.json, files-cat-PATH.txt | `flk -a flkt-lazyflk-fs files ls data:/PATH --json` and `files cat data:/PATH` at flk ef6f865 (PATH's / as -, root for /): a test app (since destroyed) whose volume has a small tree. The fake serves them for any app and volume |

@@ -93,7 +93,11 @@ attention fix rolled it back).
 Note left by the flk side for whoever picks this up. All additive; nothing
 existing changed shape. Recapture fixtures (help-all.json) first so the
 palette and forms see the new command and options.
-- [ ] **`flk config set KEY=VALUE...`** writes `~/.config/flk/host.toml`.
+- [x] **`flk config set KEY=VALUE...`** (done 2026-11-11: host menu `c`
+  settings, a field per key flk's help names, prefilled, only what
+  changed is set; a key with several values, like two binds, is left to
+  the file because config set writes one; tested on fixtures only, not
+  run on the reference host) writes `~/.config/flk/host.toml`.
   Keys: backup_dir, backup_keep, address, bind, backup_copy_to,
   backup_copy_keep, backup_copy_warn_days (also listed in `flk help config
   set`). `*_keep` / `*_days` must be whole numbers; bind/address are
@@ -102,10 +106,12 @@ palette and forms see the new command and options.
   (path)` per key, then `Next: flk doctor`.
   Idea: a host menu "settings" form (one field per key, prefilled from
   `config show --host`), run as a job, then refresh doctor.
-- [ ] **`flk config show --host`** prints `{"file", "settings"}` (settings
+- [x] **`flk config show --host`** (prefills the form; not yet on the
+  Health view) prints `{"file", "settings"}` (settings
   as parsed; empty `{}` when the file doesn't exist). Use it to prefill the
   form and to show host settings on the Health/host view.
-- [ ] **Doctor's backup_dir hints changed**: "no backup_dir set" now hints
+- [x] **Doctor's backup_dir hints changed** (done: a step naming `flk
+  config set KEY=` opens the settings form with KEY first): "no backup_dir set" now hints
   `flk config set backup_dir=/path/to/backups` (a placeholder path), and
   "backup_dir ... missing or not writable" hints `mount it, or: flk config
   set backup_dir=/new/path`. Today `actions.Fix` makes these copy-only
@@ -126,7 +132,10 @@ below are ready to integrate (recapture fixtures first). M6 isn't built
 yet (flk's TODO.md has the specs). All additive.
 
 R1 (on flk main, 7f0317f):
-- [ ] **Build logs.** Every build's output goes in `apps/APP/builds/vN.log`
+- [ ] **Build logs** (half done 2026-11-11: the path shows on the
+  Releases tab, for the current and failed releases, and on a
+  deploy.failed event; opening it waits for a flk command that prints
+  it, asked in flk's TODO, cf4b96f). Every build's output goes in `apps/APP/builds/vN.log`
   (kept for the kept releases plus the last 3 failures). `deploy.failed`
   events get a `"log"` field with the path, and their `detail` carries the
   build's first error line. `flk releases --json` gets `build_log`. Idea:
@@ -145,11 +154,16 @@ R1 (on flk main, 7f0317f):
   `releases`; `flk images` and `flk images --json` are unchanged.
 - [ ] **flk-tmux.service restarts resume the VMs.** No new CLI. Events
   show the stop/resume pair; a restart now shows as a short blip.
-- [ ] **Pruned copies** (flk 56721dc): in
+- [x] **Pruned copies** (flk 56721dc; done, backups-pruned.json): in
   `volumes backups --json`, a `copies` entry whose file was pruned at
   its destination has `pruned_at`; don't show it as a copy that's there.
-- [ ] **New help topics** `dockerfile`, `host`, `bugs` (`flk help TOPIC`;
-  they're in `help --all --json` "topics"). Recapture `help-all.json`.
+- [x] **New help topics** `dockerfile`, `host`, `bugs` (`flk help TOPIC`;
+  they're in `help --all --json` "topics"). Recaptured `help-all.json`
+  and the topics at flk 39e07f4. The host-state fixtures are still at
+  0227eac: a full `capture.sh` run now (seven apps, three stopped, a
+  doctor warning) breaks about 50 tests that expect the quiet
+  three-app host with minecraft-flk first; making the tests pick their
+  app by name comes before that recapture.
 
 M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
 - [ ] **`flk build [--json]`** (built on flk branch m6-making-apps,

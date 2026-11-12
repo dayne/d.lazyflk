@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -33,11 +34,12 @@ type Target struct {
 	Volume     flk.Volume  // Volume
 	Apps       []flk.App   // Host: every app
 	Problems   []flk.DoctorCheck
-	Backups    []flk.Backup  // the app's backups; nil until loaded
-	BackupsErr string        // why they couldn't be listed
-	Releases   []flk.Release // the app's releases; nil until loaded
-	StateDir   string        // flk's state dir: volumes outside it are external
-	Help       *flk.Help     // flk's command table, for options newer flks have; nil until loaded
+	Backups    []flk.Backup    // the app's backups; nil until loaded
+	BackupsErr string          // why they couldn't be listed
+	Releases   []flk.Release   // the app's releases; nil until loaded
+	StateDir   string          // flk's state dir: volumes outside it are external
+	Help       *flk.Help       // flk's command table, for options newer flks have; nil until loaded
+	HostConfig *flk.HostConfig // Host: host.toml's settings (flk config show --host); nil until loaded
 }
 
 // has reports whether the flk in use takes an option (see flk.Help.HasOption).
@@ -886,6 +888,9 @@ func hostActions(t Target) []Action {
 			}},
 		{Key: "h", Label: "health", Help: "flk doctor: every host check", View: ViewHealth},
 	}
+	if set, ok := HostSettings(t, ""); ok {
+		acts = append(acts, set)
+	}
 	keys := "123456789"
 	n := 0
 	for _, p := range t.Problems {
@@ -897,6 +902,102 @@ func hostActions(t Target) []Action {
 		}
 	}
 	return acts
+}
+
+// settingHelp says what each host setting is for; a key flk adds later
+// shows without one.
+var settingHelp = map[string]string{
+	"backup_dir":            "where volume backups go (a directory this user can write)",
+	"backup_keep":           "backups kept per volume",
+	"address":               "the host address apps are reached at",
+	"bind":                  "the host address ports are forwarded on (or all)",
+	"backup_copy_to":        "where each backup is copied after it's made: a directory, or HOST:DIR",
+	"backup_copy_keep":      "copies kept there per volume",
+	"backup_copy_warn_days": "flk doctor warns when the newest copy is older than this",
+}
+
+// SettingKeys are the keys `flk config set` takes: the ones its help
+// names ("Known keys: a, b"), so a newer flk's keys show up by themselves.
+func SettingKeys(h *flk.Help) []string {
+	if h == nil {
+		return nil
+	}
+	c := h.Find("config", "set")
+	if c == nil {
+		return nil
+	}
+	for _, n := range c.Notes {
+		if rest, ok := strings.CutPrefix(n, "Known keys: "); ok {
+			var keys []string
+			for _, k := range strings.Split(rest, ",") {
+				if k = strings.TrimSpace(k); k != "" {
+					keys = append(keys, k)
+				}
+			}
+			return keys
+		}
+	}
+	return []string{"backup_dir", "backup_keep", "address", "bind", "backup_copy_to", "backup_copy_keep", "backup_copy_warn_days"}
+}
+
+// hostSettings is the form over `flk config set` (flk 21ffec9): a field
+// per key with what host.toml has now; only what changed is set. Not
+// offered by a flk without the command. first, when it names a key, leads
+// the form (the key a doctor hint says to set).
+func HostSettings(t Target, first string) (Action, bool) {
+	keys := SettingKeys(t.Help)
+	if len(keys) == 0 {
+		return Action{}, false
+	}
+	sort.SliceStable(keys, func(i, j int) bool { return keys[i] == first && keys[j] != first })
+	act := Action{Key: "c", Label: "settings", Help: "host.toml: backup dir and how many to keep, address, copies (flk config set)",
+		Confirm: Ask}
+	if c := t.Help.Find("config", "set"); c != nil {
+		act.Notes = c.Notes
+	}
+	hc := t.HostConfig
+	if hc == nil {
+		act.Disabled = "loading the settings…"
+		return act, true
+	}
+	var offered []string
+	for _, k := range keys {
+		f := Field{Name: k, Label: k, Help: settingHelp[k], Default: hc.Value(k),
+			Number: strings.HasSuffix(k, "_keep") || strings.HasSuffix(k, "_days")}
+		if hc.Count(k) > 1 { // config set writes one value: it would drop the others
+			act.Notes = append(act.Notes, fmt.Sprintf("%s has %d values (%s): edit %s to change it", k, hc.Count(k), hc.Value(k), hc.File))
+			continue
+		}
+		offered = append(offered, k)
+		act.Fields = append(act.Fields, f)
+	}
+	changed := func(vals map[string]string) []string {
+		var out []string
+		for _, k := range offered {
+			if v := strings.TrimSpace(vals[k]); v != "" && v != hc.Value(k) {
+				out = append(out, k+"="+v)
+			}
+		}
+		return out
+	}
+	act.check = func(vals map[string]string) string {
+		if len(changed(vals)) == 0 {
+			return "nothing changed"
+		}
+		return ""
+	}
+	act.build = func(vals map[string]string) Command {
+		ch := changed(vals)
+		warn := "Writes " + hc.File + ". flk checks the result first: a value it refuses changes nothing. Then see Health (flk doctor)."
+		for _, c := range ch {
+			if strings.HasPrefix(c, "address=") || strings.HasPrefix(c, "bind=") {
+				warn += " address and bind decide where every app's ports are forwarded."
+				break
+			}
+		}
+		return Command{Args: append([]string{"config", "set"}, ch...), Warn: warn}
+	}
+	return act, true
 }
 
 var sudoRE = regexp.MustCompile(`sudo [^;,()]+`)

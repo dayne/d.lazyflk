@@ -9,6 +9,7 @@ import (
 	"github.com/charmbracelet/x/ansi"
 
 	"github.com/dayne/d.lazyflk/internal/actions"
+	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
 // An action goes menu → form (if it has fields) → confirm (if it needs
@@ -46,6 +47,11 @@ func (m *Model) target(n node) (actions.Target, string, bool) {
 	switch n.kind {
 	case kindHost:
 		t.Kind, t.Apps, t.Problems = actions.Host, m.apps, m.hc.Host.Problems
+		if f := m.cache[m.hostConfigSource().cmd]; f != nil {
+			if hc, ok := f.val.(flk.HostConfig); ok && hc.File != "" {
+				t.HostConfig = &hc
+			}
+		}
 		return t, "host", true
 	case kindApp, kindMachine, kindVolume, kindPorts:
 		t.App = m.apps[n.app]
@@ -111,6 +117,8 @@ func (m *Model) openMenu() tea.Cmd {
 	}
 	m.menu = &menuView{key: n.key(m.apps)}
 	switch n.kind {
+	case kindHost: // the settings form: this flk's keys, and what host.toml has
+		return tea.Batch(m.want(m.helpSource()), m.want(m.hostConfigSource()))
 	case kindVolume: // restore needs the list of backups; new volume, flk's options
 		return tea.Batch(m.want(m.backupSource(m.apps[n.app].Name)), m.want(m.helpSource()))
 	case kindApp, kindMachine: // the app's own actions; roll back's releases

@@ -28,6 +28,7 @@ F -a $APP machine status "$ID" > machine-status.json
 F -a $APP logs -n 40 --no-tail > logs-$APP.txt
 F -a $APP config show --json > config-$APP.json
 F -a $APP volumes backups --json > backups-$APP.json
+F config show --host > config-host.json
 F machine stats --all --json > machine-stats.json
 F disk --json > disk.json
 F images --json > images.json

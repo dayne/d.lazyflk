@@ -1,6 +1,10 @@
 package flk
 
-import "strings"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 // Types mirror flk's JSON output. Every field is optional: flk may omit or
 // null any of them, and unknown fields are ignored. Timestamps stay strings
@@ -330,23 +334,69 @@ type Command struct {
 	Subcommands       []Command `json:"subcommands"`
 }
 
-// HasCommand reports whether this flk has a command (by path: "start").
-func (h Help) HasCommand(path ...string) bool {
+// Find is this flk's command by path ("config", "set"), or nil.
+func (h Help) Find(path ...string) *Command {
 	cmds := h.Commands
+	var c *Command
 	for _, name := range path {
-		var next *Command
+		c = nil
 		for i := range cmds {
 			if cmds[i].Name == name {
-				next = &cmds[i]
+				c = &cmds[i]
 				break
 			}
 		}
-		if next == nil {
-			return false
+		if c == nil {
+			return nil
 		}
-		cmds = next.Subcommands
+		cmds = c.Subcommands
 	}
-	return len(path) > 0
+	return c
+}
+
+// HasCommand reports whether this flk has a command (by path: "start").
+func (h Help) HasCommand(path ...string) bool { return h.Find(path...) != nil }
+
+// HostConfig is `flk config show --host` (flk 21ffec9): host.toml's
+// settings as flk parses them; Settings is empty when File doesn't exist.
+type HostConfig struct {
+	File     string         `json:"file"`
+	Settings map[string]any `json:"settings"`
+}
+
+// Value is a setting as text ("" when unset): a list's items joined by
+// ", ".
+func (h HostConfig) Value(key string) string {
+	return settingText(h.Settings[key])
+}
+
+// Count is how many values a setting has (a list's length; else 0 or 1).
+func (h HostConfig) Count(key string) int {
+	switch v := h.Settings[key].(type) {
+	case nil:
+		return 0
+	case []any:
+		return len(v)
+	}
+	return 1
+}
+
+func settingText(v any) string {
+	switch v := v.(type) {
+	case nil:
+		return ""
+	case string:
+		return v
+	case float64:
+		return strconv.FormatFloat(v, 'f', -1, 64)
+	case []any:
+		var parts []string
+		for _, x := range v {
+			parts = append(parts, settingText(x))
+		}
+		return strings.Join(parts, ", ")
+	}
+	return fmt.Sprint(v)
 }
 
 // HasOption reports whether this flk's command (by path: "volumes",

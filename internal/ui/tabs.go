@@ -132,6 +132,11 @@ func (m *Model) releasesSource(app string) *source {
 		func(ctx context.Context) ([]flk.Release, error) { return c.Releases(ctx, app) })
 }
 
+// hostConfigSource is host.toml's settings, for the host menu's form.
+func (m *Model) hostConfigSource() *source {
+	return flkSource([]string{"config", "show", "--host"}, 5*time.Second, m.opt.Client.HostConfig)
+}
+
 // releases is an app's releases if loaded, else nil.
 func (m *Model) releases(app string) []flk.Release {
 	if f := m.cache[m.releasesSource(app).cmd]; f != nil {

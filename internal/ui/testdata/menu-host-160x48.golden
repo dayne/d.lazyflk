@@ -22,13 +22,13 @@
 │ ▸ Storage  fullest 67%              │ P  prune images   remove container images of apps that no longer exist           │                                     │
 │                                     │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
 │ ▸ Podman  10 images                 │ h  health         flk doctor: every host check                                   │                                     │
-│                                     │                                                                                  │                                     │
-│ ▸ Services  4 running, 1 off        │ start every machine that should be running                                       │                                     │
+│                                     │ c  settings       host.toml: backup dir and how many to keep, address, copies (… │                                     │
+│ ▸ Services  4 running, 1 off        │                                                                                  │                                     │
+│                                     │ start every machine that should be running                                       │                                     │
 │                                     │ not now: nothing to resume                                                       │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│                                        │ ✔ backups go to /data/flk-backups: 198.0GB now, about 202.0GB at their keep counts; 174.1GB free; full copies (ext4 │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘nts; 174.1GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
 │                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
 │                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │

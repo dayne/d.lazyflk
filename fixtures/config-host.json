@@ -1,0 +1,14 @@
+{
+  "file": "/home/dayne/.config/flk/host.toml",
+  "settings": {
+    "backup_dir": "/data/flk-backups",
+    "backup_keep": 7,
+    "address": "10.47.11.3",
+    "bind": [
+      "10.47.11.3"
+    ],
+    "backup_copy_to": "/data/backup/flk",
+    "backup_copy_keep": 3,
+    "backup_copy_warn_days": 2
+  }
+}

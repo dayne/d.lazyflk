@@ -141,6 +141,11 @@ func (c *Client) Doctor(ctx context.Context) (Doctor, error) {
 	return decode[Doctor](c, ctx, "doctor", "--json")
 }
 
+// HostConfig is host.toml as flk parses it (flk 21ffec9).
+func (c *Client) HostConfig(ctx context.Context) (HostConfig, error) {
+	return decode[HostConfig](c, ctx, "config", "show", "--host")
+}
+
 func (c *Client) Apps(ctx context.Context) ([]AppSummary, error) {
 	return decode[[]AppSummary](c, ctx, "apps", "list", "--json")
 }
