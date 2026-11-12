@@ -1,34 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk releases --json                                                                              │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ v9   2026-10-13 08:31Z  Dockerfile  current                                                                         │
-│ ▾ mqtt-flk  1/1 ●                      │      on mellow-aurora-7882                                                                                          │
-│   ● hidden-comet-2020                  │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
-│   ▢ mqttdata 1GB                       │ v7   2026-10-12 06:58Z  Dockerfile  kept                                                                            │
-│   ⇄ 10.47.11.3: tcp/1883               │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
-│ ▾ opencode-sandbox  1/1 ●              │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
-│   ● lucky-harbor-5563                  │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
-│   ▢ code_workspace 30GB                │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
-│ ▾ vintagestory-flk  1/1 ●              │ v2   2026-10-12 05:20Z  Dockerfile  pruned                                                                          │
-│   ● frosty-river-2714                  │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk -a minecraft-flk releases --json                                                                              │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ v10  2026-10-17 20:46Z  Dockerfile  current                                                                         │
+│ ▾ minecraft-flk  1/1 ●                 │      on mellow-aurora-7882                                                                                          │
+│   ● mellow-aurora-7882                 │      backed up first: world (before_deploy)                                                                         │
+│   ▢ world 40GB (external)              │ v9   2026-10-13 08:31Z  Dockerfile  kept                                                                            │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ v8   2026-10-12 07:08Z  Dockerfile  kept                                                                            │
+│ ▾ mqtt-flk  1/1 ●                      │ v7   2026-10-12 06:58Z  Dockerfile  pruned                                                                          │
+│   ● hidden-comet-2020                  │ v6   2026-10-12 06:41Z  Dockerfile  pruned                                                                          │
+│   ▢ mqttdata 1GB                       │ v5   2026-10-12 06:34Z  Dockerfile  pruned                                                                          │
+│   ⇄ 10.47.11.3: tcp/1883               │ v4   2026-10-12 05:35Z  Dockerfile  pruned                                                                          │
+│ ▾ vintagestory-flk  1/1 ●              │ v3   2026-10-12 05:30Z  Dockerfile  pruned                                                                          │
+│   ● frosty-river-2714                  │ v2   2026-10-12 05:20Z  Dockerfile  pruned                                                                          │
+│   ▢ vsdata 40GB (external)             │ v1   2026-10-12 05:01Z  Dockerfile  pruned                                                                          │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+│ ▸ ncm  stopped                         │ kept: can be rolled back to (enter, r) · pruned: its image is gone                                                  │
+│ ▸ opencode-sandbox  stopped            │                                                                                                                     │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  10 images                    │                                                                                                                     │
+│ ▸ Podman  11 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

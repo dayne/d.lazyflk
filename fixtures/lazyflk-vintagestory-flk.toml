@@ -27,8 +27,16 @@ help = "save the world now and wait until it's written (a flush, not a freeze)"
 
 [actions.backup]
 run  = "bin/vs-backup"
-help = "the nightly backup, now: warns players, STOPS the server ~40s, copies, checks, starts it"
+help = "the nightly backup, now: skips if players are on; else STOPS the server ~40s, copies, checks, starts it (quiet in Discord unless it fails)"
 
 [actions.backup-check]
 run  = "bin/vs-backup --check"
-help = "preflight only: mounts, flk, lock, status; makes no backup"
+help = "what a backup needs (vs-preflight --for backup); makes no backup"
+
+[actions.preflight]
+run  = "bin/vs-preflight"
+help = "can our tools work right now? tools, flk, mounts and space, volume config, cron, gamebus (read-only)"
+
+[actions.deploy-check]
+run  = "bin/vs-deploy --check"
+help = "ready to deploy? build inputs (tarball and mod checksums), space, players; deploys nothing"

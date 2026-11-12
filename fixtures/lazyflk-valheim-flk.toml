@@ -1,0 +1,24 @@
+# .lazyflk.toml: valheim-flk's own actions in lazyflk's menu (enter on the
+# app or its machine). Each runs with sh -c in this directory, after lazyflk
+# shows the expanded command and asks. {input} is asked for when the action
+# runs: any one line of text, passed as data (never run as shell).
+
+[actions.status]
+run  = "bin/vh status"
+help = "one-screen overview: VM, build vs Steam, players, backups, disk"
+
+[actions.backup]
+run  = "bin/vh backup"
+help = "the nightly backup, now: pause mode (a second or two, nobody kicked), checked"
+
+[actions.backup-check]
+run  = "bin/vh backup --check"
+help = "preflight only: dirs, flk, lock, status; makes no backup"
+
+[actions.update-check]
+run  = "bin/vh update check"
+help = "is there a newer Steam build than the one pinned in flk.toml?"
+
+[actions.notify]
+run  = "bin/vh notify-test {input}"
+help = "post a message to the Discord webhook"

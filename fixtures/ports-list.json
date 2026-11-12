@@ -5,6 +5,17 @@
   "per_address": true,
   "active": [
     {
+      "key": "udp/15637",
+      "bind": "10.47.11.7",
+      "proto": "udp",
+      "port": 15637,
+      "ip": "172.30.0.16",
+      "internal_port": 15637,
+      "app": "enshrouded-flk",
+      "machine": "9c0506c2b04571",
+      "address": "10.47.11.7:15637"
+    },
+    {
       "key": "tcp/25565",
       "bind": "10.47.11.3",
       "proto": "tcp",

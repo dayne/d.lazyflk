@@ -1,30 +1,51 @@
 [
   {
+    "name": "enshrouded-flk",
+    "machines": 1,
+    "started": 1,
+    "release": 6,
+    "config_path": "/home/dayne/enshrouded.flk/flk.toml"
+  },
+  {
     "name": "minecraft-flk",
     "machines": 1,
     "started": 1,
-    "release": 9,
+    "release": 10,
     "config_path": "/home/dayne/minecraft.flk/flk.toml"
   },
   {
     "name": "mqtt-flk",
     "machines": 1,
     "started": 1,
-    "release": 2,
+    "release": 3,
     "config_path": "/home/dayne/mqtt.flk/flk.toml"
+  },
+  {
+    "name": "ncm",
+    "machines": 1,
+    "started": 0,
+    "release": 2,
+    "config_path": "/home/dayne/ncm.flk/flk.toml"
   },
   {
     "name": "opencode-sandbox",
     "machines": 1,
-    "started": 1,
+    "started": 0,
     "release": 4,
     "config_path": "/home/dayne/opencode.flk/flk.toml"
+  },
+  {
+    "name": "valheim-flk",
+    "machines": 1,
+    "started": 0,
+    "release": 4,
+    "config_path": "/home/dayne/valheim.flk/flk.toml"
   },
   {
     "name": "vintagestory-flk",
     "machines": 1,
     "started": 1,
-    "release": 4,
+    "release": 10,
     "config_path": "/home/dayne/vintagestory.flk/flk.toml"
   }
 ]

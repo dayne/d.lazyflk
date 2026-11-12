@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk / mellow-aurora-7882              │
-│ ▾ minecraft-flk  1/1 ●     │  Overview  Logs  Events  Record                 │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk -a minecraft-flk machine status           │
-│   ⇄ tcp/25565 udp/19132    │   225d58f615e7e6                                │
-│ ▸ mqtt-flk  1/1 ●          │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │ {                                               │
+│ ▸ enshrouded-flk  1/1 ●    │  Overview  Logs  Events  Record                 │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ $ flk -a minecraft-flk machine status           │
+│   ▢ world 40GB (external)  │   225d58f615e7e6                                │
+│   ⇄ tcp/25565 udp/19132    │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ {                                               │
 │ ▸ vintagestory-flk  1/1 ●  │   "id": "225d58f615e7e6",                       │
-│                            │   "name": "mellow-aurora-7882",                 │
-│ Host                       │   "app": "minecraft-flk",                       │
-│   health ✔                 │   "tap_index": 0,                               │
+│ ▸ ncm  stopped             │   "name": "mellow-aurora-7882",                 │
+│ ▸ opencode-sandbox  stopp… │   "app": "minecraft-flk",                       │
+│ ▸ valheim-flk  stopped     │   "tap_index": 0,                               │
 │                            │   "ip": "172.30.0.10",                          │
-│ ▸ Storage  fullest 67%     │   "mac": "06:00:ac:1e:00:0a",                   │
-│                            │   "release": 9,                                 │
-│ ▸ Podman  10 images        │   "config": {                                   │
-│                            │     "cpus": 4,                                  │
-│ ▸ Services  4 running, 1 … │     "memory_mb": 11264,                         │
-│                            │ … 85 more (pgdn)                                │
+│ Host                       │   "mac": "06:00:ac:1e:00:0a",                   │
+│   health ✔                 │   "release": 10,                                │
+│                            │   "config": {                                   │
+│ ▸ Storage  fullest 67%     │     "cpus": 4,                                  │
+│                            │ … 86 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
 └──────────────────────────────────────────────────────────────────────────────┘

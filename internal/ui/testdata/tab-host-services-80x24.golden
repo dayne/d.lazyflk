@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ Host                                            │
-│ ▾ minecraft-flk  1/1 ●     │  Health  Events  Services  Ports  Disk  Images  │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk doctor --json                             │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ ✔ flk-net.service  active (exited)              │
-│ ▸ opencode-sandbox  1/1 ●  │   enabled · since 2026-10-12 05:44Z             │
+│ ▸ enshrouded-flk  1/1 ●    │  Health  Events  Services  Ports  Disk  Images  │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ $ flk doctor --json                             │
+│   ▢ world 40GB (external)  │                                                 │
+│   ⇄ tcp/25565 udp/19132    │ ✔ flk-net.service  active (exited)              │
+│ ▸ mqtt-flk  1/1 ●          │   enabled · since 2026-10-26 23:38Z             │
 │ ▸ vintagestory-flk  1/1 ●  │   at boot: the bridge, NAT and port forwarding  │
-│                            │                                                 │
-│ Host                       │ ✔ flk-machines.service  active (exited)         │
-│   health ✔                 │   enabled · since 2026-10-12 05:44Z             │
+│ ▸ ncm  stopped             │                                                 │
+│ ▸ opencode-sandbox  stopp… │ ✔ flk-machines.service  active (exited)         │
+│ ▸ valheim-flk  stopped     │   enabled · since 2026-10-26 23:38Z             │
 │                            │   at boot: flk resume; at shutdown: stops       │
-│ ▸ Storage  fullest 67%     │     machines gracefully                         │
-│                            │                                                 │
-│ ▸ Podman  10 images        │ oneshot units: healthy is active (exited)       │
-│                            │                                                 │
-│ ▸ Services  4 running, 1 … │                                                 │
-│                            │                                                 │
+│ Host                       │     machines gracefully                         │
+│   health ✔                 │                                                 │
+│                            │ ✔ flk-tmux.service  active (running)            │
+│ ▸ Storage  fullest 67%     │   enabled · since 2026-11-05 18:01Z             │
+│                            │ … 2 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

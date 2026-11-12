@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -54,8 +55,11 @@ func TestMouseMain(t *testing.T) {
 	}
 	sel := func() string { return m.nodes[m.cursor].key(m.apps) }
 
-	click(t, m, "hidden-comet-2020", 0) // a tree row
-	if sel() != "machine/mqtt-flk/3b94db4908c652" {
+	goTo(m, kindMachine) // opens the test app if the tree folded it
+	mc := m.apps[appIndex(m.apps)].Machines[0]
+	goTo(m, kindHost)
+	click(t, m, mc.Name, 0) // a tree row
+	if sel() != "machine/"+testApp+"/"+mc.ID {
 		t.Errorf("clicked to %s", sel())
 	}
 	click(t, m, "Record", 0) // a tab
@@ -67,10 +71,18 @@ func TestMouseMain(t *testing.T) {
 	if sel() != "app/minecraft-flk" || !m.nodes[m.cursor].folded {
 		t.Error("second click should fold the app")
 	}
-	click(t, m, "vintagestory-flk  1/1", 0)
-	wheel(t, m, "vintagestory-flk  1/1", true) // the wheel moves in the tree
-	if sel() == "app/vintagestory-flk" {
-		t.Error("wheel didn't move")
+	oa := m.apps[0] // any other app's row (a running one: stopped apps sort last)
+	if oa.Name == testApp {
+		oa = m.apps[1]
+	}
+	other, row := oa.Name, fmt.Sprintf("%s  %d/%d", oa.Name, startedCount(oa), len(oa.Machines))
+	click(t, m, row, 0)
+	if sel() != "app/"+other {
+		t.Fatalf("clicked to %s", sel())
+	}
+	wheel(t, m, row, true) // the wheel moves in the tree
+	if sel() == "app/"+other {
+		t.Errorf("wheel didn't move: on %s\n%s", sel(), screen(m))
 	}
 
 	click(t, m, "enter actions", 0) // a footer key

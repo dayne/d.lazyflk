@@ -1,24 +1,24 @@
-┌ Logs ─ minecraft-flk / mellow-aurora-7882 ──────────── following · /RCON 0/0 ┐
-│ $ flk -a minecraft-flk logs -i 225d58f615e7e6 -n 1000 -f                     │
-│ [19:30:40] [Server thread/INFO]: FuzzyKoala4279 (/178.63.179.212:45123) los… │
-│ [19:42:02] [Server thread/INFO]: QuickWasp1340 (/178.63.123.77:52435) lost … │
-│ [19:52:00] [Server thread/INFO]: NobleCrow5670 (/178.63.123.77:32521) lost … │
-│ [20:01:52] [Server thread/INFO]: BraveMole2456 (/178.63.179.211:36705) lost… │
-│ [20:13:36] [Server thread/INFO]: HollowOwl6474 (/178.63.123.75:13663) lost … │
-│ [20:16:46] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
-│ [20:24:28] [Server thread/INFO]: WildHawk3939 (/178.63.123.76:20901) lost c… │
-│ [20:35:58] [Server thread/INFO]: ProudShark4119 (/178.63.123.76:36939) lost… │
-│ [20:47:40] [Server thread/INFO]: LazyLynx0334 (/178.63.179.210:43627) lost … │
-│ [20:58:42] [Server thread/INFO]: SlyLynx7985 (/178.63.123.77:40665) lost co… │
-│ [21:08:36] [Server thread/INFO]: SillyElk9313 (/178.63.123.73:12953) lost c… │
-│ [21:19:48] [Server thread/INFO]: CoolCrow2147 (/178.63.123.73:56961) lost c… │
-│ [21:31:20] [Server thread/INFO]: SlyBear4387 (/178.63.179.210:47735) lost c… │
-│ [21:34:27] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
-│ [21:42:04] [Server thread/INFO]: FuzzyShark3012 (/178.63.123.73:51633) lost… │
-│ [21:52:46] [Server thread/INFO]: FuzzyMule8984 (/178.63.179.212:52959) lost… │
-│ [22:03:34] [Server thread/INFO]: IcyHeron6680 (/178.63.179.209:32847) lost … │
-│ [22:13:06] [Server thread/INFO]: FishNet (/176.65.149.198:61000) lost conne… │
-│ [22:16:26] [Server thread/INFO]: NobleMango0131 (/178.63.123.77:12193) lost… │
+┌ Logs ─ mqtt-flk / hidden-comet-2020 ──────── ended with an error · /RCON 0/0 ┐
+│ $ flk -a mqtt-flk logs -n 1000 -f                                            │
+│ no output                                                                    │
+│ Error: demo mode has no captured output for: flk -a mqtt-flk logs -n 1000 -f │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ no match for "RCON"                                                          │
 └──────────────────────────────────────────────────────────────────────────────┘

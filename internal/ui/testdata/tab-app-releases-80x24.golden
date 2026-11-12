@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk                                   │
-│ ▾ minecraft-flk  1/1 ●     │ ‹ Ports  Volumes  Releases  Secrets  Config     │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk -a minecraft-flk releases --json          │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ v9   2026-10-13 08:31Z  Dockerfile  current     │
-│ ▸ opencode-sandbox  1/1 ●  │      on mellow-aurora-7882                      │
-│ ▸ vintagestory-flk  1/1 ●  │ v8   2026-10-12 07:08Z  Dockerfile  kept        │
-│                            │ v7   2026-10-12 06:58Z  Dockerfile  kept        │
-│ Host                       │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
-│   health ✔                 │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
+│ ▸ enshrouded-flk  1/1 ●    │ ‹ Ports  Volumes  Releases  Secrets  Config     │
+│ ▸ minecraft-flk  1/1 ●     │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ $ flk -a minecraft-flk releases --json          │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │ v10  2026-10-17 20:46Z  Dockerfile  current     │
+│ ▸ opencode-sandbox  stopp… │      on mellow-aurora-7882                      │
+│ ▸ valheim-flk  stopped     │      backed up first: world (before_deploy)     │
+│                            │ v9   2026-10-13 08:31Z  Dockerfile  kept        │
+│ Host                       │ v8   2026-10-12 07:08Z  Dockerfile  kept        │
+│   health ✔                 │ v7   2026-10-12 06:58Z  Dockerfile  pruned      │
+│                            │ v6   2026-10-12 06:41Z  Dockerfile  pruned      │
+│ ▸ Storage  fullest 67%     │ v5   2026-10-12 06:34Z  Dockerfile  pruned      │
 │                            │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
-│ ▸ Storage  fullest 67%     │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
+│ ▸ Podman  11 images        │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
 │                            │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
-│ ▸ Podman  10 images        │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
-│                            │                                                 │
-│ ▸ Services  4 running, 1 … │ kept: can be rolled back to (enter, r) ·        │
-│                            │   pruned: its image is gone                     │
+│ ▸ Services  4 running      │ … 4 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
 └──────────────────────────────────────────────────────────────────────────────┘

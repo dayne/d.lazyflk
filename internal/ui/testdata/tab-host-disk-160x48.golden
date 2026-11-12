@@ -1,48 +1,48 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ Host ─  Health  Events  Services  Ports  Disk  Images                                                               │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ df -k --output=target,size,used,avail,pcent /home/dayne/.local/share/flk /data/minecraft/flk                      │
-│   ▢ world 40GB (external)              │   /data/vintagestory/flk                                                                                            │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ df -k --output=target,size,used,avail,pcent /home/dayne/.local/share/flk /data/enshrouded /data/minecraft/flk     │
+│   ▢ endata 10GB (external)             │   /data/valheim /data/vintagestory/flk                                                                              │
+│   ⇄ 10.47.11.7: udp/15637              │                                                                                                                     │
+│ ▾ minecraft-flk  1/1 ●                 │  64% ██████░░░░ /                                                                                                   │
+│   ● mellow-aurora-7882                 │      51G free of 147G                                                                                               │
+│   ▢ world 40GB (external)              │      holds /home/dayne/.local/share/flk                                                                             │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │                                                                                                                     │
-│ ▾ mqtt-flk  1/1 ●                      │  32% ███░░░░░░░ /                                                                                                   │
-│   ● hidden-comet-2020                  │      64G free of 98G                                                                                                │
-│   ▢ mqttdata 1GB                       │      holds /home/dayne/.local/share/flk                                                                             │
+│ ▾ mqtt-flk  1/1 ●                      │   2% ░░░░░░░░░░ /data/enshrouded                                                                                    │
+│   ● hidden-comet-2020                  │      18G free of 20G                                                                                                │
+│   ▢ mqttdata 1GB                       │      holds /data/enshrouded                                                                                         │
 │   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │  67% ██████░░░░ /data/minecraft                                                                                     │
-│   ● lucky-harbor-5563                  │      32G free of 98G                                                                                                │
-│   ▢ code_workspace 30GB                │      holds /data/minecraft/flk                                                                                      │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
-│   ▢ vsdata 40GB (external)             │      122G free of 147G                                                                                              │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │      holds /data/vintagestory/flk                                                                                   │
+│ ▾ vintagestory-flk  1/1 ●              │  67% ██████░░░░ /data/minecraft                                                                                     │
+│   ● frosty-river-2714                  │      31G free of 98G                                                                                                │
+│   ▢ vsdata 40GB (external)             │      holds /data/minecraft/flk                                                                                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+│ ▸ ncm  stopped                         │   1% ░░░░░░░░░░ /data/valheim                                                                                       │
+│ ▸ opencode-sandbox  stopped            │      18G free of 20G                                                                                                │
+│ ▸ valheim-flk  stopped                 │      holds /data/valheim                                                                                            │
 │                                        │                                                                                                                     │
-│ Host                                   │ $ flk disk --json                                                                                                   │
-│   health ✔                             │ What flk uses  (allocated; sparse files count what's written)                                                       │
-│                                        │ state     8.4G in /home/dayne/.local/share/flk                                                                      │
+│ Host                                   │  13% █░░░░░░░░░ /data/vintagestory                                                                                  │
+│   health ✔                             │      121G free of 147G                                                                                              │
+│                                        │      holds /data/vintagestory/flk                                                                                   │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
+│                                        │ $ flk disk --json                                                                                                   │
+│ ▸ Podman  11 images                    │ What flk uses  (allocated; sparse files count what's written)                                                       │
+│                                        │ state     51G in /home/dayne/.local/share/flk                                                                       │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
-│ ▸ Podman  10 images                    │ minecraft-flk        1.1G     360M        -     728K      21G                                                       │
-│                                        │ mqtt-flk              93M      35M      33M      76K        -                                                       │
-│ ▸ Services  4 running, 1 listening     │ opencode-sandbox     1.9G     1.7G     818M     132K        -                                                       │
-│                                        │ vintagestory-flk     1.8G     659M        -     1.6M     8.2G                                                       │
-│                                        │ all                  4.8G     2.7G     851M     2.5M      29G                                                       │
+│                                        │ enshrouded-flk        19G     9.5G        -     9.1M     216M                                                       │
+│                                        │ minecraft-flk        1.1G     373M        -     4.0M      21G                                                       │
+│                                        │ mqtt-flk             139M      35M      37M     956K        -                                                       │
+│                                        │ ncm                  2.9G     1.4G     420M      48K        -                                                       │
+│                                        │ opencode-sandbox     1.9G     1.7G     818M     300K        -                                                       │
+│                                        │ valheim-flk          6.6G     2.2G        -     316K      78M                                                       │
+│                                        │ vintagestory-flk     2.0G     687M        -      14M     8.8G                                                       │
+│                                        │ all                   34G      16G     1.2G      29M      30G                                                       │
 │                                        │                                                                                                                     │
-│                                        │ backups   199G in /data/flk-backups                                                                                 │
-│                                        │           minecraft-flk    144G                                                                                     │
-│                                        │             world          143G in 7 backups                                                                        │
-│                                        │           mqtt-flk         2.9M                                                                                     │
-│                                        │             mqttdata       2.9M in 3 backups                                                                        │
-│                                        │           opencode-sandbox 0K                                                                                       │
-│                                        │             code_workspace 0K in 0 backups                                                                          │
-│                                        │           vintagestory-flk 55G                                                                                      │
-│                                        │             vsdata         55G in 7 backups                                                                         │
-│                                        │                                                                                                                     │
-│                                        │ images: release rootfs · rootfs: each machine's copy · external: volumes outside the state dir                      │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│                                        │ backups   211G in /data/flk-backups                                                                                 │
+│                                        │ … 16 more (pgdn)                                                                                                    │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

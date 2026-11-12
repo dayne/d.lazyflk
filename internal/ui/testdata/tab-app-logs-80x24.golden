@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk                                   │
-│ ▾ minecraft-flk  1/1 ●     │  Overview  Logs  Events  Ports  Volumes ›       │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk -a minecraft-flk logs -n 200 --no-tail    │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ [20:35:58] [Server thread/INFO]: ProudShark411… │
-│ ▸ opencode-sandbox  1/1 ●  │ [20:47:40] [Server thread/INFO]: LazyLynx0334 … │
-│ ▸ vintagestory-flk  1/1 ●  │ [20:58:42] [Server thread/INFO]: SlyLynx7985 (… │
-│                            │ [21:08:36] [Server thread/INFO]: SillyElk9313 … │
-│ Host                       │ [21:19:48] [Server thread/INFO]: CoolCrow2147 … │
-│   health ✔                 │ [21:31:20] [Server thread/INFO]: SlyBear4387 (… │
-│                            │ [21:34:27] [Server thread/INFO]: FishNet (/176… │
-│ ▸ Storage  fullest 67%     │ [21:42:04] [Server thread/INFO]: FuzzyShark301… │
-│                            │ [21:52:46] [Server thread/INFO]: FuzzyMule8984… │
-│ ▸ Podman  10 images        │ [22:03:34] [Server thread/INFO]: IcyHeron6680 … │
-│                            │ [22:13:06] [Server thread/INFO]: FishNet (/176… │
-│ ▸ Services  4 running, 1 … │ [22:16:26] [Server thread/INFO]: NobleMango013… │
-│                            │ l: follow, search, wrap (full screen)           │
+│ ▸ enshrouded-flk  1/1 ●    │  Overview  Logs  Events  Ports  Volumes ›       │
+│ ▸ minecraft-flk  1/1 ●     │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ $ flk -a minecraft-flk logs -n 200 --no-tail    │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │ [gamebus] {"v":1,"type":"player.join","msg":"C… │
+│ ▸ opencode-sandbox  stopp… │ [08:58:40] [Server thread/WARN]: Can't keep up… │
+│ ▸ valheim-flk  stopped     │ [08:58:57] [Server thread/WARN]: Mismatch in d… │
+│                            │ [09:18:30] [Server thread/INFO]: CicaSlice has… │
+│ Host                       │ [09:20:55] [Server thread/INFO]: CicaSlice los… │
+│   health ✔                 │ [09:20:55] [Server thread/INFO]: CicaSlice lef… │
+│                            │ [gamebus] {"v":1,"type":"player.leave","msg":"… │
+│ ▸ Storage  fullest 67%     │ [09:21:55] [Server thread/INFO]: Server empty … │
+│                            │ [09:24:18] [Server thread/INFO]: /198.46.182.2… │
+│ ▸ Podman  11 images        │ [10:58:54] [Server thread/INFO]: /198.46.182.2… │
+│                            │ [11:38:24] [Server thread/INFO]: storm_fan (/9… │
+│ ▸ Services  4 running      │ l: follow, search, wrap (full screen)           │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
 └──────────────────────────────────────────────────────────────────────────────┘

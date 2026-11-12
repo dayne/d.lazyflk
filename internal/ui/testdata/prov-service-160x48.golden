@@ -1,48 +1,48 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ service ssh.service ─  Overview                                                                                     │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ systemctl show --timestamp=utc -p ... UNIT... · journalctl -u UNIT                                                │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ unit      ssh.service                                                                                               │
-│ ▾ mqtt-flk  1/1 ●                      │ what      OpenBSD Secure Shell server                                                                               │
-│   ● hidden-comet-2020                  │ state     listening: ssh.socket is active and starts it on a connection                                             │
-│   ▢ mqttdata 1GB                       │ enabled   disabled                                                                                                  │
-│   ⇄ 10.47.11.3: tcp/1883               │ since     Thu 2026-10-15 05:37:57 UTC                                                                               │
-│ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │ pinned by default                                                                                                   │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▸ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ systemctl show --timestamp=utc -p ... UNIT... · journalctl -u UNIT                                                │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ unit      ssh.service                                                                                               │
+│ ▸ minecraft-flk  1/1 ●                 │ what      OpenBSD Secure Shell server                                                                               │
+│ ▸ mqtt-flk  1/1 ●                      │ state     active (running)                                                                                          │
+│ ▸ vintagestory-flk  1/1 ●              │ enabled   disabled                                                                                                  │
+│ ▸ ncm  stopped                         │ since     Wed 2026-11-04 15:36:58 UTC                                                                               │
+│ ▸ opencode-sandbox  stopped            │ pid       746503                                                                                                    │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
+│                                        │ pinned by default                                                                                                   │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
-│   / 32%                                │                                                                                                                     │
+│   / 64%                                │                                                                                                                     │
+│   /data/enshrouded 2%                  │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
+│   /data/valheim 1%                     │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Podman                               │                                                                                                                     │
-│   ◇ localhost/mqtt-flk-test:latest 25M │                                                                                                                     │
-│   ◇ 7d2e85beb5a7 (untagged) 25M        │                                                                                                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
-│   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
+│   ◇ cc7cfa49ce1f (untagged) 8.7M       │                                                                                                                     │
+│   ◇ steamcmd/steamcmd:ubuntu-24 319M   │                                                                                                                     │
+│   ◇ fedora:latest 188M                 │                                                                                                                     │
+│   ◇ archlinux:base 392M                │                                                                                                                     │
+│   ◇ eclipse-temurin:25-jre 334M        │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
-│   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
 │   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ eclipse-mosquitto:2.1.2-alpine 25M │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   9 flk images: host Images tab        │                                                                                                                     │
+│   ◇ distroless/static-debian12:nonroo… │                                                                                                                     │
+│   6 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Services                             │                                                                                                                     │
 │   ● flk-net                            │                                                                                                                     │
 │   ● flk-machines                       │                                                                                                                     │
-│   ◌ ssh (listening)                    │                                                                                                                     │
-│   ● snap.mosquitto.mosquitto           │                                                                                                                     │
+│   ● ssh                                │                                                                                                                     │
 │   ● chrony                             │                                                                                                                     │
-│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

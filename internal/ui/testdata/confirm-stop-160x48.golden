@@ -1,34 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk / mellow-aurora-7882 ─  Overview  Logs  Events  Record                                                │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ id        225d58f615e7e6                                                                                            │
-│   ▢ world 40GB (external)              │ name      mellow-aurora-7882                                                                                        │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ state     ● started                                                                                                 │
-│ ▾ mqtt-flk  1/1 ●                      │ release   v9                                                                                                        │
-│   ● hidden-comet-2020                  │ ip        172.30.0.10:25565                                                                                         │
-│   ▢ mqttdata 1GB                       │ size      4 cpus · 11264MB                                                                                          │
-│   ⇄ 10.47.11.3: tcp/1883               │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
-│ ▾ opencode-sandbox  1/1 ●              │ memory    10910MB used of 11264MB                                                                                   │
-│   ● lucky-harbor-5563                  │ up        31h 59m                                                                                                   │
-│   ▢ code_workspace 30GB                │ pid       2273109 (firecracker)                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ restart   on-failure · 1 retry                                                                                      │
-│   ● frosty-river-2714                  │ ports     tcp/25565 → 10.47.11.3:25565                                                                              │
-│   ▢ vsdata 40GB (external)             │           udp/19132 → 10.47.11.3:19132                                                                              │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ names     none: [flk] internal_hosts = true gives minecraft-flk.internal and per-machine names                      │
-│                                        │ volumes   world → /server                                                                                           │
-│ Host                                   │ created   2026-10-12 05:01Z                                                                                         │
-│   health ✔                          ┌ stop ─ minecraft-flk / mellow-aurora-7882 ───────────────────────────────────────┐                                     │
-│                                     │ $ flk -a minecraft-flk machine stop 225d58f615e7e6                               │                                     │
-│ ▸ Storage  fullest 67%              │                                                                                  │                                     │
-│                                     │ 225d58f615e7e6 [mellow-aurora-7882] stops (SIGTERM to the app, killed after its  │                                     │
-│ ▸ Podman  10 images                 │ kill_timeout).                                                                   │                                     │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ id        225d58f615e7e6                                                                                            │
+│   ▢ endata 10GB (external)             │ name      mellow-aurora-7882                                                                                        │
+│   ⇄ 10.47.11.7: udp/15637              │ state     ● started                                                                                                 │
+│ ▾ minecraft-flk  1/1 ●                 │ release   v10                                                                                                       │
+│   ● mellow-aurora-7882                 │ ip        172.30.0.10:25565                                                                                         │
+│   ▢ world 40GB (external)              │ size      4 cpus · 11264MB                                                                                          │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
+│ ▾ mqtt-flk  1/1 ●                      │ memory    10963MB used of 11264MB                                                                                   │
+│   ● hidden-comet-2020                  │ up        6d 8h                                                                                                     │
+│   ▢ mqttdata 1GB                       │ pid       1120230 (firecracker)                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ restart   on-failure · 1 retry                                                                                      │
+│ ▾ vintagestory-flk  1/1 ●              │ ports     tcp/25565 → 10.47.11.3:25565                                                                              │
+│   ● frosty-river-2714                  │           udp/19132 → 10.47.11.3:19132                                                                              │
+│   ▢ vsdata 40GB (external)             │ names     none: [flk] internal_hosts = true gives minecraft-flk.internal and per-machine names                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ volumes   world → /server                                                                                           │
+│ ▸ ncm  stopped                         │ created   2026-10-12 05:01Z                                                                                         │
+│ ▸ opencode-sandbox  stopped         ┌ stop ─ minecraft-flk / mellow-aurora-7882 ───────────────────────────────────────┐                                     │
+│ ▸ valheim-flk  stopped              │ $ flk -a minecraft-flk machine stop 225d58f615e7e6                               │                                     │
 │                                     │                                                                                  │                                     │
-│ ▸ Services  4 running, 1 listening  │ Run it?                                                                          │                                     │
+│ Host                                │ 225d58f615e7e6 [mellow-aurora-7882] stops (SIGTERM to the app, killed after its  │                                     │
+│   health ✔                          │ kill_timeout).                                                                   │                                     │
+│                                     │                                                                                  │                                     │
+│ ▸ Storage  fullest 67%              │ Run it?                                                                          │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│                                     │ y run  n esc cancel                                                              │                                     │
+│ ▸ Podman  11 images                 │ y run  n esc cancel                                                              │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                              │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                 │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

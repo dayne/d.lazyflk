@@ -1,34 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ Host ─  Health  Events  Services  Ports  Disk  Images                                                               │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk ports list --json                                                                                             │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ helper    installed                                                                                                 │
-│ ▾ mqtt-flk  1/1 ●                      │ host      10.47.11.3 · ports from 1024                                                                              │
-│   ● hidden-comet-2020                  │                                                                                                                     │
-│   ▢ mqttdata 1GB                       │ tcp/25565 → 10.47.11.3:25565                                                                                        │
-│   ⇄ 10.47.11.3: tcp/1883               │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
-│ ▾ opencode-sandbox  1/1 ●              │ udp/19132 → 10.47.11.3:19132                                                                                        │
-│   ● lucky-harbor-5563                  │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
-│   ▢ code_workspace 30GB                │ tcp/1883 → 10.47.11.3:1883                                                                                          │
-│ ▾ vintagestory-flk  1/1 ●              │   mqtt-flk / hidden-comet-2020 172.30.0.15:1883                                                                     │
-│   ● frosty-river-2714                  │ tcp/42420 → 10.47.11.3:42420                                                                                        │
-│   ▢ vsdata 40GB (external)             │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ udp/42420 → 10.47.11.3:42420                                                                                        │
-│                                        │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk ports list --json                                                                                             │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ helper    installed                                                                                                 │
+│ ▾ minecraft-flk  1/1 ●                 │ host      10.47.11.3 · ports from 1024                                                                              │
+│   ● mellow-aurora-7882                 │                                                                                                                     │
+│   ▢ world 40GB (external)              │ udp/15637 → 10.47.11.7:15637                                                                                        │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │   enshrouded-flk / polar-river-2416 172.30.0.16:15637                                                               │
+│ ▾ mqtt-flk  1/1 ●                      │ tcp/25565 → 10.47.11.3:25565                                                                                        │
+│   ● hidden-comet-2020                  │   minecraft-flk / mellow-aurora-7882 172.30.0.10:25565                                                              │
+│   ▢ mqttdata 1GB                       │ udp/19132 → 10.47.11.3:19132                                                                                        │
+│   ⇄ 10.47.11.3: tcp/1883               │   minecraft-flk / mellow-aurora-7882 172.30.0.10:19132                                                              │
+│ ▾ vintagestory-flk  1/1 ●              │ tcp/1883 → 10.47.11.3:1883                                                                                          │
+│   ● frosty-river-2714                  │   mqtt-flk / hidden-comet-2020 172.30.0.15:1883                                                                     │
+│   ▢ vsdata 40GB (external)             │ tcp/42420 → 10.47.11.3:42420                                                                                        │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│ ▸ ncm  stopped                         │ udp/42420 → 10.47.11.3:42420                                                                                        │
+│ ▸ opencode-sandbox  stopped            │   vintagestory-flk / frosty-river-2714 172.30.0.11:42420                                                            │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
+│                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  10 images                    │                                                                                                                     │
+│ ▸ Podman  11 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

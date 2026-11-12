@@ -201,7 +201,8 @@ func TestLogsScreen(t *testing.T) {
 	if _, ok := <-stream.Lines; ok {
 		t.Error("closing should stop flk logs -f")
 	}
-	press(m, "j", "j", "l") // a volume opens its app's logs
+	goTo(m, kindVolume)
+	press(m, "l") // a volume opens its app's logs
 	if m.logs == nil || m.logs.app != "minecraft-flk" {
 		t.Error("volume: no logs")
 	}

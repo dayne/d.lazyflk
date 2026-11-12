@@ -1,4 +1,6 @@
 Mounted on         1K-blocks     Used     Avail Use%
-/                  102626232 30473988  66892980  32%
-/data/minecraft    102626232 64263444  33103524  67%
-/data/vintagestory 153707984 17936640 127890640  13%
+/                  154232632 93666624  53188672  64%
+/data/enshrouded    20466256   223040  19178256   2%
+/data/minecraft    102626232 64345656  33021312  67%
+/data/valheim       20466256    81464  19319832   1%
+/data/vintagestory 153707984 18606016 127221264  13%

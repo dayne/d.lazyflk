@@ -1,48 +1,48 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
-│ Apps                                   │ image localhost/mqtt-flk-test:latest ─  Overview                                                                    │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ podman ps -a --external --format json · podman images --format json                                               │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ id        53bb3cb5ef33                                                                                              │
-│ ▾ mqtt-flk  1/1 ●                      │ size      25M                                                                                                       │
-│   ● hidden-comet-2020                  │ created   2026-10-15T05:50:38Z                                                                                      │
-│   ▢ mqttdata 1GB                       │ names     localhost/mqtt-flk-test:latest                                                                            │
-│   ⇄ 10.47.11.3: tcp/1883               │ used      no container uses it                                                                                      │
-│ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │ Not one of flk's (flk.local/*). A Dockerfile's FROM image stays here as                                             │
-│   ▢ code_workspace 30GB                │ the build cache, so later deploys don't download it again.                                                          │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+│ Apps                                   │ image docker.io/steamcmd/steamcmd:ubuntu-24 ─  Overview                                                             │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ podman ps -a --external --format json · podman images --format json                                               │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ id        8c02737ed52e                                                                                              │
+│ ▾ minecraft-flk  1/1 ●                 │ size      319M                                                                                                      │
+│   ● mellow-aurora-7882                 │ created   2026-11-04T12:45:49Z                                                                                      │
+│   ▢ world 40GB (external)              │ names     docker.io/steamcmd/steamcmd:ubuntu-24                                                                     │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ used      no container uses it                                                                                      │
+│ ▸ mqtt-flk  1/1 ●                      │                                                                                                                     │
+│ ▸ vintagestory-flk  1/1 ●              │ Not one of flk's (flk.local/*). A Dockerfile's FROM image stays here as                                             │
+│ ▸ ncm  stopped                         │ the build cache, so later deploys don't download it again.                                                          │
+│ ▸ opencode-sandbox  stopped            │                                                                                                                     │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
-│   / 32%                                │                                                                                                                     │
+│   / 64%                                │                                                                                                                     │
+│   /data/enshrouded 2%                  │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
+│   /data/valheim 1%                     │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Podman                               │                                                                                                                     │
-│   ◇ localhost/mqtt-flk-test:latest 25M │                                                                                                                     │
-│   ◇ 7d2e85beb5a7 (untagged) 25M        │                                                                                                                     │
-│   ◇ 8149e56d2f50 (untagged) 8.7M       │                                                                                                                     │
-│   ◇ itzg/minecraft-server:latest 868M  │                                                                                                                     │
+│   ◇ cc7cfa49ce1f (untagged) 8.7M       │                                                                                                                     │
+│   ◇ steamcmd/steamcmd:ubuntu-24 319M   │                                                                                                                     │
+│   ◇ fedora:latest 188M                 │                                                                                                                     │
+│   ◇ archlinux:base 392M                │                                                                                                                     │
+│   ◇ eclipse-temurin:25-jre 334M        │                                                                                                                     │
 │   ◇ dotnet/runtime:10.0 197M           │                                                                                                                     │
-│   ◇ eclipse-temurin:25-jre 341M        │                                                                                                                     │
 │   ◇ ubuntu:24.04 77M                   │                                                                                                                     │
 │   ◇ ruby:3.3-alpine 69M                │                                                                                                                     │
 │   ◇ eclipse-mosquitto:2.1.2-alpine 25M │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
-│   9 flk images: host Images tab        │                                                                                                                     │
+│   ◇ distroless/static-debian12:nonroo… │                                                                                                                     │
+│   6 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

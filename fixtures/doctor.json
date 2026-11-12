@@ -8,16 +8,6 @@
       "hint": null
     },
     {
-      "label": "firecracker /home/dayne/.local/share/flk/bin/firecracker",
-      "status": "pass",
-      "hint": null
-    },
-    {
-      "label": "guest kernel /home/dayne/.local/share/flk/kernel/vmlinux",
-      "status": "pass",
-      "hint": null
-    },
-    {
       "label": "bridge flkbr0",
       "status": "pass",
       "hint": null
@@ -29,6 +19,16 @@
     },
     {
       "label": "ipv4 forwarding",
+      "status": "pass",
+      "hint": null
+    },
+    {
+      "label": "firecracker /home/dayne/.local/share/flk/bin/firecracker",
+      "status": "pass",
+      "hint": null
+    },
+    {
+      "label": "guest kernel /home/dayne/.local/share/flk/kernel/vmlinux",
       "status": "pass",
       "hint": null
     },
@@ -58,6 +58,11 @@
       "hint": null
     },
     {
+      "label": "3 destroyed apps still have container images",
+      "status": "warn",
+      "hint": "flk apps prune"
+    },
+    {
       "label": "port helper (host ports from 1024)",
       "status": "pass",
       "hint": null
@@ -73,12 +78,27 @@
       "hint": null
     },
     {
-      "label": "backups go to /data/flk-backups: 198.0GB now, about 202.0GB at their keep counts; 174.1GB free; full copies (ext4 has no reflinks)",
+      "label": "machines run under flk-tmux.service (stopped gracefully at shutdown)",
+      "status": "pass",
+      "hint": null
+    },
+    {
+      "label": "backups go to /data/flk-backups: 210.2GB now, about 214.7GB at their keep counts; 161.9GB free; full copies (ext4 has no reflinks)",
+      "status": "pass",
+      "hint": null
+    },
+    {
+      "label": "backups are copied to /data/backup/flk",
       "status": "pass",
       "hint": null
     },
     {
       "label": "10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host",
+      "status": "pass",
+      "hint": null
+    },
+    {
+      "label": "10.47.11.7 ([flk] bind of enshrouded-flk) is on this host",
       "status": "pass",
       "hint": null
     },
@@ -96,7 +116,7 @@
       "active": "active",
       "sub": "exited",
       "result": "success",
-      "since": "2026-10-12T05:44:13Z"
+      "since": "2026-10-26T23:38:01Z"
     },
     {
       "unit": "flk-machines.service",
@@ -105,7 +125,16 @@
       "active": "active",
       "sub": "exited",
       "result": "success",
-      "since": "2026-10-12T05:44:13Z"
+      "since": "2026-10-26T23:38:50Z"
+    },
+    {
+      "unit": "flk-tmux.service",
+      "installed": true,
+      "enabled": true,
+      "active": "active",
+      "sub": "running",
+      "result": "success",
+      "since": "2026-11-05T18:01:11Z"
     }
   ]
 }

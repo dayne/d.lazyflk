@@ -1,37 +1,36 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ Host ─  Health  Events  Services  Ports  Disk  Images                                                               │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk images --json                                                                                                 │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ minecraft-flk                                                                                                       │
-│ ▾ mqtt-flk  1/1 ●                      │   v9     352M  running · current                                                                                    │
-│   ● hidden-comet-2020                  │               built 2026-10-13 08:31Z · cb185335b4e7                                                                │
-│   ▢ mqttdata 1GB                       │   v7     352M  older release                                                                                        │
-│   ⇄ 10.47.11.3: tcp/1883               │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
-│ ▾ opencode-sandbox  1/1 ●              │   v8     352M  same image as v7                                                                                     │
-│   ● lucky-harbor-5563                  │               built 2026-10-12 06:41Z · 7f0a0298ab17                                                                │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ mqtt-flk                                                                                                            │
-│   ● frosty-river-2714                  │   v2      25M  running · current                                                                                    │
-│   ▢ vsdata 40GB (external)             │               built 2026-10-15 05:52Z · 7cac18812639                                                                │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   v1      25M  older release                                                                                        │
-│                                        │               built 2026-10-15 05:52Z · 6c1802d3a5b2                                                                │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk images --json                                                                                                 │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ enshrouded-flk                                                                                                      │
+│ ▾ minecraft-flk  1/1 ●                 │   v6     9.5G  running · current                                                                                    │
+│   ● mellow-aurora-7882                 │               built 2026-11-04 17:42Z · 733b1f045bdf                                                                │
+│   ▢ world 40GB (external)              │   v5     9.5G  older release                                                                                        │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │               built 2026-11-03 17:25Z · 9e743c8ec3b1                                                                │
+│ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
+│   ● hidden-comet-2020                  │ mqtt-flk                                                                                                            │
+│   ▢ mqttdata 1GB                       │   v3      25M  running · current                                                                                    │
+│   ⇄ 10.47.11.3: tcp/1883               │               built 2026-10-27 01:31Z · f78497fc45db                                                                │
+│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
+│   ● frosty-river-2714                  │ flkt-forge-build  app gone                                                                                          │
+│   ▢ vsdata 40GB (external)             │   build    77M                                                                                                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │               built 2026-11-11 00:36Z · 84ca06f2df24                                                                │
+│ ▸ ncm  stopped                         │                                                                                                                     │
+│ ▸ opencode-sandbox  stopped            │ flkt-forge-build2  app gone                                                                                         │
+│ ▸ valheim-flk  stopped                 │   build   8.0M                                                                                                      │
+│                                        │               built 2026-11-11 00:38Z · 305c348fe12c                                                                │
 │ Host                                   │                                                                                                                     │
-│   health ✔                             │ opencode-sandbox                                                                                                    │
-│                                        │   v4     1.1G  running · current                                                                                    │
-│ ▸ Storage  fullest 67%                 │               built 2026-10-14 01:31Z · afefdc27a884                                                                │
-│                                        │   v3     627M  older release                                                                                        │
-│ ▸ Podman  10 images                    │               built 2026-10-14 00:05Z · 51321681ce0f                                                                │
+│   health ✔                             │ hello  app gone                                                                                                     │
+│                                        │   build   7.9M                                                                                                      │
+│ ▸ Storage  fullest 67%                 │               built 2026-11-11 00:36Z · 52ee2425a677                                                                │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │ vintagestory-flk                                                                                                    │
-│                                        │   v4     778M  running · current                                                                                    │
-│                                        │               built 2026-10-13 22:16Z · 39469341aaf5                                                                │
-│                                        │   v3     560M  older release                                                                                        │
-│                                        │               built 2026-10-13 05:19Z · e2e7f90d5314                                                                │
-│                                        │   v2     558M  older release                                                                                        │
-│                                        │               built 2026-10-13 04:47Z · b54f5b0c0cc6                                                                │
+│ ▸ Podman  11 images                    │ 19G in 6 images                                                                                                     │
+│                                        │ 93M belong to apps that are gone: prune them (host menu: P, flk apps prune)                                         │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
-│                                        │ 4.3G in 9 images                                                                                                    │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

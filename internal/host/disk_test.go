@@ -1,8 +1,10 @@
 package host
 
 import (
+	"encoding/json"
 	"io/fs"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/dayne/d.lazyflk/fixtures"
@@ -13,14 +15,31 @@ func TestParseDFFixture(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	paths := []string{"/home/dayne/.local/share/flk", "/data/minecraft/flk", "/data/vintagestory/flk"}
-	disks, err := ParseDF(string(out), paths)
+	// df was run over flk's mount_dirs of that day: the same list, from the same capture
+	var hc struct {
+		MountDirs []string `json:"mount_dirs"`
+	}
+	raw, _ := fs.ReadFile(fixtures.FS, "context-all.json")
+	if err := json.Unmarshal(raw, &hc); err != nil || len(hc.MountDirs) == 0 {
+		t.Fatalf("mount dirs: %v %v", hc.MountDirs, err)
+	}
+	disks, err := ParseDF(string(out), hc.MountDirs)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(disks) != 3 || disks[0].Target != "/" || disks[1].Target != "/data/minecraft" ||
-		disks[1].Percent != 67 || disks[1].SizeKB != 102626232 || !reflect.DeepEqual(disks[1].Paths, paths[1:2]) ||
-		!reflect.DeepEqual(disks[2].Paths, paths[2:]) {
+	seen := 0
+	for _, d := range disks {
+		if d.Target == "" || d.SizeKB == 0 || d.Percent < 0 || d.Percent > 100 || len(d.Paths) == 0 {
+			t.Errorf("disk: %+v", d)
+		}
+		for _, p := range d.Paths { // each dir is on the filesystem df named for it
+			if d.Target != "/" && !strings.HasPrefix(p, d.Target) {
+				t.Errorf("%s isn't under %s", p, d.Target)
+			}
+			seen++
+		}
+	}
+	if disks[0].Target != "/" || !reflect.DeepEqual(disks[0].Paths[:1], hc.MountDirs[:1]) || seen != len(hc.MountDirs) {
 		t.Errorf("%+v", disks)
 	}
 }

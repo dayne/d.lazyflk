@@ -7,14 +7,172 @@
   },
   "mount_dirs": [
     "/home/dayne/.local/share/flk",
+    "/data/enshrouded",
     "/data/minecraft/flk",
+    "/data/valheim",
     "/data/vintagestory/flk"
   ],
   "host": {
-    "lan_ip": "10.47.11.116",
+    "lan_ip": "10.47.11.111",
     "address": "10.47.11.3"
   },
   "apps": [
+    {
+      "name": "enshrouded-flk",
+      "registered": true,
+      "config_warnings": [
+
+      ],
+      "home": "/home/dayne/.local/share/flk/apps/enshrouded-flk",
+      "config_path": "/home/dayne/enshrouded.flk/flk.toml",
+      "release": {
+        "version": 6,
+        "tag": "flk.local/enshrouded-flk:v6",
+        "path": "/home/dayne/.local/share/flk/apps/enshrouded-flk/images/v6.ext4",
+        "source": "Dockerfile",
+        "created_at": "2026-11-04T17:42:56Z",
+        "config": {
+          "cpus": 4,
+          "memory_mb": 6144,
+          "env": {
+            "TZ": "America/Anchorage",
+            "EN_NAME": "mud Enshrouded",
+            "EN_PORT": "15637",
+            "EN_SLOTS": "8",
+            "EN_GROUPS": "Admin Friend",
+            "EN_PERMS_FRIEND": "inventories world base extend",
+            "EN_PRESET": "Default",
+            "EN_SETTINGS": "",
+            "EN_TAGS": "",
+            "EN_VOICE_CHAT": "0",
+            "EN_TEXT_CHAT": "0",
+            "EN_BANNED": "",
+            "RESTART_DELAY": "10",
+            "MAX_RESTARTS": "5",
+            "RESTART_WINDOW": "600",
+            "STOP_TIMEOUT": "90"
+          },
+          "mount_specs": [
+            {
+              "source": "endata",
+              "destination": "/data"
+            }
+          ],
+          "internal_port": 15637,
+          "ports": [
+            {
+              "proto": "udp",
+              "port": 15637,
+              "internal_port": 15637
+            }
+          ],
+          "kill_timeout": 120,
+          "kernel_args": null,
+          "stdin": "null",
+          "restart": {
+            "policy": "on-failure",
+            "retries": 1
+          },
+          "bind": [
+            "10.47.11.7"
+          ],
+          "checks": [
+            {
+              "name": "ready",
+              "type": "log",
+              "grace_period": 300,
+              "match": "Switching state from LoadEcsScene to Run"
+            }
+          ],
+          "huge_pages": null,
+          "internal_hosts": false
+        },
+        "backups": [
+          {
+            "machine": "9c0506c2b04571",
+            "volume": "endata",
+            "volume_id": "vol_592e3379d947fd0a",
+            "file": "endata-20261104T174259Z.ext4"
+          }
+        ]
+      },
+      "releases": 6,
+      "scale": null,
+      "machines": [
+        {
+          "id": "9c0506c2b04571",
+          "name": "polar-river-2416",
+          "state": "started",
+          "desired_state": "started",
+          "pid": 1120107,
+          "restart": {
+            "policy": "on-failure",
+            "retries": 1
+          },
+          "restarts": null,
+          "release": 6,
+          "ip": "172.30.0.16",
+          "cpus": 4,
+          "memory_mb": 6144,
+          "huge_pages": null,
+          "internal_port": 15637,
+          "ports": [
+            {
+              "proto": "udp",
+              "port": 15637,
+              "internal_port": 15637
+            }
+          ],
+          "volumes": [
+            {
+              "volume": "vol_592e3379d947fd0a",
+              "destination": "/data"
+            }
+          ],
+          "internal_names": [
+
+          ],
+          "created_at": "2026-10-23T05:36:20Z",
+          "updated_at": "2026-11-05T18:00:22Z"
+        }
+      ],
+      "volumes": [
+        {
+          "id": "vol_592e3379d947fd0a",
+          "name": "endata",
+          "size_gb": 10,
+          "path": "/data/enshrouded/endata.ext4",
+          "external": true,
+          "attached_machine": "9c0506c2b04571",
+          "created_at": "2026-10-23T05:34:49Z"
+        }
+      ],
+      "secrets": [
+        "EN_PW_ADMIN",
+        "EN_PW_FRIEND"
+      ],
+      "ports": {
+        "active": [
+          {
+            "key": "udp/15637",
+            "bind": "10.47.11.7",
+            "proto": "udp",
+            "port": 15637,
+            "ip": "172.30.0.16",
+            "internal_port": 15637,
+            "app": "enshrouded-flk",
+            "machine": "9c0506c2b04571",
+            "address": "10.47.11.7:15637"
+          }
+        ],
+        "waiting": [
+
+        ],
+        "blocked": [
+
+        ]
+      }
+    },
     {
       "name": "minecraft-flk",
       "registered": true,
@@ -24,11 +182,11 @@
       "home": "/home/dayne/.local/share/flk/apps/minecraft-flk",
       "config_path": "/home/dayne/minecraft.flk/flk.toml",
       "release": {
-        "version": 9,
-        "tag": "flk.local/minecraft-flk:v9",
-        "path": "/home/dayne/.local/share/flk/apps/minecraft-flk/images/v9.ext4",
+        "version": 10,
+        "tag": "flk.local/minecraft-flk:v10",
+        "path": "/home/dayne/.local/share/flk/apps/minecraft-flk/images/v10.ext4",
         "source": "Dockerfile",
-        "created_at": "2026-10-13T08:31:22Z",
+        "created_at": "2026-10-17T20:46:57Z",
         "config": {
           "cpus": 4,
           "memory_mb": 11264,
@@ -39,9 +197,7 @@
             "RESTART_DELAY": "10",
             "MAX_RESTARTS": "5",
             "RESTART_WINDOW": "600",
-            "STOP_TIMEOUT": "100",
-            "DISCORD_NAME": "Minecraft",
-            "DISCORD_PLAYER_EVENTS": "1"
+            "STOP_TIMEOUT": "100"
           },
           "mount_specs": [
             {
@@ -83,10 +239,20 @@
               "grace_period": 300,
               "port": 25565
             }
-          ]
-        }
+          ],
+          "huge_pages": null,
+          "internal_hosts": false
+        },
+        "backups": [
+          {
+            "machine": "225d58f615e7e6",
+            "volume": "world",
+            "volume_id": "vol_28392490d0d4d4c7",
+            "file": "world-20261017T204704Z.ext4"
+          }
+        ]
       },
-      "releases": 9,
+      "releases": 10,
       "scale": null,
       "machines": [
         {
@@ -94,13 +260,13 @@
           "name": "mellow-aurora-7882",
           "state": "started",
           "desired_state": "started",
-          "pid": 2273109,
+          "pid": 1120230,
           "restart": {
             "policy": "on-failure",
             "retries": 1
           },
           "restarts": null,
-          "release": 9,
+          "release": 10,
           "ip": "172.30.0.10",
           "cpus": 4,
           "memory_mb": 11264,
@@ -128,7 +294,7 @@
 
           ],
           "created_at": "2026-10-12T05:01:50Z",
-          "updated_at": "2026-10-13T22:17:36Z"
+          "updated_at": "2026-11-05T18:00:52Z"
         }
       ],
       "volumes": [
@@ -186,11 +352,11 @@
       "home": "/home/dayne/.local/share/flk/apps/mqtt-flk",
       "config_path": "/home/dayne/mqtt.flk/flk.toml",
       "release": {
-        "version": 2,
-        "tag": "flk.local/mqtt-flk:v2",
-        "path": "/home/dayne/.local/share/flk/apps/mqtt-flk/images/v2.ext4",
+        "version": 3,
+        "tag": "flk.local/mqtt-flk:v3",
+        "path": "/home/dayne/.local/share/flk/apps/mqtt-flk/images/v3.ext4",
         "source": "Dockerfile",
-        "created_at": "2026-10-15T05:52:38Z",
+        "created_at": "2026-10-27T01:31:40Z",
         "config": {
           "cpus": 1,
           "memory_mb": 256,
@@ -241,11 +407,11 @@
             "machine": "3b94db4908c652",
             "volume": "mqttdata",
             "volume_id": "vol_c08a914f1ed57c7e",
-            "file": "mqttdata-20261015T055239Z.ext4"
+            "file": "mqttdata-20261027T013141Z.ext4"
           }
         ]
       },
-      "releases": 2,
+      "releases": 3,
       "scale": null,
       "machines": [
         {
@@ -253,13 +419,13 @@
           "name": "hidden-comet-2020",
           "state": "started",
           "desired_state": "started",
-          "pid": 3695028,
+          "pid": 1120315,
           "restart": {
             "policy": "always",
             "retries": 10
           },
           "restarts": null,
-          "release": 2,
+          "release": 3,
           "ip": "172.30.0.15",
           "cpus": 1,
           "memory_mb": 256,
@@ -282,7 +448,7 @@
 
           ],
           "created_at": "2026-10-15T05:52:15Z",
-          "updated_at": "2026-10-15T05:52:52Z"
+          "updated_at": "2026-11-05T18:01:07Z"
         }
       ],
       "volumes": [
@@ -298,7 +464,9 @@
       "secrets": [
         "MQTT_PASSWORD_DAYNE",
         "MQTT_PASSWORD_GAMES",
-        "MQTT_PASSWORD_TELEMETRY"
+        "MQTT_PASSWORD_TELEMETRY",
+        "MQTT_PASSWORD_GAMEBUS",
+        "MQTT_PASSWORD_GAMEVIEW"
       ],
       "ports": {
         "active": [
@@ -313,6 +481,117 @@
             "machine": "3b94db4908c652",
             "address": "10.47.11.3:1883"
           }
+        ],
+        "waiting": [
+
+        ],
+        "blocked": [
+
+        ]
+      }
+    },
+    {
+      "name": "ncm",
+      "registered": true,
+      "config_warnings": [
+
+      ],
+      "home": "/home/dayne/.local/share/flk/apps/ncm",
+      "config_path": "/home/dayne/ncm.flk/flk.toml",
+      "release": {
+        "version": 2,
+        "tag": "flk.local/ncm:v2",
+        "path": "/home/dayne/.local/share/flk/apps/ncm/images/v2.ext4",
+        "source": "Dockerfile",
+        "created_at": "2026-10-19T22:23:26Z",
+        "config": {
+          "cpus": 4,
+          "memory_mb": 8192,
+          "env": {
+            "PYTHONUNBUFFERED": "1"
+          },
+          "mount_specs": [
+            {
+              "source": "ncm",
+              "destination": "/data"
+            }
+          ],
+          "internal_port": null,
+          "ports": [
+
+          ],
+          "kill_timeout": 10,
+          "kernel_args": null,
+          "stdin": "console",
+          "restart": {
+            "policy": "on-failure",
+            "retries": 10
+          },
+          "bind": null,
+          "checks": [
+            {
+              "name": "ready",
+              "type": "log",
+              "grace_period": 60,
+              "match": "ncm ready"
+            }
+          ],
+          "huge_pages": null,
+          "internal_hosts": false
+        }
+      },
+      "releases": 2,
+      "scale": null,
+      "machines": [
+        {
+          "id": "11489866771bbb",
+          "name": "frosty-comet-7023",
+          "state": "stopped",
+          "desired_state": "stopped",
+          "pid": null,
+          "restart": {
+            "policy": "on-failure",
+            "retries": 10
+          },
+          "restarts": null,
+          "release": 2,
+          "ip": "172.30.0.13",
+          "cpus": 4,
+          "memory_mb": 8192,
+          "huge_pages": null,
+          "internal_port": null,
+          "ports": [
+
+          ],
+          "volumes": [
+            {
+              "volume": "vol_24a4f4affa19d4a3",
+              "destination": "/data"
+            }
+          ],
+          "internal_names": [
+
+          ],
+          "created_at": "2026-10-19T22:20:32Z",
+          "updated_at": "2026-10-19T23:12:26Z"
+        }
+      ],
+      "volumes": [
+        {
+          "id": "vol_24a4f4affa19d4a3",
+          "name": "ncm",
+          "size_gb": 40,
+          "path": "/home/dayne/.local/share/flk/apps/ncm/volumes/vol_24a4f4affa19d4a3.ext4",
+          "attached_machine": "11489866771bbb",
+          "created_at": "2026-10-19T22:19:14Z"
+        }
+      ],
+      "secrets": [
+
+      ],
+      "ports": {
+        "active": [
+
         ],
         "waiting": [
 
@@ -371,9 +650,9 @@
         {
           "id": "476376ad8e351e",
           "name": "lucky-harbor-5563",
-          "state": "started",
-          "desired_state": "started",
-          "pid": 2828454,
+          "state": "stopped",
+          "desired_state": "stopped",
+          "pid": null,
           "restart": {
             "policy": "on-failure",
             "retries": 10
@@ -398,7 +677,7 @@
 
           ],
           "created_at": "2026-10-13T23:49:34Z",
-          "updated_at": "2026-10-14T01:31:13Z"
+          "updated_at": "2026-10-20T17:03:27Z"
         }
       ],
       "volumes": [
@@ -427,6 +706,161 @@
       }
     },
     {
+      "name": "valheim-flk",
+      "registered": true,
+      "config_warnings": [
+
+      ],
+      "home": "/home/dayne/.local/share/flk/apps/valheim-flk",
+      "config_path": "/home/dayne/valheim.flk/flk.toml",
+      "release": {
+        "version": 4,
+        "tag": "flk.local/valheim-flk:v4",
+        "path": "/home/dayne/.local/share/flk/apps/valheim-flk/images/v4.ext4",
+        "source": "Dockerfile",
+        "created_at": "2026-10-20T05:24:31Z",
+        "config": {
+          "cpus": 4,
+          "memory_mb": 6144,
+          "env": {
+            "TZ": "America/Anchorage",
+            "VH_NAME": "flk test",
+            "VH_WORLD": "flktest",
+            "VH_PORT": "2456",
+            "VH_PUBLIC": "1",
+            "VH_CROSSPLAY": "0",
+            "VH_SAVEINTERVAL": "1800",
+            "VH_BACKUPS": "2",
+            "VH_PRESET": "",
+            "VH_MODIFIERS": "",
+            "VH_SETKEYS": "",
+            "VH_ADMINS": "",
+            "VH_PERMITTED": "",
+            "VH_BANNED": "",
+            "RESTART_DELAY": "10",
+            "MAX_RESTARTS": "5",
+            "RESTART_WINDOW": "600",
+            "STOP_TIMEOUT": "90"
+          },
+          "mount_specs": [
+            {
+              "source": "vhdata",
+              "destination": "/data"
+            }
+          ],
+          "internal_port": 2456,
+          "ports": [
+            {
+              "proto": "udp",
+              "port": 2456,
+              "internal_port": 2456
+            },
+            {
+              "proto": "udp",
+              "port": 2457,
+              "internal_port": 2457
+            }
+          ],
+          "kill_timeout": 120,
+          "kernel_args": null,
+          "stdin": "null",
+          "restart": {
+            "policy": "on-failure",
+            "retries": 1
+          },
+          "bind": null,
+          "checks": [
+            {
+              "name": "ready",
+              "type": "log",
+              "grace_period": 300,
+              "match": "Game server connected"
+            }
+          ],
+          "huge_pages": null,
+          "internal_hosts": false
+        },
+        "backups": [
+          {
+            "machine": "c99fe500e58ab8",
+            "volume": "vhdata",
+            "volume_id": "vol_05773559ef9c2f4a",
+            "file": "vhdata-20261020T052437Z.ext4"
+          }
+        ]
+      },
+      "releases": 4,
+      "scale": null,
+      "machines": [
+        {
+          "id": "c99fe500e58ab8",
+          "name": "mellow-glacier-2878",
+          "state": "stopped",
+          "desired_state": "stopped",
+          "pid": null,
+          "restart": {
+            "policy": "on-failure",
+            "retries": 1
+          },
+          "restarts": null,
+          "release": 4,
+          "ip": "172.30.0.14",
+          "cpus": 4,
+          "memory_mb": 6144,
+          "huge_pages": null,
+          "internal_port": 2456,
+          "ports": [
+            {
+              "proto": "udp",
+              "port": 2456,
+              "internal_port": 2456
+            },
+            {
+              "proto": "udp",
+              "port": 2457,
+              "internal_port": 2457
+            }
+          ],
+          "volumes": [
+            {
+              "volume": "vol_05773559ef9c2f4a",
+              "destination": "/data"
+            }
+          ],
+          "internal_names": [
+
+          ],
+          "created_at": "2026-10-20T05:11:17Z",
+          "updated_at": "2026-10-23T04:57:24Z"
+        }
+      ],
+      "volumes": [
+        {
+          "id": "vol_05773559ef9c2f4a",
+          "name": "vhdata",
+          "size_gb": 10,
+          "path": "/data/valheim/vhdata.ext4",
+          "external": true,
+          "attached_machine": "c99fe500e58ab8",
+          "created_at": "2026-10-20T05:11:03Z"
+        }
+      ],
+      "secrets": [
+        "VH_PASSWORD"
+      ],
+      "ports": {
+        "active": [
+
+        ],
+        "waiting": [
+
+        ],
+        "blocked": [
+
+        ]
+      }
+    },
+    {
       "name": "vintagestory-flk",
       "registered": true,
       "config_warnings": [
@@ -435,11 +869,11 @@
       "home": "/home/dayne/.local/share/flk/apps/vintagestory-flk",
       "config_path": "/home/dayne/vintagestory.flk/flk.toml",
       "release": {
-        "version": 4,
-        "tag": "flk.local/vintagestory-flk:v4",
-        "path": "/home/dayne/.local/share/flk/apps/vintagestory-flk/images/v4.ext4",
+        "version": 10,
+        "tag": "flk.local/vintagestory-flk:v10",
+        "path": "/home/dayne/.local/share/flk/apps/vintagestory-flk/images/v10.ext4",
         "source": "Dockerfile",
-        "created_at": "2026-10-13T22:27:06Z",
+        "created_at": "2026-10-18T03:36:06Z",
         "config": {
           "cpus": 4,
           "memory_mb": 6144,
@@ -450,8 +884,7 @@
             "MAX_RESTARTS": "5",
             "RESTART_WINDOW": "600",
             "STOP_TIMEOUT": "100",
-            "DISCORD_NAME": "Vintage Story",
-            "DISCORD_PLAYER_EVENTS": "1"
+            "STORM_POLL": "120"
           },
           "mount_specs": [
             {
@@ -494,18 +927,19 @@
               "port": 42420
             }
           ],
-          "huge_pages": null
+          "huge_pages": null,
+          "internal_hosts": false
         },
         "backups": [
           {
             "machine": "f8f979ffff11cf",
             "volume": "vsdata",
             "volume_id": "vol_5a6b2f6636b00a10",
-            "file": "vsdata-20261013T222719Z.ext4"
+            "file": "vsdata-20261018T033609Z.ext4"
           }
         ]
       },
-      "releases": 4,
+      "releases": 10,
       "scale": null,
       "machines": [
         {
@@ -513,13 +947,13 @@
           "name": "frosty-river-2714",
           "state": "started",
           "desired_state": "started",
-          "pid": 3025789,
+          "pid": 1892817,
           "restart": {
             "policy": "on-failure",
             "retries": 1
           },
           "restarts": null,
-          "release": 4,
+          "release": 10,
           "ip": "172.30.0.11",
           "cpus": 4,
           "memory_mb": 6144,
@@ -547,7 +981,7 @@
 
           ],
           "created_at": "2026-10-13T04:32:06Z",
-          "updated_at": "2026-10-14T09:30:16Z"
+          "updated_at": "2026-11-11T10:30:21Z"
         }
       ],
       "volumes": [
@@ -599,6 +1033,8 @@
     }
   ],
   "next_steps": [
-
+    "ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb",
+    "opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e",
+    "valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8"
   ]
 }

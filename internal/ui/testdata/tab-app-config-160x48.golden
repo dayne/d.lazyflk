@@ -1,37 +1,35 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk -a minecraft-flk config show --json                                                                           │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ E edits flk.toml in your editor; d deploys it                                                                       │
 │ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk config show --json                                                                           │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ E edits flk.toml in your editor; d deploys it                                                                       │
+│   ● mellow-aurora-7882                 │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
+│   ▢ world 40GB (external)              │           port: tcp :25565 within 300s                                                                              │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ internal  off: [flk] internal_hosts = true for APP.internal names                                                   │
 │ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
-│   ● hidden-comet-2020                  │ checks    ready: log line "Started Geyser on UDP port 19132" within 300s                                            │
-│   ▢ mqttdata 1GB                       │           port: tcp :25565 within 300s                                                                              │
-│   ⇄ 10.47.11.3: tcp/1883               │ internal  off: [flk] internal_hosts = true for APP.internal names                                                   │
-│ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │ {                                                                                                                   │
-│   ▢ code_workspace 30GB                │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │   "parsed": {                                                                                                       │
-│   ● frosty-river-2714                  │     "app": "minecraft-flk",                                                                                         │
-│   ▢ vsdata 40GB (external)             │     "kill_timeout": 120,                                                                                            │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "build": {                                                                                                      │
-│                                        │       "dockerfile": "Dockerfile"                                                                                    │
-│ Host                                   │     },                                                                                                              │
-│   health ✔                             │     "env": {                                                                                                        │
-│                                        │       "TZ": "America/Anchorage",                                                                                    │
-│ ▸ Storage  fullest 67%                 │       "MC_HEAP": "8G",                                                                                              │
-│                                        │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│ ▸ Podman  10 images                    │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│   ● hidden-comet-2020                  │ {                                                                                                                   │
+│   ▢ mqttdata 1GB                       │   "file": "/home/dayne/minecraft.flk/flk.toml",                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │   "parsed": {                                                                                                       │
+│ ▾ vintagestory-flk  1/1 ●              │     "app": "minecraft-flk",                                                                                         │
+│   ● frosty-river-2714                  │     "kill_timeout": 120,                                                                                            │
+│   ▢ vsdata 40GB (external)             │     "build": {                                                                                                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │       "dockerfile": "Dockerfile"                                                                                    │
+│ ▸ ncm  stopped                         │     },                                                                                                              │
+│ ▸ opencode-sandbox  stopped            │     "env": {                                                                                                        │
+│ ▸ valheim-flk  stopped                 │       "TZ": "America/Anchorage",                                                                                    │
+│                                        │       "MC_HEAP": "8G",                                                                                              │
+│ Host                                   │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│   health ✔                             │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
 │                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│ ▸ Services  4 running, 1 listening     │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│ ▸ Storage  fullest 67%                 │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
 │                                        │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
-│                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
+│ ▸ Podman  11 images                    │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
 │                                        │       "RESTART_DELAY": "10",                                                                                        │
-│                                        │       "MAX_RESTARTS": "5",                                                                                          │
+│ ▸ Services  4 running                  │       "MAX_RESTARTS": "5",                                                                                          │
 │                                        │       "RESTART_WINDOW": "600",                                                                                      │
-│                                        │       "STOP_TIMEOUT": "100",                                                                                        │
-│                                        │       "DISCORD_NAME": "Minecraft",                                                                                  │
-│                                        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
+│                                        │       "STOP_TIMEOUT": "100"                                                                                         │
 │                                        │     },                                                                                                              │
 │                                        │     "restart": [                                                                                                    │
 │                                        │       {                                                                                                             │
@@ -40,9 +38,11 @@
 │                                        │       }                                                                                                             │
 │                                        │     ],                                                                                                              │
 │                                        │     "flk": {                                                                                                        │
-│                                        │ … 134 more (pgdn)                                                                                                   │
+│                                        │       "backup": {                                                                                                   │
+│                                        │ … 132 more (pgdn)                                                                                                   │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

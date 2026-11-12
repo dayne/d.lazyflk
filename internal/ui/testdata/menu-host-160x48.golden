@@ -1,48 +1,48 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ Host ─  Health  Events  Services  Ports  Disk  Images                                                               │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ flk       0.1.0                                                                                                     │
-│ ▾ mqtt-flk  1/1 ●                      │ state     /home/dayne/.local/share/flk                                                                              │
-│   ● hidden-comet-2020                  │ source    /home/dayne/flk                                                                                           │
-│   ▢ mqttdata 1GB                       │ LAN IP    10.47.11.116                                                                                              │
-│   ⇄ 10.47.11.3: tcp/1883               │ address   10.47.11.3 (advertised; host.toml address)                                                                │
-│ ▾ opencode-sandbox  1/1 ●              │ boot      installed                                                                                                 │
-│   ● lucky-harbor-5563                  │ health    ✔ ready                                                                                                   │
-│   ▢ code_workspace 30GB                │ data dirs /home/dayne/.local/share/flk                                                                              │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk doctor --json                                                                                                 │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ flk       0.1.0                                                                                                     │
+│ ▾ minecraft-flk  1/1 ●                 │ state     /home/dayne/.local/share/flk                                                                              │
+│   ● mellow-aurora-7882                 │ source    /home/dayne/flk                                                                                           │
+│   ▢ world 40GB (external)              │ LAN IP    10.47.11.111                                                                                              │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ address   10.47.11.3 (advertised; host.toml address)                                                                │
+│ ▾ mqtt-flk  1/1 ●                      │ boot      installed                                                                                                 │
+│   ● hidden-comet-2020                  │ health    ✔ ready                                                                                                   │
+│   ▢ mqttdata 1GB                       │ data dirs /home/dayne/.local/share/flk                                                                              │
+│   ⇄ 10.47.11.3: tcp/1883               │           /data/enshrouded                                                                                          │
 │ ▾ vintagestory-flk  1/1 ●              │           /data/minecraft/flk                                                                                       │
-│   ● frosty-river-2714                  │           /data/vintagestory/flk                                                                                    │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
-│                                     │ u  resume all     nothing to resume                                              │                                     │
-│ Host                                │ S  stop all       stop every running machine, remembering to resume them         │                                     │
-│   health ✔                          │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
-│                                     │ P  prune images   remove container images of apps that no longer exist           │                                     │
-│ ▸ Storage  fullest 67%              │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
-│                                     │ h  health         flk doctor: every host check                                   │                                     │
-│ ▸ Podman  10 images                 │ F  free space     remove images flk doesn't keep: past keep_releases, of destro… │                                     │
+│   ● frosty-river-2714                  │           /data/valheim                                                                                             │
+│   ▢ vsdata 40GB (external)          ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ u  resume all     nothing to resume                                              │                                     │
+│ ▸ ncm  stopped                      │ S  stop all       stop every running machine, remembering to resume them         │                                     │
+│ ▸ opencode-sandbox  stopped         │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
+│ ▸ valheim-flk  stopped              │ P  prune images   remove container images of apps that no longer exist           │                                     │
+│                                     │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
+│ Host                                │ h  health         flk doctor: every host check                                   │                                     │
+│   health ✔                          │ F  free space     remove images flk doesn't keep: past keep_releases, of destro… │                                     │
 │                                     │ c  settings       host.toml: backup dir and how many to keep, address, copies (… │                                     │
-│ ▸ Services  4 running, 1 listening  │                                                                                  │                                     │
+│ ▸ Storage  fullest 67%              │                                                                                  │                                     │
 │                                     │ start every machine that should be running                                       │                                     │
-│                                     │ not now: nothing to resume                                                       │                                     │
+│ ▸ Podman  11 images                 │ not now: nothing to resume                                                       │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
-│                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
-│                                     └──────────────────────────────────────────────────────────────────────────────────┘nts; 174.1GB free; full copies (ext4 │
+│ ▸ Services  4 running               │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
+│                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
+│                                        │ ✔ port helper (host ports from 1024)                                                                                │
+│                                        │ ✔ boot service (machines come back after a reboot)                                                                  │
+│                                        │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
+│                                        │ ✔ machines run under flk-tmux.service (stopped gracefully at shutdown)                                              │
+│                                        │ ✔ backups go to /data/flk-backups: 210.2GB now, about 214.7GB at their keep counts; 161.9GB free; full copies (ext4 │
 │                                        │   has no reflinks)                                                                                                  │
+│                                        │ ✔ backups are copied to /data/backup/flk                                                                            │
 │                                        │ ✔ 10.47.11.3 (address in /home/dayne/.config/flk/host.toml) is on this host                                         │
+│                                        │ ✔ 10.47.11.7 ([flk] bind of enshrouded-flk) is on this host                                                         │
 │                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
 │                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                           │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                              │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

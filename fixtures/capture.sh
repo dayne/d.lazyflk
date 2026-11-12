@@ -1,7 +1,8 @@
 #!/bin/sh
 # Recapture fixtures/ from this host: every command here only reads. Run
-# it on a quiet host (no flkt-* test apps, nothing in next_steps), then
-# review the diff and the goldens (go test ./internal/ui -update).
+# it with no flkt-* test apps on the host, then review the diff and the
+# snapshots (make snapshots). The tests go by minecraft-flk's name, not by
+# which other apps there are, their order or what's stopped.
 # backups-sample.json and lsblk-snapshot.json aren't recaptured: they came
 # from a test app and a snapshot that's gone.
 set -eu

@@ -1,34 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ Host ─  Health  Events  Services  Ports  Disk  Images                                                               │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk doctor --json                                                                                                 │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk doctor --json                                                                                                 │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ ✔ flk-net.service  active (exited)                                                                                  │
+│ ▾ minecraft-flk  1/1 ●                 │   enabled · since 2026-10-26 23:38Z                                                                                 │
+│   ● mellow-aurora-7882                 │   at boot: the bridge, NAT and port forwarding                                                                      │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ ✔ flk-net.service  active (exited)                                                                                  │
-│ ▾ mqtt-flk  1/1 ●                      │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│   ● hidden-comet-2020                  │   at boot: the bridge, NAT and port forwarding                                                                      │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ ✔ flk-machines.service  active (exited)                                                                             │
+│ ▾ mqtt-flk  1/1 ●                      │   enabled · since 2026-10-26 23:38Z                                                                                 │
+│   ● hidden-comet-2020                  │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
 │   ▢ mqttdata 1GB                       │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/1883               │ ✔ flk-machines.service  active (exited)                                                                             │
-│ ▾ opencode-sandbox  1/1 ●              │   enabled · since 2026-10-12 05:44Z                                                                                 │
-│   ● lucky-harbor-5563                  │   at boot: flk resume; at shutdown: stops machines gracefully                                                       │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ oneshot units: healthy is active (exited)                                                                           │
+│   ⇄ 10.47.11.3: tcp/1883               │ ✔ flk-tmux.service  active (running)                                                                                │
+│ ▾ vintagestory-flk  1/1 ●              │   enabled · since 2026-11-05 18:01Z                                                                                 │
 │   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ▢ vsdata 40GB (external)             │ oneshot units: healthy is active (exited)                                                                           │
 │   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+│ ▸ ncm  stopped                         │                                                                                                                     │
+│ ▸ opencode-sandbox  stopped            │                                                                                                                     │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  10 images                    │                                                                                                                     │
+│ ▸ Podman  11 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

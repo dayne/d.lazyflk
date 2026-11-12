@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ Host                                            │
-│ ▾ minecraft-flk  1/1 ●     │  Health  Events  Services  Ports  Disk  Images  │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk ports list --json                         │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ helper    installed                             │
-│ ▸ opencode-sandbox  1/1 ●  │ host      10.47.11.3 · ports from 1024          │
+│ ▸ enshrouded-flk  1/1 ●    │  Health  Events  Services  Ports  Disk  Images  │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ $ flk ports list --json                         │
+│   ▢ world 40GB (external)  │                                                 │
+│   ⇄ tcp/25565 udp/19132    │ helper    installed                             │
+│ ▸ mqtt-flk  1/1 ●          │ host      10.47.11.3 · ports from 1024          │
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │ udp/15637 → 10.47.11.7:15637                    │
+│ ▸ opencode-sandbox  stopp… │   enshrouded-flk / polar-river-2416             │
+│ ▸ valheim-flk  stopped     │     172.30.0.16:15637                           │
 │                            │ tcp/25565 → 10.47.11.3:25565                    │
 │ Host                       │   minecraft-flk / mellow-aurora-7882            │
 │   health ✔                 │     172.30.0.10:25565                           │
 │                            │ udp/19132 → 10.47.11.3:19132                    │
 │ ▸ Storage  fullest 67%     │   minecraft-flk / mellow-aurora-7882            │
-│                            │     172.30.0.10:19132                           │
-│ ▸ Podman  10 images        │ tcp/1883 → 10.47.11.3:1883                      │
-│                            │   mqtt-flk / hidden-comet-2020 172.30.0.15:1883 │
-│ ▸ Services  4 running, 1 … │ tcp/42420 → 10.47.11.3:42420                    │
-│                            │ … 5 more (pgdn)                                 │
+│                            │ … 9 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -1,48 +1,48 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk / volume world ─  Overview  Backups                                                                   │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk volumes backups --json                                                                       │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ world-20261014T100001Z.ext4                                                                                         │
-│ ▾ mqtt-flk  1/1 ●                      │   2026-10-14 10:00Z · 21G used · checked clean (journal replayed)                                                   │
-│   ● hidden-comet-2020                  │   mode live · release v9 · took 25s                                                                                 │
-│   ▢ mqttdata 1GB                       │   verified clean 2026-10-14 10:00Z                                                                                  │
-│   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
-│ ▾ opencode-sandbox  1/1 ●              │ world-20261013T221456Z.ext4                                                                                         │
-│   ● lucky-harbor-5563                  │   2026-10-13 22:15Z · 20G used · checked clean (journal replayed)                                                   │
-│   ▢ code_workspace 30GB                │   mode live · release v9 · took 27s                                                                                 │
-│ ▾ vintagestory-flk  1/1 ●              │   verified clean 2026-10-13 22:15Z                                                                                  │
-│   ● frosty-river-2714                  │                                                                                                                     │
-│   ▢ vsdata 40GB (external)             │ world-20261013T220808Z.ext4                                                                                         │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   2026-10-13 22:08Z · 20G used · checked clean (journal replayed)                                                   │
-│                                        │   mode live · release v9 · took 26s                                                                                 │
-│ Host                                   │   verified clean 2026-10-13 22:08Z                                                                                  │
-│   health ✔                             │                                                                                                                     │
-│                                        │ world-20261013T111353Z.ext4                                                                                         │
-│ ▸ Storage  fullest 67%                 │   2026-10-13 11:14Z · 20G used · checked clean (journal replayed)                                                   │
-│                                        │   mode live · release v9 · took 24s                                                                                 │
-│ ▸ Podman  10 images                    │   verified clean 2026-10-13 22:07Z                                                                                  │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk -a minecraft-flk volumes backups --json                                                                       │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ world-20261111T110001Z.ext4                                                                                         │
+│ ▾ minecraft-flk  1/1 ●                 │   2026-11-11 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│   ● mellow-aurora-7882                 │   mode live · release v10 · took 26s                                                                                │
+│   ▢ world 40GB (external)              │   verified clean 2026-11-11 11:00Z                                                                                  │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │   copied to /data/backup/flk 2026-11-11 11:12Z                                                                      │
+│ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
+│   ● hidden-comet-2020                  │ world-20261110T110001Z.ext4                                                                                         │
+│   ▢ mqttdata 1GB                       │   2026-11-10 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│   ⇄ 10.47.11.3: tcp/1883               │   mode live · release v10 · took 26s                                                                                │
+│ ▾ vintagestory-flk  1/1 ●              │   verified clean 2026-11-10 11:00Z                                                                                  │
+│   ● frosty-river-2714                  │   copied to /data/backup/flk 2026-11-10 11:12Z                                                                      │
+│   ▢ vsdata 40GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ world-20261109T110001Z.ext4                                                                                         │
+│ ▸ ncm  stopped                         │   2026-11-09 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│ ▸ opencode-sandbox  stopped            │   mode live · release v10 · took 26s                                                                                │
+│ ▸ valheim-flk  stopped                 │   verified clean 2026-11-09 11:00Z                                                                                  │
+│                                        │   copied to /data/backup/flk 2026-11-09 11:12Z                                                                      │
+│ Host                                   │                                                                                                                     │
+│   health ✔                             │ world-20261108T110001Z.ext4                                                                                         │
+│                                        │   2026-11-08 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│ ▸ Storage  fullest 67%                 │   mode live · release v10 · took 26s                                                                                │
+│                                        │   verified clean 2026-11-08 11:12Z                                                                                  │
+│ ▸ Podman  11 images                    │   no copy at /data/backup/flk any more: pruned there 2026-11-11 11:12Z                                              │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │ world-20261013T100001Z.ext4                                                                                         │
-│                                        │   2026-10-13 10:00Z · 20G used · checked clean (journal replayed)                                                   │
-│                                        │   mode live · release v9 · took 20s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:07Z                                                                                  │
+│ ▸ Services  4 running                  │ world-20261107T110001Z.ext4                                                                                         │
+│                                        │   2026-11-07 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│                                        │   mode live · release v10 · took 26s                                                                                │
+│                                        │   verified clean 2026-11-08 11:12Z                                                                                  │
+│                                        │   no copy at /data/backup/flk any more: pruned there 2026-11-11 11:12Z                                              │
 │                                        │                                                                                                                     │
-│                                        │ world-20261013T082359Z.ext4                                                                                         │
-│                                        │   2026-10-13 08:24Z · 20G used · checked clean (journal replayed)                                                   │
-│                                        │   mode live · release v8 · took 49s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:07Z                                                                                  │
+│                                        │ world-20261106T110001Z.ext4                                                                                         │
+│                                        │   2026-11-06 11:00Z · 21G used · checked clean (journal replayed)                                                   │
+│                                        │   mode live · release v10 · took 26s                                                                                │
+│                                        │   verified clean 2026-11-08 11:12Z                                                                                  │
+│                                        │   no copy at /data/backup/flk any more: pruned there 2026-11-11 11:12Z                                              │
 │                                        │                                                                                                                     │
-│                                        │ world-20261013T062733Z.ext4                                                                                         │
-│                                        │   2026-10-13 06:28Z · 20G used · checked clean (journal replayed)                                                   │
-│                                        │   mode live · release v8 · took 49s                                                                                 │
-│                                        │   verified clean 2026-10-13 22:07Z                                                                                  │
-│                                        │                                                                                                                     │
-│                                        │ enter: verify, copy, restore (machine stopped), or restore as a new volume (nothing stops)                          │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│                                        │ … 7 more (pgdn)                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

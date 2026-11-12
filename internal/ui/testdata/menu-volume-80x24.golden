@@ -16,9 +16,9 @@
 │ │                                                                          │ │
 │ │ look inside it, or a backup of it: list, read, copy out (flk files)      │ │
 │ │ opens in lazyflk                                                         │ │
-│ ├──────────────────────────────────────────────────────────────────────────┤ │
-├ │ ↑↓ enter choose (or press its key)  esc close                            │─┤
+├ ├──────────────────────────────────────────────────────────────────────────┤─┤
+│ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  ←→ fold │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help     │
 └──────────────────────────────────────────────────────────────────────────────┘

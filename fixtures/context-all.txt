@@ -3,28 +3,44 @@
 flk 0.1.0  state: /home/dayne/.local/share/flk  source: /home/dayne/flk
 host: ready, address 10.47.11.3, boot service installed
 
-## minecraft-flk  (v9, 1/1 started)
+## enshrouded-flk  (v6, 1/1 started)
+  9c0506c2b04571 [polar-river-2416] started 172.30.0.16:15637
+  port 10.47.11.7:udp/15637 -> 10.47.11.7:15637
+  volumes: endata 10GB (external)
+
+## minecraft-flk  (v10, 1/1 started)
   225d58f615e7e6 [mellow-aurora-7882] started 172.30.0.10:25565
   port 10.47.11.3:tcp/25565 -> 10.47.11.3:25565
   port 10.47.11.3:udp/19132 -> 10.47.11.3:19132
   volumes: world 40GB
 
-## mqtt-flk  (v2, 1/1 started)
+## mqtt-flk  (v3, 1/1 started)
   3b94db4908c652 [hidden-comet-2020] started 172.30.0.15:1883
   port 10.47.11.3:tcp/1883 -> 10.47.11.3:1883
   volumes: mqttdata 1GB
 
-## opencode-sandbox  (v4, 1/1 started)
-  476376ad8e351e [lucky-harbor-5563] started 172.30.0.12
+## ncm  (v2, 0/1 started)
+  11489866771bbb [frosty-comet-7023] stopped 172.30.0.13
+  volumes: ncm 40GB
+
+## opencode-sandbox  (v4, 0/1 started)
+  476376ad8e351e [lucky-harbor-5563] stopped 172.30.0.12
   volumes: code_workspace 30GB
 
-## vintagestory-flk  (v4, 1/1 started)
+## valheim-flk  (v4, 0/1 started)
+  c99fe500e58ab8 [mellow-glacier-2878] stopped 172.30.0.14:2456
+  volumes: vhdata 10GB (external)
+
+## vintagestory-flk  (v10, 1/1 started)
   f8f979ffff11cf [frosty-river-2714] started 172.30.0.11:42420
   port 10.47.11.3:tcp/42420 -> 10.47.11.3:42420
   port 10.47.11.3:udp/42420 -> 10.47.11.3:42420
   volumes: vsdata 40GB (external)
 
 ## Needs attention
-- nothing
+- optional: 3 destroyed apps still have container images -> flk apps prune
+- ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb
+- opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e
+- valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8
 
 Details for one app: flk context -a APP.  Commands by task: flk help cheatsheet

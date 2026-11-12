@@ -24,6 +24,21 @@ func hostContext(t *testing.T) flk.HostContext {
 	return hc
 }
 
+// testApp is the app these tests act on, by name: the fixtures hold every
+// app of the reference host, in whatever order it had that day.
+const testApp = "minecraft-flk"
+
+func mc(t *testing.T, hc flk.HostContext) flk.App {
+	t.Helper()
+	for _, a := range hc.Apps {
+		if a.Name == testApp {
+			return a
+		}
+	}
+	t.Fatalf("no %s in the fixtures", testApp)
+	return flk.App{}
+}
+
 func find(t *testing.T, acts []Action, label string) Action {
 	t.Helper()
 	for _, a := range acts {
@@ -36,7 +51,7 @@ func find(t *testing.T, acts []Action, label string) Action {
 }
 
 func TestMachineActions(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	m := a.Machines[0] // running
 	acts := For(Target{Kind: Machine, App: a, Machine: m})
 	if d := find(t, acts, "start").Disabled; d != "already running" {
@@ -60,7 +75,7 @@ func TestMachineActions(t *testing.T) {
 }
 
 func TestAppActions(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	acts := For(Target{Kind: App, App: a, StateDir: "/home/u/.local/share/flk"})
 	keys := map[string]bool{}
 	for _, x := range acts {
@@ -118,7 +133,7 @@ func TestAppActions(t *testing.T) {
 
 // Roll back offers kept, healthy, older releases, and passes --no-rollback.
 func TestRollback(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	var rels []flk.Release
 	b, _ := fixtures.FS.ReadFile("releases-minecraft-flk.json")
 	json.Unmarshal(b, &rels)
@@ -172,7 +187,7 @@ func TestRollback(t *testing.T) {
 // Verify and restore as new work while the machine runs (flk 4ff9e9b).
 func TestVerifyAndRestoreAs(t *testing.T) {
 	hc := hostContext(t)
-	a := hc.Apps[0]
+	a := mc(t, hc)
 	v := a.Volumes[0] // attached to the running machine
 	b := []flk.Backup{{File: v.Name + "-20261013T111353Z.ext4", Volume: v.Name, VolumeID: v.ID}, {File: v.Name + "-20261013T100001Z.ext4", Volume: v.Name, VolumeID: v.ID}}
 	acts := For(Target{Kind: Volume, App: a, Volume: v, Backups: b, StateDir: hc.Flk.StateDir})
@@ -216,7 +231,7 @@ func TestVerifyAndRestoreAs(t *testing.T) {
 // Backups of destroyed apps: kept unless asked (flk 1bdb910).
 func TestDestroyBackups(t *testing.T) {
 	hc := hostContext(t)
-	d := find(t, For(Target{Kind: App, App: hc.Apps[0]}), "destroy app")
+	d := find(t, For(Target{Kind: App, App: mc(t, hc)}), "destroy app")
 	if c := d.Command(nil); strings.Join(c.Args, " ") != "apps destroy minecraft-flk --yes" || !strings.Contains(c.Warn, "backups are kept") {
 		t.Errorf("%v %s", c.Args, c.Warn)
 	}
@@ -232,7 +247,7 @@ func TestDestroyBackups(t *testing.T) {
 // Roll back with volumes needs a before-deploy backup of every attached
 // volume from the target release (flk 3f618a4).
 func TestRollbackWithVolumes(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	v := a.Volumes[0]
 	cur := a.Release.Version
 	rels := []flk.Release{{Version: cur - 1, Image: true}, {Version: cur, Image: true, Current: true}}
@@ -266,7 +281,7 @@ func TestRollbackWithVolumes(t *testing.T) {
 // Move needs the machine stopped, and a dir or a file (flk 63db57f).
 func TestVolumeMove(t *testing.T) {
 	hc := hostContext(t)
-	a := hc.Apps[0]
+	a := mc(t, hc)
 	v := a.Volumes[0]
 	if find(t, For(Target{Kind: Volume, App: a, Volume: v, StateDir: hc.Flk.StateDir}), "move").Disabled == "" {
 		t.Error("its machine is running")
@@ -286,7 +301,7 @@ func TestVolumeMove(t *testing.T) {
 }
 
 func TestVolumeActions(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	v := a.Volumes[0] // external, attached to the running machine
 	acts := For(Target{Kind: Volume, App: a, Volume: v, StateDir: "/home/u/.local/share/flk"})
 	if b := find(t, acts, "back up").Command(nil).Line(); b != "flk -a minecraft-flk volumes backup world" {
@@ -339,7 +354,7 @@ func TestHostActions(t *testing.T) {
 
 func TestFix(t *testing.T) {
 	hc := hostContext(t)
-	id := hc.Apps[0].Machines[0].ID
+	id := mc(t, hc).Machines[0].ID
 	for _, c := range []struct{ step, label, line string }{
 		{"minecraft-flk: machine " + id + " [mellow] should be running but isn't (it exited, or the host restarted); " +
 			"see why: flk logs -i " + id + " --no-tail; bring it back: flk resume",
@@ -381,7 +396,7 @@ func TestFix(t *testing.T) {
 // flk 821f84b: a machine left on a failed release; roll back is the fix.
 func TestFixFailedRelease(t *testing.T) {
 	apps := hostContext(t).Apps
-	step := apps[0].Name + ": machine 225d58f615e7e6 [mellow-aurora-7882] is on v10, which failed its health checks (left by --no-rollback): " +
+	step := testApp + ": machine 225d58f615e7e6 [mellow-aurora-7882] is on v10, which failed its health checks (left by --no-rollback): " +
 		"see flk logs -i 225d58f615e7e6 --no-tail; then flk releases rollback, or fix and flk deploy"
 	f, ok := Fix(step, apps)
 	if !ok || f.Label != "fix: flk -a minecraft-flk releases rollback" || f.Confirm != Ask || !f.Long {
@@ -390,7 +405,7 @@ func TestFixFailedRelease(t *testing.T) {
 	if f, ok := Fix(strings.Replace(step, "flk releases rollback,", "flk releases rollback v2,", 1), apps); !ok || f.Label != "fix: flk -a minecraft-flk releases rollback v2" {
 		t.Errorf("with a version: %+v", f)
 	}
-	if _, ok := Fix(apps[0].Name+": optional: flk.toml: unknown key kill_timout (did you mean kill_timeout?); flk ignores it", apps); ok {
+	if _, ok := Fix(testApp+": optional: flk.toml: unknown key kill_timout (did you mean kill_timeout?); flk ignores it", apps); ok {
 		t.Error("a config warning has no command to run")
 	}
 }
@@ -466,7 +481,7 @@ func TestPalette(t *testing.T) {
 // flk exec and the shell (flk 25b23ad): run one command, or hand over a
 // shell; both need the machine running.
 func TestExecActions(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	m := a.Machines[0]
 	acts := For(Target{Kind: Machine, App: a, Machine: m})
 	run := find(t, acts, "run a command")
@@ -536,7 +551,7 @@ func TestPaletteExec(t *testing.T) {
 // volumes create --owner (flk a6c6975) is offered only by a flk that lists
 // it; an older flk gets the form without it.
 func TestVolumeCreateOwner(t *testing.T) {
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	var help flk.Help
 	b, _ := fixtures.FS.ReadFile("help-all.json")
 	if err := json.Unmarshal(b, &help); err != nil {
@@ -561,7 +576,7 @@ func TestVolumeCreateOwner(t *testing.T) {
 // flk start|stop|restart (a6c6975) for all of an app's machines, offered
 // by a flk that has them; stop all moves to p.
 func TestAppLifecycle(t *testing.T) {
-	a := hostContext(t).Apps[0] // one machine, running
+	a := mc(t, hostContext(t)) // one machine, running
 	var help flk.Help
 	b, _ := fixtures.FS.ReadFile("help-all.json")
 	json.Unmarshal(b, &help)
@@ -626,7 +641,7 @@ func TestNoBackupAndFreeSpace(t *testing.T) {
 	if err := json.Unmarshal(b, &help); err != nil {
 		t.Fatal(err)
 	}
-	a := hostContext(t).Apps[0]
+	a := mc(t, hostContext(t))
 	d := find(t, For(Target{Kind: App, App: a, Help: &help}), "deploy")
 	if got := d.Command(map[string]string{"backup": "skip it"}); got.Line() != "flk -a minecraft-flk deploy --no-backup" ||
 		!strings.Contains(got.Warn, "No before-deploy backup") {
@@ -668,7 +683,7 @@ func TestVolumeOwner(t *testing.T) {
 	b, _ := fixtures.FS.ReadFile("help-all.json")
 	json.Unmarshal(b, &help)
 	hc := hostContext(t)
-	a := hc.Apps[0]
+	a := mc(t, hc)
 	v := a.Volumes[0]
 	tg := Target{Kind: Volume, App: a, Volume: v, StateDir: hc.Flk.StateDir, Help: &help}
 	if find(t, For(tg), "owner").Disabled == "" {

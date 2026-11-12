@@ -1,34 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
 │ ▾ minecraft-flk  0/1 ○ !               │                                                                                                                     │
-│   ! mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
+│   ! mellow-aurora-7882                 │ release v10 (of 10) · 2026-10-17 20:46Z                                                                             │
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ! stopped, should be started 172.30.0.10                                                     │
-│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
-│   ▢ mqttdata 1GB                       │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/1883               │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│ ▾ opencode-sandbox  1/1 ●              │        udp/19132 → 10.47.11.3:19132                                                                                 │
-│   ● lucky-harbor-5563                  │ volume world 40GB (external)                                                                                        │
-│   ▢ code_workspace 30GB                │   /data/minecraft/flk/world.ext4                                                                                    │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │ ! machine 225d58f615e7e6 should be running but is stopped                                                           │
-│   ▢ vsdata 40GB (external)             │ ! machine 225d58f615e7e6 [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); see   │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │   why: flk logs -i 225d58f615e7e6 --no-tail; bring it back: flk resume                                              │
-│                                        │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
+│ ▾ enshrouded-flk  1/1 ●                │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
+│   ● polar-river-2416                   │   cpu 4% · 10963MB used · up 6d 8h                                                                                  │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│ ▾ mqtt-flk  1/1 ●                      │        udp/19132 → 10.47.11.3:19132                                                                                 │
+│   ● hidden-comet-2020                  │ volume world 40GB (external)                                                                                        │
+│   ▢ mqttdata 1GB                       │   /data/minecraft/flk/world.ext4                                                                                    │
+│   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●              │ ! machine 225d58f615e7e6 should be running but is stopped                                                           │
+│   ● frosty-river-2714                  │ ! machine 225d58f615e7e6 [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); see   │
+│   ▢ vsdata 40GB (external)             │   why: flk logs -i 225d58f615e7e6 --no-tail; bring it back: flk resume                                              │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ ! host port tcp/25565 is held by another machine; this one gets it when that stops                                  │
+│ ▸ ncm  stopped                         │                                                                                                                     │
+│ ▸ opencode-sandbox  stopped            │                                                                                                                     │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
+│                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Storage  fullest 67%                 │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  10 images                    │                                                                                                                     │
+│ ▸ Podman  11 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -43,6 +42,7 @@
 │   225d58f615e7e6 --no-tail; bring it back: flk resume                                                                                                        │
 │   → enter: fix: flk -a minecraft-flk resume                                                                                                                  │
 │ ! minecraft-flk: host port tcp/25565 is held by another machine; this one gets it when that stops                                                            │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ↑↓ move  enter fix  esc back                                                                                                                                 │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

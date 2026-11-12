@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ filesystem /data/minecraft ─  Overview          │
-│ ▸ minecraft-flk  1/1 ●     │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
-│ ▸ opencode-sandbox  1/1 ●  │                                                 │
-│ ▸ vintagestory-flk  1/1 ●  │ used      67% · 32G free of 98G                 │
-│                            │ holds     /data/minecraft/flk                   │
-│ Host                       │                                                 │
-│   health ✔                 │ devices, from the filesystem down:              │
+│ ▸ enshrouded-flk  1/1 ●    │                                                 │
+│ ▸ minecraft-flk  1/1 ●     │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json        │
+│ ▸ mqtt-flk  1/1 ●          │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ used      67% · 31G free of 98G                 │
+│ ▸ ncm  stopped             │ holds     /data/minecraft/flk                   │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │ devices, from the filesystem down:              │
 │                            │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G,   │
-│ ▾ Storage                  │     ext4                                        │
-│   / 32%                    │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
-│   /data/minecraft 67%      │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
-│   /data/vintagestory 13%   │                                                 │
-│                            │ 1.1T of /dev/nvme0n1p3 isn't in any logical     │
-│ ▸ Podman  10 images        │   volume yet: room to grow /data/minecraft      │
-│                            │   (e.g. sudo lvextend -r -L +10G                │
-│ ▸ Services  4 running, 1 … │     /dev/mapper/ubuntu--vg-mc--data)            │
-│                            │                                                 │
+│ Host                       │     ext4                                        │
+│   health ✔                 │   /dev/nvme0n1p3  part, 1.8T, LVM2_member       │
+│                            │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB │
+│ ▾ Storage                  │                                                 │
+│   / 64%                    │ 1020G of /dev/nvme0n1p3 isn't in any logical    │
+│   /data/enshrouded 2%      │   volume yet: room to grow /data/minecraft      │
+│   /data/minecraft 67%      │   (e.g. sudo lvextend -r -L +10G                │
+│   /data/valheim 1%         │     /dev/mapper/ubuntu--vg-mc--data)            │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

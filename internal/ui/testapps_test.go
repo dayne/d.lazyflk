@@ -63,7 +63,7 @@ func TestTestApps(t *testing.T) {
 	}
 
 	// a test app's actions go ahead
-	withState(t, m, func(hc *flk.HostContext) { hc.Apps[0].Name = "flkt-check" })
+	withState(t, m, func(hc *flk.HostContext) { hc.Apps[appIndex(hc.Apps)].Name = "flkt-check" })
 	goToKey(t, m, "app/flkt-check")
 	press(m, "s")
 	if m.confirm == nil || !strings.Contains(screen(m), "$ flk -a flkt-check stop") {

@@ -157,7 +157,7 @@ func TestAttach(t *testing.T) {
 		t.Fatalf("attach screen:\n%s", screen(m))
 	}
 	press(m, "esc")
-	withState(t, m, func(hc *flk.HostContext) { hc.Apps[0].Machines[0].State = "stopped" })
+	withState(t, m, func(hc *flk.HostContext) { hc.Apps[appIndex(hc.Apps)].Machines[0].State = "stopped" })
 	press(m, "c")
 	if m.attach != nil || !strings.Contains(screen(m), "isn't running") {
 		t.Error("attach to a stopped machine")

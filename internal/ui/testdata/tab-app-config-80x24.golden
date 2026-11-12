@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk                                   │
-│ ▾ minecraft-flk  1/1 ●     │ ‹ Ports  Volumes  Releases  Secrets  Config     │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk -a minecraft-flk config show --json       │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ E edits flk.toml in your editor; d deploys it   │
-│ ▸ opencode-sandbox  1/1 ●  │                                                 │
-│ ▸ vintagestory-flk  1/1 ●  │ checks    ready: log line "Started Geyser on    │
+│ ▸ enshrouded-flk  1/1 ●    │ ‹ Ports  Volumes  Releases  Secrets  Config     │
+│ ▸ minecraft-flk  1/1 ●     │                                                 │
+│ ▸ mqtt-flk  1/1 ●          │ $ flk -a minecraft-flk config show --json       │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │ E edits flk.toml in your editor; d deploys it   │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │ checks    ready: log line "Started Geyser on    │
 │                            │           UDP port 19132" within 300s           │
 │ Host                       │           port: tcp :25565 within 300s          │
 │   health ✔                 │ internal  off: [flk] internal_hosts = true for  │
 │                            │           APP.internal names                    │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │ {                                               │
-│ ▸ Podman  10 images        │   "file": "/home/dayne/minecraft.flk/flk.toml", │
+│ ▸ Podman  11 images        │   "file": "/home/dayne/minecraft.flk/flk.toml", │
 │                            │   "parsed": {                                   │
-│ ▸ Services  4 running, 1 … │     "app": "minecraft-flk",                     │
-│                            │ … 189 more (pgdn)                               │
+│ ▸ Services  4 running      │ … 187 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
 └──────────────────────────────────────────────────────────────────────────────┘

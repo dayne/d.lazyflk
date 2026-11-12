@@ -1,39 +1,38 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ filesystem /data/minecraft ─  Overview                                                                              │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json                                                                            │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ used      67% · 32G free of 98G                                                                                     │
-│ ▾ mqtt-flk  1/1 ●                      │ holds     /data/minecraft/flk                                                                                       │
-│   ● hidden-comet-2020                  │                                                                                                                     │
-│   ▢ mqttdata 1GB                       │ devices, from the filesystem down:                                                                                  │
-│   ⇄ 10.47.11.3: tcp/1883               │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
-│ ▾ opencode-sandbox  1/1 ●              │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
-│   ● lucky-harbor-5563                  │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │ 1.1T of /dev/nvme0n1p3 isn't in any logical volume yet: room to grow /data/minecraft                                │
-│   ● frosty-river-2714                  │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ df -k MOUNT_DIRS · lsblk -e7 -b --json                                                                            │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ used      67% · 31G free of 98G                                                                                     │
+│ ▾ minecraft-flk  1/1 ●                 │ holds     /data/minecraft/flk                                                                                       │
+│   ● mellow-aurora-7882                 │                                                                                                                     │
+│   ▢ world 40GB (external)              │ devices, from the filesystem down:                                                                                  │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │   /dev/mapper/ubuntu--vg-mc--data  lvm, 100G, ext4                                                                  │
+│ ▾ mqtt-flk  1/1 ●                      │   /dev/nvme0n1p3  part, 1.8T, LVM2_member                                                                           │
+│   ● hidden-comet-2020                  │   /dev/nvme0n1  disk, 1.8T · WD_BLACK SN770 2TB                                                                     │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │ 1020G of /dev/nvme0n1p3 isn't in any logical volume yet: room to grow /data/minecraft                               │
+│ ▾ vintagestory-flk  1/1 ●              │   (e.g. sudo lvextend -r -L +10G /dev/mapper/ubuntu--vg-mc--data)                                                   │
+│   ● frosty-river-2714                  │                                                                                                                     │
 │   ▢ vsdata 40GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/42420 udp/42420    │                                                                                                                     │
+│ ▸ ncm  stopped                         │                                                                                                                     │
+│ ▸ opencode-sandbox  stopped            │                                                                                                                     │
+│ ▸ valheim-flk  stopped                 │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ Host                                   │                                                                                                                     │
 │   health ✔                             │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▾ Storage                              │                                                                                                                     │
-│   / 32%                                │                                                                                                                     │
+│   / 64%                                │                                                                                                                     │
+│   /data/enshrouded 2%                  │                                                                                                                     │
 │   /data/minecraft 67%                  │                                                                                                                     │
+│   /data/valheim 1%                     │                                                                                                                     │
 │   /data/vintagestory 13%               │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Podman  10 images                    │                                                                                                                     │
+│ ▸ Podman  11 images                    │                                                                                                                     │
 │                                        │                                                                                                                     │
-│ ▸ Services  4 running, 1 listening     │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
+│ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -42,7 +41,8 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

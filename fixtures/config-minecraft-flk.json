@@ -13,9 +13,7 @@
       "RESTART_DELAY": "10",
       "MAX_RESTARTS": "5",
       "RESTART_WINDOW": "600",
-      "STOP_TIMEOUT": "100",
-      "DISCORD_NAME": "Minecraft",
-      "DISCORD_PLAYER_EVENTS": "1"
+      "STOP_TIMEOUT": "100"
     },
     "restart": [
       {
@@ -101,9 +99,7 @@
       "RESTART_DELAY": "10",
       "MAX_RESTARTS": "5",
       "RESTART_WINDOW": "600",
-      "STOP_TIMEOUT": "100",
-      "DISCORD_NAME": "Minecraft",
-      "DISCORD_PLAYER_EVENTS": "1"
+      "STOP_TIMEOUT": "100"
     },
     "mount_specs": [
       {
@@ -112,6 +108,7 @@
       }
     ],
     "internal_port": 25565,
+    "internal_protocol": "tcp",
     "ports": [
       {
         "proto": "tcp",

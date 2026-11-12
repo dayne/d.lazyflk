@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk / mellow-aurora-7882              │
-│ ▾ minecraft-flk  1/1 ●     │  Overview  Logs  Events  Record                 │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ id        225d58f615e7e6                        │
-│   ⇄ tcp/25565 udp/19132    │ name      mellow-aurora-7882                    │
-│ ▸ mqtt-flk  1/1 ●          │ state     ● started                             │
-│ ▸ opencode-sandbox  1/1 ●  │ release   v9                                    │
+│ ▸ enshrouded-flk  1/1 ●    │  Overview  Logs  Events  Record                 │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ id        225d58f615e7e6                        │
+│   ▢ world 40GB (external)  │ name      mellow-aurora-7882                    │
+│   ⇄ tcp/25565 udp/19132    │ state     ● started                             │
+│ ▸ mqtt-flk  1/1 ●          │ release   v10                                   │
 │ ▸ vintagestory-flk  1/1 ●  │ ip        172.30.0.10:25565                     │
-│                            │ size      4 cpus · 11264MB                      │
-│ Host                       │ cpu       4% (100% = one host CPU; it has 4)    │
-│   health ✔                 │ memory    10910MB used of 11264MB               │
-│                            │ up        31h 59m                               │
-│ ▸ Storage  fullest 67%     │ pid       2273109 (firecracker)                 │
-│                            │ restart   on-failure · 1 retry                  │
-│ ▸ Podman  10 images        │ ports     tcp/25565 → 10.47.11.3:25565          │
-│                            │           udp/19132 → 10.47.11.3:19132          │
-│ ▸ Services  4 running, 1 … │ names     none: [flk] internal_hosts = true     │
-│                            │ … 5 more (pgdn)                                 │
+│ ▸ ncm  stopped             │ size      4 cpus · 11264MB                      │
+│ ▸ opencode-sandbox  stopp… │ cpu       4% (100% = one host CPU; it has 4)    │
+│ ▸ valheim-flk  stopped     │ memory    10963MB used of 11264MB               │
+│                            │ up        6d 8h                                 │
+│ Host                       │ pid       1120230 (firecracker)                 │
+│   health ✔                 │ restart   on-failure · 1 retry                  │
+│                            │ ports     tcp/25565 → 10.47.11.3:25565          │
+│ ▸ Storage  fullest 67%     │           udp/19132 → 10.47.11.3:19132          │
+│                            │ … 6 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -1,33 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk / mellow-aurora-7882 ─  Overview  Logs  Events  Record                                                │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ id        225d58f615e7e6                                                                                            │
-│   ▢ world 40GB (external)              │ name      mellow-aurora-7882                                                                                        │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ state     ● started                                                                                                 │
-│ ▾ mqtt-flk  1/1 ●                      │ release   v9                                                                                                        │
-│   ● hidden-comet-2020                  │ ip        172.30.0.10:25565                                                                                         │
-│   ▢ mqttdata 1GB                       │ size      4 cpus · 11264MB                                                                                          │
-│   ⇄ 10.47.11.3: tcp/1883               │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
-│ ▾ opencode-sandbox  1/1 ●              │ memory    10910MB used of 11264MB                                                                                   │
-│   ● lucky-harbor-5563                  │ up        31h 59m                                                                                                   │
-│   ▢ code_workspace 30GB                │ pid       2273109 (firecracker)                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●           ┌ minecraft-flk / mellow-aurora-7882 ─ actions ────────────────────────────────────┐                                     │
-│   ● frosty-river-2714               │ s  start          already running                                                │                                     │
-│   ▢ vsdata 40GB (external)          │ S  stop           stop gracefully; it stays stopped, also after reboots          │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ r  restart        stop, then boot                                                │r-machine names                      │
-│                                     │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
-│ Host                                │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
-│   health ✔                          │ l  logs           follow its console output                                      │                                     │
-│                                     │ c  console        attach to its serial console (detach: Ctrl-b d)                │                                     │
-│ ▸ Storage  fullest 67%              │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
-│                                     │ R  record         flk machine status: its record and state                       │                                     │
-│ ▸ Podman  10 images                 │ 1  who            who's online (RCON)                                            │                                     │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ id        225d58f615e7e6                                                                                            │
+│   ▢ endata 10GB (external)             │ name      mellow-aurora-7882                                                                                        │
+│   ⇄ 10.47.11.7: udp/15637              │ state     ● started                                                                                                 │
+│ ▾ minecraft-flk  1/1 ●                 │ release   v10                                                                                                       │
+│   ● mellow-aurora-7882                 │ ip        172.30.0.10:25565                                                                                         │
+│   ▢ world 40GB (external)              │ size      4 cpus · 11264MB                                                                                          │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
+│ ▾ mqtt-flk  1/1 ●                      │ memory    10963MB used of 11264MB                                                                                   │
+│   ● hidden-comet-2020                  │ up        6d 8h                                                                                                     │
+│   ▢ mqttdata 1GB                       │ pid       1120230 (firecracker)                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883            ┌ minecraft-flk / mellow-aurora-7882 ─ actions ────────────────────────────────────┐                                     │
+│ ▾ vintagestory-flk  1/1 ●           │ s  start          already running                                                │                                     │
+│   ● frosty-river-2714               │ S  stop           stop gracefully; it stays stopped, also after reboots          │                                     │
+│   ▢ vsdata 40GB (external)          │ r  restart        stop, then boot                                                │r-machine names                      │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ e  run a command  run one command inside it and show its output (flk exec)       │                                     │
+│ ▸ ncm  stopped                      │ h  shell          a shell inside it (bash, else sh), through flk's agent (flk s… │                                     │
+│ ▸ opencode-sandbox  stopped         │ l  logs           follow its console output                                      │                                     │
+│ ▸ valheim-flk  stopped              │ c  console        attach to its serial console (detach: Ctrl-b d)                │                                     │
+│                                     │ >  send a line    type one line into the app's stdin and watch the log answer (… │                                     │
+│ Host                                │ R  record         flk machine status: its record and state                       │                                     │
+│   health ✔                          │ 1  who            who's online (RCON)                                            │                                     │
 │                                     │ 2  say            broadcast a message to the players (RCON)                      │                                     │
-│ ▸ Services  4 running, 1 listening  │ 3  save           write the world to disk now and wait until it's saved          │                                     │
+│ ▸ Storage  fullest 67%              │ 3  save           write the world to disk now and wait until it's saved          │                                     │
 │                                     │ 4  backup         the nightly backup, now: live (no restart, ~25s), checked, ne… │                                     │
-│                                     │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
+│ ▸ Podman  11 images                 │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no backup     │                                     │
 │                                     │ 6  whitelist      let a player in: type their name (RCON)                        │                                     │
-│                                     │                                                                                  │                                     │
+│ ▸ Services  4 running               │                                                                                  │                                     │
 │                                     │ boot it                                                                          │                                     │
 │                                     │ not now: already running                                                         │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
@@ -40,9 +40,9 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                              │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                 │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

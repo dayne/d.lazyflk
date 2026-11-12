@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ Apps                       │ image localhost/mqtt-flk-test:latest            │
-│ ▸ minecraft-flk  1/1 ●     │  Overview                                       │
-│ ▸ mqtt-flk  1/1 ●          │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │ $ podman ps -a --external --format json ·       │
-│ ▸ vintagestory-flk  1/1 ●  │   podman images --format json                   │
-│                            │                                                 │
-│ Host                       │ id        53bb3cb5ef33                          │
-│   health ✔                 │ size      25M                                   │
-│                            │ created   2026-10-15T05:50:38Z                  │
-│ ▾ Storage                  │ names     localhost/mqtt-flk-test:latest        │
-│   / 32%                    │ used      no container uses it                  │
-│   /data/minecraft 67%      │                                                 │
+│ ▸ ncm  stopped             │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
+│ ▸ opencode-sandbox  stopp… │  Overview                                       │
+│ ▸ valheim-flk  stopped     │                                                 │
+│                            │ $ podman ps -a --external --format json ·       │
+│ Host                       │   podman images --format json                   │
+│   health ✔                 │                                                 │
+│                            │ id        8c02737ed52e                          │
+│ ▾ Storage                  │ size      319M                                  │
+│   / 64%                    │ created   2026-11-04T12:45:49Z                  │
+│   /data/enshrouded 2%      │ names     docker.io/steamcmd/steamcmd:ubuntu-24 │
+│   /data/minecraft 67%      │ used      no container uses it                  │
+│   /data/valheim 1%         │                                                 │
 │   /data/vintagestory 13%   │ Not one of flk's (flk.local/*). A Dockerfile's  │
 │                            │   FROM image stays here as                      │
 │ ▾ Podman                   │ the build cache, so later deploys don't         │
-│   ◇ localhost/mqtt-flk-te… │   download it again.                            │
-│   ◇ 7d2e85beb5a7 (untagge… │                                                 │
-│   ◇ 8149e56d2f50 (untagge… │                                                 │
+│   ◇ cc7cfa49ce1f (untagge… │   download it again.                            │
+│   ◇ steamcmd/steamcmd:ubu… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

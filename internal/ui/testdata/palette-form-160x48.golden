@@ -1,33 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ release v9 (of 9) · 2026-10-13 08:31Z                                                                               │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ release v10 (of 10) · 2026-10-17 20:46Z                                                                             │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
+│ ▾ minecraft-flk  1/1 ●                 │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
+│   ● mellow-aurora-7882                 │   cpu 4% · 10963MB used · up 6d 8h                                                                                  │
 │   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
-│ ▾ mqtt-flk  1/1 ●                      │   mellow-aurora-7882 · 4 cpus · 11264MB · v9                                                                        │
-│   ● hidden-comet-2020                  │   cpu 4% · 10910MB used · up 31h 59m                                                                                │
-│   ▢ mqttdata 1GB                       │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/1883               │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
-│ ▾ opencode-sandbox  1/1 ●           ┌ volumes backup ─ minecraft-flk ──────────────────────────────────────────────────┐                                     │
-│   ● lucky-harbor-5563               │ Copy volumes (default: all of the app's) to the backup dir, then prune old       │                                     │
-│   ▢ code_workspace 30GB             │ copies                                                                           │                                     │
-│ ▾ vintagestory-flk  1/1 ●           │ · How the app is kept from writing comes from [flk.backup] in flk.toml (see flk  │                                     │
-│   ● frosty-river-2714               │   help --all): by default its machine is stopped for the copy and started again; │                                     │
-│   ▢ vsdata 40GB (external)          │   mode = "live" with pre/post hooks (e.g. save-off / save-on) copies while it    │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │   runs.                                                                          │                                     │
-│                                     │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
-│ Host                                │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
-│   health ✔                          │   machine gets its journal replayed).                                            │                                     │
-│                                     │ · With backup_copy_to in ~/.config/flk/host.toml, the new backup is then copied  │                                     │
-│ ▸ Storage  fullest 67%              │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
-│                                     │   the backup is kept.                                                            │                                     │
-│ ▸ Podman  10 images                 │                                                                                  │                                     │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
+│ ▾ mqtt-flk  1/1 ●                   ┌ volumes backup ─ minecraft-flk ──────────────────────────────────────────────────┐                                     │
+│   ● hidden-comet-2020               │ Copy volumes (default: all of the app's) to the backup dir, then prune old       │                                     │
+│   ▢ mqttdata 1GB                    │ copies                                                                           │                                     │
+│   ⇄ 10.47.11.3: tcp/1883            │ · How the app is kept from writing comes from [flk.backup] in flk.toml (see flk  │                                     │
+│ ▾ vintagestory-flk  1/1 ●           │   help --all): by default its machine is stopped for the copy and started again; │                                     │
+│   ● frosty-river-2714               │   mode = "live" with pre/post hooks (e.g. save-off / save-on) copies while it    │                                     │
+│   ▢ vsdata 40GB (external)          │   runs.                                                                          │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ · Copies are sparse, and instant on XFS/btrfs when the backup dir shares the     │                                     │
+│ ▸ ncm  stopped                      │   volume's filesystem. The copy is checked with e2fsck (a copy of a running      │                                     │
+│ ▸ opencode-sandbox  stopped         │   machine gets its journal replayed).                                            │                                     │
+│ ▸ valheim-flk  stopped              │ · With backup_copy_to in ~/.config/flk/host.toml, the new backup is then copied  │                                     │
+│                                     │   there too (see flk volumes copy); a failed copy makes the command fail, but    │                                     │
+│ Host                                │   the backup is kept.                                                            │                                     │
+│   health ✔                          │                                                                                  │                                     │
 │                                     │ app         [minecraft-flk▏                                                    ] │                                     │
-│ ▸ Services  4 running, 1 listening  │             the app (-a); the selection's app by default                         │                                     │
+│ ▸ Storage  fullest 67%              │             the app (-a); the selection's app by default                         │                                     │
 │                                     │ ID|NAME...  [                                                                  ] │                                     │
-│                                     │ --to DIR    [                                                                  ] │                                     │
+│ ▸ Podman  11 images                 │ --to DIR    [                                                                  ] │                                     │
 │                                     │ --keep N    [                                                                  ] │                                     │
-│                                     │ --mode MODE [                                                                  ] │                                     │
+│ ▸ Services  4 running               │ --mode MODE [                                                                  ] │                                     │
 │                                     │ --no-check  ‹ no ›                                                               │                                     │
 │                                     │ --no-copy   ‹ no ›                                                               │                                     │
 │                                     │                                                                                  │                                     │
@@ -40,9 +40,9 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

@@ -1,50 +1,86 @@
 [
   {
+    "app": "enshrouded-flk",
+    "id": "9c0506c2b04571",
+    "name": "polar-river-2416",
+    "state": "started",
+    "pid": 1120107,
+    "cpus": 4,
+    "memory_mb": 6144,
+    "cpu_percent": 62.0,
+    "rss_mb": 2261,
+    "uptime_s": 547480
+  },
+  {
     "app": "minecraft-flk",
     "id": "225d58f615e7e6",
     "name": "mellow-aurora-7882",
     "state": "started",
-    "pid": 2273109,
+    "pid": 1120230,
     "cpus": 4,
     "memory_mb": 11264,
     "cpu_percent": 4.0,
-    "rss_mb": 10910,
-    "uptime_s": 115150
+    "rss_mb": 10963,
+    "uptime_s": 547450
   },
   {
     "app": "mqtt-flk",
     "id": "3b94db4908c652",
     "name": "hidden-comet-2020",
     "state": "started",
-    "pid": 3695028,
+    "pid": 1120315,
     "cpus": 1,
     "memory_mb": 256,
     "cpu_percent": 0.0,
-    "rss_mb": 71,
-    "uptime_s": 1434
+    "rss_mb": 84,
+    "uptime_s": 547435
+  },
+  {
+    "app": "ncm",
+    "id": "11489866771bbb",
+    "name": "frosty-comet-7023",
+    "state": "stopped",
+    "pid": null,
+    "cpus": 4,
+    "memory_mb": 8192,
+    "cpu_percent": null,
+    "rss_mb": null,
+    "uptime_s": null
   },
   {
     "app": "opencode-sandbox",
     "id": "476376ad8e351e",
     "name": "lucky-harbor-5563",
-    "state": "started",
-    "pid": 2828454,
+    "state": "stopped",
+    "pid": null,
     "cpus": 2,
     "memory_mb": 2048,
-    "cpu_percent": 2.0,
-    "rss_mb": 1774,
-    "uptime_s": 103533
+    "cpu_percent": null,
+    "rss_mb": null,
+    "uptime_s": null
+  },
+  {
+    "app": "valheim-flk",
+    "id": "c99fe500e58ab8",
+    "name": "mellow-glacier-2878",
+    "state": "stopped",
+    "pid": null,
+    "cpus": 4,
+    "memory_mb": 6144,
+    "cpu_percent": null,
+    "rss_mb": null,
+    "uptime_s": null
   },
   {
     "app": "vintagestory-flk",
     "id": "f8f979ffff11cf",
     "name": "frosty-river-2714",
     "state": "started",
-    "pid": 3025789,
+    "pid": 1892817,
     "cpus": 4,
     "memory_mb": 6144,
-    "cpu_percent": 8.0,
-    "rss_mb": 3345,
-    "uptime_s": 74790
+    "cpu_percent": 6.0,
+    "rss_mb": 4205,
+    "uptime_s": 56081
   }
 ]

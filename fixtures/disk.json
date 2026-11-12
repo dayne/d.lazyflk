@@ -1,62 +1,116 @@
 {
   "state_dir": {
     "path": "/home/dayne/.local/share/flk",
-    "bytes": 9046953984,
-    "apparent": 60878098716
+    "bytes": 54649585664,
+    "apparent": 165249331611
   },
   "apps": [
     {
-      "app": "minecraft-flk",
+      "app": "enshrouded-flk",
       "images": {
-        "bytes": 1158033408,
-        "apparent": 2969567232
+        "bytes": 20476755968,
+        "apparent": 26495418368
       },
       "rootfs": {
-        "bytes": 377987072,
-        "apparent": 998244352
+        "bytes": 10250137600,
+        "apparent": 13256097792
       },
       "volumes": {
         "bytes": 0,
         "apparent": 0
       },
       "logs": {
-        "bytes": 745472,
-        "apparent": 740629
+        "bytes": 9580544,
+        "apparent": 9572030
       },
       "external_volumes": {
-        "bytes": 22197706752,
+        "bytes": 226271232,
+        "apparent": 10737418240
+      },
+      "total": {
+        "bytes": 30736474112,
+        "apparent": 39761088190
+      }
+    },
+    {
+      "app": "minecraft-flk",
+      "images": {
+        "bytes": 1160994816,
+        "apparent": 2973761536
+      },
+      "rootfs": {
+        "bytes": 391610368,
+        "apparent": 1002438656
+      },
+      "volumes": {
+        "bytes": 0,
+        "apparent": 0
+      },
+      "logs": {
+        "bytes": 4161536,
+        "apparent": 4157411
+      },
+      "external_volumes": {
+        "bytes": 22281891840,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 1536765952,
-        "apparent": 3968552213
+        "bytes": 1556766720,
+        "apparent": 3980357603
       }
     },
     {
       "app": "mqtt-flk",
       "images": {
-        "bytes": 97173504,
-        "apparent": 1149239296
+        "bytes": 145739776,
+        "apparent": 1723858944
       },
       "rootfs": {
-        "bytes": 36536320,
+        "bytes": 37089280,
         "apparent": 583008256
       },
       "volumes": {
-        "bytes": 34529280,
+        "bytes": 38707200,
         "apparent": 1073741824
       },
       "logs": {
-        "bytes": 77824,
-        "apparent": 72830
+        "bytes": 978944,
+        "apparent": 973224
       },
       "external_volumes": {
         "bytes": 0,
         "apparent": 0
       },
       "total": {
-        "bytes": 168316928,
-        "apparent": 2806062206
+        "bytes": 222515200,
+        "apparent": 3381582248
+      }
+    },
+    {
+      "app": "ncm",
+      "images": {
+        "bytes": 3120947200,
+        "apparent": 4735369216
+      },
+      "rootfs": {
+        "bytes": 1504186368,
+        "apparent": 2376073216
+      },
+      "volumes": {
+        "bytes": 440352768,
+        "apparent": 42949672960
+      },
+      "logs": {
+        "bytes": 49152,
+        "apparent": 45463
+      },
+      "external_volumes": {
+        "bytes": 0,
+        "apparent": 0
+      },
+      "total": {
+        "bytes": 5065535488,
+        "apparent": 50061160855
       }
     },
     {
@@ -66,7 +120,7 @@
         "apparent": 10889461760
       },
       "rootfs": {
-        "bytes": 1840766976,
+        "bytes": 1844928512,
         "apparent": 5769265152
       },
       "volumes": {
@@ -74,117 +128,177 @@
         "apparent": 32212254720
       },
       "logs": {
-        "bytes": 135168,
-        "apparent": 129171
+        "bytes": 307200,
+        "apparent": 300345
       },
       "external_volumes": {
         "bytes": 0,
         "apparent": 0
       },
       "total": {
-        "bytes": 4709629952,
-        "apparent": 48871110803
+        "bytes": 4713963520,
+        "apparent": 48871281977
       }
     },
     {
-      "app": "vintagestory-flk",
+      "app": "valheim-flk",
       "images": {
-        "bytes": 1904070656,
-        "apparent": 3818913792
+        "bytes": 7113850880,
+        "apparent": 10223616000
       },
       "rootfs": {
-        "bytes": 691396608,
-        "apparent": 1376780288
+        "bytes": 2321661952,
+        "apparent": 3416260608
       },
       "volumes": {
         "bytes": 0,
         "apparent": 0
       },
       "logs": {
-        "bytes": 1679360,
-        "apparent": 1674417
+        "bytes": 323584,
+        "apparent": 317707
       },
       "external_volumes": {
-        "bytes": 8758562816,
+        "bytes": 81297408,
+        "apparent": 10737418240
+      },
+      "total": {
+        "bytes": 9435836416,
+        "apparent": 13640194315
+      }
+    },
+    {
+      "app": "vintagestory-flk",
+      "images": {
+        "bytes": 2146897920,
+        "apparent": 4120903680
+      },
+      "rootfs": {
+        "bytes": 720691200,
+        "apparent": 1382023168
+      },
+      "volumes": {
+        "bytes": 0,
+        "apparent": 0
+      },
+      "logs": {
+        "bytes": 14671872,
+        "apparent": 14653376
+      },
+      "external_volumes": {
+        "bytes": 9444003840,
         "apparent": 42949672960
       },
       "total": {
-        "bytes": 2597146624,
-        "apparent": 5197368497
+        "bytes": 2882260992,
+        "apparent": 5517580224
       }
     }
   ],
   "totals": {
     "images": {
-      "bytes": 5170081792,
-      "apparent": 18827182080
+      "bytes": 36175990784,
+      "apparent": 61162389504
     },
     "rootfs": {
-      "bytes": 2946686976,
-      "apparent": 8727298048
+      "bytes": 17070305280,
+      "apparent": 27785166848
     },
     "volumes": {
-      "bytes": 892452864,
-      "apparent": 33285996544
+      "bytes": 1336983552,
+      "apparent": 76235669504
     },
     "logs": {
-      "bytes": 2637824,
-      "apparent": 2617047
+      "bytes": 30072832,
+      "apparent": 30019556
     },
     "external_volumes": {
-      "bytes": 30956269568,
-      "apparent": 85899345920
+      "bytes": 32033464320,
+      "apparent": 107374182400
     }
   },
   "backups": {
     "dir": "/data/flk-backups",
     "apps": {
+      "enshrouded-flk": {
+        "bytes": 1479000064,
+        "apparent": 75161932388,
+        "volumes": {
+          "endata": {
+            "bytes": 1479000064,
+            "apparent": 75161932388,
+            "count": 7
+          }
+        }
+      },
       "minecraft-flk": {
-        "bytes": 154388701184,
-        "apparent": 301249284605,
+        "bytes": 156549349376,
+        "apparent": 301249285764,
         "volumes": {
           "world": {
-            "bytes": 153786970112,
-            "apparent": 300647714528,
+            "bytes": 155947618304,
+            "apparent": 300647715687,
             "count": 7
           }
         }
       },
       "mqtt-flk": {
-        "bytes": 3063808,
-        "apparent": 3221226607,
+        "bytes": 270520320,
+        "apparent": 7516196475,
         "volumes": {
           "mqttdata": {
-            "bytes": 3063808,
-            "apparent": 3221226607,
-            "count": 3
+            "bytes": 270520320,
+            "apparent": 7516196475,
+            "count": 7
           }
         }
       },
-      "opencode-sandbox": {
+      "ncm": {
         "bytes": 0,
         "apparent": 0,
         "volumes": {
-          "code_workspace": {
+          "ncm": {
             "bytes": 0,
             "apparent": 0,
             "count": 0
           }
         }
       },
+      "opencode-sandbox": {
+        "bytes": 3476824064,
+        "apparent": 225485786873,
+        "volumes": {
+          "code_workspace": {
+            "bytes": 3476824064,
+            "apparent": 225485786873,
+            "count": 7
+          }
+        }
+      },
+      "valheim-flk": {
+        "bytes": 292454400,
+        "apparent": 75161932542,
+        "volumes": {
+          "vhdata": {
+            "bytes": 292454400,
+            "apparent": 75161932542,
+            "count": 7
+          }
+        }
+      },
       "vintagestory-flk": {
-        "bytes": 58790756352,
-        "apparent": 300647714023,
+        "bytes": 64227127296,
+        "apparent": 300647715747,
         "volumes": {
           "vsdata": {
-            "bytes": 58790756352,
-            "apparent": 300647714023,
+            "bytes": 64227127296,
+            "apparent": 300647715747,
             "count": 7
           }
         }
       }
     },
-    "bytes": 213182521344,
-    "apparent": 605118225235
+    "bytes": 226295275520,
+    "apparent": 985222849789
   }
 }

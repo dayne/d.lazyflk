@@ -1,35 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk / mellow-aurora-7882 ─  Overview  Logs  Events  Record                                                │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ $ flk -a minecraft-flk machine status 225d58f615e7e6                                                                │
-│   ▢ world 40GB (external)              │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ {                                                                                                                   │
-│ ▾ mqtt-flk  1/1 ●                      │   "id": "225d58f615e7e6",                                                                                           │
-│   ● hidden-comet-2020                  │   "name": "mellow-aurora-7882",                                                                                     │
-│   ▢ mqttdata 1GB                       │   "app": "minecraft-flk",                                                                                           │
-│   ⇄ 10.47.11.3: tcp/1883               │   "tap_index": 0,                                                                                                   │
-│ ▾ opencode-sandbox  1/1 ●              │   "ip": "172.30.0.10",                                                                                              │
-│   ● lucky-harbor-5563                  │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
-│   ▢ code_workspace 30GB                │   "release": 9,                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │   "config": {                                                                                                       │
-│   ● frosty-river-2714                  │     "cpus": 4,                                                                                                      │
-│   ▢ vsdata 40GB (external)             │     "memory_mb": 11264,                                                                                             │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │     "env": {                                                                                                        │
-│                                        │       "TZ": "America/Anchorage",                                                                                    │
-│ Host                                   │       "MC_HEAP": "8G",                                                                                              │
-│   health ✔                             │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
-│                                        │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
-│ ▸ Storage  fullest 67%                 │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
-│                                        │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
-│ ▸ Podman  10 images                    │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ $ flk -a minecraft-flk machine status 225d58f615e7e6                                                                │
+│   ▢ endata 10GB (external)             │                                                                                                                     │
+│   ⇄ 10.47.11.7: udp/15637              │ {                                                                                                                   │
+│ ▾ minecraft-flk  1/1 ●                 │   "id": "225d58f615e7e6",                                                                                           │
+│   ● mellow-aurora-7882                 │   "name": "mellow-aurora-7882",                                                                                     │
+│   ▢ world 40GB (external)              │   "app": "minecraft-flk",                                                                                           │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │   "tap_index": 0,                                                                                                   │
+│ ▾ mqtt-flk  1/1 ●                      │   "ip": "172.30.0.10",                                                                                              │
+│   ● hidden-comet-2020                  │   "mac": "06:00:ac:1e:00:0a",                                                                                       │
+│   ▢ mqttdata 1GB                       │   "release": 10,                                                                                                    │
+│   ⇄ 10.47.11.3: tcp/1883               │   "config": {                                                                                                       │
+│ ▾ vintagestory-flk  1/1 ●              │     "cpus": 4,                                                                                                      │
+│   ● frosty-river-2714                  │     "memory_mb": 11264,                                                                                             │
+│   ▢ vsdata 40GB (external)             │     "env": {                                                                                                        │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │       "TZ": "America/Anchorage",                                                                                    │
+│ ▸ ncm  stopped                         │       "MC_HEAP": "8G",                                                                                              │
+│ ▸ opencode-sandbox  stopped            │       "MC_JAVA_OPTS": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200                            │
+│ ▸ valheim-flk  stopped                 │         -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30         │
+│                                        │         -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5         │
+│ Host                                   │         -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90       │
+│   health ✔                             │         -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem                         │
 │                                        │         -XX:MaxTenuringThreshold=1 -XX:+UseCompactObjectHeaders",                                                   │
-│ ▸ Services  4 running, 1 listening     │       "RESTART_DELAY": "10",                                                                                        │
+│ ▸ Storage  fullest 67%                 │       "RESTART_DELAY": "10",                                                                                        │
 │                                        │       "MAX_RESTARTS": "5",                                                                                          │
-│                                        │       "RESTART_WINDOW": "600",                                                                                      │
-│                                        │       "STOP_TIMEOUT": "100",                                                                                        │
-│                                        │       "DISCORD_NAME": "Minecraft",                                                                                  │
-│                                        │       "DISCORD_PLAYER_EVENTS": "1"                                                                                  │
-│                                        │     },                                                                                                              │
+│ ▸ Podman  11 images                    │       "RESTART_WINDOW": "600",                                                                                      │
+│                                        │       "STOP_TIMEOUT": "100"                                                                                         │
+│ ▸ Services  4 running                  │     },                                                                                                              │
 │                                        │     "mount_specs": [                                                                                                │
 │                                        │       {                                                                                                             │
 │                                        │         "source": "world",                                                                                          │
@@ -40,9 +38,11 @@
 │                                        │     "ports": [                                                                                                      │
 │                                        │       {                                                                                                             │
 │                                        │         "proto": "tcp",                                                                                             │
-│                                        │ … 45 more (pgdn)                                                                                                    │
+│                                        │         "port": 25565,                                                                                              │
+│                                        │ … 46 more (pgdn)                                                                                                    │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                              │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                 │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

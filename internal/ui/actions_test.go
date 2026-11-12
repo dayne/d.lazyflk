@@ -17,14 +17,38 @@ import (
 	"github.com/dayne/d.lazyflk/internal/flk"
 )
 
-// Tree rows in the demo: app, machine, volume, ports, then the host.
-func goTo(m *Model, kind nodeKind) {
-	for i, n := range m.nodes {
-		if n.kind == kind {
-			m.cursor = i
-			return
+// testApp is the app the tests act on, by name: the fixtures hold every
+// app the reference host had the day they were captured, in that day's
+// order, some stopped.
+const testApp = "minecraft-flk"
+
+// appIndex is testApp's place in apps.
+func appIndex(apps []flk.App) int {
+	for i, a := range apps {
+		if a.Name == testApp {
+			return i
 		}
 	}
+	panic("no " + testApp + " in the fixtures")
+}
+
+// goTo selects the test app's row of this kind (its app line, first
+// machine, first volume, ports), opening the app if the tree folded it to
+// fit; for the other kinds, the first row there is.
+func goTo(m *Model, kind nodeKind) {
+	find := func(kind nodeKind) bool {
+		for i, n := range m.nodes {
+			if n.kind == kind && (kind < kindApp || kind > kindPorts || m.apps[n.app].Name == testApp) {
+				m.cursor = i
+				return true
+			}
+		}
+		return false
+	}
+	if kind >= kindMachine && kind <= kindPorts && find(kindApp) && m.nodes[m.cursor].folded {
+		m.fold(false)
+	}
+	find(kind)
 }
 
 func fake(m *Model) *flk.Fake { return m.opt.Client.Runner.(*flk.Fake) }
@@ -99,8 +123,8 @@ func TestActionSnapshots(t *testing.T) {
 
 // problems gives the demo host the kinds of next_steps flk reports.
 func problems(hc *flk.HostContext) {
-	id := hc.Apps[0].Machines[0].ID
-	hc.Apps[0].Machines[0].State = "stopped"
+	id := hc.Apps[appIndex(hc.Apps)].Machines[0].ID
+	hc.Apps[appIndex(hc.Apps)].Machines[0].State = "stopped"
 	hc.NextSteps = []string{
 		"optional: port helper usable without a password -> sudo /home/dayne/flk/setup-host.sh",
 		"minecraft-flk: machine " + id + " [mellow-aurora-7882] should be running but isn't (it exited, or the host restarted); " +
@@ -249,7 +273,7 @@ func TestAttentionFix(t *testing.T) {
 		t.Errorf("ran %v", got)
 	}
 	press(m, "esc")
-	if len(m.hc.NextSteps) != 0 {
+	if strings.Contains(strings.Join(m.hc.NextSteps, "\n"), "should be running") {
 		t.Error("the action should reload the context")
 	}
 	withState(t, m, problems)

@@ -1,45 +1,45 @@
 ┌ Logs ─ service chrony.service ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────── following ┐
 │ $ journalctl -u chrony.service -f -n 200 --no-pager -o short-iso                                                                                             │
-│ 2026-10-09T20:45:19-08:00 mud systemd[1]: Starting chrony.service - chrony, an NTP client/server...                                                          │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: chronyd version 4.8 starting (+CMDMON +REFCLOCK +RTC +PRIVDROP +SCFILTER +SIGND +NTS +SECHASH +IPV6 -DEBUG)     │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Loaded 0 symmetric keys                                                                                         │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Using leap second list /usr/share/zoneinfo/leap-seconds.list                                                    │
-│ 2026-10-09T20:45:19-08:00 mud systemd[1]: Started chrony.service - chrony, an NTP client/server.                                                             │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Loaded seccomp filter (level 1)                                                                                 │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Added pool 1.ntp.ubuntu.com                                                                                     │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Added pool 2.ntp.ubuntu.com                                                                                     │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Added pool 3.ntp.ubuntu.com                                                                                     │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Added pool 4.ntp.ubuntu.com                                                                                     │
-│ 2026-10-09T20:45:19-08:00 mud chronyd[1350]: Added pool ntp-bootstrap.ubuntu.com                                                                             │
-│ 2026-10-09T20:45:27-08:00 mud chronyd[1350]: Selected source 91.189.91.112 (3.ntp.ubuntu.com)                                                                │
-│ 2026-10-09T20:45:27-08:00 mud chronyd[1350]: System clock TAI offset set to 37 seconds                                                                       │
-│ 2026-10-09T20:46:33-08:00 mud chronyd[1350]: Selected source 185.125.190.123 (2.ntp.ubuntu.com)                                                              │
-│ 2026-10-09T20:57:20-08:00 mud chronyd[1350]: Selected source 91.189.91.113 (4.ntp.ubuntu.com)                                                                │
-│ 2026-10-10T12:53:09-08:00 mud chronyd[1350]: Selected source 91.189.91.112 (3.ntp.ubuntu.com)                                                                │
-│ 2026-10-11T09:35:04-08:00 mud chronyd[1350]: Selected source 91.189.91.113 (4.ntp.ubuntu.com)                                                                │
-│ 2026-10-14T14:42:46-08:00 mud chronyd[1350]: Selected source 91.189.91.112 (3.ntp.ubuntu.com)                                                                │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
-│                                                                                                                                                              │
+│ 2026-10-31T16:56:27-08:00 mud chronyd[1470]: NTS-KE session with 91.189.91.112:4460 (3.ntp.ubuntu.com) timed out                                             │
+│ 2026-10-31T17:30:35-08:00 mud chronyd[1470]: TLS handshake with 91.189.91.112:4460 (3.ntp.ubuntu.com) failed : The TLS connection was non-properly terminat… │
+│ 2026-10-31T18:05:00-08:00 mud chronyd[1470]: TLS handshake with 91.189.91.112:4460 (3.ntp.ubuntu.com) failed : The TLS connection was non-properly terminat… │
+│ 2026-10-31T18:39:29-08:00 mud chronyd[1470]: TLS handshake with 91.189.91.112:4460 (3.ntp.ubuntu.com) failed : Error in the pull function.                   │
+│ 2026-10-31T19:12:31-08:00 mud chronyd[1470]: Jitter of 185.125.190.122 (1.ntp.ubuntu.com) exceeds maxjitter of 1.000 seconds                                 │
+│ 2026-10-31T19:14:03-08:00 mud chronyd[1470]: Root distance of 185.125.190.122 (1.ntp.ubuntu.com) exceeds maxdistance of 3.000 seconds                        │
+│ 2026-10-31T19:14:03-08:00 mud chronyd[1470]: TLS handshake with 91.189.91.112:4460 (3.ntp.ubuntu.com) failed : The TLS connection was non-properly terminat… │
+│ 2026-10-31T19:14:41-08:00 mud chronyd[1470]: Detected falseticker 185.125.190.122 (1.ntp.ubuntu.com)                                                         │
+│ 2026-11-03T20:55:11-09:00 mud chronyd[1470]: Selected source 91.189.91.112 (3.ntp.ubuntu.com)                                                                │
+│ 2026-11-05T22:47:38-09:00 mud chronyd[1470]: Selected source 91.189.91.113 (4.ntp.ubuntu.com)                                                                │
+│ 2026-11-08T06:36:24-09:00 mud chronyd[1470]: Selected source 91.189.91.112 (3.ntp.ubuntu.com)                                                                │
+│ 2026-11-09T19:21:37-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T19:55:56-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T20:30:24-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T21:04:59-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T21:39:44-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T22:14:28-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T22:49:00-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-09T23:23:31-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-10T00:15:12-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-10T01:41:16-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-10T04:16:56-09:00 mud chronyd[1470]: NTS-KE session with 91.189.91.113:4460 (4.ntp.ubuntu.com) timed out                                             │
+│ 2026-11-10T09:10:19-09:00 mud chronyd[1470]: TLS handshake with 91.189.91.113:4460 (4.ntp.ubuntu.com) failed : Error in the pull function.                   │
+│ 2026-11-10T18:38:26-09:00 mud chronyd[1470]: TLS handshake with 91.189.91.113:4460 (4.ntp.ubuntu.com) failed : The TLS connection was non-properly terminat… │
+│ 2026-11-11T07:11:31-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.121:4460 (ntp-bootstrap.ubuntu.com) timed out                                   │
+│ 2026-11-11T07:12:31-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.123:4460 (2.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T07:16:26-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.122:4460 (1.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T07:28:35-09:00 mud chronyd[1470]: Source 185.125.190.121 replaced with 91.189.91.111 (ntp-bootstrap.ubuntu.com)                                   │
+│ 2026-11-11T07:46:51-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.123:4460 (2.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T07:51:02-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.122:4460 (1.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T08:21:07-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.123:4460 (2.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T08:25:18-09:00 mud chronyd[1470]: NTS-KE session with 185.125.190.122:4460 (1.ntp.ubuntu.com) timed out                                           │
+│ 2026-11-11T08:55:19-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.123:4460 (2.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T08:59:24-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.122:4460 (1.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T09:29:43-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.123:4460 (2.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T09:33:46-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.122:4460 (1.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T10:08:15-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.122:4460 (1.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T10:42:48-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.122:4460 (1.ntp.ubuntu.com) failed : The TLS connection was non-properly termin… │
+│ 2026-11-11T11:17:19-09:00 mud chronyd[1470]: TLS handshake with 185.125.190.122:4460 (1.ntp.ubuntu.com) failed : Error in the pull function.                 │
+│ 2026-11-11T13:20:14-09:00 mud chronyd[1470]: TLS handshake with 91.189.91.113:4460 (4.ntp.ubuntu.com) failed : The TLS connection was non-properly terminat… │
 │                                                                                                                                                              │
 │                                                                                                                                                              │
 │                                                                                                                                                              │

@@ -1,8 +1,12 @@
 # Fixtures
 
-Real output from the reference host (flk 0.1.0, commit 0227eac, 2026-10-14),
-captured with the commands below by `./capture.sh` (read-only; run it on a
-quiet host, then review the diff). Never edit them by hand. No secret values: `secrets list --json` has names and
+Real output from the reference host (flk 0.1.0, commit cf4b96f, 2026-11-11:
+seven apps, three of them stopped on purpose, one doctor warning),
+captured with the commands below by `./capture.sh` (read-only; run it
+with no `flkt-*` test apps on the host, then review the diff). The tests
+find `minecraft-flk` by name and don't count on the host's other apps,
+their order or what's stopped, so a recapture on any day should pass
+after `make snapshots`. Never edit them by hand. No secret values: `secrets list --json` has names and
 digests only.
 
 | File | Command |
@@ -11,8 +15,8 @@ digests only.
 | context-all-nohost.json | `flk context --all --json --no-host` |
 | context-minecraft-flk.json | `flk -a minecraft-flk context --json` |
 | context.txt | `flk context` (in ~, outside any app dir) |
-| help-all.json | `flk help --all --json` (recaptured at flk 39e07f4, 2026-11-11) |
-| help-TOPIC.txt | `flk help TOPIC` for cheatsheet, install, first-app, operate, troubleshoot, uninstall, dockerfile, host, bugs (at flk 39e07f4) |
+| help-all.json | `flk help --all --json` |
+| help-TOPIC.txt | `flk help TOPIC` for cheatsheet, install, first-app, operate, troubleshoot, uninstall, dockerfile, host, bugs |
 | doctor.json | `flk doctor --json` |
 | apps-list.json | `flk apps list --json` |
 | ports-list.json | `flk ports list --json` |
@@ -25,7 +29,7 @@ digests only.
 | config-minecraft-flk.json | `flk -a minecraft-flk config show --json` (same as without --json) |
 | backups-minecraft-flk.json | `flk -a minecraft-flk volumes backups --json` |
 | backups-sample.json | `flk -a flkt-lazyflk-m2 volumes backups --json` at flk 407ff4d: a test app (since destroyed) after one offline and one stop-mode backup |
-| config-host.json | `flk config show --host` (at flk 39e07f4): host.toml as flk parses it, always JSON |
+| config-host.json | `flk config show --host`: host.toml as flk parses it, always JSON |
 | backups-pruned.json | `flk -a enshrouded-flk volumes backups --json` at flk 39e07f4 (read-only, a real app): nightly backups whose older copies were pruned at backup_copy_to (`pruned_at`) |
 | backups-verified.json | `flk -a flkt-lazyflk-bk volumes backups --json` at flk a04fcc6: a test app (since destroyed) after a backup, `volumes verify` and `volumes copy --dest` to a scratch dir |
 | files-ls-PATH.json, files-cat-PATH.txt | `flk -a flkt-lazyflk-fs files ls data:/PATH --json` and `files cat data:/PATH` at flk ef6f865 (PATH's / as -, root for /): a test app (since destroyed) whose volume has a small tree. The fake serves them for any app and volume |
@@ -44,7 +48,7 @@ Host commands for the providers (SPEC 10), as run by lazyflk:
 | podman-images.json | `podman images --format json` |
 | lsblk.json | `lsblk -e7 -b --json -o NAME,PATH,TYPE,SIZE,FSTYPE,FSSIZE,FSAVAIL,MOUNTPOINTS,MODEL` |
 | lsblk-snapshot.json | the same, at flk 6183c62, while an LVM snapshot of /data/minecraft existed (since removed); not recaptured |
-| systemctl-show-sockets.txt | `systemctl show -p Id,LoadState,ActiveState ssh.socket` (2026-11-11): the socket unit of the one pinned service that's stopped in systemctl-show.txt; active, so ssh is listening, not off |
+| systemctl-show-sockets.txt | `systemctl show -p Id,LoadState,ActiveState ssh.socket`: ssh's socket unit, asked for when ssh.service is stopped (idle between connections); in this capture ssh was running, so the tests build the idle case |
 | systemctl-show.txt | `systemctl show --timestamp=utc -p Id,Description,LoadState,ActiveState,SubState,UnitFileState,ActiveEnterTimestamp,StateChangeTimestamp,MainPID,Result,NRestarts` for flk's units and the default pins |
 | id-groups.txt | `id -Gn` |
 | buildah-version.txt | `buildah --version` (present: build containers are removed with buildah rm) |

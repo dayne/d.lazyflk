@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk / volume world                    │
-│ ▾ minecraft-flk  1/1 ●     │  Overview  Backups                              │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk -a minecraft-flk volumes backups --json   │
-│   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ world-20261014T100001Z.ext4                     │
-│ ▸ opencode-sandbox  1/1 ●  │   2026-10-14 10:00Z · 21G used · checked clean  │
+│ ▸ enshrouded-flk  1/1 ●    │  Overview  Backups                              │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ $ flk -a minecraft-flk volumes backups --json   │
+│   ▢ world 40GB (external)  │                                                 │
+│   ⇄ tcp/25565 udp/19132    │ world-20261111T110001Z.ext4                     │
+│ ▸ mqtt-flk  1/1 ●          │   2026-11-11 11:00Z · 21G used · checked clean  │
 │ ▸ vintagestory-flk  1/1 ●  │     (journal replayed)                          │
-│                            │   mode live · release v9 · took 25s             │
-│ Host                       │   verified clean 2026-10-14 10:00Z              │
-│   health ✔                 │                                                 │
-│                            │ world-20261013T221456Z.ext4                     │
-│ ▸ Storage  fullest 67%     │   2026-10-13 22:15Z · 20G used · checked clean  │
+│ ▸ ncm  stopped             │   mode live · release v10 · took 26s            │
+│ ▸ opencode-sandbox  stopp… │   verified clean 2026-11-11 11:00Z              │
+│ ▸ valheim-flk  stopped     │   copied to /data/backup/flk 2026-11-11 11:12Z  │
+│                            │                                                 │
+│ Host                       │ world-20261110T110001Z.ext4                     │
+│   health ✔                 │   2026-11-10 11:00Z · 21G used · checked clean  │
 │                            │     (journal replayed)                          │
-│ ▸ Podman  10 images        │   mode live · release v9 · took 27s             │
-│                            │   verified clean 2026-10-13 22:15Z              │
-│ ▸ Services  4 running, 1 … │                                                 │
-│                            │ … 32 more (pgdn)                                │
+│ ▸ Storage  fullest 67%     │   mode live · release v10 · took 26s            │
+│                            │ … 44 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

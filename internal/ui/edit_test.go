@@ -98,7 +98,7 @@ func TestEditDone(t *testing.T) {
 // A volume whose root takes the image's owner at first use says so (G14).
 func TestVolumeOwnerFromImage(t *testing.T) {
 	m := demoModel(t, 120, 40)
-	withState(t, m, func(hc *flk.HostContext) { hc.Apps[0].Volumes[0].OwnerFromImage = true })
+	withState(t, m, func(hc *flk.HostContext) { hc.Apps[appIndex(hc.Apps)].Volumes[0].OwnerFromImage = true })
 	goTo(m, kindVolume)
 	if s := screen(m); !strings.Contains(s, "owner     not set yet: its root takes the image's owner") {
 		t.Errorf("volume overview:\n%s", s)
@@ -157,7 +157,7 @@ func TestInternalNames(t *testing.T) {
 		t.Errorf("off:\n%s", s)
 	}
 	withState(t, m, func(hc *flk.HostContext) {
-		mc := &hc.Apps[0].Machines[0]
+		mc := &hc.Apps[appIndex(hc.Apps)].Machines[0]
 		mc.InternalNames = []string{"minecraft-flk.internal", mc.ID + ".vm.minecraft-flk.internal", mc.Name + ".vm.minecraft-flk.internal"}
 	})
 	goTo(m, kindMachine)

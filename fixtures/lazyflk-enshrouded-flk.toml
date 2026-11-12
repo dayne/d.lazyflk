@@ -1,0 +1,32 @@
+# .lazyflk.toml: enshrouded-flk's own actions in lazyflk's menu (enter on the
+# app or its machine). Each runs with sh -c in this directory, after lazyflk
+# shows the expanded command and asks. {input} is asked for when the action
+# runs: any one line of text, passed as data (never run as shell).
+
+[actions.status]
+run  = "bin/en status"
+help = "one-screen overview: VM, build vs Steam, players (A2S), last save, backups, disk"
+
+[actions.preflight]
+run  = "bin/en preflight"
+help = "read-only host check: flk, site.env, passwords, storage, address, Steam, gamebus"
+
+[actions.backup]
+run  = "bin/en backup"
+help = "the nightly backup, now: pause mode (a second or two, nobody kicked), checked"
+
+[actions.backup-check]
+run  = "bin/en backup --check"
+help = "preflight only: dirs, flk, lock, status; makes no backup"
+
+[actions.update-check]
+run  = "bin/en update check"
+help = "is there a newer Steam build than the one pinned in flk.toml?"
+
+[actions.deploy]
+run  = "bin/en deploy"
+help = "flk deploy with TMPDIR on disk, after checking the ~10GB build fits"
+
+[actions.notify]
+run  = "bin/en notify-test {input}"
+help = "post a message to the Discord webhook"

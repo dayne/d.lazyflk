@@ -2,16 +2,15 @@
 │ Apps                       │ minecraft-flk                                   │
 │ ▾ minecraft-flk  0/1 ○ !   │  Overview  Logs  Events  Ports  Volumes ›       │
 │   ! mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ release v9 (of 9) · 2026-10-13 08:31Z           │
+│   ▢ world 40GB (external)  │ release v10 (of 10) · 2026-10-17 20:46Z         │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ machine 225d58f615e7e6 ! stopped, should be     │
-│ ▸ opencode-sandbox  1/1 ●  │   started 172.30.0.10                           │
-│ ▸ vintagestory-flk  1/1 ●  │   mellow-aurora-7882 · 4 cpus · 11264MB · v9    │
-│                            │   cpu 4% · 10910MB used · up 31h 59m            │
-│ Host                       │                                                 │
-│   health ✔                 │ ports  tcp/25565 → 10.47.11.3:25565             │
-│                            │        udp/19132 → 10.47.11.3:19132             │
-│ ▸ Storage  fullest 67%     │ … 12 more (pgdn)                                │
+│ ▸ enshrouded-flk  1/1 ●    │ machine 225d58f615e7e6 ! stopped, should be     │
+│ ▸ mqtt-flk  1/1 ●          │   started 172.30.0.10                           │
+│ ▸ vintagestory-flk  1/1 ●  │   mellow-aurora-7882 · 4 cpus · 11264MB · v10   │
+│ ▸ ncm  stopped             │   cpu 4% · 10963MB used · up 6d 8h              │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │ ports  tcp/25565 → 10.47.11.3:25565             │
+│                            │ … 13 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
 │ … 1 above                                                                    │
 │ › minecraft-flk: machine 225d58f615e7e6 [mellow-aurora-7882] should be       │
@@ -19,6 +18,7 @@
 │   225d58f615e7e6 --no-tail; bring it back: flk resume                        │
 │   → enter: fix: flk -a minecraft-flk resume                                  │
 │ ! minecraft-flk: host port tcp/25565 is held by another machine; this one…   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ ↑↓ move  enter fix  esc back                                                 │
 └──────────────────────────────────────────────────────────────────────────────┘

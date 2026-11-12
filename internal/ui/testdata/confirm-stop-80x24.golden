@@ -1,10 +1,10 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk / mellow-aurora-7882              │
-│ ▾ minecraft-flk  1/1 ●     │  Overview  Logs  Events  Record                 │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ id        225d58f615e7e6                        │
-│   ⇄ tcp/25565 udp/19132    │ name      mellow-aurora-7882                    │
-│ ▸ mqtt-flk  1/1 ●          │ state     ● started                             │
+│ ▸ enshrouded-flk  1/1 ●    │  Overview  Logs  Events  Record                 │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ id        225d58f615e7e6                        │
+│   ▢ world 40GB (external)  │ name      mellow-aurora-7882                    │
+│   ⇄ tcp/25565 udp/19132    │ state     ● started                             │
 │ ┌ stop ─ minecraft-flk / mellow-aurora-7882 ───────────────────────────────┐ │
 │ │ $ flk -a minecraft-flk machine stop 225d58f615e7e6                       │ │
 │ │                                                                          │ │
@@ -15,10 +15,10 @@
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ y run  n esc cancel                                                      │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│ ▸ Services  4 running, 1 … │ names     none: [flk] internal_hosts = true     │
-│                            │ … 5 more (pgdn)                                 │
+│                            │ … 6 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
 └──────────────────────────────────────────────────────────────────────────────┘

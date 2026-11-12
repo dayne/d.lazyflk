@@ -123,7 +123,7 @@ func TestBuildLogShown(t *testing.T) {
 	if s := ansi.Strip(m.eventLine(e, true)); !strings.Contains(s, "ERROR: pin is stale  build log: /s/apps/flkt-hello-05-buildlog-763a/builds/v1-failed-20261112T014334825Z.log") {
 		t.Errorf("event: %s", s)
 	}
-	a := m.apps[0]
+	a := m.apps[appIndex(m.apps)]
 	rels := []flk.Release{
 		{Version: a.Release.Version, BuildLog: "/s/builds/cur.log", Image: true},
 		{Version: a.Release.Version - 1, BuildLog: "/s/builds/old.log", Image: true},

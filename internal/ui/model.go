@@ -705,8 +705,7 @@ func (m *Model) attention() (out []string) {
 	if m.attn {
 		limit, first = max(6, m.height/4), m.attnCursor
 	}
-	if stopped != "" {
-		limit-- // its line comes last
+	if stopped != "" { // its line comes last, and takes no room from the problems
 		defer func() {
 			out = append(out, styleDim.Render("○ "+stopped))
 			m.attnMap = append(m.attnMap, -1)

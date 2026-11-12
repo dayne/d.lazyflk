@@ -1,33 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882      ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
-│   ▢ world 40GB (external)   │ : vol back▏                                                                                      │                             │
-│   ⇄ 10.47.11.3: tcp/25565 ud│ volumes backup   Copy volumes (default: all of the app's) to the backup dir, then prune old cop… │                             │
-│ ▾ mqtt-flk  1/1 ●           │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416        ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
+│   ▢ endata 10GB (external)  │ : vol back▏                                                                                      │                             │
+│   ⇄ 10.47.11.7: udp/15637   │ volumes backup   Copy volumes (default: all of the app's) to the backup dir, then prune old cop… │                             │
+│ ▾ minecraft-flk  1/1 ●      │ volumes backups  List a volume's backups (default: all of the app's volumes), newest first       │                             │
+│   ● mellow-aurora-7882      │                                                                                                  │                             │
+│   ▢ world 40GB (external)   │                                                                                                  │                             │
+│   ⇄ 10.47.11.3: tcp/25565 ud│                                                                                                  │                             │
+│ ▾ mqtt-flk  1/1 ●           │                                                                                                  │                             │
 │   ● hidden-comet-2020       │                                                                                                  │                             │
 │   ▢ mqttdata 1GB            │                                                                                                  │                             │
 │   ⇄ 10.47.11.3: tcp/1883    │                                                                                                  │                             │
-│ ▾ opencode-sandbox  1/1 ●   │                                                                                                  │                             │
-│   ● lucky-harbor-5563       │                                                                                                  │                             │
-│   ▢ code_workspace 30GB     │                                                                                                  │                             │
 │ ▾ vintagestory-flk  1/1 ●   │                                                                                                  │                             │
 │   ● frosty-river-2714       │                                                                                                  │                             │
 │   ▢ vsdata 40GB (external)  │                                                                                                  │                             │
 │   ⇄ 10.47.11.3: tcp/42420 ud│                                                                                                  │                             │
+│ ▸ ncm  stopped              │                                                                                                  │                             │
+│ ▸ opencode-sandbox  stopped │                                                                                                  │                             │
+│ ▸ valheim-flk  stopped      │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ Host                        │                                                                                                  │                             │
 │   health ✔                  │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │ ▸ Storage  fullest 67%      │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ ▸ Podman  10 images         │                                                                                                  │                             │
+│ ▸ Podman  11 images         │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
-│ ▸ Services  4 running, 1 lis│                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
-│                             │                                                                                                  │                             │
+│ ▸ Services  4 running       │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
@@ -40,9 +40,9 @@
 │                             │                                                                                                  │                             │
 │                             │                                                                                                  │                             │
 │                             │ flk volumes backup [ID|NAME...] [--to DIR] [--keep N] [--mode MODE] [--no-check] [--no-copy]     │                             │
-│                             ├──────────────────────────────────────────────────────────────────────────────────────────────────┤                             │
-├ Needs attention ────────────│ type to find  ↑↓ choose  enter fill in and run  esc close                                        │─────────────────────────────┤
-│ ✔ nothing needs attention   └──────────────────────────────────────────────────────────────────────────────────────────────────┘                             │
+├ Needs attention ────────────├──────────────────────────────────────────────────────────────────────────────────────────────────┤─────────────────────────────┤
+│ ! optional: 3 destroyed apps│ type to find  ↑↓ choose  enter fill in and run  esc close                                        │                             │
+│ ○ 3 apps stopped: ncm, openc└──────────────────────────────────────────────────────────────────────────────────────────────────┘                             │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

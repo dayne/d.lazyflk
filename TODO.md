@@ -165,11 +165,7 @@ R1 (on flk main, 7f0317f):
   its destination has `pruned_at`; don't show it as a copy that's there.
 - [x] **New help topics** `dockerfile`, `host`, `bugs` (`flk help TOPIC`;
   they're in `help --all --json` "topics"). Recaptured `help-all.json`
-  and the topics at flk 39e07f4. The host-state fixtures are still at
-  0227eac: a full `capture.sh` run now (seven apps, three stopped, a
-  doctor warning) breaks about 50 tests that expect the quiet
-  three-app host with minecraft-flk first; making the tests pick their
-  app by name comes before that recapture.
+  and the topics at flk 39e07f4.
 
 M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
 - [ ] **`flk build [--json]`** (built on flk branch m6-making-apps,
@@ -264,6 +260,18 @@ M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
   state; asked flk for a `kind` per step (flk's TODO, "For lazyflk").
 - [x] The attach snapshot no longer depends on the test running inside
   tmux (`make test` failed there).
+
+## Fixtures on any day (2026-11-11)
+
+- [x] The tests no longer need a quiet three-app host with minecraft-flk
+  first: they find the test app by name (`testApp`, `goTo`, `mc`), check
+  what must agree instead of the day's counts, and build the states the
+  capture doesn't have (ssh idle on its socket). All fixtures recaptured
+  at flk cf4b96f: seven apps, three stopped, one doctor warning, so
+  `--demo` shows stopped apps folded at the bottom.
+- [ ] `logs-minecraft-flk.txt` is the real server log: player names and
+  client addresses. Fine in a private repo; before publishing, capture it
+  from a test app or have capture.sh mask them.
 
 ## Known gaps
 

@@ -150,7 +150,7 @@ help = "broadcast a message"
 `), 0o644)
 	m := demoModel(t, 100, 30)
 	m.opt.AppActions = nil // the real reader: .lazyflk.toml in dir
-	withState(t, m, func(hc *flk.HostContext) { hc.Apps[0].ConfigPath = filepath.Join(dir, "flk.toml") })
+	withState(t, m, func(hc *flk.HostContext) { hc.Apps[appIndex(hc.Apps)].ConfigPath = filepath.Join(dir, "flk.toml") })
 	goTo(m, kindMachine)
 	press(m, "enter")
 	s := screen(m)

@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ Host                                            │
-│ ▾ minecraft-flk  1/1 ●     │  Health  Events  Services  Ports  Disk  Images  │
-│   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ df -k --output=target,size,used,avail,pcent   │
-│   ⇄ tcp/25565 udp/19132    │   /home/dayne/.local/share/flk                  │
-│ ▸ mqtt-flk  1/1 ●          │   /data/minecraft/flk /data/vintagestory/flk    │
-│ ▸ opencode-sandbox  1/1 ●  │                                                 │
-│ ▸ vintagestory-flk  1/1 ●  │  32% ███░░░░░░░ /                               │
-│                            │      64G free of 98G                            │
-│ Host                       │      holds /home/dayne/.local/share/flk         │
-│   health ✔                 │                                                 │
-│                            │  67% ██████░░░░ /data/minecraft                 │
-│ ▸ Storage  fullest 67%     │      32G free of 98G                            │
-│                            │      holds /data/minecraft/flk                  │
-│ ▸ Podman  10 images        │                                                 │
-│                            │  13% █░░░░░░░░░ /data/vintagestory              │
-│ ▸ Services  4 running, 1 … │      122G free of 147G                          │
-│                            │ … 33 more (pgdn)                                │
+│ ▸ enshrouded-flk  1/1 ●    │  Health  Events  Services  Ports  Disk  Images  │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
+│   ● mellow-aurora-7882     │ $ df -k --output=target,size,used,avail,pcent   │
+│   ▢ world 40GB (external)  │   /home/dayne/.local/share/flk /data/enshrouded │
+│   ⇄ tcp/25565 udp/19132    │   /data/minecraft/flk /data/valheim             │
+│ ▸ mqtt-flk  1/1 ●          │   /data/vintagestory/flk                        │
+│ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │  64% ██████░░░░ /                               │
+│ ▸ opencode-sandbox  stopp… │      51G free of 147G                           │
+│ ▸ valheim-flk  stopped     │      holds /home/dayne/.local/share/flk         │
+│                            │                                                 │
+│ Host                       │   2% ░░░░░░░░░░ /data/enshrouded                │
+│   health ✔                 │      18G free of 20G                            │
+│                            │      holds /data/enshrouded                     │
+│ ▸ Storage  fullest 67%     │                                                 │
+│                            │ … 55 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -1,33 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk / volume world ─  Overview  Backups                                                                   │
-│ ▾ minecraft-flk  1/1 ●                 │                                                                                                                     │
-│   ● mellow-aurora-7882                 │ name      world                                                                                                     │
-│   ▢ world 40GB (external)              │ id        vol_28392490d0d4d4c7                                                                                      │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ size      40GB                                                                                                      │
-│ ▾ mqtt-flk  1/1 ●                      │ path      /data/minecraft/flk/world.ext4                                                                            │
-│   ● hidden-comet-2020                  │           external: outside flk's state dir                                                                         │
-│   ▢ mqttdata 1GB                       │ attached  mellow-aurora-7882 (225d58f615e7e6)                                                                       │
-│   ⇄ 10.47.11.3: tcp/1883               │ created   2026-10-12 05:01Z                                                                                         │
-│ ▾ opencode-sandbox  1/1 ●              │                                                                                                                     │
-│   ● lucky-harbor-5563                  │                                                                                                                     │
-│   ▢ code_workspace 30GB                │                                                                                                                     │
-│ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714               ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
-│   ▢ vsdata 40GB (external)          │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
-│                                     │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
-│ Host                                │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
-│   health ✔                          │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│                                     │ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
-│ ▸ Storage  fullest 67%              │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│                                     │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
-│ ▸ Podman  10 images                 │ o  owner              machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│ ▾ enshrouded-flk  1/1 ●                │                                                                                                                     │
+│   ● polar-river-2416                   │ name      world                                                                                                     │
+│   ▢ endata 10GB (external)             │ id        vol_28392490d0d4d4c7                                                                                      │
+│   ⇄ 10.47.11.7: udp/15637              │ size      40GB                                                                                                      │
+│ ▾ minecraft-flk  1/1 ●                 │ path      /data/minecraft/flk/world.ext4                                                                            │
+│   ● mellow-aurora-7882                 │           external: outside flk's state dir                                                                         │
+│   ▢ world 40GB (external)              │ attached  mellow-aurora-7882 (225d58f615e7e6)                                                                       │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ created   2026-10-12 05:01Z                                                                                         │
+│ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
+│   ● hidden-comet-2020                  │                                                                                                                     │
+│   ▢ mqttdata 1GB                       │                                                                                                                     │
+│   ⇄ 10.47.11.3: tcp/1883               │                                                                                                                     │
+│ ▾ vintagestory-flk  1/1 ●           ┌ minecraft-flk / volume world ─ actions ──────────────────────────────────────────┐                                     │
+│   ● frosty-river-2714               │ f  browse files       look inside it, or a backup of it: list, read, copy out (… │                                     │
+│   ▢ vsdata 40GB (external)          │ b  back up            copy world to the backup dir, then prune old copies        │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ v  verify             check backups without changing them: e2fsck -n, then the … │                                     │
+│ ▸ ncm  stopped                      │ c  copy               copy a backup off this disk or host (rsync), then prune o… │                                     │
+│ ▸ opencode-sandbox  stopped         │ t  restore            machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│ ▸ valheim-flk  stopped              │ a  restore as new     copy a backup into a new volume, to test it or look insid… │                                     │
+│                                     │ g  extend             machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│ Host                                │ m  move               machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
+│   health ✔                          │ o  owner              machine 225d58f615e7e6 [mellow-aurora-7882] is using it: … │                                     │
 │                                     │ D  unregister         attached to machine 225d58f615e7e6: destroy that machine … │                                     │
-│ ▸ Services  4 running, 1 listening  │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
+│ ▸ Storage  fullest 67%              │ X  destroy with data  attached to machine 225d58f615e7e6: destroy that machine … │                                     │
 │                                     │ n  new volume         create a volume for [[mounts]] source = NAME               │                                     │
-│                                     │                                                                                  │                                     │
+│ ▸ Podman  11 images                 │                                                                                  │                                     │
 │                                     │ look inside it, or a backup of it: list, read, copy out (flk files)              │                                     │
-│                                     │ opens in lazyflk                                                                 │                                     │
+│ ▸ Services  4 running               │ opens in lazyflk                                                                 │                                     │
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │                                     │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
@@ -40,9 +40,9 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
-│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                                                                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                           │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                              │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

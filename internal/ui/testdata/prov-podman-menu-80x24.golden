@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ Apps                       │ image localhost/mqtt-flk-test:latest            │
-│ ▸ minecraft-flk  1/1 ●     │  Overview                                       │
-│ ▸ mqtt-flk  1/1 ●          │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │ $ podman ps -a --external --format json ·       │
-│ ▸ vintagestory-flk  1/1 ●  │   podman images --format json                   │
-│                            │                                                 │
-│ ┌ image localhost/mqtt-flk-test:latest ─ actions ──────────────────────────┐ │
-│ │ c  copy: podman image rm localhost/mqt…  lazyflk doesn't delete images;… │ │
+│ ▸ ncm  stopped             │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
+│ ▸ opencode-sandbox  stopp… │  Overview                                       │
+│ ▸ valheim-flk  stopped     │                                                 │
+│                            │ $ podman ps -a --external --format json ·       │
+│ Host                       │   podman images --format json                   │
+│   health ✔                 │                                                 │
+│ ┌ image docker.io/steamcmd/steamcmd:ubuntu-24 ─ actions ───────────────────┐ │
+│ │ c  copy: podman image rm docker.io/ste…  lazyflk doesn't delete images;… │ │
 │ │ p  copy: podman image prune              removes images nothing uses or… │ │
 │ │                                                                          │ │
 │ │ lazyflk doesn't delete images; paste it in a shell                       │ │
-│ │ copies: podman image rm localhost/mqtt-flk-test:latest                   │ │
+│ │ copies: podman image rm docker.io/steamcmd/steamcmd:ubuntu-24            │ │
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│   ◇ localhost/mqtt-flk-te… │   download it again.                            │
-│   ◇ 7d2e85beb5a7 (untagge… │                                                 │
-│   ◇ 8149e56d2f50 (untagge… │                                                 │
+│   ◇ cc7cfa49ce1f (untagge… │   download it again.                            │
+│   ◇ steamcmd/steamcmd:ubu… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘

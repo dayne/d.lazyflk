@@ -1,7 +1,7 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ Host                                            │
-│ ▾ minecraft-flk  1/1 ●     │  Health  Events  Services  Ports  Disk  Images  │
-│   ● mellow-aurora-7882     │                                                 │
+│ ▸ enshrouded-flk  1/1 ●    │  Health  Events  Services  Ports  Disk  Images  │
+│ ▾ minecraft-flk  1/1 ●     │                                                 │
 │ ┌ host ─ actions ──────────────────────────────────────────────────────────┐ │
 │ │ u  resume all     nothing to resume                                      │ │
 │ │ S  stop all       stop every running machine, remembering to resume them │ │
@@ -16,9 +16,9 @@
 │ │ not now: nothing to resume                                               │ │
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
-│ └──────────────────────────────────────────────────────────────────────────┘ │
-├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+├ └──────────────────────────────────────────────────────────────────────────┘─┤
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  ←→ fold │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help     │
 └──────────────────────────────────────────────────────────────────────────────┘

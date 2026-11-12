@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -30,46 +31,73 @@ func TestDecodeFixtures(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if hc.Flk.Version != "0.1.0" || !hc.Host.OK || hc.Host.LanIP != "10.47.11.116" || !hc.Host.BootService {
+	// The fixtures are the reference host on the day they were captured:
+	// which apps it has, their order and what's stopped all change, so the
+	// checks go by the test app's name and by what must agree, not by counts.
+	if hc.Flk.Version != "0.1.0" || !hc.Host.OK || hc.Host.LanIP == "" || !hc.Host.BootService {
 		t.Errorf("host context: %+v", hc)
 	}
-	if len(hc.Apps) < 3 || hc.Schema != Schema || hc.Apps[0].Name != app || hc.Apps[0].Release == nil || hc.Apps[0].Release.Version != hc.Apps[0].Machines[0].Release || hc.Apps[0].Scale != nil || hc.Apps[0].ConfigPath != "/home/dayne/minecraft.flk/flk.toml" {
+	var a App
+	startedApps := 0
+	for _, x := range hc.Apps {
+		if x.Name == app {
+			a = x
+		}
+		for _, m := range x.Machines {
+			if m.Started() {
+				startedApps++
+				break
+			}
+		}
+	}
+	if len(hc.Apps) < 3 || hc.Schema != Schema || a.Name != app || a.Release == nil || a.Release.Version != a.Machines[0].Release || a.Scale != nil || a.ConfigPath != "/home/dayne/minecraft.flk/flk.toml" {
 		t.Fatalf("apps: %+v", hc.Apps)
 	}
-	a := hc.Apps[0]
-	if m := a.Machines[0]; m.ID != id || !m.Started() || m.ShouldRun() || m.MemoryMB != 11264 || len(m.Ports) != 2 ||
+	if m := a.Machines[0]; m.ID != id || !m.Started() || m.ShouldRun() || m.Parked() || m.MemoryMB != 11264 || len(m.Ports) != 2 ||
 		m.Restart == nil || m.Restart.Policy != "on-failure" || m.Restarts != nil || m.PID == nil || *m.PID == 0 {
 		t.Errorf("machine: %+v", m)
 	}
-	if len(a.Ports.Active) != 2 || !strings.HasSuffix(a.Ports.Active[1].Address, ":19132") || len(hc.MountDirs) != 3 || len(hc.NextSteps) != 0 {
+	if len(a.Ports.Active) != 2 || !strings.HasSuffix(a.Ports.Active[1].Address, ":19132") || len(hc.MountDirs) == 0 || hc.MountDirs[0] != hc.Flk.StateDir {
 		t.Errorf("ports %+v, mount dirs %v", a.Ports, hc.MountDirs)
 	}
 
 	ac, err := c.AppContext(ctx, app)
-	if err != nil || ac.App == nil || ac.App.Name != app || len(ac.NextSteps) != 1 {
+	if err != nil || ac.App == nil || ac.App.Name != app || len(ac.NextSteps) == 0 {
 		t.Errorf("app context: %+v, %v", ac, err)
 	}
-	if s := hc.Host.Services; len(s) != 2 || s[0].Unit != "flk-net.service" || !s[1].Installed || s[1].Active != "active" || s[1].Sub != "exited" {
+	if s := hc.Host.Services; len(s) < 2 || s[0].Unit != "flk-net.service" || !s[1].Installed || s[1].Active != "active" || s[1].Sub != "exited" {
 		t.Errorf("host services: %+v", s)
 	}
 	doc, err := c.Doctor(ctx)
-	if err != nil || !doc.OK || len(doc.Checks) < 15 || doc.Checks[0].Status != "pass" || doc.Schema != 1 || len(doc.Services) != 2 {
+	if err != nil || !doc.OK || len(doc.Checks) < 15 || doc.Checks[0].Status != "pass" || doc.Schema != 1 || len(doc.Services) != len(hc.Host.Services) {
 		t.Errorf("doctor: %+v, %v", doc, err)
 	}
 
 	// G5: no host checks, same apps
 	quick, err := c.QuickContext(ctx)
-	if err != nil || quick.Host.LanIP != "10.47.11.116" || quick.Host.OK || quick.Host.Services != nil || len(quick.Apps) != len(hc.Apps) {
+	if err != nil || quick.Host.LanIP != hc.Host.LanIP || quick.Host.OK || quick.Host.Services != nil || len(quick.Apps) != len(hc.Apps) {
 		t.Errorf("quick context: %+v, %v", quick.Host, err)
 	}
 	// G4, G8, G10
 	stats, err := c.Stats(ctx)
-	if err != nil || len(stats) != len(hc.Apps) || stats[0].CPUPercent == nil || stats[0].RSSMB == nil || stats[0].UptimeS == nil || stats[0].MemoryMB != 11264 {
+	var mcStats MachineStats
+	for _, x := range stats {
+		if x.ID == id {
+			mcStats = x
+		}
+	}
+	if err != nil || len(stats) == 0 || mcStats.CPUPercent == nil || mcStats.RSSMB == nil || mcStats.UptimeS == nil || mcStats.MemoryMB != 11264 {
 		t.Errorf("stats: %+v, %v", stats, err)
 	}
 	du, err := c.DiskUse(ctx)
-	if err != nil || du.StateDir.Path == "" || du.StateDir.Bytes == 0 || len(du.Apps) != len(hc.Apps) || du.Apps[0].Images.Bytes == 0 ||
-		du.Apps[0].ExternalVolumes.Apparent == 0 || du.Backups == nil || du.Backups.Apps[app].Bytes == 0 {
+	var mcDisk AppDisk
+	for _, x := range du.Apps {
+		if x.App == app {
+			mcDisk = x
+		}
+	}
+	if err != nil || du.StateDir.Path == "" || du.StateDir.Bytes == 0 || len(du.Apps) != len(hc.Apps) || mcDisk.Images.Bytes == 0 ||
+		mcDisk.ExternalVolumes.Apparent == 0 || du.Backups == nil || du.Backups.Apps[app].Bytes == 0 {
 		t.Errorf("disk: %+v, %v", du, err)
 	}
 	imgs, err := c.Images(ctx)
@@ -82,12 +110,13 @@ func TestDecodeFixtures(t *testing.T) {
 			unused++
 		}
 	}
-	// the reference host runs every app; older releases' images are kept
-	if err != nil || imgs[0].Release == nil || !imgs[0].Running || imgs[0].SizeBytes == 0 || running != len(hc.Apps) || unused == 0 {
+	// a started app's image runs (one built elsewhere, [build] image, isn't
+	// flk's to list); older releases' images are kept
+	if err != nil || len(imgs) == 0 || imgs[0].SizeBytes == 0 || running == 0 || running > startedApps || unused == 0 {
 		t.Errorf("images: %+v, %v", imgs, err)
 	}
 	apps, err := c.Apps(ctx)
-	if err != nil || len(apps) != len(hc.Apps) || apps[0].Started != 1 || apps[0].ConfigPath == "" {
+	if err != nil || len(apps) != len(hc.Apps) || apps[0].ConfigPath == "" {
 		t.Errorf("apps: %+v, %v", apps, err)
 	}
 	pl, err := c.Ports(ctx)
@@ -99,7 +128,8 @@ func TestDecodeFixtures(t *testing.T) {
 		t.Errorf("status: %+v, %v", st, err)
 	}
 	rels, err := c.Releases(ctx, app)
-	if err != nil || len(rels) != 9 || rels[8].Tag != "flk.local/minecraft-flk:v9" {
+	if err != nil || len(rels) == 0 || rels[len(rels)-1].Version != a.Release.Version ||
+		rels[len(rels)-1].Tag != fmt.Sprintf("flk.local/minecraft-flk:v%d", a.Release.Version) {
 		t.Errorf("releases: %+v, %v", rels, err)
 	}
 	vols, err := c.Volumes(ctx, app)

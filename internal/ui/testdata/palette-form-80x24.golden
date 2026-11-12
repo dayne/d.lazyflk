@@ -16,8 +16,8 @@
 │ │ --mode MODE [                                                          ] │ │
 │ │ --no-check  ‹ no ›                                                       │ │
 │ │ --no-copy   ‹ no ›                                                       │ │
-│ │                                                                          │ │
-├ │ $ flk -a minecraft-flk volumes backup                                    │─┤
+├ │                                                                          │─┤
+│ │ $ flk -a minecraft-flk volumes backup                                    │ │
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 ├─│ tab ↑↓ field  ←→ choose  enter next step  esc cancel                     │─┤
 │ └──────────────────────────────────────────────────────────────────────────┘ │

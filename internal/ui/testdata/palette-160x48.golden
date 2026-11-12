@@ -1,33 +1,33 @@
-┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.116) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
+┌ lazyflk ─ host ready · address 10.47.11.3 (LAN 10.47.11.111) · boot service ok ──────────────────────────────────────────────────────────────────────── demo ┐
 │ Apps                                   │ minecraft-flk ─  Overview  Logs  Events  Ports  Volumes  Releases  Secrets  Config                                  │
-│ ▾ minecraft-flk  1/1 ●      ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
-│   ● mellow-aurora-7882      │ : ▏                                                                                              │                             │
-│   ▢ world 40GB (external)   │ context             What flk sees right now: host health, the current app, machines, ports, nex… │                             │
-│   ⇄ 10.47.11.3: tcp/25565 ud│ help                Show help for flk, a command, or a topic (cheatsheet, install, first-app, o… │                             │
-│ ▾ mqtt-flk  1/1 ●           │ completion          Print a tab-completion script (bash; zsh via bashcompinit)                   │                             │
-│   ● hidden-comet-2020       │ setup               Download firecracker + guest kernel (no root), then run doctor               │                             │
-│   ▢ mqttdata 1GB            │ doctor              Check host readiness                                                         │                             │
-│   ⇄ 10.47.11.3: tcp/1883    │ version             Print the flk version                                                        │                             │
-│ ▾ opencode-sandbox  1/1 ●   │ resume              Start every machine that should be running (after a reboot, or after stop-a… │                             │
-│   ● lucky-harbor-5563       │ stop-all            Gracefully stop every running machine, remembering to resume them            │                             │
-│   ▢ code_workspace 30GB     │ launch              Create flk.toml (if missing) in the current directory, register the app, de… │                             │
-│ ▾ vintagestory-flk  1/1 ●   │ deploy              Build the image and roll machines to a new release                           │                             │
-│   ● frosty-river-2714       │ status              App and machine overview                                                     │                             │
-│   ▢ vsdata 40GB (external)  │ start               Boot every stopped machine of the app                                        │                             │
-│   ⇄ 10.47.11.3: tcp/42420 ud│ stop                Stop every machine of the app gracefully; they stay stopped across reboots   │                             │
-│                             │ restart             Stop and boot every machine of the app, one at a time                        │                             │
-│ Host                        │ releases list       Releases, newest first: current, failed (and why), kept for rollback, or pr… │                             │
-│   health ✔                  │ releases rollback   Roll machines back to an older release's image and config (default: the one… │                             │
-│                             │ disk                Disk space flk uses, per app: release images, machine disks, volumes, logs;… │                             │
-│ ▸ Storage  fullest 67%      │ images list         flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
-│                             │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
-│ ▸ Podman  10 images         │ apps list           All apps on this host                                                        │                             │
+│ ▾ enshrouded-flk  1/1 ●     ┌ flk commands ─ from flk help --all --json ───────────────────────────────────────────────────────┐                             │
+│   ● polar-river-2416        │ : ▏                                                                                              │                             │
+│   ▢ endata 10GB (external)  │ context             What flk sees right now: host health, the current app, machines, ports, nex… │                             │
+│   ⇄ 10.47.11.7: udp/15637   │ help                Show help for flk, a command, or a topic (cheatsheet, install, first-app, o… │                             │
+│ ▾ minecraft-flk  1/1 ●      │ completion          Print a tab-completion script (bash; zsh via bashcompinit)                   │                             │
+│   ● mellow-aurora-7882      │ setup               Download firecracker + guest kernel (no root), then run doctor               │                             │
+│   ▢ world 40GB (external)   │ doctor              Check host readiness                                                         │                             │
+│   ⇄ 10.47.11.3: tcp/25565 ud│ version             Print the flk version                                                        │                             │
+│ ▾ mqtt-flk  1/1 ●           │ resume              Start every machine that should be running (after a reboot, or after stop-a… │                             │
+│   ● hidden-comet-2020       │ stop-all            Gracefully stop every running machine, remembering to resume them            │                             │
+│   ▢ mqttdata 1GB            │ launch              Create flk.toml (if missing) in the current directory, register the app, de… │                             │
+│   ⇄ 10.47.11.3: tcp/1883    │ deploy              Build the image and roll machines to a new release                           │                             │
+│ ▾ vintagestory-flk  1/1 ●   │ status              App and machine overview                                                     │                             │
+│   ● frosty-river-2714       │ start               Boot every stopped machine of the app                                        │                             │
+│   ▢ vsdata 40GB (external)  │ stop                Stop every machine of the app gracefully; they stay stopped across reboots   │                             │
+│   ⇄ 10.47.11.3: tcp/42420 ud│ restart             Stop and boot every machine of the app, one at a time                        │                             │
+│ ▸ ncm  stopped              │ releases list       Releases, newest first: current, failed (and why), kept for rollback, or pr… │                             │
+│ ▸ opencode-sandbox  stopped │ releases rollback   Roll machines back to an older release's image and config (default: the one… │                             │
+│ ▸ valheim-flk  stopped      │ disk                Disk space flk uses, per app: release images, machine disks, volumes, logs;… │                             │
+│                             │ images list         flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
+│ Host                        │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
+│   health ✔                  │ apps list           All apps on this host                                                        │                             │
 │                             │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
-│ ▸ Services  4 running, 1 lis│ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
+│ ▸ Storage  fullest 67%      │ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
 │                             │ config show         Print the parsed flk.toml / fly.toml (or host config with --host)            │                             │
-│                             │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
+│ ▸ Podman  11 images         │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
 │                             │ machine list        Machines of the app                                                          │                             │
-│                             │ machine start       Boot machines                                                                │                             │
+│ ▸ Services  4 running       │ machine start       Boot machines                                                                │                             │
 │                             │ machine stop        Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); the… │                             │
 │                             │ machine restart     Stop, then boot                                                              │                             │
 │                             │ machine destroy     Delete machines (their volumes are kept, unattached)                         │                             │
@@ -40,9 +40,9 @@
 │                             │ logs                Serial console output (app stdout/stderr and boot messages)                  │                             │
 │                             │ console             Attach to a machine's serial console, or --send one line to the app's stdin  │                             │
 │                             │                                                                                                  │                             │
-│                             │ flk context [--all] [--json] [--no-host]                                                         │                             │
-├ Needs attention ────────────├──────────────────────────────────────────────────────────────────────────────────────────────────┤─────────────────────────────┤
-│ ✔ nothing needs attention   │ type to find  ↑↓ choose  enter fill in and run  esc close                                        │                             │
+├ Needs attention ────────────│ flk context [--all] [--json] [--no-host]                                                         │─────────────────────────────┤
+│ ! optional: 3 destroyed apps├──────────────────────────────────────────────────────────────────────────────────────────────────┤                             │
+│ ○ 3 apps stopped: ncm, openc│ type to find  ↑↓ choose  enter fill in and run  esc close                                        │                             │
 ├─────────────────────────────└──────────────────────────────────────────────────────────────────────────────────────────────────┘─────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

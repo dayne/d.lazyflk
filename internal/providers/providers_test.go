@@ -29,11 +29,16 @@ func joined(it Item) string { return strings.Join(it.Lines, "\n") }
 func TestStorage(t *testing.T) {
 	h, env := demo()
 	items, err := Storage{}.Load(context.Background(), h, env)
-	if err != nil || len(items) != 3 {
+	if err != nil || len(items) < 2 {
 		t.Fatalf("%d items, %v", len(items), err)
 	}
-	mc := items[1]
-	if mc.Label != "/data/minecraft 67%" || mc.State != OK || !strings.Contains(joined(mc), "holds     /data/minecraft/flk") {
+	var mc Item // by name: the host's disks change with its apps
+	for _, it := range items {
+		if strings.HasPrefix(it.Label, "/data/minecraft ") {
+			mc = it
+		}
+	}
+	if !strings.HasSuffix(mc.Label, "%") || mc.State != OK || !strings.Contains(joined(mc), "holds     /data/minecraft/flk") {
 		t.Errorf("minecraft disk: %+v", mc)
 	}
 	// the LVM chain, and room left in the volume group
@@ -102,7 +107,7 @@ func TestPodman(t *testing.T) {
 		names = append(names, it.Label)
 	}
 	all := strings.Join(names, "\n")
-	if strings.Contains(all, "flk.local") || !strings.Contains(all, "flk images: host Images tab") || !strings.Contains(all, "itzg/minecraft-server:latest") {
+	if strings.Contains(all, "flk.local") || !strings.Contains(all, "flk images: host Images tab") || !strings.Contains(all, "◇ alpine:") {
 		t.Errorf("images:\n%s", all)
 	}
 	if shortRef("docker.io/library/alpine:3.20") != "alpine:3.20" || shortRef("localhost/x:1") != "localhost/x:1" {
@@ -139,16 +144,18 @@ func TestPodmanTestContainer(t *testing.T) {
 func TestServices(t *testing.T) {
 	h, env := demo()
 	items, err := Services{}.Load(context.Background(), h, env)
-	if err != nil || len(items) != 5 {
+	if err != nil || len(items) < 3 {
 		t.Fatalf("%d items, %v", len(items), err)
 	}
 	if items[0].Label != "● flk-net" || !strings.Contains(joined(items[0]), "one of flk's units") {
 		t.Errorf("flk-net: %+v", items[0])
 	}
-	// captured idle: ssh is socket-activated on the reference host
-	if items[2].Label != "◌ ssh (listening)" || items[2].State != OK || !strings.Contains(joined(items[2]), "ssh.socket is active") || items[2].Logs == nil || items[2].Logs.Line() != "journalctl -u ssh.service -f -n 200 --no-pager -o short-iso" {
-		t.Errorf("ssh: %+v", items[2])
+	ssh := serviceItem(t, items, "ssh.service")
+	// running or idle on its socket, as captured: never off on the reference host
+	if (ssh.Label != "● ssh" && ssh.Label != "◌ ssh (listening)") || ssh.State != OK || ssh.Logs == nil || ssh.Logs.Line() != "journalctl -u ssh.service -f -n 200 --no-pager -o short-iso" {
+		t.Errorf("ssh: %+v", ssh)
 	}
+	items[2] = ssh
 	for _, a := range items[2].Actions[1:] {
 		if a.View != actions.ViewCopy || !strings.HasPrefix(a.Copy, "sudo systemctl ") {
 			t.Errorf("root steps are copied: %+v", a)
@@ -308,6 +315,58 @@ func TestPinsHints(t *testing.T) {
 	os.WriteFile(file, []byte("# mine\nssh\nnope-not-here\n"), 0o644)
 	if got := s.Hint(); got != "pinned in "+file+"; P (on a service) edits the list" {
 		t.Errorf("hint: %s", got)
+	}
+}
+
+func serviceItem(t *testing.T, items []Item, unit string) Item {
+	t.Helper()
+	for _, it := range items {
+		if it.Key == "service/"+unit {
+			return it
+		}
+	}
+	t.Fatalf("no %s in %d items", unit, len(items))
+	return Item{}
+}
+
+// editShow is the demo host with one unit's block of systemctl-show.txt
+// replaced: a state the reference host wasn't in when captured.
+func editShow(unit, block string) Host {
+	show, _ := fixtures.FS.ReadFile("systemctl-show.txt")
+	blocks := strings.Split(strings.TrimSpace(string(show)), "\n\n")
+	found := false
+	for i, b := range blocks {
+		if strings.Contains(b, "Id="+unit+"\n") {
+			blocks[i], found = block, true
+		}
+	}
+	if !found { // a default pin the host no longer has comes back as not-found: keep the order
+		blocks = append(blocks, block)
+	}
+	fsys := fstest.MapFS{}
+	for _, file := range DemoFiles {
+		b, _ := fixtures.FS.ReadFile(file)
+		fsys[file] = &fstest.MapFile{Data: b}
+	}
+	fsys["systemctl-show.txt"] = &fstest.MapFile{Data: []byte(strings.Join(blocks, "\n\n") + "\n")}
+	return (&Fake{FS: fsys, Files: DemoFiles}).For
+}
+
+// ssh idle between connections is socket-activated on the reference host:
+// listening, not off (its socket unit is active: systemctl-show-sockets.txt).
+func TestSocketListening(t *testing.T) {
+	_, env := demo()
+	h := editShow("ssh.service", "Id=ssh.service\nDescription=OpenBSD Secure Shell server\nLoadState=loaded\nActiveState=inactive\nSubState=dead\nUnitFileState=disabled")
+	items, err := Services{}.Load(context.Background(), h, env)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ssh := serviceItem(t, items, "ssh.service")
+	if ssh.Label != "◌ ssh (listening)" || ssh.State != OK || !strings.Contains(joined(ssh), "ssh.socket is active") {
+		t.Errorf("ssh: %+v", ssh)
+	}
+	if got := (Services{}).Summary(items); !strings.Contains(got, "1 listening") || strings.Contains(got, "off") {
+		t.Errorf("summary: %s", got)
 	}
 }
 

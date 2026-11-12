@@ -6,18 +6,26 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 9,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-14T10:00:27Z",
-    "seconds": 25.3,
+    "created_at": "2026-11-11T11:00:27Z",
+    "seconds": 26.4,
     "verify": "clean",
-    "verified_at": "2026-10-14T10:00:27Z",
+    "verified_at": "2026-11-11T11:00:28Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261014T100001Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261014T100001Z.ext4",
-    "bytes_used": 22052954112
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-11T11:12:58Z",
+        "ok": true,
+        "seconds": 750.0
+      }
+    ],
+    "file": "world-20261111T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261111T110001Z.ext4",
+    "bytes_used": 22281822208
   },
   {
     "app": "minecraft-flk",
@@ -26,18 +34,26 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 9,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T22:15:24Z",
-    "seconds": 26.9,
+    "created_at": "2026-11-10T11:00:27Z",
+    "seconds": 26.1,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:15:24Z",
+    "verified_at": "2026-11-10T11:00:27Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T221456Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T221456Z.ext4",
-    "bytes_used": 22001106944
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-10T11:12:57Z",
+        "ok": true,
+        "seconds": 749.8
+      }
+    ],
+    "file": "world-20261110T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261110T110001Z.ext4",
+    "bytes_used": 22281822208
   },
   {
     "app": "minecraft-flk",
@@ -46,18 +62,26 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 9,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T22:08:33Z",
-    "seconds": 25.5,
+    "created_at": "2026-11-09T11:00:27Z",
+    "seconds": 26.2,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:08:34Z",
+    "verified_at": "2026-11-09T11:00:27Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T220808Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T220808Z.ext4",
-    "bytes_used": 22000443392
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-09T11:12:57Z",
+        "ok": true,
+        "seconds": 750.0
+      }
+    ],
+    "file": "world-20261109T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261109T110001Z.ext4",
+    "bytes_used": 22281822208
   },
   {
     "app": "minecraft-flk",
@@ -66,18 +90,27 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 9,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T11:14:18Z",
-    "seconds": 24.4,
+    "created_at": "2026-11-08T11:00:27Z",
+    "seconds": 25.9,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:07:50Z",
+    "verified_at": "2026-11-08T11:12:58Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T111353Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T111353Z.ext4",
-    "bytes_used": 21947953152
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-08T11:12:57Z",
+        "ok": true,
+        "seconds": 749.6,
+        "pruned_at": "2026-11-11T11:12:58Z"
+      }
+    ],
+    "file": "world-20261108T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261108T110001Z.ext4",
+    "bytes_used": 22275530752
   },
   {
     "app": "minecraft-flk",
@@ -86,18 +119,27 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 9,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T10:00:22Z",
-    "seconds": 20.0,
+    "created_at": "2026-11-07T11:00:27Z",
+    "seconds": 25.8,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:07:50Z",
+    "verified_at": "2026-11-08T11:12:58Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T100001Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T100001Z.ext4",
-    "bytes_used": 21940252672
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-07T11:12:57Z",
+        "ok": true,
+        "seconds": 750.0,
+        "pruned_at": "2026-11-11T11:12:58Z"
+      }
+    ],
+    "file": "world-20261107T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261107T110001Z.ext4",
+    "bytes_used": 22275530752
   },
   {
     "app": "minecraft-flk",
@@ -106,18 +148,27 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 8,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T08:24:49Z",
-    "seconds": 49.4,
+    "created_at": "2026-11-06T11:00:27Z",
+    "seconds": 25.9,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:07:50Z",
+    "verified_at": "2026-11-08T11:12:58Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T082359Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T082359Z.ext4",
-    "bytes_used": 21922254848
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-06T11:12:57Z",
+        "ok": true,
+        "seconds": 749.7,
+        "pruned_at": "2026-11-11T11:12:58Z"
+      }
+    ],
+    "file": "world-20261106T110001Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261106T110001Z.ext4",
+    "bytes_used": 22275530752
   },
   {
     "app": "minecraft-flk",
@@ -126,17 +177,26 @@
     "size_gb": 40,
     "source": "/data/minecraft/flk/world.ext4",
     "machine": "225d58f615e7e6",
-    "release": 8,
+    "release": 10,
     "mode": "live",
     "check": "clean",
     "journal_replayed": true,
-    "created_at": "2026-10-13T06:28:22Z",
-    "seconds": 49.4,
+    "created_at": "2026-11-05T11:00:28Z",
+    "seconds": 25.8,
     "verify": "clean",
-    "verified_at": "2026-10-13T22:07:51Z",
+    "verified_at": "2026-11-08T11:12:58Z",
     "verify_detail": "e2fsck -n: clean; verify hook: passed: mc-verify-backup: ok: level.dat valid, 5997 overworld regions, server jar and properties present",
-    "file": "world-20261013T062733Z.ext4",
-    "path": "/data/flk-backups/minecraft-flk/world/world-20261013T062733Z.ext4",
-    "bytes_used": 21921976320
+    "copies": [
+      {
+        "to": "/data/backup/flk",
+        "at": "2026-11-05T11:12:57Z",
+        "ok": true,
+        "seconds": 749.5,
+        "pruned_at": "2026-11-11T11:12:58Z"
+      }
+    ],
+    "file": "world-20261105T110002Z.ext4",
+    "path": "/data/flk-backups/minecraft-flk/world/world-20261105T110002Z.ext4",
+    "bytes_used": 22275530752
   }
 ]

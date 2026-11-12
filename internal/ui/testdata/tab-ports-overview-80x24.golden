@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
 │ Apps                       │ minecraft-flk / ports ─  Overview               │
-│ ▾ minecraft-flk  1/1 ●     │                                                 │
-│   ● mellow-aurora-7882     │ tcp/25565 → 10.47.11.3:25565                    │
-│   ▢ world 40GB (external)  │ udp/19132 → 10.47.11.3:19132                    │
+│ ▸ enshrouded-flk  1/1 ●    │                                                 │
+│ ▾ minecraft-flk  1/1 ●     │ tcp/25565 → 10.47.11.3:25565                    │
+│   ● mellow-aurora-7882     │ udp/19132 → 10.47.11.3:19132                    │
+│   ▢ world 40GB (external)  │                                                 │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
 │ ▸ mqtt-flk  1/1 ●          │                                                 │
-│ ▸ opencode-sandbox  1/1 ●  │                                                 │
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
+│ ▸ ncm  stopped             │                                                 │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │                                                 │
 │                            │                                                 │
 │ Host                       │                                                 │
 │   health ✔                 │                                                 │
 │                            │                                                 │
 │ ▸ Storage  fullest 67%     │                                                 │
 │                            │                                                 │
-│ ▸ Podman  10 images        │                                                 │
-│                            │                                                 │
-│ ▸ Services  4 running, 1 … │                                                 │
-│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ✔ nothing needs attention                                                    │
+│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
+│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
+│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
 └──────────────────────────────────────────────────────────────────────────────┘
