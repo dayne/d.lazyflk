@@ -16,7 +16,8 @@ var mainHelp = struct {
 		"then the host. Right: tabs for the selection. Bottom: what needs attention, " +
 		"from flk context --all. Below Host: Storage, Podman and Services, the rest of " +
 		"what this host runs. What's healthy folds (▸) to one line, and opens (▾) by " +
-		"itself when something there goes wrong. Each tab shows the command that fills it, and every " +
+		"itself when something there goes wrong. Apps you stopped come last, folded, and " +
+		"are one line at the bottom, not problems. Each tab shows the command that fills it, and every " +
 		"action shows the command it runs before running it (L lists them all). " +
 		"Changes show as they happen (flk events --follow); the Events tabs list them.",
 	keys: []helpKey{

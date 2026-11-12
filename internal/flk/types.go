@@ -134,6 +134,12 @@ type Restarts struct {
 // Started reports whether the machine is running.
 func (m Machine) Started() bool { return m.State == "started" }
 
+// Parked reports a machine the admin stopped and left stopped: not a
+// problem, however long it lasts.
+func (m Machine) Parked() bool {
+	return m.DesiredState == "stopped" && !m.Started() && (m.Restarts == nil || m.Restarts.GaveUpAt == "")
+}
+
 // ShouldRun reports a machine that is meant to run but doesn't.
 func (m Machine) ShouldRun() bool { return m.DesiredState == "started" && !m.Started() }
 

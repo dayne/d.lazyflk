@@ -88,6 +88,101 @@ attention fix rolled it back).
   live. "run it: as is" skips sh -c, for images without a shell (static
   init, 4f47d96).
 
+## From flk 21ffec9 and 7cb3ddb (host settings from the CLI, 2026-10-15)
+
+Note left by the flk side for whoever picks this up. All additive; nothing
+existing changed shape. Recapture fixtures (help-all.json) first so the
+palette and forms see the new command and options.
+- [ ] **`flk config set KEY=VALUE...`** writes `~/.config/flk/host.toml`.
+  Keys: backup_dir, backup_keep, address, bind, backup_copy_to,
+  backup_copy_keep, backup_copy_warn_days (also listed in `flk help config
+  set`). `*_keep` / `*_days` must be whole numbers; bind/address are
+  validated before the file is replaced, so a bad value exits 1 with
+  `Error: ...` and the file is unchanged. Success prints `key = value
+  (path)` per key, then `Next: flk doctor`.
+  Idea: a host menu "settings" form (one field per key, prefilled from
+  `config show --host`), run as a job, then refresh doctor.
+- [ ] **`flk config show --host`** prints `{"file", "settings"}` (settings
+  as parsed; empty `{}` when the file doesn't exist). Use it to prefill the
+  form and to show host settings on the Health/host view.
+- [ ] **Doctor's backup_dir hints changed**: "no backup_dir set" now hints
+  `flk config set backup_dir=/path/to/backups` (a placeholder path), and
+  "backup_dir ... missing or not writable" hints `mount it, or: flk config
+  set backup_dir=/new/path`. Today `actions.Fix` makes these copy-only
+  (not in `runnable`'s allow-list), which is safe. Don't add them to the
+  allow-list as is: the path is a placeholder. Better: Needs attention's
+  fix opens the settings form with backup_dir focused.
+- [ ] **`flk setup --fix`** (new option) applies the no-root fixes: the
+  `~/.local/bin/flk` symlink and podman short-name registries. Without
+  `--fix`, `flk setup` prompts only when stdin and stdout are both
+  terminals, so a lazyflk job never hangs on it; pass `--fix` if lazyflk
+  offers setup as an action.
+
+## From flk 97f57a1 and after (R1 landed; M6 planned; updated 2026-11-08)
+
+Note left by the flk side: what flk's PLAN.md R1 and M6 add that lazyflk
+could use. R1 is on flk main since 7f0317f (2026-11-05), so its items
+below are ready to integrate (recapture fixtures first). M6 isn't built
+yet (flk's TODO.md has the specs). All additive.
+
+R1 (on flk main, 7f0317f):
+- [ ] **Build logs.** Every build's output goes in `apps/APP/builds/vN.log`
+  (kept for the kept releases plus the last 3 failures). `deploy.failed`
+  events get a `"log"` field with the path, and their `detail` carries the
+  build's first error line. `flk releases --json` gets `build_log`. Idea:
+  `l` on a failed deploy or release opens its log in the log viewer.
+- [ ] **Volume owner from the image's USER**: new volumes take it, and a
+  deploy says so. No new command: `flk files chown UID:GID VOL:/` (machine
+  stopped) already repairs one. Idea: a volume menu entry for it, shown
+  when the machine fails with "can't write /data".
+- [ ] **`flk deploy --no-backup`**: skips this deploy's before_deploy
+  backup. A failed verify names it in its `Next:` lines; the deploy action
+  could offer it on that error.
+- [ ] **`flk images prune [--dry-run]`**, and flk's images labelled
+  `flk.app`/`flk.release`. Idea: a host-level "free space" action showing
+  the dry run first. Note for the palette: in `help --all --json`,
+  `images` now has subcommands (`list`, the default, and `prune`) like
+  `releases`; `flk images` and `flk images --json` are unchanged.
+- [ ] **flk-tmux.service restarts resume the VMs.** No new CLI. Events
+  show the stop/resume pair; a restart now shows as a short blip.
+- [ ] **Pruned copies** (flk 56721dc): in
+  `volumes backups --json`, a `copies` entry whose file was pruned at
+  its destination has `pruned_at`; don't show it as a copy that's there.
+- [ ] **New help topics** `dockerfile`, `host`, `bugs` (`flk help TOPIC`;
+  they're in `help --all --json` "topics"). Recapture `help-all.json`.
+
+M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
+- [ ] **`flk build [--json]`** (built on flk branch m6-making-apps,
+  2ca82f0/aba8002; not on main yet): build and inspect without deploying.
+  JSON: ok, app, source, tag (flk.local/APP:build), build_log, seconds,
+  image_bytes, rootfs_bytes, rootfs_used_bytes, init (shell|static),
+  agent, cmd, cmd_from (flk.toml|image|default), workdir, env (names),
+  user {name, uid, gid, root, switch: setpriv|agent|chroot|none|null},
+  mounts [{source, destination, in_image, type, uid, gid, entries}],
+  warnings [{code, message, fix}]. A failure with --json: {ok: false,
+  error, said, step, build_log}, exit 1. Idea: a "check build" action in
+  the app menu, its warnings in the Config tab.
+- [ ] **Image warnings** (8947c87, same branch): deploy prints them and
+  keeps them in each release (`releases --json` "warnings": [{code,
+  message, fix}]); `config show` has "image_warnings" (the current
+  release's; null before a deploy) and its "warnings" strings now include
+  [[mounts]] sources that aren't volume names. `flk images --json` rows
+  have "trial" (a flk build's image), which `images prune` removes.
+- [ ] **New check types**: `exec`, `udp`, `a2s`, and a `[deploy]
+  preflight` hook. Check results in deploy output and events will name
+  them; show the type in the release/check views.
+- [ ] **Health while running** (planned, from enshrouded.flk #3): checks
+  on an interval, the last result per machine in `flk status --json`
+  (`checks: {NAME: {ok, at, since}}`), `check.failed`/`check.recovered`
+  events. Would give the tree a live health mark per machine.
+- [ ] **`flk logs --boot`** (planned): the log since the latest boot,
+  across rotation. The log viewer could open there.
+- [ ] **flk.toml keys in `help --all --json`**: could drive config hints
+  in a config view.
+- [ ] **flkforge**: a separate tool (CLI and wizard) that writes new apps.
+  Possible later: a "new app…" action that starts it. Talk to the user
+  before building anything.
+
 ## Polish (2026-10-13)
 
 - [x] `{input}` takes any one line (apostrophes too): passed to sh as $1.
@@ -134,6 +229,20 @@ attention fix rolled it back).
 - [ ] Services: a socket-activated unit (ssh here, `TriggeredBy=ssh.socket`)
   shows as off while idle; show it as listening when its socket is active.
 - [ ] Maybe: `/` filters the tree, if a host outgrows folding.
+
+## Stopped on purpose (2026-11-11)
+
+- [x] An app whose machines the admin stopped (`desired_state` stopped)
+  isn't a problem: it sorts last, folds to `▸ NAME  stopped`, and Needs
+  attention has one line for all of them (`○ 3 apps stopped: ...`)
+  instead of flk's "is stopped; start it" step per machine. Opened by
+  hand it stays open; started again it's an app like the others. A
+  machine whose restart policy gave up, or that should be running, is
+  still a problem. Checked live (read-only) on the reference host.
+  lazyflk tells flk's step apart by its wording plus the machine's
+  state; asked flk for a `kind` per step (flk's TODO, "For lazyflk").
+- [x] The attach snapshot no longer depends on the test running inside
+  tmux (`make test` failed there).
 
 ## Known gaps
 

@@ -73,20 +73,100 @@ func appProblems(a flk.App, steps []string) []string {
 		out = append(out, fmt.Sprintf("port %s blocked: %s", p.Shown(), p.Blocked))
 	}
 	for _, s := range steps {
-		if rest, ok := strings.CutPrefix(s, a.Name+": "); ok {
+		if rest, ok := strings.CutPrefix(s, a.Name+": "); ok && !parkedStep(a, rest) {
 			out = append(out, rest)
 		}
 	}
 	return out
 }
 
-// sortApps orders apps with problems first, then by name.
+// parkedStep is whether one of an app's next steps (without its "APP: ")
+// only says that a machine the admin stopped is stopped ("machine ID
+// [NAME] is stopped; start it: ..."). flk lists those; here they aren't
+// problems. Any other wording stays one.
+func parkedStep(a flk.App, rest string) bool {
+	if !strings.Contains(rest, " is stopped;") {
+		return false
+	}
+	for _, m := range a.Machines {
+		if m.Parked() && strings.HasPrefix(rest, "machine "+m.ID+" ") {
+			return true
+		}
+	}
+	return false
+}
+
+// isParkedStep is parkedStep for a step as flk lists it ("APP: ...").
+func isParkedStep(apps []flk.App, step string) bool {
+	for _, a := range apps {
+		if rest, ok := strings.CutPrefix(step, a.Name+": "); ok && parkedStep(a, rest) {
+			return true
+		}
+	}
+	return false
+}
+
+// appParked is an app stopped on purpose: it has machines, and the admin
+// stopped every one.
+func appParked(a flk.App) bool {
+	for _, m := range a.Machines {
+		if !m.Parked() {
+			return false
+		}
+	}
+	return len(a.Machines) > 0
+}
+
+// stoppedSummary is one line for everything stopped on purpose: "3 apps
+// stopped: a, b, c", and machines stopped in apps that still run. Empty
+// when nothing is.
+func stoppedSummary(apps []flk.App) string {
+	var names []string
+	machines := 0
+	for _, a := range apps {
+		if appParked(a) {
+			names = append(names, a.Name)
+			continue
+		}
+		for _, m := range a.Machines {
+			if m.Parked() {
+				machines++
+			}
+		}
+	}
+	var parts []string
+	switch len(names) {
+	case 0:
+	case 1:
+		parts = append(parts, "1 app stopped: "+names[0])
+	default:
+		parts = append(parts, fmt.Sprintf("%d apps stopped: %s", len(names), strings.Join(names, ", ")))
+	}
+	switch {
+	case machines == 1:
+		parts = append(parts, "1 machine stopped in a running app")
+	case machines > 1:
+		parts = append(parts, fmt.Sprintf("%d machines stopped in running apps", machines))
+	}
+	return strings.Join(parts, " · ")
+}
+
+// sortApps orders apps with problems first, then the others by name, then
+// the ones stopped on purpose (by name too).
 func sortApps(apps []flk.App, steps []string) []flk.App {
 	out := append([]flk.App(nil), apps...)
+	rank := func(a flk.App) int {
+		switch {
+		case len(appProblems(a, steps)) > 0:
+			return 0
+		case appParked(a):
+			return 2
+		}
+		return 1
+	}
 	sort.SliceStable(out, func(i, j int) bool {
-		pi, pj := len(appProblems(out[i], steps)) > 0, len(appProblems(out[j], steps)) > 0
-		if pi != pj {
-			return pi
+		if ri, rj := rank(out[i]), rank(out[j]); ri != rj {
+			return ri < rj
 		}
 		return out[i].Name < out[j].Name
 	})
@@ -193,8 +273,11 @@ func (m *Model) treeLine(n node) string {
 			icon = styleDim.Render("○")
 		}
 		s := fmt.Sprintf("%s %s  %d/%d %s", arrow, a.Name, started, len(a.Machines), icon)
-		if len(appProblems(a, m.hc.NextSteps)) > 0 {
+		switch {
+		case len(appProblems(a, m.hc.NextSteps)) > 0:
 			s += " " + styleBad.Render("!")
+		case appParked(a):
+			s = styleDim.Render(fmt.Sprintf("%s %s  stopped", arrow, a.Name))
 		}
 		return s
 	case kindMachine:

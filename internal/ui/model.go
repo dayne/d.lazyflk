@@ -528,7 +528,7 @@ func (m *Model) rebuild(key string) {
 	auto := map[string]bool{} // healthy apps folded to fit
 	build := func() []node {
 		return buildTree(m.hc, m.apps, func(a flk.App) bool {
-			return m.isFolded("app/"+a.Name, m.appHealthy(a), auto[a.Name])
+			return m.isFolded("app/"+a.Name, m.appRuns(a), auto[a.Name] || m.appQuiet(a))
 		}, sections...)
 	}
 	m.nodes = build()
@@ -556,6 +556,14 @@ func (m *Model) rebuild(key string) {
 }
 
 func (m *Model) appHealthy(a flk.App) bool { return len(appProblems(a, m.hc.NextSteps)) == 0 }
+
+// appQuiet is an app stopped on purpose with nothing else wrong: it folds
+// by itself and sorts last.
+func (m *Model) appQuiet(a flk.App) bool { return m.appHealthy(a) && appParked(a) }
+
+// appRuns is the health an app's fold by hand was made under: stopping it
+// on purpose (or starting it again) ends that fold, like a problem does.
+func (m *Model) appRuns(a flk.App) bool { return m.appHealthy(a) && !appParked(a) }
 
 // holderKey is the app or section a node key folds into ("" if none).
 func (m *Model) holderKey(key string) string {
@@ -600,7 +608,7 @@ func (m *Model) fold(collapse bool) {
 	var healthy bool
 	switch {
 	case n.kind >= kindApp && n.kind <= kindPorts:
-		key, healthy = "app/"+m.apps[n.app].Name, m.appHealthy(m.apps[n.app])
+		key, healthy = "app/"+m.apps[n.app].Name, m.appRuns(m.apps[n.app])
 	case n.kind == kindProvider || n.kind == kindSection:
 		key, healthy = "section/"+m.opt.Providers[n.prov].Name(), m.sectionHealthy(n.prov)
 	default:
@@ -641,6 +649,9 @@ func (m *Model) attnItems() []attnItem {
 		items = append(items, attnItem{icon: styleBad.Render("✘"), text: "refresh failed: " + firstLine(m.err.Error())})
 	}
 	for _, s := range m.hc.NextSteps {
+		if isParkedStep(m.apps, s) {
+			continue // stopped on purpose: counted in the panel's last line
+		}
 		it := attnItem{icon: styleWarn.Render("!"), text: s}
 		if fix, ok := actions.Fix(s, m.apps); ok && !m.opt.ReadOnly {
 			it.fix = &fix
@@ -659,22 +670,34 @@ func (m *Model) attnItems() []attnItem {
 
 // attention is the Needs attention panel: one entry per problem, wrapped,
 // capped at a few rows with a pointer to the rest. With focus it grows,
-// starts at the selected entry and shows that entry's fix.
-func (m *Model) attention() []string {
+// starts at the selected entry and shows that entry's fix. What's stopped
+// on purpose is one dim line at the end, not an entry.
+func (m *Model) attention() (out []string) {
 	if m.hc == nil {
 		return nil
 	}
 	items := m.attnItems()
 	m.attnMap = m.attnMap[:0]
+	stopped := stoppedSummary(m.apps)
 	if len(items) == 0 {
-		return []string{styleOK.Render("✔") + " nothing needs attention"}
+		s := styleOK.Render("✔") + " nothing needs attention"
+		if stopped != "" {
+			s += styleDim.Render(" · " + stopped)
+		}
+		return []string{s}
 	}
 	m.attnCursor = min(m.attnCursor, len(items)-1)
 	limit, first := max(4, m.height/6), 0
 	if m.attn {
 		limit, first = max(6, m.height/4), m.attnCursor
 	}
-	var out []string
+	if stopped != "" {
+		limit-- // its line comes last
+		defer func() {
+			out = append(out, styleDim.Render("○ "+stopped))
+			m.attnMap = append(m.attnMap, -1)
+		}()
+	}
 	if first > 0 {
 		out = append(out, styleDim.Render(fmt.Sprintf("… %d above", first)))
 		m.attnMap = append(m.attnMap, -1)

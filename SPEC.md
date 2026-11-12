@@ -103,7 +103,10 @@ management, a web UI, metrics history and graphs.
 
 - **Left: tree.** Apps (expand to machines, volumes, ports), then Host.
   Icons: started `●`, stopped `○`, should-run-but-stopped `!`, external
-  volume marked. Order: apps with problems first, then by name.
+  volume marked. Order: apps with problems first, then by name, then
+  the apps stopped on purpose (every machine stopped with
+  `desired_state` stopped): those are one dim folded line each
+  (`▸ ncm  stopped`) and aren't problems. (Added 2026-11-11.)
   Below Host, the providers' sections (section 10). **Healthy folds:** a
   section with nothing wrong is one line (`▸ Podman  7 images`) and opens
   by itself when something there needs attention; when the tree doesn't
@@ -115,7 +118,9 @@ management, a web UI, metrics history and graphs.
   Overview, Logs, Record (`flk machine status`). Host: Health
   (`flk doctor --json`), Ports (all), Services, Disk, Images.
 - **Bottom: Needs attention** (from `next_steps`), with a one-key fix when
-  the step names a command lazyflk can run.
+  the step names a command lazyflk can run. flk's "machine ID is stopped;
+  start it" steps for machines stopped on purpose aren't entries: the
+  panel ends with one line for all of them (`○ 3 apps stopped: a, b, c`).
 - **Footer:** keys for the current focus.
 
 ### 5.2 Logs

@@ -29,6 +29,7 @@ func lastCall(m *Model) []string {
 }
 
 func TestM3Snapshots(t *testing.T) {
+	t.Setenv("TMUX", "") // the attach snapshot is of a run outside tmux
 	for _, sz := range [][2]int{{80, 24}, {160, 48}} {
 		m := demoModel(t, sz[0], sz[1])
 		press(m, ":")

@@ -460,6 +460,89 @@ func TestProblemsFirst(t *testing.T) {
 	}
 }
 
+// Apps stopped on purpose aren't problems: they sort last, fold, and are
+// one line of Needs attention however many there are.
+func TestStoppedOnPurpose(t *testing.T) {
+	stopped := func(app, id string) flk.App {
+		return flk.App{Name: app, Registered: true,
+			Machines: []flk.Machine{{ID: id, Name: id + "-name", State: "stopped", DesiredState: "stopped"}},
+			Volumes:  []flk.Volume{{ID: "v" + id, Name: "data", SizeGB: 1}}}
+	}
+	step := func(app, id string) string {
+		return app + ": machine " + id + " [" + id + "-name] is stopped; start it: flk machine start " + id
+	}
+	gaveUp := stopped("crashy", "c1")
+	gaveUp.Machines[0].Restarts = &flk.Restarts{Count: 3, GaveUpAt: "2026-11-01T00:00:00Z"}
+	hc := flk.HostContext{
+		Flk:  flk.FlkInfo{StateDir: "/s"},
+		Host: flk.Host{OK: true, LanIP: "10.0.0.1", BootService: true},
+		Apps: []flk.App{
+			stopped("aaa", "a1"), stopped("bbb", "b1"), gaveUp,
+			{Name: "mixed", Registered: true, Machines: []flk.Machine{
+				{ID: "m1", State: "started", DesiredState: "started"},
+				{ID: "m2", State: "stopped", DesiredState: "stopped"}}},
+			{Name: "zeta", Registered: true, Machines: []flk.Machine{{ID: "z1", State: "started", DesiredState: "started"}}},
+		},
+		NextSteps: []string{step("aaa", "a1"), step("bbb", "b1"), step("mixed", "m2"),
+			"crashy: machine c1 [c1-name] kept failing; its restart policy gave up after 3 restarts: flk logs -i c1 --no-tail"},
+	}
+	m := New(Options{Client: flk.New(flk.NewFake(fixtures.FS))})
+	send(m, tea.WindowSizeMsg{Width: 100, Height: 30})
+	send(m, contextMsg{gen: m.loadGen, hc: hc})
+	var order []string
+	for _, a := range m.apps {
+		order = append(order, a.Name)
+	}
+	if got := strings.Join(order, " "); got != "crashy mixed zeta aaa bbb" {
+		t.Errorf("order: %s", got)
+	}
+	if items := m.attnItems(); len(items) != 1 || !strings.Contains(items[0].text, "kept failing") {
+		t.Errorf("attention items: %+v", items)
+	}
+	s := ansi.Strip(m.Render())
+	checkSize(t, m.Render(), 100, 30)
+	for _, want := range []string{"▸ aaa  stopped", "▸ bbb  stopped", "▾ crashy  0/1 ○ !", "▾ mixed  1/2 ○  ",
+		"! crashy: machine c1", "○ 2 apps stopped: aaa, bbb · 1 machine stopped in a running app"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("missing %q in:\n%s", want, s)
+		}
+	}
+	if strings.Contains(s, "a1-name") || strings.Contains(s, "is stopped; start it") {
+		t.Errorf("a stopped app should be folded and quiet:\n%s", s)
+	}
+
+	// Opened by hand it stays open; with nothing wrong the panel is one line.
+	goTo(m, kindApp)
+	for m.apps[m.nodes[m.cursor].app].Name != "aaa" {
+		press(m, "down")
+	}
+	press(m, "right")
+	hc.NextSteps = hc.NextSteps[:3]
+	hc.Apps = append([]flk.App(nil), hc.Apps[:2]...)
+	hc.Apps = append(hc.Apps, flk.App{Name: "zeta", Registered: true,
+		Machines: []flk.Machine{{ID: "z1", State: "started", DesiredState: "started"}}})
+	hc.NextSteps = hc.NextSteps[:2]
+	send(m, contextMsg{gen: m.loadGen, hc: hc})
+	s = ansi.Strip(m.Render())
+	for _, want := range []string{"▾ aaa  stopped", "○ a1-name", "▸ bbb  stopped",
+		"✔ nothing needs attention · 2 apps stopped: aaa, bbb"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("missing %q in:\n%s", want, s)
+		}
+	}
+
+	// Started again, it's an app like the others: open, in name order.
+	hc.Apps[1].Machines[0].State, hc.Apps[1].Machines[0].DesiredState = "started", "started"
+	hc.NextSteps = hc.NextSteps[:1]
+	send(m, contextMsg{gen: m.loadGen, hc: hc})
+	s = ansi.Strip(m.Render())
+	for _, want := range []string{"▾ bbb  1/1 ●", "✔ nothing needs attention · 1 app stopped: aaa"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("missing %q in:\n%s", want, s)
+		}
+	}
+}
+
 func TestDiskWarnings(t *testing.T) {
 	m := demoModel(t, 80, 24)
 	if w := m.diskWarnings(); len(w) != 0 {
