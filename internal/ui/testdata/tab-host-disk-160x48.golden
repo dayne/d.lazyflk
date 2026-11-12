@@ -29,7 +29,7 @@
 │                                        │ state     51G in /home/dayne/.local/share/flk                                                                       │
 │ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
-│                                        │ enshrouded-flk        19G     9.5G        -     9.1M     216M                                                       │
+│                                        │ enshrouded-flk        19G     9.5G        -     9.1M     217M                                                       │
 │                                        │ minecraft-flk        1.1G     373M        -     4.0M      21G                                                       │
 │                                        │ mqtt-flk             139M      35M      37M     956K        -                                                       │
 │                                        │ ncm                  2.9G     1.4G     420M      48K        -                                                       │

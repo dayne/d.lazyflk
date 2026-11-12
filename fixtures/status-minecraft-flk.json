@@ -111,6 +111,7 @@
           "destination": "/server"
         }
       ],
+      "root_disk_mb": 948,
       "internal_names": [
 
       ],

@@ -9,7 +9,7 @@
     "memory_mb": 6144,
     "cpu_percent": 58.0,
     "rss_mb": 2261,
-    "uptime_s": 548561
+    "uptime_s": 549907
   },
   {
     "app": "minecraft-flk",
@@ -19,9 +19,9 @@
     "pid": 1120230,
     "cpus": 4,
     "memory_mb": 11264,
-    "cpu_percent": 4.0,
+    "cpu_percent": 2.0,
     "rss_mb": 10963,
-    "uptime_s": 548530
+    "uptime_s": 549877
   },
   {
     "app": "mqtt-flk",
@@ -33,7 +33,7 @@
     "memory_mb": 256,
     "cpu_percent": 0.0,
     "rss_mb": 84,
-    "uptime_s": 548515
+    "uptime_s": 549862
   },
   {
     "app": "ncm",
@@ -79,8 +79,8 @@
     "pid": 1892817,
     "cpus": 4,
     "memory_mb": 6144,
-    "cpu_percent": 8.0,
+    "cpu_percent": 6.0,
     "rss_mb": 4205,
-    "uptime_s": 57162
+    "uptime_s": 58508
   }
 ]

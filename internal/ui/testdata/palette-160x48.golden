@@ -33,12 +33,12 @@
 │                             │ machine stop        Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); the… │                             │
 │                             │ machine restart     Stop, then boot                                                              │                             │
 │                             │ machine destroy     Delete machines (their volumes are kept, unattached)                         │                             │
+│                             │ machine extend      Grow a machine's root disk (/) and its filesystem; the machine must be stop… │                             │
 │                             │ machine hosts-sync  Rewrite the internal hosts block in running machines that want it (run by f… │                             │
 │                             │ machine revive      Restart a machine that exited on its own, per its restart policy (run by fl… │                             │
 │                             │ machine stats       CPU and memory use of machines (default: all of the app's)                   │                             │
 │                             │ machine status      Machine record and state as JSON (an array when given several IDs)           │                             │
 │                             │ machine config      The Firecracker VM config as JSON (an array when given several IDs)          │                             │
-│                             │ scale count         Create or destroy machines to reach N                                        │                             │
 │                             │                                                                                                  │                             │
 ├ Needs attention ────────────│ flk context [--all] [--json] [--no-host]                                                         │─────────────────────────────┤
 │ ! optional: 3 destroyed apps├──────────────────────────────────────────────────────────────────────────────────────────────────┤                             │

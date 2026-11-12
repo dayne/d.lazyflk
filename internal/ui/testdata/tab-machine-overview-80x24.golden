@@ -8,7 +8,7 @@
 │ ▸ mqtt-flk  1/1 ●          │ release   v10                                   │
 │ ▸ vintagestory-flk  1/1 ●  │ ip        172.30.0.10:25565                     │
 │ ▸ ncm  stopped             │ size      4 cpus · 11264MB                      │
-│ ▸ opencode-sandbox  stopp… │ cpu       4% (100% = one host CPU; it has 4)    │
+│ ▸ opencode-sandbox  stopp… │ cpu       2% (100% = one host CPU; it has 4)    │
 │ ▸ valheim-flk  stopped     │ memory    10963MB used of 11264MB               │
 │                            │ up        6d 8h                                 │
 │ Host                       │ pid       1120230 (firecracker)                 │

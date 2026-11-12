@@ -3,7 +3,7 @@
   "flk": {
     "version": "0.1.0",
     "state_dir": "/home/dayne/.local/share/flk",
-    "source": "/home/dayne/flk-lz",
+    "source": "/home/dayne/flk",
     "reference": "flk help --all"
   },
   "host": {
@@ -135,6 +135,7 @@
             "destination": "/server"
           }
         ],
+        "root_disk_mb": 948,
         "internal_names": [
 
         ],

@@ -3,7 +3,7 @@
   "flk": {
     "version": "0.1.0",
     "state_dir": "/home/dayne/.local/share/flk",
-    "source": "/home/dayne/flk-lz"
+    "source": "/home/dayne/flk"
   },
   "mount_dirs": [
     "/home/dayne/.local/share/flk",
@@ -129,6 +129,7 @@
               "destination": "/data"
             }
           ],
+          "root_disk_mb": 12634,
           "internal_names": [
 
           ],
@@ -290,6 +291,7 @@
               "destination": "/server"
             }
           ],
+          "root_disk_mb": 948,
           "internal_names": [
 
           ],
@@ -444,6 +446,7 @@
               "destination": "/mosquitto/data"
             }
           ],
+          "root_disk_mb": 548,
           "internal_names": [
 
           ],
@@ -569,6 +572,7 @@
               "destination": "/data"
             }
           ],
+          "root_disk_mb": 2258,
           "internal_names": [
 
           ],
@@ -673,6 +677,7 @@
               "destination": "/workspace"
             }
           ],
+          "root_disk_mb": 5494,
           "internal_names": [
 
           ],
@@ -827,6 +832,7 @@
               "destination": "/data"
             }
           ],
+          "root_disk_mb": 3250,
           "internal_names": [
 
           ],
@@ -977,6 +983,7 @@
               "destination": "/data"
             }
           ],
+          "root_disk_mb": 1310,
           "internal_names": [
 
           ],

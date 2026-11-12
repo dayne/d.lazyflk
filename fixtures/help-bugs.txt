@@ -21,7 +21,7 @@ itself. One format for all of them:
 
 **An entry** (`### #N Title`):
 - **Symptom:** what you ran, what happened, what you expected; date, host
-  and flk commit (`flk version`, `git -C /home/dayne/flk-lz rev-parse --short HEAD`).
+  and flk commit (`flk version`, `git -C /home/dayne/flk rev-parse --short HEAD`).
   Paste the exact error.
 - **Cause:** if you looked: the file and line, and why. Say whether it's
   verified or suspected.

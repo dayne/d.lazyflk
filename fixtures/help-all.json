@@ -100,7 +100,7 @@
       ],
       "json": false,
       "notes": [
-        "Root setup (bridge, taps, NAT, port helper, boot units) is separate: sudo /home/dayne/flk-lz/setup-host.sh --install-service",
+        "Root setup (bridge, taps, NAT, port helper, boot units) is separate: sudo /home/dayne/flk/setup-host.sh --install-service",
         "--fix also creates ~/.local/bin/flk and configures podman short image names (FROM ruby:3.3) if either is missing. Safe to re-run."
       ]
     },
@@ -141,7 +141,7 @@
       "json": false,
       "notes": [
         "Should be running: started, restarted, deployed or scaled, and not stopped with `flk machine stop` since. A machine whose app exited counts too.",
-        "flk-machines.service runs it at boot (sudo /home/dayne/flk-lz/setup-host.sh --install-service).",
+        "flk-machines.service runs it at boot (sudo /home/dayne/flk/setup-host.sh --install-service).",
         "-a APP limits it to one app."
       ]
     },
@@ -656,6 +656,33 @@
             }
           ],
           "json": false
+        },
+        {
+          "name": "extend",
+          "usage": "flk machine extend ID [--size GB] [--restart]",
+          "summary": "Grow a machine's root disk (/) and its filesystem; the machine must be stopped, or pass --restart",
+          "args": "ID",
+          "options": [
+            {
+              "switches": [
+                "-s",
+                "--size GB"
+              ],
+              "description": "New size of the root disk in GB (required; grow only)"
+            },
+            {
+              "switches": [
+                "--restart"
+              ],
+              "description": "Stop a running machine for it, and start it again after"
+            }
+          ],
+          "json": false,
+          "notes": [
+            "For a machine whose / filled up with things installed or written after it booted. Files on / are kept.",
+            "It lasts until the next deploy or rollback, which start from the release image again. For room on every deploy, raise [flk] rootfs_extra_mb in flk.toml (MB free on / beyond the image's files; default 512); for data that should outlive deploys, use a volume ([[mounts]]).",
+            "The disk file is sparse: the new room takes host disk space only as it's used (flk disk)."
+          ]
         },
         {
           "name": "hosts-sync",

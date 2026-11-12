@@ -67,4 +67,4 @@ downloads with sha256. Old releases come back only from flk's kept images
 line by line). A udp-only server needs a log check: flk can't tell when a
 udp port is ready.
 
-Every flk.toml key, annotated: `/home/dayne/flk-lz/examples/reference/flk.toml`.
+Every flk.toml key, annotated: `/home/dayne/flk/examples/reference/flk.toml`.

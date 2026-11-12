@@ -5,7 +5,7 @@
 │   ▢ endata 10GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.7: udp/15637              │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
 │ ▾ minecraft-flk  1/1 ●                 │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
-│   ● mellow-aurora-7882                 │   cpu 4% · 10963MB used · up 6d 8h                                                                                  │
+│   ● mellow-aurora-7882                 │   cpu 2% · 10963MB used · up 6d 8h                                                                                  │
 │   ▢ world 40GB (external)           ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132 │ d  deploy            build the image and roll machines to a new release          │                                     │
 │ ▾ mqtt-flk  1/1 ●                   │ r  roll back         back to an older release's image and config, rolled out li… │                                     │

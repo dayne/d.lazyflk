@@ -1,9 +1,7 @@
 # Fixtures
 
-Real output from the reference host (flk 0.1.0, commit 1cb50a2, 2026-11-11:
-seven apps, three of them stopped on purpose, one doctor warning;
-1cb50a2 is flk's branch lazyflk-gaps, ~/flk-lz, before its merge to
-main: recapture once it's merged),
+Real output from the reference host (flk 0.1.0, commit 0c37295, 2026-11-11:
+seven apps, three of them stopped on purpose, one doctor warning),
 captured with the commands below by `./capture.sh` (read-only; run it
 with no `flkt-*` test apps on the host, then review the diff). The tests
 find `minecraft-flk` by name and don't count on the host's other apps,

@@ -275,8 +275,16 @@ M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
 
 ## From flk's lazyflk-gaps branch (c4afa65, 40ae7f4, 1cb50a2; 2026-11-11)
 
-What lazyflk asked flk for the same day. Each is used only where flk has
-it, so lazyflk works the same with flk main until the branch is merged.
+What lazyflk asked flk for the same day; on flk main since 0c37295, and
+the fixtures are captured there. Each is used only where flk has it, so
+an older flk still works.
+- [ ] From flk 7545806 (nothing asked, noted by the flk side): machines
+  have `root_disk_mb` (size of `/`, null when the disk file is missing)
+  in `machine list --json`, `machine status` and `context --json`, and
+  `flk machine extend ID --size GB [--restart]` grows a machine's root
+  disk until the next deploy. Idea: the size on the machine Overview,
+  and a machine menu "extend root disk" action. Details in flk's TODO.md
+  "For lazyflk".
 - [x] `flk releases log`: app menu `B` build log opens the newest build's
   output (failed or not) in the log viewer; a read, so it works on any app
   under --test-apps. Checked live on a test app with the branch's flk.

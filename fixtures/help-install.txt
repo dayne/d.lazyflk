@@ -1,6 +1,6 @@
 # Installing flk on a host
 
-flk lives in `/home/dayne/flk-lz`. Each step can be re-run safely; `./flk-sanity.sh`
+flk lives in `/home/dayne/flk`. Each step can be re-run safely; `./flk-sanity.sh`
 says which step you're at.
 
 Get the code first if you haven't already:
@@ -11,14 +11,14 @@ Get the code first if you haven't already:
 > `sudo` requires a TTY to prompt for your password and will fail if
 > invoked from a script runner or pipe that has no terminal.
 
-1. **Check the host.** `/home/dayne/flk-lz/flk-sanity.sh` checks hardware (KVM),
+1. **Check the host.** `/home/dayne/flk/flk-sanity.sh` checks hardware (KVM),
    packages, groups and firewalls, and prints the next thing to fix,
    including the exact package install command for your distro.
    When multiple steps are needed it prints a numbered list.
 
 2. **Root setup.**
 
-       sudo /home/dayne/flk-lz/setup-host.sh --install-service  # kvm group, bridge, taps, NAT, port helper, boot units
+       sudo /home/dayne/flk/setup-host.sh --install-service  # kvm group, bridge, taps, NAT, port helper, boot units
 
    That's the networking plus the systemd units that recreate it at boot,
    run flk's tmux server, and stop machines gracefully at shutdown and
@@ -34,7 +34,7 @@ Get the code first if you haven't already:
 
 3. **flk on your PATH, downloads, and quick fixes (no root).**
 
-       /home/dayne/flk-lz/bin/flk setup --fix
+       /home/dayne/flk/bin/flk setup --fix
 
    `flk setup` downloads firecracker and the guest kernel into `/home/dayne/.local/share/flk`,
    then runs `flk doctor`. It stops first if a package is missing (step 1
@@ -53,7 +53,7 @@ Get the code first if you haven't already:
    when run in a terminal; otherwise it suggests `flk setup --fix`.
 
 4. **Optional: Go, for `flk exec`, `flk ssh console`, and images without
-   `/bin/sh`.** flk builds a small guest agent from `/home/dayne/flk-lz/agent` with
+   `/bin/sh`.** flk builds a small guest agent from `/home/dayne/flk/agent` with
    Go (on PATH, in `~/.local/go`, or `FLK_GO`) and puts it in each
    release. Without Go, everything else works; `flk doctor` says when
    it's missing. Install Go, then run `flk setup` again.
@@ -67,6 +67,6 @@ Get the code first if you haven't already:
 
 6. **Check.** `flk doctor` should say "Ready to fly, locally." (any `!`
    lines under "Optional" after it are features you can add later).
-   `/home/dayne/flk-lz/tests/run.sh` runs the end-to-end tests (a few minutes).
+   `/home/dayne/flk/tests/run.sh` runs the end-to-end tests (a few minutes).
 
 Next: flk help first-app

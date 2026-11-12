@@ -6,7 +6,7 @@
 │   ▢ world 40GB (external)  │                                                 │
 │   ⇄ tcp/25565 udp/19132    │ flk       0.1.0                                 │
 │ ▸ mqtt-flk  1/1 ●          │ state     /home/dayne/.local/share/flk          │
-│ ▸ vintagestory-flk  1/1 ●  │ source    /home/dayne/flk-lz                    │
+│ ▸ vintagestory-flk  1/1 ●  │ source    /home/dayne/flk                       │
 │ ▸ ncm  stopped             │ LAN IP    10.47.11.111                          │
 │ ▸ opencode-sandbox  stopp… │ address   10.47.11.3 (advertised; host.toml     │
 │ ▸ valheim-flk  stopped     │           address)                              │
