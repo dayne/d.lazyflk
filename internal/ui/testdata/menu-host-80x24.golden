@@ -2,7 +2,6 @@
 │ Apps                       │ Host                                            │
 │ ▾ minecraft-flk  1/1 ●     │  Health  Events  Services  Ports  Disk  Images  │
 │   ● mellow-aurora-7882     │                                                 │
-│   ▢ world 40GB (external)  │ $ flk doctor --json                             │
 │ ┌ host ─ actions ──────────────────────────────────────────────────────────┐ │
 │ │ u  resume all     nothing to resume                                      │ │
 │ │ S  stop all       stop every running machine, remembering to resume them │ │
@@ -10,6 +9,7 @@
 │ │ P  prune images   remove container images of apps that no longer exist   │ │
 │ │ B  prune backups  delete the backups of apps that no longer exist        │ │
 │ │ h  health         flk doctor: every host check                           │ │
+│ │ F  free space     remove images flk doesn't keep: past keep_releases, o… │ │
 │ │ c  settings       host.toml: backup dir and how many to keep, address, … │ │
 │ │                                                                          │ │
 │ │ start every machine that should be running                               │ │

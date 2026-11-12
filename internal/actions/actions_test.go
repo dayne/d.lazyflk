@@ -617,3 +617,47 @@ func TestTargetApp(t *testing.T) {
 		}
 	}
 }
+
+// flk R1: deploy can skip its before-deploy backup, and the host can free
+// podman's store; both only where this flk lists them.
+func TestNoBackupAndFreeSpace(t *testing.T) {
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	if err := json.Unmarshal(b, &help); err != nil {
+		t.Fatal(err)
+	}
+	a := hostContext(t).Apps[0]
+	d := find(t, For(Target{Kind: App, App: a, Help: &help}), "deploy")
+	if got := d.Command(map[string]string{"backup": "skip it"}); got.Line() != "flk -a minecraft-flk deploy --no-backup" ||
+		!strings.Contains(got.Warn, "No before-deploy backup") {
+		t.Errorf("skip: %s / %s", got.Line(), got.Warn)
+	}
+	if got := d.Command(nil).Line(); got != "flk -a minecraft-flk deploy" {
+		t.Errorf("default: %s", got)
+	}
+	for _, f := range find(t, For(Target{Kind: App, App: a}), "deploy").Fields {
+		if f.Name == "backup" {
+			t.Error("an older flk has no --no-backup")
+		}
+	}
+
+	free := find(t, For(Target{Kind: Host, Help: &help}), "free space")
+	if got := free.Command(nil).Line(); got != "flk images prune --dry-run" {
+		t.Errorf("default looks first: %s", got)
+	}
+	if got := free.Command(map[string]string{"how": "remove them"}).Line(); got != "flk images prune" || free.Confirm != Ask {
+		t.Errorf("remove: %s", got)
+	}
+	for _, x := range For(Target{Kind: Host}) {
+		if x.Label == "free space" || x.Label == "settings" {
+			t.Errorf("an older flk has no %s", x.Label)
+		}
+	}
+	keys := map[string]bool{}
+	for _, x := range For(Target{Kind: Host, Help: &help, HostConfig: &flk.HostConfig{File: "/h.toml"}}) {
+		if keys[x.Key] {
+			t.Errorf("host key %s used twice", x.Key)
+		}
+		keys[x.Key] = true
+	}
+}

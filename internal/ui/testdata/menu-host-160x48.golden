@@ -14,14 +14,14 @@
 │ ▾ vintagestory-flk  1/1 ●              │           /data/minecraft/flk                                                                                       │
 │   ● frosty-river-2714                  │           /data/vintagestory/flk                                                                                    │
 │   ▢ vsdata 40GB (external)             │                                                                                                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │ ✔ /dev/kvm read/write                                                                                               │
-│                                     ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
-│ Host                                │ u  resume all     nothing to resume                                              │                                     │
-│   health ✔                          │ S  stop all       stop every running machine, remembering to resume them         │                                     │
-│                                     │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
-│ ▸ Storage  fullest 67%              │ P  prune images   remove container images of apps that no longer exist           │                                     │
-│                                     │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
-│ ▸ Podman  10 images                 │ h  health         flk doctor: every host check                                   │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 ┌ host ─ actions ──────────────────────────────────────────────────────────────────┐                                     │
+│                                     │ u  resume all     nothing to resume                                              │                                     │
+│ Host                                │ S  stop all       stop every running machine, remembering to resume them         │                                     │
+│   health ✔                          │ p  sync ports     rewrite the host's port map from the running machines          │                                     │
+│                                     │ P  prune images   remove container images of apps that no longer exist           │                                     │
+│ ▸ Storage  fullest 67%              │ B  prune backups  delete the backups of apps that no longer exist                │                                     │
+│                                     │ h  health         flk doctor: every host check                                   │                                     │
+│ ▸ Podman  10 images                 │ F  free space     remove images flk doesn't keep: past keep_releases, of destro… │                                     │
 │                                     │ c  settings       host.toml: backup dir and how many to keep, address, copies (… │                                     │
 │ ▸ Services  4 running, 1 off        │                                                                                  │                                     │
 │                                     │ start every machine that should be running                                       │                                     │

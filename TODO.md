@@ -144,10 +144,13 @@ R1 (on flk main, 7f0317f):
   deploy says so. No new command: `flk files chown UID:GID VOL:/` (machine
   stopped) already repairs one. Idea: a volume menu entry for it, shown
   when the machine fails with "can't write /data".
-- [ ] **`flk deploy --no-backup`**: skips this deploy's before_deploy
+- [x] **`flk deploy --no-backup`** (done 2026-11-11: deploy's form has
+  "backup first: as configured / skip it"; not yet offered by itself
+  after a failed verify): skips this deploy's before_deploy
   backup. A failed verify names it in its `Next:` lines; the deploy action
   could offer it on that error.
-- [ ] **`flk images prune [--dry-run]`**, and flk's images labelled
+- [x] **`flk images prune [--dry-run]`** (done 2026-11-11: host menu `F`
+  free space, "look first" is the default and runs --dry-run), and flk's images labelled
   `flk.app`/`flk.release`. Idea: a host-level "free space" action showing
   the dry run first. Note for the palette: in `help --all --json`,
   `images` now has subcommands (`list`, the default, and `prune`) like

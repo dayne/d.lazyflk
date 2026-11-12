@@ -293,8 +293,16 @@ func appActions(t Target) []Action {
 			if running > 0 {
 				warn += fmt.Sprintf(" Restarts %s.", plural(running, "running machine"))
 			}
+			if v["backup"] == "skip it" {
+				args = append(args, "--no-backup")
+				warn += " No before-deploy backup of its volumes (--no-backup): roll back can't take the data back to before this deploy."
+			}
 			return withChecks(Command{Args: args, Warn: warn}, v)
 		}}
+	if t.has("--no-backup", "deploy") { // flk R1
+		deploy.Fields = append(deploy.Fields, Field{Name: "backup", Label: "backup first", Choices: []string{"as configured", "skip it"},
+			Help: "with [flk.backup] before_deploy, volumes are backed up first and a failed backup stops the deploy; skip it: deploy without (--no-backup)"})
+	}
 	edit := Action{Key: "E", Label: "edit flk.toml", Help: "open it in your editor; then Config shows how flk reads it, and d deploys it",
 		View: ViewEdit, File: a.ConfigPath}
 	editActions := Action{Key: "A", Label: "edit app actions", Help: "this menu's own commands for the app: .lazyflk.toml next to flk.toml (new when you save it)",
@@ -887,6 +895,19 @@ func hostActions(t Target) []Action {
 					Warn: "Deletes the per-app backup dirs of apps that no longer exist (only dirs holding nothing but flk's backups), and images of destroyed apps. Restoring a destroyed app's volume needs those backups. This can't be undone."}
 			}},
 		{Key: "h", Label: "health", Help: "flk doctor: every host check", View: ViewHealth},
+	}
+	if t.Help != nil && t.Help.HasCommand("images", "prune") { // flk R1
+		acts = append(acts, Action{Key: "F", Label: "free space", Help: "remove images flk doesn't keep: past keep_releases, of destroyed apps, dangling (flk images prune)",
+			Confirm: Ask, Long: true,
+			Fields: []Field{{Name: "how", Label: "do", Choices: []string{"look first", "remove them"},
+				Help: "look first: only says what would go (--dry-run)"}},
+			build: func(v map[string]string) Command {
+				if v["how"] == "remove them" {
+					return Command{Args: []string{"images", "prune"},
+						Warn: "Removes image tags past each app's keep_releases (not a release a machine is on), images of destroyed apps and dangling images. Base images and build caches stay. Look first shows which."}
+				}
+				return Command{Args: []string{"images", "prune", "--dry-run"}, Warn: "Only lists what flk images prune would remove. Nothing is removed."}
+			}})
 	}
 	if set, ok := HostSettings(t, ""); ok {
 		acts = append(acts, set)
