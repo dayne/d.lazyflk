@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│   ◇ cc7cfa49ce1f (untagge… │ service ssh.service ─  Overview                 │
-│   ◇ steamcmd/steamcmd:ubu… │                                                 │
-│   ◇ fedora:latest 188M     │ $ systemctl show --timestamp=utc -p ...         │
-│   ◇ archlinux:base 392M    │   UNIT... · journalctl -u UNIT                  │
-│   ◇ eclipse-temurin:25-jr… │                                                 │
-│   ◇ dotnet/runtime:10.0 1… │ unit      ssh.service                           │
-│   ◇ ubuntu:24.04 77M       │ what      OpenBSD Secure Shell server           │
-│   ◇ ruby:3.3-alpine 69M    │ state     active (running)                      │
-│   ◇ eclipse-mosquitto:2.1… │ enabled   disabled                              │
-│   ◇ alpine:3.20 7.7M       │ since     Wed 2026-11-04 15:36:58 UTC           │
-│   ◇ distroless/static-deb… │ pid       746503                                │
-│   6 flk images: host Imag… │                                                 │
-│                            │ pinned by default                               │
+│ ▾ Podman                   │ service ssh.service ─  Overview                 │
+│   ◇ cc7cfa49ce1f (untagge… │                                                 │
+│   ◇ steamcmd/steamcmd:ubu… │ $ systemctl show --timestamp=utc -p ...         │
+│   ◇ fedora:latest 188M     │   UNIT... · journalctl -u UNIT                  │
+│   ◇ archlinux:base 392M    │                                                 │
+│   ◇ eclipse-temurin:25-jr… │ unit      ssh.service                           │
+│   ◇ dotnet/runtime:10.0 1… │ what      OpenBSD Secure Shell server           │
+│   ◇ ubuntu:24.04 77M       │ state     active (running)                      │
+│   ◇ ruby:3.3-alpine 69M    │ enabled   disabled                              │
+│   ◇ eclipse-mosquitto:2.1… │ since     Wed 2026-11-04 15:36:58 UTC           │
+│   ◇ alpine:3.20 7.7M       │ pid       746503                                │
+│   ◇ distroless/static-deb… │                                                 │
+│   7 flk images: host Imag… │ pinned by default                               │
+│                            │                                                 │
 │ ▾ Services                 │                                                 │
 │   ● flk-net                │                                                 │
 │   ● flk-machines           │                                                 │
 │   ● ssh                    │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

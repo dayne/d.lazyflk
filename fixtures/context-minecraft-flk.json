@@ -9,11 +9,7 @@
   "host": {
     "ok": true,
     "problems": [
-      {
-        "label": "3 destroyed apps still have container images",
-        "status": "warn",
-        "hint": "flk apps prune"
-      }
+
     ]
   },
   "cwd": "/home/dayne/d.lazyflk/fixtures",
@@ -234,16 +230,9 @@
     }
   ],
   "next_steps": [
-    "optional: 3 destroyed apps still have container images -> flk apps prune",
     "all good; try: curl http://172.30.0.10:25565/ (logs: flk logs)"
   ],
   "next_steps_detail": [
-    {
-      "text": "optional: 3 destroyed apps still have container images -> flk apps prune",
-      "app": null,
-      "machine": null,
-      "kind": "optional"
-    },
     {
       "text": "all good; try: curl http://172.30.0.10:25565/ (logs: flk logs)",
       "app": "minecraft-flk",

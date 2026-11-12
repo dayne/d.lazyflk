@@ -526,6 +526,12 @@ func (m *Model) releaseLines(a flk.App, rels []flk.Release, w int) []string {
 				out = append(out, "     "+styleBad.Render(l))
 			}
 		}
+		switch {
+		case len(r.Warnings) > 0 && r.Version == current:
+			out = append(out, imageWarningLines(r.Warnings, w-5, "     ")...)
+		case len(r.Warnings) > 0:
+			out = append(out, styleDim.Render("     "+plural(len(r.Warnings), "image warning")))
+		}
 		if r.BuildLog != "" && (r.Failed() || r.Version == current) {
 			out = append(out, styleDim.Render("     build log: "+r.BuildLog))
 		}
@@ -549,6 +555,27 @@ func (m *Model) releaseLines(a flk.App, rels []flk.Release, w int) []string {
 	return out
 }
 
+// imageWarningLines are flk's findings about an image (flk 8947c87), each
+// with its fix under it, wrapped to w and indented.
+func imageWarningLines(ws []flk.ImageWarning, w int, indent string) []string {
+	var out []string
+	for _, iw := range ws {
+		for i, l := range wrap(iw.Message, w-2) {
+			if i == 0 {
+				out = append(out, indent+styleWarn.Render("⚠ ")+l)
+			} else {
+				out = append(out, indent+"  "+l)
+			}
+		}
+		if iw.Fix != "" {
+			for _, l := range wrap("fix: "+iw.Fix, w-2) {
+				out = append(out, indent+"  "+styleDim.Render(l))
+			}
+		}
+	}
+	return out
+}
+
 // configLines is `flk config show --json`: its warnings and checks up
 // top, then the JSON as flk printed it.
 func configLines(text string, w int) []string {
@@ -563,6 +590,9 @@ func configLines(text string, w int) []string {
 					out = append(out, "  "+l)
 				}
 			}
+		}
+		if len(cs.ImageWarnings) > 0 { // the current release's image
+			out = append(out, imageWarningLines(cs.ImageWarnings, w, "")...)
 		}
 		for i, c := range cs.MachineConfig.Checks {
 			label := ""

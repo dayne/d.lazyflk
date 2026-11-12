@@ -29,9 +29,9 @@
 │                                        │ state     51G in /home/dayne/.local/share/flk                                                                       │
 │ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │ app                images   rootfs  volumes     logs external                                                       │
-│                                        │ enshrouded-flk        19G     9.5G        -     9.1M     217M                                                       │
+│                                        │ enshrouded-flk        19G     9.5G        -     9.1M     218M                                                       │
 │                                        │ minecraft-flk        1.1G     373M        -     4.0M      21G                                                       │
-│                                        │ mqtt-flk             139M      35M      37M     956K        -                                                       │
+│                                        │ mqtt-flk             139M      35M      37M     960K        -                                                       │
 │                                        │ ncm                  2.9G     1.4G     420M      48K        -                                                       │
 │                                        │ opencode-sandbox     1.9G     1.7G     818M     300K        -                                                       │
 │                                        │ valheim-flk          6.6G     2.2G        -     316K      78M                                                       │
@@ -39,10 +39,10 @@
 │                                        │ all                   34G      16G     1.2G      29M      30G                                                       │
 │                                        │                                                                                                                     │
 │                                        │ backups   211G in /data/flk-backups                                                                                 │
-│                                        │ … 16 more (pgdn)                                                                                                    │
+│                                        │           enshrouded-flk   1.4G                                                                                     │
+│                                        │ … 15 more (pgdn)                                                                                                    │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

@@ -7,6 +7,7 @@
 │   flk doctor                         host health, each problem with its fix  │
 │                                                                              │
 │ Run an app (in its directory, with a Dockerfile, flk.toml or fly.toml)       │
+│   flk build                          build only: how it boots, as whom, mou… │
 │   flk launch --no-deploy             write flk.toml if missing, register th… │
 │   flk volumes create data --size 1   one per machine, for [[mounts]] source… │
 │   flk secrets set KEY=VALUE --stage  env vars kept out of flk.toml           │
@@ -18,7 +19,6 @@
 │   flk console [ID]                   type to the app (server consoles); lea… │
 │   flk console --send "say hi"        one line to the app, no attaching (--w… │
 │   flk machine status ID              everything flk knows about a machine    │
-│                                                                              │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ ↑↓ pgup/dn scroll  / search  n/N match  esc topics                           │
 └──────────────────────────────────────────────────────────────────────────────┘

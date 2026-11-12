@@ -9,26 +9,27 @@
 │   ▢ world 40GB (external)              │   v5     9.5G  older release                                                                                        │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │               built 2026-11-03 17:25Z · 9e743c8ec3b1                                                                │
 │ ▾ mqtt-flk  1/1 ●                      │                                                                                                                     │
-│   ● hidden-comet-2020                  │ mqtt-flk                                                                                                            │
-│   ▢ mqttdata 1GB                       │   v3      25M  running · current                                                                                    │
-│   ⇄ 10.47.11.3: tcp/1883               │               built 2026-10-27 01:31Z · f78497fc45db                                                                │
+│   ● hidden-comet-2020                  │ flkt-forge-build                                                                                                    │
+│   ▢ mqttdata 1GB                       │   build    77M  older release                                                                                       │
+│   ⇄ 10.47.11.3: tcp/1883               │               built 2026-11-11 00:36Z · 84ca06f2df24                                                                │
 │ ▾ vintagestory-flk  1/1 ●              │                                                                                                                     │
-│   ● frosty-river-2714                  │ flkt-forge-build  app gone                                                                                          │
-│   ▢ vsdata 40GB (external)             │   build    77M                                                                                                      │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │               built 2026-11-11 00:36Z · 84ca06f2df24                                                                │
+│   ● frosty-river-2714                  │ flkt-forge-build2                                                                                                   │
+│   ▢ vsdata 40GB (external)             │   build   8.0M  older release                                                                                       │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420    │               built 2026-11-11 00:38Z · 305c348fe12c                                                                │
 │ ▸ ncm  stopped                         │                                                                                                                     │
-│ ▸ opencode-sandbox  stopped            │ flkt-forge-build2  app gone                                                                                         │
-│ ▸ valheim-flk  stopped                 │   build   8.0M                                                                                                      │
-│                                        │               built 2026-11-11 00:38Z · 305c348fe12c                                                                │
+│ ▸ opencode-sandbox  stopped            │ flkt-forge-nosp                                                                                                     │
+│ ▸ valheim-flk  stopped                 │   build   7.9M  older release                                                                                       │
+│                                        │               built 2026-11-12 02:50Z · ac5c091ab497                                                                │
 │ Host                                   │                                                                                                                     │
-│   health ✔                             │ hello  app gone                                                                                                     │
-│                                        │   build   7.9M                                                                                                      │
+│   health ✔                             │ hello                                                                                                               │
+│                                        │   build   7.9M  older release                                                                                       │
 │ ▸ Storage  fullest 67%                 │               built 2026-11-11 00:36Z · 52ee2425a677                                                                │
 │                                        │                                                                                                                     │
-│ ▸ Podman  11 images                    │ 19G in 6 images                                                                                                     │
-│                                        │ 93M belong to apps that are gone: prune them (host menu: P, flk apps prune)                                         │
-│ ▸ Services  4 running                  │                                                                                                                     │
+│ ▸ Podman  11 images                    │ mqtt-flk                                                                                                            │
+│                                        │   v3      25M  running · current                                                                                    │
+│ ▸ Services  4 running                  │               built 2026-10-27 01:31Z · f78497fc45db                                                                │
 │                                        │                                                                                                                     │
+│                                        │ 19G in 7 images                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
@@ -41,8 +42,7 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

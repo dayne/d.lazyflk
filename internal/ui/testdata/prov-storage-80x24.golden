@@ -16,9 +16,9 @@
 │   /data/enshrouded 2%      │   volume yet: room to grow /data/minecraft      │
 │   /data/minecraft 67%      │   (e.g. sudo lvextend -r -L +10G                │
 │   /data/valheim 1%         │     /dev/mapper/ubuntu--vg-mc--data)            │
+│   /data/vintagestory 13%   │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

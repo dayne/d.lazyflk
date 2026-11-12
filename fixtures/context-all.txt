@@ -38,7 +38,6 @@ host: ready, address 10.47.11.3, boot service installed
   volumes: vsdata 40GB (external)
 
 ## Needs attention
-- optional: 3 destroyed apps still have container images -> flk apps prune
 - ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb
 - opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e
 - valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8

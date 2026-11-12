@@ -11,23 +11,24 @@
 │ ▾ mqtt-flk  1/1 ●           │ resume              Start every machine that should be running (after a reboot, or after stop-a… │                             │
 │   ● hidden-comet-2020       │ stop-all            Gracefully stop every running machine, remembering to resume them            │                             │
 │   ▢ mqttdata 1GB            │ launch              Create flk.toml (if missing) in the current directory, register the app, de… │                             │
-│   ⇄ 10.47.11.3: tcp/1883    │ deploy              Build the image and roll machines to a new release                           │                             │
-│ ▾ vintagestory-flk  1/1 ●   │ status              App and machine overview                                                     │                             │
-│   ● frosty-river-2714       │ start               Boot every stopped machine of the app                                        │                             │
-│   ▢ vsdata 40GB (external)  │ stop                Stop every machine of the app gracefully; they stay stopped across reboots   │                             │
-│   ⇄ 10.47.11.3: tcp/42420 ud│ restart             Stop and boot every machine of the app, one at a time                        │                             │
-│ ▸ ncm  stopped              │ releases list       Releases, newest first: current, failed (and why), kept for rollback, or pr… │                             │
-│ ▸ opencode-sandbox  stopped │ releases log        Print a build's output (default: the newest build, failed or not)            │                             │
-│ ▸ valheim-flk  stopped      │ releases rollback   Roll machines back to an older release's image and config (default: the one… │                             │
-│                             │ disk                Disk space flk uses, per app: release images, machine disks, volumes, logs;… │                             │
-│ Host                        │ images list         flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
-│   health ✔                  │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
-│                             │ apps list           All apps on this host                                                        │                             │
-│ ▸ Storage  fullest 67%      │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
-│                             │ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
-│ ▸ Podman  11 images         │ config show         Print the parsed flk.toml / fly.toml (or host config with --host)            │                             │
-│                             │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
-│ ▸ Services  4 running       │ config unset        Remove host-level config values from /home/dayne/.config/flk/host.toml (flk… │                             │
+│   ⇄ 10.47.11.3: tcp/1883    │ build               Build the image and rootfs as a deploy would, and say what flk will do with… │                             │
+│ ▾ vintagestory-flk  1/1 ●   │ deploy              Build the image and roll machines to a new release                           │                             │
+│   ● frosty-river-2714       │ status              App and machine overview                                                     │                             │
+│   ▢ vsdata 40GB (external)  │ start               Boot every stopped machine of the app                                        │                             │
+│   ⇄ 10.47.11.3: tcp/42420 ud│ stop                Stop every machine of the app gracefully; they stay stopped across reboots   │                             │
+│ ▸ ncm  stopped              │ restart             Stop and boot every machine of the app, one at a time                        │                             │
+│ ▸ opencode-sandbox  stopped │ releases list       Releases, newest first: current, failed (and why), kept for rollback, or pr… │                             │
+│ ▸ valheim-flk  stopped      │ releases log        Print a build's output (default: the newest build, failed or not)            │                             │
+│                             │ releases rollback   Roll machines back to an older release's image and config (default: the one… │                             │
+│ Host                        │ disk                Disk space flk uses, per app: release images, machine disks, volumes, logs;… │                             │
+│   health ✔                  │ images list         flk's container images (flk.local/APP:vN): size, whether a machine runs tha… │                             │
+│                             │ images prune        Free podman's (or docker's) store of what flk doesn't keep                   │                             │
+│ ▸ Storage  fullest 67%      │ apps list           All apps on this host                                                        │                             │
+│                             │ apps destroy        Destroy an app, its machines and volumes                                     │                             │
+│ ▸ Podman  11 images         │ apps prune          Remove container images (and with --backups, backups) left behind by apps t… │                             │
+│                             │ config show         Print the parsed flk.toml / fly.toml (or host config with --host)            │                             │
+│ ▸ Services  4 running       │ config set          Set host-level config values in /home/dayne/.config/flk/host.toml            │                             │
+│                             │ config unset        Remove host-level config values from /home/dayne/.config/flk/host.toml (flk… │                             │
 │                             │ machine list        Machines of the app                                                          │                             │
 │                             │ machine start       Boot machines                                                                │                             │
 │                             │ machine stop        Stop machines gracefully (SIGTERM to the app, kill after kill_timeout); the… │                             │
@@ -38,11 +39,10 @@
 │                             │ machine revive      Restart a machine that exited on its own, per its restart policy (run by fl… │                             │
 │                             │ machine stats       CPU and memory use of machines (default: all of the app's)                   │                             │
 │                             │ machine status      Machine record and state as JSON (an array when given several IDs)           │                             │
-│                             │ machine config      The Firecracker VM config as JSON (an array when given several IDs)          │                             │
 │                             │                                                                                                  │                             │
-├ Needs attention ────────────│ flk context [--all] [--json] [--no-host]                                                         │─────────────────────────────┤
-│ ! optional: 3 destroyed apps├──────────────────────────────────────────────────────────────────────────────────────────────────┤                             │
-│ ○ 3 apps stopped: ncm, openc│ type to find  ↑↓ choose  enter fill in and run  esc close                                        │                             │
+│                             │ flk context [--all] [--json] [--no-host]                                                         │                             │
+├ Needs attention ────────────├──────────────────────────────────────────────────────────────────────────────────────────────────┤─────────────────────────────┤
+│ ✔ nothing needs attention · │ type to find  ↑↓ choose  enter fill in and run  esc close                                        │                             │
 ├─────────────────────────────└──────────────────────────────────────────────────────────────────────────────────────────────────┘─────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

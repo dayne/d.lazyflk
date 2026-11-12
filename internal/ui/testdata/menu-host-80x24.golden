@@ -16,9 +16,9 @@
 │ │ not now: nothing to resume                                               │ │
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
-├ └──────────────────────────────────────────────────────────────────────────┘─┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ └──────────────────────────────────────────────────────────────────────────┘ │
+├ Needs attention ───────────┴─────────────────────────────────────────────────┤
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help     │
+│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  ←→ fold │
 └──────────────────────────────────────────────────────────────────────────────┘

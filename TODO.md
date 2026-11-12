@@ -168,8 +168,10 @@ R1 (on flk main, 7f0317f):
   and the topics at flk 39e07f4.
 
 M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
-- [ ] **`flk build [--json]`** (built on flk branch m6-making-apps,
-  2ca82f0/aba8002; not on main yet): build and inspect without deploying.
+- [x] **`flk build [--json]`** (2ca82f0/aba8002; on flk main since the
+  merge fe20255, 2026-11-11; done the same day: app menu `K` check build
+  runs `flk -a APP build` as a job and shows flk's own report; --json
+  isn't used. Checked live on a test app): build and inspect without deploying.
   JSON: ok, app, source, tag (flk.local/APP:build), build_log, seconds,
   image_bytes, rootfs_bytes, rootfs_used_bytes, init (shell|static),
   agent, cmd, cmd_from (flk.toml|image|default), workdir, env (names),
@@ -178,7 +180,10 @@ M6 (not started; for flkforge, the new app wizard at ~/d.flkforge):
   warnings [{code, message, fix}]. A failure with --json: {ok: false,
   error, said, step, build_log}, exit 1. Idea: a "check build" action in
   the app menu, its warnings in the Config tab.
-- [ ] **Image warnings** (8947c87, same branch): deploy prints them and
+- [x] **Image warnings** (8947c87, on flk main with fe20255; done
+  2026-11-11: the current release's on the Releases tab and leading the
+  Config tab, each with its fix; older releases say how many. Checked
+  live on a test app with no CMD): deploy prints them and
   keeps them in each release (`releases --json` "warnings": [{code,
   message, fix}]); `config show` has "image_warnings" (the current
   release's; null before a deploy) and its "warnings" strings now include

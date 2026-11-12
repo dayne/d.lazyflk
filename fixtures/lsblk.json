@@ -91,7 +91,7 @@
                      "size": 161061273600,
                      "fstype": "ext4",
                      "fssize": 157934215168,
-                     "fsavail": 54335959040,
+                     "fsavail": 54271791104,
                      "mountpoints": [
                          "/"
                      ],
@@ -103,7 +103,7 @@
                      "size": 161061273600,
                      "fstype": "ext4",
                      "fssize": 157396975616,
-                     "fsavail": 130274566144,
+                     "fsavail": 130274562048,
                      "mountpoints": [
                          "/data/vintagestory"
                      ],
@@ -151,7 +151,7 @@
                      "size": 21474836480,
                      "fstype": "ext4",
                      "fssize": 20957446144,
-                     "fsavail": 19637211136,
+                     "fsavail": 19636551680,
                      "mountpoints": [
                          "/data/enshrouded"
                      ],

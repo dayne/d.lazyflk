@@ -15,11 +15,7 @@
   "host": {
     "ok": true,
     "problems": [
-      {
-        "label": "3 destroyed apps still have container images",
-        "status": "warn",
-        "hint": "flk apps prune"
-      }
+
     ],
     "lan_ip": "10.47.11.111",
     "address": "10.47.11.3",
@@ -1078,18 +1074,11 @@
     }
   ],
   "next_steps": [
-    "optional: 3 destroyed apps still have container images -> flk apps prune",
     "ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb",
     "opencode-sandbox: machine 476376ad8e351e [lucky-harbor-5563] is stopped; start it: flk machine start 476376ad8e351e",
     "valheim-flk: machine c99fe500e58ab8 [mellow-glacier-2878] is stopped; start it: flk machine start c99fe500e58ab8"
   ],
   "next_steps_detail": [
-    {
-      "text": "optional: 3 destroyed apps still have container images -> flk apps prune",
-      "app": null,
-      "machine": null,
-      "kind": "optional"
-    },
     {
       "text": "ncm: machine 11489866771bbb [frosty-comet-7023] is stopped; start it: flk machine start 11489866771bbb",
       "app": "ncm",

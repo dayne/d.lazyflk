@@ -5,20 +5,20 @@
 │   ● mellow-aurora-7882     │ $ flk -a minecraft-flk logs -i 225d58f615e7e6   │
 │   ▢ world 40GB (external)  │   -n 200 --no-tail                              │
 │   ⇄ tcp/25565 udp/19132    │                                                 │
-│ ▸ mqtt-flk  1/1 ●          │ [08:58:40] [Server thread/WARN]: Can't keep up… │
-│ ▸ vintagestory-flk  1/1 ●  │ [08:58:57] [Server thread/WARN]: Mismatch in d… │
-│ ▸ ncm  stopped             │ [09:18:30] [Server thread/INFO]: CicaSlice has… │
-│ ▸ opencode-sandbox  stopp… │ [09:20:55] [Server thread/INFO]: CicaSlice los… │
-│ ▸ valheim-flk  stopped     │ [09:20:55] [Server thread/INFO]: CicaSlice lef… │
-│                            │ [gamebus] {"v":1,"type":"player.leave","msg":"… │
-│ Host                       │ [09:21:55] [Server thread/INFO]: Server empty … │
-│   health ✔                 │ [09:24:18] [Server thread/INFO]: /198.46.182.2… │
-│                            │ [10:58:54] [Server thread/INFO]: /198.46.182.2… │
-│ ▸ Storage  fullest 67%     │ [11:38:24] [Server thread/INFO]: storm_fan (/9… │
-│                            │ l: follow, search, wrap (full screen)           │
+│ ▸ mqtt-flk  1/1 ●          │ [gamebus] {"v":1,"type":"player.join","msg":"C… │
+│ ▸ vintagestory-flk  1/1 ●  │ [08:58:40] [Server thread/WARN]: Can't keep up… │
+│ ▸ ncm  stopped             │ [08:58:57] [Server thread/WARN]: Mismatch in d… │
+│ ▸ opencode-sandbox  stopp… │ [09:18:30] [Server thread/INFO]: CicaSlice has… │
+│ ▸ valheim-flk  stopped     │ [09:20:55] [Server thread/INFO]: CicaSlice los… │
+│                            │ [09:20:55] [Server thread/INFO]: CicaSlice lef… │
+│ Host                       │ [gamebus] {"v":1,"type":"player.leave","msg":"… │
+│   health ✔                 │ [09:21:55] [Server thread/INFO]: Server empty … │
+│                            │ [09:24:18] [Server thread/INFO]: /198.46.182.2… │
+│ ▸ Storage  fullest 67%     │ [10:58:54] [Server thread/INFO]: /198.46.182.2… │
+│                            │ [11:38:24] [Server thread/INFO]: storm_fan (/9… │
+│ ▸ Podman  11 images        │ l: follow, search, wrap (full screen)           │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
 └──────────────────────────────────────────────────────────────────────────────┘

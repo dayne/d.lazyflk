@@ -35,7 +35,11 @@ func TestQuickPolling(t *testing.T) {
 	if m.hc.Host.OK || !slices.Contains(m.hc.NextSteps, "fix: bridge flkbr0 -> sudo /x/setup-host.sh") {
 		t.Errorf("host %+v steps %v", m.hc.Host, m.hc.NextSteps)
 	}
-	if s := screen(m); !strings.Contains(s, "host NOT ready") || !strings.Contains(s, "fix: bridge flkbr0") {
+	listed := false // in Needs attention (which may not have room to show every entry)
+	for _, it := range m.attnItems() {
+		listed = listed || strings.HasPrefix(it.text, "fix: bridge flkbr0")
+	}
+	if s := screen(m); !strings.Contains(s, "host NOT ready") || !listed {
 		t.Errorf("screen:\n%s", s)
 	}
 }

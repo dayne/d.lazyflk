@@ -16,8 +16,8 @@
 │ │ 5  backup-check   preflight only: mounts, flk, lock, status; makes no b… │ │
 │ │ 6  whitelist      let a player in: type their name (RCON)                │ │
 │ │                                                                          │ │
-├ │ boot it                                                                  │─┤
-│ │ not now: already running                                                 │ │
+│ │ boot it                                                                  │ │
+├ │ not now: already running                                                 │─┤
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 ├─│ ↑↓ enter choose (or press its key)  esc close                            │─┤
 │ └──────────────────────────────────────────────────────────────────────────┘ │

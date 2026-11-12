@@ -5,7 +5,7 @@
 │   ▢ world 40GB (external)              │                                                                                                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ machine 225d58f615e7e6 ! stopped, should be started 172.30.0.10                                                     │
 │ ▾ enshrouded-flk  1/1 ●                │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
-│   ● polar-river-2416                   │   cpu 2% · 10963MB used · up 6d 8h                                                                                  │
+│   ● polar-river-2416                   │   cpu 4% · 10963MB used · up 6d 9h                                                                                  │
 │   ▢ endata 10GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.7: udp/15637              │ ports  tcp/25565 → 10.47.11.3:25565                                                                                 │
 │ ▾ mqtt-flk  1/1 ●                      │        udp/19132 → 10.47.11.3:19132                                                                                 │

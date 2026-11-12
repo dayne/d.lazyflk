@@ -7,7 +7,7 @@
 │ ▸ enshrouded-flk  1/1 ●    │ machine 225d58f615e7e6 ! stopped, should be     │
 │ ▸ mqtt-flk  1/1 ●          │   started 172.30.0.10                           │
 │ ▸ vintagestory-flk  1/1 ●  │   mellow-aurora-7882 · 4 cpus · 11264MB · v10   │
-│ ▸ ncm  stopped             │   cpu 2% · 10963MB used · up 6d 8h              │
+│ ▸ ncm  stopped             │   cpu 4% · 10963MB used · up 6d 9h              │
 │ ▸ opencode-sandbox  stopp… │                                                 │
 │ ▸ valheim-flk  stopped     │ ports  tcp/25565 → 10.47.11.3:25565             │
 │                            │ … 13 more (pgdn)                                │

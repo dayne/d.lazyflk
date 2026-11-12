@@ -5,29 +5,30 @@
 │   ▢ endata 10GB (external)             │                                                                                                                     │
 │   ⇄ 10.47.11.7: udp/15637              │ machine 225d58f615e7e6 ● started 172.30.0.10                                                                        │
 │ ▾ minecraft-flk  1/1 ●                 │   mellow-aurora-7882 · 4 cpus · 11264MB · v10                                                                       │
-│   ● mellow-aurora-7882                 │   cpu 2% · 10963MB used · up 6d 8h                                                                                  │
+│   ● mellow-aurora-7882                 │   cpu 4% · 10963MB used · up 6d 9h                                                                                  │
 │   ▢ world 40GB (external)           ┌ minecraft-flk ─ actions ─────────────────────────────────────────────────────────┐                                     │
 │   ⇄ 10.47.11.3: tcp/25565 udp/19132 │ d  deploy            build the image and roll machines to a new release          │                                     │
 │ ▾ mqtt-flk  1/1 ●                   │ r  roll back         back to an older release's image and config, rolled out li… │                                     │
 │   ● hidden-comet-2020               │ B  build log         the newest build's output, failed or not (flk releases log) │                                     │
-│   ▢ mqttdata 1GB                    │ s  start             all running                                                 │                                     │
-│   ⇄ 10.47.11.3: tcp/1883            │ S  stop              stop every machine gracefully; they stay stopped, also aft… │                                     │
-│ ▾ vintagestory-flk  1/1 ●           │ R  restart           stop and boot every machine, one at a time                  │                                     │
-│   ● frosty-river-2714               │ c  scale             set the number of machines                                  │                                     │
-│   ▢ vsdata 40GB (external)          │ u  resume            nothing to resume                                           │                                     │
-│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ p  stop all          stop its running machines for now: they stay meant to run,… │                                     │
-│ ▸ ncm  stopped                      │ e  set secret        set a secret; the value goes to flk on stdin, never on the… │                                     │
-│ ▸ opencode-sandbox  stopped         │ U  unset secret      no secrets                                                  │                                     │
-│ ▸ valheim-flk  stopped              │ n  new volume        create a volume for [[mounts]] source = NAME                │                                     │
-│                                     │ i  import volume     register an existing ext4 image; flk never deletes it       │                                     │
-│ Host                                │ b  back up           copy all of minecraft-flk's volumes to the backup dir, the… │                                     │
-│   health ✔                          │ l  logs              follow all its machines' console output                     │                                     │
-│                                     │ E  edit flk.toml     open it in your editor; then Config shows how flk reads it… │                                     │
-│ ▸ Storage  fullest 67%              │ A  edit app actions  this menu's own commands for the app: .lazyflk.toml next t… │                                     │
-│                                     │ D  destroy app       delete the app, its machines, releases and volumes          │                                     │
-│ ▸ Podman  11 images                 │ 1  who               who's online (RCON)                                         │                                     │
-│                                     │ 2  say               broadcast a message to the players (RCON)                   │                                     │
-│ ▸ Services  4 running               │ 3  save              write the world to disk now and wait until it's saved       │                                     │
+│   ▢ mqttdata 1GB                    │ K  check build       build the image and say how it would boot, and what flk wa… │                                     │
+│   ⇄ 10.47.11.3: tcp/1883            │ s  start             all running                                                 │                                     │
+│ ▾ vintagestory-flk  1/1 ●           │ S  stop              stop every machine gracefully; they stay stopped, also aft… │                                     │
+│   ● frosty-river-2714               │ R  restart           stop and boot every machine, one at a time                  │                                     │
+│   ▢ vsdata 40GB (external)          │ c  scale             set the number of machines                                  │                                     │
+│   ⇄ 10.47.11.3: tcp/42420 udp/42420 │ u  resume            nothing to resume                                           │                                     │
+│ ▸ ncm  stopped                      │ p  stop all          stop its running machines for now: they stay meant to run,… │                                     │
+│ ▸ opencode-sandbox  stopped         │ e  set secret        set a secret; the value goes to flk on stdin, never on the… │                                     │
+│ ▸ valheim-flk  stopped              │ U  unset secret      no secrets                                                  │                                     │
+│                                     │ n  new volume        create a volume for [[mounts]] source = NAME                │                                     │
+│ Host                                │ i  import volume     register an existing ext4 image; flk never deletes it       │                                     │
+│   health ✔                          │ b  back up           copy all of minecraft-flk's volumes to the backup dir, the… │                                     │
+│                                     │ l  logs              follow all its machines' console output                     │                                     │
+│ ▸ Storage  fullest 67%              │ E  edit flk.toml     open it in your editor; then Config shows how flk reads it… │                                     │
+│                                     │ A  edit app actions  this menu's own commands for the app: .lazyflk.toml next t… │                                     │
+│ ▸ Podman  11 images                 │ D  destroy app       delete the app, its machines, releases and volumes          │                                     │
+│                                     │ 1  who               who's online (RCON)                                         │                                     │
+│ ▸ Services  4 running               │ 2  say               broadcast a message to the players (RCON)                   │                                     │
+│                                     │ 3  save              write the world to disk now and wait until it's saved       │                                     │
 │                                     │ 4  backup            the nightly backup, now: live (no restart, ~25s), checked,… │                                     │
 │                                     │ 5  backup-check      preflight only: mounts, flk, lock, status; makes no backup  │                                     │
 │                                     │ 6  whitelist         let a player in: type their name (RCON)                     │                                     │
@@ -41,8 +42,7 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                               │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                            │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

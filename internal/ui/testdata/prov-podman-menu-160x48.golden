@@ -36,13 +36,13 @@
 │   ◇ eclipse-mosquitto:2.1.2-alpine 25M │                                                                                                                     │
 │   ◇ alpine:3.20 7.7M                   │                                                                                                                     │
 │   ◇ distroless/static-debian12:nonroo… │                                                                                                                     │
-│   6 flk images: host Images tab        │                                                                                                                     │
+│   7 flk images: host Images tab        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │ ▸ Services  4 running                  │                                                                                                                     │
 │                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

@@ -4,21 +4,21 @@
 │ ▸ minecraft-flk  1/1 ●     │                                                 │
 │ ▸ mqtt-flk  1/1 ●          │ $ flk -a minecraft-flk logs -n 200 --no-tail    │
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
-│ ▸ ncm  stopped             │ [gamebus] {"v":1,"type":"player.join","msg":"C… │
-│ ▸ opencode-sandbox  stopp… │ [08:58:40] [Server thread/WARN]: Can't keep up… │
-│ ▸ valheim-flk  stopped     │ [08:58:57] [Server thread/WARN]: Mismatch in d… │
-│                            │ [09:18:30] [Server thread/INFO]: CicaSlice has… │
-│ Host                       │ [09:20:55] [Server thread/INFO]: CicaSlice los… │
-│   health ✔                 │ [09:20:55] [Server thread/INFO]: CicaSlice lef… │
-│                            │ [gamebus] {"v":1,"type":"player.leave","msg":"… │
-│ ▸ Storage  fullest 67%     │ [09:21:55] [Server thread/INFO]: Server empty … │
-│                            │ [09:24:18] [Server thread/INFO]: /198.46.182.2… │
-│ ▸ Podman  11 images        │ [10:58:54] [Server thread/INFO]: /198.46.182.2… │
-│                            │ [11:38:24] [Server thread/INFO]: storm_fan (/9… │
-│ ▸ Services  4 running      │ l: follow, search, wrap (full screen)           │
+│ ▸ ncm  stopped             │ [08:54:40] [Server thread/INFO]: CicaSlice joi… │
+│ ▸ opencode-sandbox  stopp… │ [gamebus] {"v":1,"type":"player.join","msg":"C… │
+│ ▸ valheim-flk  stopped     │ [08:58:40] [Server thread/WARN]: Can't keep up… │
+│                            │ [08:58:57] [Server thread/WARN]: Mismatch in d… │
+│ Host                       │ [09:18:30] [Server thread/INFO]: CicaSlice has… │
+│   health ✔                 │ [09:20:55] [Server thread/INFO]: CicaSlice los… │
+│                            │ [09:20:55] [Server thread/INFO]: CicaSlice lef… │
+│ ▸ Storage  fullest 67%     │ [gamebus] {"v":1,"type":"player.leave","msg":"… │
+│                            │ [09:21:55] [Server thread/INFO]: Server empty … │
+│ ▸ Podman  11 images        │ [09:24:18] [Server thread/INFO]: /198.46.182.2… │
+│                            │ [10:58:54] [Server thread/INFO]: /198.46.182.2… │
+│ ▸ Services  4 running      │ [11:38:24] [Server thread/INFO]: storm_fan (/9… │
+│                            │ l: follow, search, wrap (full screen)           │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -12,13 +12,13 @@
 │ ▸ valheim-flk  stopped     │               built 2026-11-03 17:25Z ·         │
 │                            │             9e743c8ec3b1                        │
 │ Host                       │                                                 │
-│   health ✔                 │ mqtt-flk                                        │
-│                            │   v3      25M  running · current                │
-│ ▸ Storage  fullest 67%     │               built 2026-10-27 01:31Z ·         │
-│                            │ … 20 more (pgdn)                                │
+│   health ✔                 │ flkt-forge-build                                │
+│                            │   build    77M  older release                   │
+│ ▸ Storage  fullest 67%     │               built 2026-11-11 00:36Z ·         │
+│                            │             84ca06f2df24                        │
+│ ▸ Podman  11 images        │ … 22 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

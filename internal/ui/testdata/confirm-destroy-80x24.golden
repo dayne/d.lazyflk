@@ -16,9 +16,9 @@
 │ │ enter run (once it matches)  esc cancel                                  │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
 │                            │                                                 │
+│ ▸ Podman  11 images        │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  L cmd log  ? help        │
 └──────────────────────────────────────────────────────────────────────────────┘

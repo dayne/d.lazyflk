@@ -39,10 +39,10 @@
 │                                        │       {                                                                                                             │
 │                                        │         "proto": "tcp",                                                                                             │
 │                                        │         "port": 25565,                                                                                              │
-│                                        │ … 46 more (pgdn)                                                                                                    │
+│                                        │         "internal_port": 25565                                                                                      │
+│                                        │ … 45 more (pgdn)                                                                                                    │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                 │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                              │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

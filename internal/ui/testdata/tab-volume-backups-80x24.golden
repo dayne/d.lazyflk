@@ -15,10 +15,10 @@
 │   health ✔                 │   2026-11-10 11:00Z · 21G used · checked clean  │
 │                            │     (journal replayed)                          │
 │ ▸ Storage  fullest 67%     │   mode live · release v10 · took 26s            │
-│                            │ … 44 more (pgdn)                                │
+│                            │   verified clean 2026-11-10 11:00Z              │
+│ ▸ Podman  11 images        │ … 43 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

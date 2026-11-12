@@ -818,3 +818,35 @@ func TestStepKinds(t *testing.T) {
 		t.Errorf("%d steps, %d detailed, %d stopped, %d shown", len(raw.NextSteps), len(raw.NextStepsDetail), stopped, len(m.hc.NextSteps))
 	}
 }
+
+// flk 8947c87: what flk saw in an image shows on the release that has it
+// and leads the Config tab, each with its fix.
+func TestImageWarnings(t *testing.T) {
+	var rels []flk.Release
+	raw, _ := fixtures.FS.ReadFile("releases-warnings.json")
+	if err := json.Unmarshal(raw, &rels); err != nil || len(rels) != 1 || len(rels[0].Warnings) != 1 || rels[0].Warnings[0].Code != "no-cmd" {
+		t.Fatalf("%v %+v", err, rels)
+	}
+	m := demoModel(t, 160, 48)
+	a := flk.App{Name: "x", Release: &flk.Release{Version: rels[0].Version}}
+	s := ansi.Strip(strings.Join(m.releaseLines(a, rels, 100), "\n"))
+	for _, want := range []string{"⚠ no CMD or ENTRYPOINT: the machine runs /bin/sh", "fix: add CMD to the Dockerfile", "build log: "} {
+		if !strings.Contains(s, want) {
+			t.Errorf("releases: missing %q in\n%s", want, s)
+		}
+	}
+	a.Release.Version = 2 // an older release only says it has some
+	s = ansi.Strip(strings.Join(m.releaseLines(a, rels, 100), "\n"))
+	if !strings.Contains(s, "1 image warning") || strings.Contains(s, "fix:") {
+		t.Errorf("older release:\n%s", s)
+	}
+
+	cfg, _ := fixtures.FS.ReadFile("config-warnings.json")
+	lines := configLines(string(cfg), 60)
+	if got := ansi.Strip(lines[0]); got != "⚠ no CMD or ENTRYPOINT: the machine runs /bin/sh" {
+		t.Errorf("config leads with %q", got)
+	}
+	if got := ansi.Strip(lines[1]); !strings.HasPrefix(got, "  fix: add CMD") {
+		t.Errorf("then its fix: %q", got)
+	}
+}

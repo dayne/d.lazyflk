@@ -1,0 +1,56 @@
+{
+  "file": "/tmp/claude-1000/-home-dayne-d-lazyflk/709b4739-d7fe-4b83-9d0a-5efe06ee1f29/scratchpad/flkt-lazyflk-warn/flk.toml",
+  "parsed": {
+    "app": "flkt-lazyflk-warn",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "env": {
+      "GREETING": "hello world"
+    },
+    "vm": [
+      {
+        "cpus": 1,
+        "memory_mb": 128
+      }
+    ]
+  },
+  "machine_config": {
+    "cpus": 1,
+    "memory_mb": 128,
+    "env": {
+      "GREETING": "hello world"
+    },
+    "mount_specs": [
+
+    ],
+    "internal_port": null,
+    "internal_protocol": null,
+    "ports": [
+
+    ],
+    "kill_timeout": 10,
+    "kernel_args": null,
+    "stdin": "console",
+    "restart": {
+      "policy": "on-failure",
+      "retries": 10
+    },
+    "bind": null,
+    "checks": [
+
+    ],
+    "huge_pages": null,
+    "internal_hosts": false
+  },
+  "warnings": [
+
+  ],
+  "image_warnings": [
+    {
+      "code": "no-cmd",
+      "message": "no CMD or ENTRYPOINT: the machine runs /bin/sh",
+      "fix": "add CMD to the Dockerfile, or [experimental] cmd in flk.toml"
+    }
+  ]
+}

@@ -208,6 +208,34 @@
       ]
     },
     {
+      "name": "build",
+      "usage": "flk build [--image IMAGE] [--json]",
+      "summary": "Build the image and rootfs as a deploy would, and say what flk will do with them (no release, no machines)",
+      "options": [
+        {
+          "switches": [
+            "--image IMAGE"
+          ],
+          "description": "Inspect this image instead of building"
+        },
+        {
+          "switches": [
+            "--json"
+          ],
+          "description": "Print JSON"
+        }
+      ],
+      "json": true,
+      "notes": [
+        "Reads flk.toml / fly.toml like deploy, but needs no registered app: use it while writing a Dockerfile.",
+        "Reports how the machine will boot (shell init, or the static one for images without /bin/sh), the command, the user the app runs as and whether init can switch to it, whether flk exec will work, sizes, and what each [[mounts]] destination holds in the image. Then the config's warnings.",
+        "The image is tagged flk.local/APP:build (podman's layer cache makes the next deploy's build quick); the rootfs is removed after, and the build's output is kept in the log it names.",
+        "Exit 1 when the build fails, with the build's own error, as in deploy; with --json, stdout still gets an object: ok false, error, and for a build failure said (its error lines), step and build_log.",
+        "image_bytes is the image's unpacked size in the engine's store; rootfs_used_bytes what the disk holds.",
+        "Remove builds with flk images prune (flk apps destroy for a registered app)."
+      ]
+    },
+    {
       "name": "deploy",
       "usage": "flk deploy [--image IMAGE] [--no-rollback] [--no-backup]",
       "summary": "Build the image and roll machines to a new release",
@@ -417,7 +445,7 @@
           ],
           "json": true,
           "notes": [
-            "Read-only. Images of destroyed apps (orphan) go with flk images prune (or flk apps prune); deploys keep the last two per app."
+            "Read-only. Images of destroyed apps (orphan) go with flk images prune (or flk apps prune); deploys keep the last two per app. flk.local/APP:build is the last flk build (trial in --json)."
           ]
         },
         {
@@ -434,7 +462,7 @@
           ],
           "json": false,
           "notes": [
-            "Removes the image tags a deploy would prune (past [flk] keep_releases, except releases a machine is on), the images of destroyed apps, and dangling images (no tag, no child). Base images and build caches stay, so the next deploy doesn't download or rebuild everything.",
+            "Removes the image tags a deploy would prune (past [flk] keep_releases, except releases a machine is on), the images of destroyed apps, flk build's images (APP:build; and its logs, for apps that aren't registered), and dangling images (no tag, no child). Base images and build caches stay, so the next deploy doesn't download or rebuild everything.",
             "Use it instead of podman image prune -a, which also removes flk's kept images (rollback) and every base image. To prune the rest of the store and spare flk's: podman image prune -a --filter label!=flk.app (images flk built since it labels them: flk.app, flk.release; [build] image apps aren't labelled)."
           ]
         }
@@ -543,7 +571,10 @@
               "description": "Show host settings (/home/dayne/.config/flk/host.toml) instead of app config"
             }
           ],
-          "json": true
+          "json": true,
+          "notes": [
+            "warnings: what's wrong with the file (unknown keys, [[mounts]] sources that aren't volume names). image_warnings: what the deploy of the current release saw in its image ({code, message, fix}; null before a deploy); flk build checks the image as it is now."
+          ]
         },
         {
           "name": "set",

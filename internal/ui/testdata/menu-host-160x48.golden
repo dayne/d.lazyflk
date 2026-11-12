@@ -29,8 +29,6 @@
 │                                     ├──────────────────────────────────────────────────────────────────────────────────┤                                     │
 │ ▸ Services  4 running               │ ↑↓ enter choose (or press its key)  esc close                                    │                                     │
 │                                     └──────────────────────────────────────────────────────────────────────────────────┘                                     │
-│                                        │ ✔ port helper (host ports from 1024)                                                                                │
-│                                        │ ✔ boot service (machines come back after a reboot)                                                                  │
 │                                        │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
 │                                        │ ✔ machines run under flk-tmux.service (stopped gracefully at shutdown)                                              │
 │                                        │ ✔ backups go to /data/flk-backups: 210.2GB now, about 214.7GB at their keep counts; 161.9GB free; full copies (ext4 │
@@ -40,9 +38,11 @@
 │                                        │ ✔ 10.47.11.7 ([flk] bind of enshrouded-flk) is on this host                                                         │
 │                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
 │                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                              │
+│ ↑↓ move  tab tabs  enter actions  l logs  L cmd log  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                           │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

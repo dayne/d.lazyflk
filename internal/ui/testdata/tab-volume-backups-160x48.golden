@@ -39,10 +39,10 @@
 │                                        │   verified clean 2026-11-08 11:12Z                                                                                  │
 │                                        │   no copy at /data/backup/flk any more: pruned there 2026-11-11 11:12Z                                              │
 │                                        │                                                                                                                     │
-│                                        │ … 7 more (pgdn)                                                                                                     │
+│                                        │ world-20261105T110002Z.ext4                                                                                         │
+│                                        │ … 6 more (pgdn)                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

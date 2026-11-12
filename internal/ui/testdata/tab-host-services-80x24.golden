@@ -15,10 +15,10 @@
 │   health ✔                 │                                                 │
 │                            │ ✔ flk-tmux.service  active (running)            │
 │ ▸ Storage  fullest 67%     │   enabled · since 2026-11-05 18:01Z             │
-│                            │ … 2 more (pgdn)                                 │
+│                            │                                                 │
+│ ▸ Podman  11 images        │ oneshot units: healthy is active (exited)       │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

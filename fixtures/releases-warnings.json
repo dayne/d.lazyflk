@@ -1,0 +1,20 @@
+[
+  {
+    "version": 1,
+    "tag": "flk.local/flkt-lazyflk-warn:v1",
+    "path": "/home/dayne/.local/share/flk/apps/flkt-lazyflk-warn/images/v1.ext4",
+    "source": "Dockerfile",
+    "created_at": "2026-11-12T02:53:57Z",
+    "warnings": [
+      {
+        "code": "no-cmd",
+        "message": "no CMD or ENTRYPOINT: the machine runs /bin/sh",
+        "fix": "add CMD to the Dockerfile, or [experimental] cmd in flk.toml"
+      }
+    ],
+    "current": true,
+    "image": true,
+    "machines": 1,
+    "build_log": "/home/dayne/.local/share/flk/apps/flkt-lazyflk-warn/builds/v1.log"
+  }
+]

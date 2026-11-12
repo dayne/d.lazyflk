@@ -15,10 +15,10 @@
 │   health ✔                 │     172.30.0.10:25565                           │
 │                            │ udp/19132 → 10.47.11.3:19132                    │
 │ ▸ Storage  fullest 67%     │   minecraft-flk / mellow-aurora-7882            │
-│                            │ … 9 more (pgdn)                                 │
+│                            │     172.30.0.10:19132                           │
+│ ▸ Podman  11 images        │ … 8 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

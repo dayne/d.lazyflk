@@ -807,3 +807,35 @@ func TestBuildLogAction(t *testing.T) {
 		}
 	}
 }
+
+// flk 2ca82f0: app menu K builds and reports without deploying.
+func TestCheckBuild(t *testing.T) {
+	var help flk.Help
+	b, _ := fixtures.FS.ReadFile("help-all.json")
+	json.Unmarshal(b, &help)
+	a := mc(t, hostContext(t))
+	acts := For(Target{Kind: App, App: a, Help: &help})
+	k := find(t, acts, "check build")
+	if c := k.Command(nil); c.Line() != "flk -a minecraft-flk build" || k.Confirm != Ask || !k.Long || !strings.Contains(c.Warn, "Nothing is deployed") {
+		t.Errorf("%+v", k)
+	}
+	keys := map[string]bool{}
+	for _, x := range acts {
+		if keys[x.Key] {
+			t.Errorf("app key %s used twice (%s)", x.Key, x.Label)
+		}
+		if strings.Contains("qxkj", x.Key) { // the menu's own keys: close, up, down
+			t.Errorf("%s has the menu's own key %s", x.Label, x.Key)
+		}
+		keys[x.Key] = true
+	}
+	a.ConfigPath = ""
+	if find(t, For(Target{Kind: App, App: a, Help: &help}), "check build").Disabled == "" {
+		t.Error("no flk.toml known: nothing to build from")
+	}
+	for _, x := range For(Target{Kind: App, App: a}) {
+		if x.Label == "check build" {
+			t.Error("an older flk has no build")
+		}
+	}
+}

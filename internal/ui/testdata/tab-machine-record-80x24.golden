@@ -15,10 +15,10 @@
 │   health ✔                 │   "release": 10,                                │
 │                            │   "config": {                                   │
 │ ▸ Storage  fullest 67%     │     "cpus": 4,                                  │
-│                            │ … 86 more (pgdn)                                │
+│                            │     "memory_mb": 11264,                         │
+│ ▸ Podman  11 images        │ … 85 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
 └──────────────────────────────────────────────────────────────────────────────┘

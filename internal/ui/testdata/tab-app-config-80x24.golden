@@ -15,10 +15,10 @@
 │                            │ {                                               │
 │ ▸ Podman  11 images        │   "file": "/home/dayne/minecraft.flk/flk.toml", │
 │                            │   "parsed": {                                   │
-│ ▸ Services  4 running      │ … 187 more (pgdn)                               │
+│ ▸ Services  4 running      │     "app": "minecraft-flk",                     │
+│                            │ … 189 more (pgdn)                               │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
 └──────────────────────────────────────────────────────────────────────────────┘

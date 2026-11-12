@@ -11,14 +11,14 @@
 │ │ resume              Start every machine that should be running (after a… │ │
 │ │ stop-all            Gracefully stop every running machine, remembering … │ │
 │ │ launch              Create flk.toml (if missing) in the current directo… │ │
+│ │ build               Build the image and rootfs as a deploy would, and s… │ │
 │ │ deploy              Build the image and roll machines to a new release   │ │
 │ │ status              App and machine overview                             │ │
 │ │ start               Boot every stopped machine of the app                │ │
-│ │ stop                Stop every machine of the app gracefully; they stay… │ │
 │ │                                                                          │ │
-├ │ flk context [--all] [--json] [--no-host]                                 │─┤
-│ ├──────────────────────────────────────────────────────────────────────────┤ │
+│ │ flk context [--all] [--json] [--no-host]                                 │ │
+├ ├──────────────────────────────────────────────────────────────────────────┤─┤
 │ │ type to find  ↑↓ choose  enter fill in and run  esc close                │ │
 ├─└──────────────────────────────────────────────────────────────────────────┘─┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
 └──────────────────────────────────────────────────────────────────────────────┘

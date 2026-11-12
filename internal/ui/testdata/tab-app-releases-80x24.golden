@@ -15,10 +15,10 @@
 │                            │ v4   2026-10-12 05:35Z  Dockerfile  pruned      │
 │ ▸ Podman  11 images        │ v3   2026-10-12 05:30Z  Dockerfile  pruned      │
 │                            │ v2   2026-10-12 05:20Z  Dockerfile  pruned      │
-│ ▸ Services  4 running      │ … 4 more (pgdn)                                 │
+│ ▸ Services  4 running      │ v1   2026-10-12 05:01Z  Dockerfile  pruned      │
+│                            │ … 3 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
 └──────────────────────────────────────────────────────────────────────────────┘

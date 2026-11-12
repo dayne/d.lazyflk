@@ -58,11 +58,6 @@
       "hint": null
     },
     {
-      "label": "3 destroyed apps still have container images",
-      "status": "warn",
-      "hint": "flk apps prune"
-    },
-    {
       "label": "port helper (host ports from 1024)",
       "status": "pass",
       "hint": null

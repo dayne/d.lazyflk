@@ -91,7 +91,7 @@ func (stubProvider) Load(context.Context, providers.Host, providers.Env) ([]prov
 }
 
 func TestProviderActions(t *testing.T) {
-	m := demoModel(t, 100, 30)
+	m := demoModel(t, 100, 70) // tall: the last section shows however many apps and warnings the host has
 	m.opt.Providers = append(m.opt.Providers, stubProvider{})
 	send(m, runCmd(m.reload())...)
 	// a section with a problem stays open, with its items, and says so

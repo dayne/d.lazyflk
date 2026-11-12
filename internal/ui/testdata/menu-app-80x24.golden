@@ -2,6 +2,7 @@
 │ │ d  deploy            build the image and roll machines to a new release  │ │
 │ │ r  roll back         back to an older release's image and config, rolle… │ │
 │ │ B  build log         the newest build's output, failed or not (flk rele… │ │
+│ │ K  check build       build the image and say how it would boot, and wha… │ │
 │ │ s  start             all running                                         │ │
 │ │ S  stop              stop every machine gracefully; they stay stopped, … │ │
 │ │ R  restart           stop and boot every machine, one at a time          │ │
@@ -18,7 +19,6 @@
 │ │ A  edit app actions  this menu's own commands for the app: .lazyflk.tom… │ │
 ├ │ D  destroy app       delete the app, its machines, releases and volumes  │─┤
 │ │ 1  who               who's online (RCON)                                 │ │
-│ │ 2  say               broadcast a message to the players (RCON)           │ │
-├─│ 3  save              write the world to disk now and wait until it's sa… │─┤
-│ │ 4  backup            the nightly backup, now: live (no restart, ~25s), … │ │
-└─│ 5  backup-check      preflight only: mounts, flk, lock, status; makes n… │─┘
+├─│ 2  say               broadcast a message to the players (RCON)           │─┤
+│ │ 3  save              write the world to disk now and wait until it's sa… │ │
+└─│ 4  backup            the nightly backup, now: live (no restart, ~25s), … │─┘

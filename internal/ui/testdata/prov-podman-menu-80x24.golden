@@ -1,10 +1,10 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ ▸ ncm  stopped             │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
-│ ▸ opencode-sandbox  stopp… │  Overview                                       │
-│ ▸ valheim-flk  stopped     │                                                 │
-│                            │ $ podman ps -a --external --format json ·       │
-│ Host                       │   podman images --format json                   │
-│   health ✔                 │                                                 │
+│ ▸ vintagestory-flk  1/1 ●  │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
+│ ▸ ncm  stopped             │  Overview                                       │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │ $ podman ps -a --external --format json ·       │
+│                            │   podman images --format json                   │
+│ Host                       │                                                 │
 │ ┌ image docker.io/steamcmd/steamcmd:ubuntu-24 ─ actions ───────────────────┐ │
 │ │ c  copy: podman image rm docker.io/ste…  lazyflk doesn't delete images;… │ │
 │ │ p  copy: podman image prune              removes images nothing uses or… │ │
@@ -14,11 +14,11 @@
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ ↑↓ enter choose (or press its key)  esc close                            │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│   ◇ cc7cfa49ce1f (untagge… │   download it again.                            │
+│ ▾ Podman                   │   download it again.                            │
+│   ◇ cc7cfa49ce1f (untagge… │                                                 │
 │   ◇ steamcmd/steamcmd:ubu… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

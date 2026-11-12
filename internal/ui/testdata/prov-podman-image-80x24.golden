@@ -1,24 +1,24 @@
 ┌ lazyflk ─ host ready · 10.47.11.3 · boot ok ─────────────────────────── demo ┐
-│ ▸ ncm  stopped             │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
-│ ▸ opencode-sandbox  stopp… │  Overview                                       │
-│ ▸ valheim-flk  stopped     │                                                 │
-│                            │ $ podman ps -a --external --format json ·       │
-│ Host                       │   podman images --format json                   │
-│   health ✔                 │                                                 │
-│                            │ id        8c02737ed52e                          │
-│ ▾ Storage                  │ size      319M                                  │
-│   / 64%                    │ created   2026-11-04T12:45:49Z                  │
-│   /data/enshrouded 2%      │ names     docker.io/steamcmd/steamcmd:ubuntu-24 │
-│   /data/minecraft 67%      │ used      no container uses it                  │
-│   /data/valheim 1%         │                                                 │
-│   /data/vintagestory 13%   │ Not one of flk's (flk.local/*). A Dockerfile's  │
-│                            │   FROM image stays here as                      │
-│ ▾ Podman                   │ the build cache, so later deploys don't         │
-│   ◇ cc7cfa49ce1f (untagge… │   download it again.                            │
+│ ▸ vintagestory-flk  1/1 ●  │ image docker.io/steamcmd/steamcmd:ubuntu-24     │
+│ ▸ ncm  stopped             │  Overview                                       │
+│ ▸ opencode-sandbox  stopp… │                                                 │
+│ ▸ valheim-flk  stopped     │ $ podman ps -a --external --format json ·       │
+│                            │   podman images --format json                   │
+│ Host                       │                                                 │
+│   health ✔                 │ id        8c02737ed52e                          │
+│                            │ size      319M                                  │
+│ ▾ Storage                  │ created   2026-11-04T12:45:49Z                  │
+│   / 64%                    │ names     docker.io/steamcmd/steamcmd:ubuntu-24 │
+│   /data/enshrouded 2%      │ used      no container uses it                  │
+│   /data/minecraft 67%      │                                                 │
+│   /data/valheim 1%         │ Not one of flk's (flk.local/*). A Dockerfile's  │
+│   /data/vintagestory 13%   │   FROM image stays here as                      │
+│                            │ the build cache, so later deploys don't         │
+│ ▾ Podman                   │   download it again.                            │
+│   ◇ cc7cfa49ce1f (untagge… │                                                 │
 │   ◇ steamcmd/steamcmd:ubu… │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘

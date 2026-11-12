@@ -1,5 +1,19 @@
 [
   {
+    "repo": "flk.local/flkt-forge-nosp",
+    "tag": "build",
+    "id": "ac5c091ab497",
+    "size_bytes": 8270663,
+    "created_at": "2026-11-12T02:50:38Z",
+    "app": "flkt-forge-nosp",
+    "release": null,
+    "orphan": false,
+    "trial": true,
+    "current": false,
+    "in_use": false,
+    "running": false
+  },
+  {
     "repo": "flk.local/flkt-forge-build2",
     "tag": "build",
     "id": "305c348fe12c",
@@ -7,7 +21,8 @@
     "created_at": "2026-11-11T00:38:31Z",
     "app": "flkt-forge-build2",
     "release": null,
-    "orphan": true,
+    "orphan": false,
+    "trial": true,
     "current": false,
     "in_use": false,
     "running": false
@@ -20,7 +35,8 @@
     "created_at": "2026-11-11T00:36:22Z",
     "app": "flkt-forge-build",
     "release": null,
-    "orphan": true,
+    "orphan": false,
+    "trial": true,
     "current": false,
     "in_use": false,
     "running": false
@@ -33,7 +49,8 @@
     "created_at": "2026-11-11T00:36:10Z",
     "app": "hello",
     "release": null,
-    "orphan": true,
+    "orphan": false,
+    "trial": true,
     "current": false,
     "in_use": false,
     "running": false
@@ -47,6 +64,7 @@
     "app": "enshrouded-flk",
     "release": 6,
     "orphan": false,
+    "trial": false,
     "current": true,
     "in_use": true,
     "running": true
@@ -60,6 +78,7 @@
     "app": "enshrouded-flk",
     "release": 5,
     "orphan": false,
+    "trial": false,
     "current": false,
     "in_use": false,
     "running": false
@@ -73,6 +92,7 @@
     "app": "mqtt-flk",
     "release": 3,
     "orphan": false,
+    "trial": false,
     "current": true,
     "in_use": true,
     "running": true

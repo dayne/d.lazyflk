@@ -15,10 +15,10 @@
 │ ├──────────────────────────────────────────────────────────────────────────┤ │
 │ │ enter attach  esc cancel                                                 │ │
 │ └──────────────────────────────────────────────────────────────────────────┘ │
-│                            │ … 6 more (pgdn)                                 │
+│                            │ names     none: [flk] internal_hosts = true     │
+│ ▸ Podman  11 images        │ … 5 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -8,17 +8,17 @@
 │ ▸ mqtt-flk  1/1 ●          │ release   v10                                   │
 │ ▸ vintagestory-flk  1/1 ●  │ ip        172.30.0.10:25565                     │
 │ ▸ ncm  stopped             │ size      4 cpus · 11264MB                      │
-│ ▸ opencode-sandbox  stopp… │ cpu       2% (100% = one host CPU; it has 4)    │
+│ ▸ opencode-sandbox  stopp… │ cpu       4% (100% = one host CPU; it has 4)    │
 │ ▸ valheim-flk  stopped     │ memory    10963MB used of 11264MB               │
-│                            │ up        6d 8h                                 │
+│                            │ up        6d 9h                                 │
 │ Host                       │ pid       1120230 (firecracker)                 │
 │   health ✔                 │ restart   on-failure · 1 retry                  │
 │                            │ ports     tcp/25565 → 10.47.11.3:25565          │
 │ ▸ Storage  fullest 67%     │           udp/19132 → 10.47.11.3:19132          │
-│                            │ … 6 more (pgdn)                                 │
+│                            │ names     none: [flk] internal_hosts = true     │
+│ ▸ Podman  11 images        │ … 5 more (pgdn)                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help        │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -102,6 +102,16 @@ type Release struct {
 	// BuildLog is the file with the build's whole output (flk R1, 7f0317f):
 	// "" from an older flk, or once flk pruned it.
 	BuildLog string `json:"build_log"`
+	// Warnings are what flk saw in the release's image that would go wrong
+	// only once it runs (flk 8947c87); nil from an older flk.
+	Warnings []ImageWarning `json:"warnings"`
+}
+
+// ImageWarning is one of flk's findings about an image, with its fix.
+type ImageWarning struct {
+	Code    string `json:"code"` // no-cmd, ...
+	Message string `json:"message"`
+	Fix     string `json:"fix"`
 }
 
 type ReleaseBackup struct {
@@ -320,6 +330,9 @@ type ConfigShow struct {
 	File          string        `json:"file"`
 	MachineConfig MachineConfig `json:"machine_config"`
 	Warnings      []string      `json:"warnings"`
+	// ImageWarnings are the current release's (flk 8947c87): empty when
+	// there are none, nil before a deploy or from an older flk.
+	ImageWarnings []ImageWarning `json:"image_warnings"`
 }
 
 // Help is `flk help --all --json`: the command table.

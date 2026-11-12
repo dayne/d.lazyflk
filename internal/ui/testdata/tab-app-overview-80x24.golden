@@ -6,7 +6,7 @@
 │ ▸ vintagestory-flk  1/1 ●  │                                                 │
 │ ▸ ncm  stopped             │ machine 225d58f615e7e6 ● started 172.30.0.10    │
 │ ▸ opencode-sandbox  stopp… │   mellow-aurora-7882 · 4 cpus · 11264MB · v10   │
-│ ▸ valheim-flk  stopped     │   cpu 2% · 10963MB used · up 6d 8h              │
+│ ▸ valheim-flk  stopped     │   cpu 4% · 10963MB used · up 6d 9h              │
 │                            │                                                 │
 │ Host                       │ ports  tcp/25565 → 10.47.11.3:25565             │
 │   health ✔                 │        udp/19132 → 10.47.11.3:19132             │
@@ -16,9 +16,9 @@
 │ ▸ Podman  11 images        │                                                 │
 │                            │                                                 │
 │ ▸ Services  4 running      │                                                 │
+│                            │                                                 │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  a attention  ? help      │
+│ ↑↓ move  tab tabs  enter actions  d deploy  l logs  ? help  q quit  H guides │
 └──────────────────────────────────────────────────────────────────────────────┘

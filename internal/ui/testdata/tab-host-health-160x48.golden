@@ -27,9 +27,7 @@
 │                                        │ ✔ fakeroot                                                                                                          │
 │ ▸ Podman  11 images                    │ ✔ container engine (podman)                                                                                         │
 │                                        │ ✔ podman resolves short image names (FROM ruby:3.3)                                                                 │
-│ ▸ Services  4 running                  │ ! 3 destroyed apps still have container images                                                                      │
-│                                        │   → flk apps prune                                                                                                  │
-│                                        │ ✔ port helper (host ports from 1024)                                                                                │
+│ ▸ Services  4 running                  │ ✔ port helper (host ports from 1024)                                                                                │
 │                                        │ ✔ boot service (machines come back after a reboot)                                                                  │
 │                                        │ ✔ exit hook (/home/dayne/flk/bin/flk)                                                                               │
 │                                        │ ✔ machines run under flk-tmux.service (stopped gracefully at shutdown)                                              │
@@ -40,9 +38,11 @@
 │                                        │ ✔ 10.47.11.7 ([flk] bind of enshrouded-flk) is on this host                                                         │
 │                                        │ ✔ flk-agent built (flk exec in releases deployed from now on)                                                       │
 │                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                         │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

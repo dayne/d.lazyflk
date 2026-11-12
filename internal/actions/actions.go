@@ -307,13 +307,21 @@ func appActions(t Target) []Action {
 	// read after a failed deploy). It opens in the log viewer.
 	buildLog := Action{Key: "B", Label: "build log", Help: "the newest build's output, failed or not (flk releases log)",
 		View: ViewLogs, Logs: &Command{Args: app(a, "releases", "log")}}
+	// flk 2ca82f0: what a deploy would build and how it would boot, with
+	// flk's warnings, and no release or machine touched.
+	checkBuild := Action{Key: "K", Label: "check build", Help: "build the image and say how it would boot, and what flk warns about; no release, no machine touched (flk build)",
+		Confirm: Ask, Long: true,
+		build: func(map[string]string) Command {
+			return Command{Args: app(a, "build"),
+				Warn: "Builds from " + a.ConfigPath + " like a deploy would (as long, and as much disk), then reports. Nothing is deployed and no machine restarts; flk images prune removes the build."}
+		}}
 	edit := Action{Key: "E", Label: "edit flk.toml", Help: "open it in your editor; then Config shows how flk reads it, and d deploys it",
 		View: ViewEdit, File: a.ConfigPath}
 	editActions := Action{Key: "A", Label: "edit app actions", Help: "this menu's own commands for the app: .lazyflk.toml next to flk.toml (new when you save it)",
 		View: ViewEdit}
 	if a.ConfigPath == "" {
 		deploy.Disabled = "flk doesn't know where its flk.toml is: run flk deploy once in its directory"
-		edit.Disabled, editActions.Disabled = deploy.Disabled, deploy.Disabled
+		edit.Disabled, editActions.Disabled, checkBuild.Disabled = deploy.Disabled, deploy.Disabled, deploy.Disabled
 	} else {
 		editActions.File = filepath.Join(filepath.Dir(a.ConfigPath), ".lazyflk.toml")
 	}
@@ -372,6 +380,9 @@ func appActions(t Target) []Action {
 	acts := []Action{deploy, rollback(a, t.Releases, t.Backups, running)}
 	if t.Help != nil && t.Help.HasCommand("releases", "log") {
 		acts = append(acts, buildLog)
+	}
+	if t.Help != nil && t.Help.HasCommand("build") {
+		acts = append(acts, checkBuild)
 	}
 	if t.Help != nil && t.Help.HasCommand("start") { // flk a6c6975: every machine of the app at once
 		acts = append(acts, appLifecycle(a, running)...)

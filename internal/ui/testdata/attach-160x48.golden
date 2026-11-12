@@ -7,9 +7,9 @@
 │ ▾ minecraft-flk  1/1 ●                 │ release   v10                                                                                                       │
 │   ● mellow-aurora-7882                 │ ip        172.30.0.10:25565                                                                                         │
 │   ▢ world 40GB (external)              │ size      4 cpus · 11264MB                                                                                          │
-│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ cpu       2% (100% = one host CPU; it has 4)                                                                        │
+│   ⇄ 10.47.11.3: tcp/25565 udp/19132    │ cpu       4% (100% = one host CPU; it has 4)                                                                        │
 │ ▾ mqtt-flk  1/1 ●                      │ memory    10963MB used of 11264MB                                                                                   │
-│   ● hidden-comet-2020                  │ up        6d 8h                                                                                                     │
+│   ● hidden-comet-2020                  │ up        6d 9h                                                                                                     │
 │   ▢ mqttdata 1GB                       │ pid       1120230 (firecracker)                                                                                     │
 │   ⇄ 10.47.11.3: tcp/1883               │ restart   on-failure · 1 retry                                                                                      │
 │ ▾ vintagestory-flk  1/1 ●              │ ports     tcp/25565 → 10.47.11.3:25565                                                                              │
@@ -40,9 +40,9 @@
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
 │                                        │                                                                                                                     │
+│                                        │                                                                                                                     │
 ├ Needs attention ───────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune                                                                                   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                                                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-flk                                                                               │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  s stop  l logs  a attention  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                 │
+│ ↑↓ move  tab tabs  enter actions  s stop  l logs  ? help  q quit  : commands  H guides  ←→ fold  pgup/dn scroll                                              │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

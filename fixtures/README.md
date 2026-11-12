@@ -1,9 +1,10 @@
 # Fixtures
 
-Real output from the reference host (flk 0.1.0, commit 0c37295, 2026-11-11:
-seven apps, three of them stopped on purpose, one doctor warning),
+Real output from the reference host (flk 0.1.0, commit fe20255, 2026-11-11:
+seven apps, three of them stopped on purpose, no doctor warnings),
 captured with the commands below by `./capture.sh` (read-only; run it
-with no `flkt-*` test apps on the host, then review the diff). The tests
+with no `flkt-*` test apps on the host and no test run going, anyone's:
+their machines show in the lists and in doctor; then review the diff). The tests
 find `minecraft-flk` by name and don't count on the host's other apps,
 their order or what's stopped, so a recapture on any day should pass
 after `make snapshots`. Never edit them by hand. No secret values: `secrets list --json` has names and
@@ -29,6 +30,7 @@ digests only.
 | config-minecraft-flk.json | `flk -a minecraft-flk config show --json` (same as without --json) |
 | backups-minecraft-flk.json | `flk -a minecraft-flk volumes backups --json` |
 | backups-sample.json | `flk -a flkt-lazyflk-m2 volumes backups --json` at flk 407ff4d: a test app (since destroyed) after one offline and one stop-mode backup |
+| releases-warnings.json, config-warnings.json | `flk -a flkt-lazyflk-warn releases --json` and `config show --json` at flk fe20255: a test app (since destroyed) whose image has no CMD, so its release and config carry an image warning |
 | releases-log.txt | `flk -a flkt-lazyflk-bl releases log`: the build log of a test app (tests/apps/hello, since destroyed), deployed for it. The fake serves it for any app |
 | config-host.json | `flk config show --host`: host.toml as flk parses it, always JSON |
 | backups-pruned.json | `flk -a enshrouded-flk volumes backups --json` at flk 39e07f4 (read-only, a real app): nightly backups whose older copies were pruned at backup_copy_to (`pruned_at`) |

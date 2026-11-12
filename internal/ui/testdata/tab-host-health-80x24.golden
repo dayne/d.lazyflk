@@ -15,10 +15,10 @@
 │   health ✔                 │ data dirs /home/dayne/.local/share/flk          │
 │                            │           /data/enshrouded                      │
 │ ▸ Storage  fullest 67%     │           /data/minecraft/flk                   │
-│                            │ … 36 more (pgdn)                                │
+│                            │           /data/valheim                         │
+│ ▸ Podman  11 images        │ … 33 more (pgdn)                                │
 ├ Needs attention ───────────┴─────────────────────────────────────────────────┤
-│ ! optional: 3 destroyed apps still have container images -> flk apps prune   │
-│ ○ 3 apps stopped: ncm, opencode-sandbox, valheim-flk                         │
+│ ✔ nothing needs attention · 3 apps stopped: ncm, opencode-sandbox, valheim-… │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ ↑↓ move  tab tabs  enter actions  l logs  a attention  ? help  q quit        │
+│ ↑↓ move  tab tabs  enter actions  l logs  ? help  q quit  : commands         │
 └──────────────────────────────────────────────────────────────────────────────┘
